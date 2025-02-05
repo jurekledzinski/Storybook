@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { handlers } from '../src/mocks/handlers';
-import { initialize, mswLoader } from 'msw-storybook-addon';
-import type { Preview } from '@storybook/react';
 import ThemeProvider from './stores/theme/ThemeProvider';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { customViewports } from './custom-viewports';
+import { handlers } from '../src/mocks/handlers';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { initialize, mswLoader } from 'msw-storybook-addon';
+import '../src/stories/main.css';
+import type { Preview } from '@storybook/react';
 // import { CreateDocs } from './helpers';
 
 initialize(
@@ -42,7 +43,7 @@ const preview: Preview = {
     // pageLayout: 'page',
     viewport: { viewports: { ...INITIAL_VIEWPORTS, ...customViewports } },
   },
-  tags: ['autodocs', 'autodocs'],
+  //   tags: ['autodocs'],
   decorators: [
     (Story, { parameters }) => {
       const { theme = 'light' } = parameters;
