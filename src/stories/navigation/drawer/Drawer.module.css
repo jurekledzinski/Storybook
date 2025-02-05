@@ -78,3 +78,5 @@
 .open.bottom {
   transform: translateY(0%);
 }
+
+/* Zindex na drawerHorizontal czy drawerVertcial można sobie ustawić osobno w projekcie także */
