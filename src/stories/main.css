@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --color-primary: #1976d2;
+  --color-secondary: #f9f9f9;
+
+  /* Color text */
+  --color-text-primary: #555555;
+  --color-text-secondary: #dddddd;
+  --color-text-white: white;
+
+  /* Fonts */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+}
