@@ -25,22 +25,22 @@
 
 .header {
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: var(--color-primary);
 }
 
 .headerLeft {
-  width: 50px;
+  width: fit-content;
   height: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   min-height: inherit;
   background-color: var(--color-primary);
 }
 
 .headerRight {
-  width: 50px;
+  width: fit-content;
   height: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   min-height: inherit;
   background-color: var(--color-primary);
   order: 1;
@@ -48,7 +48,7 @@
 
 .headerBottom {
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   bottom: 0;
   background-color: var(--color-primary);
   order: 1;
