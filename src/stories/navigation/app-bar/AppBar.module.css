@@ -29,7 +29,13 @@
   background-color: var(--color-primary);
 }
 
-.headerLeft {
+.headerHorizontal {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--color-primary);
+}
+
+.headerVertical {
   width: fit-content;
   height: 100%;
   padding: 1rem;
@@ -38,18 +44,9 @@
 }
 
 .headerRight {
-  width: fit-content;
-  height: 100%;
-  padding: 1rem;
-  min-height: inherit;
-  background-color: var(--color-primary);
   order: 1;
 }
 
 .headerBottom {
-  width: 100%;
-  padding: 1rem;
-  bottom: 0;
-  background-color: var(--color-primary);
   order: 1;
 }

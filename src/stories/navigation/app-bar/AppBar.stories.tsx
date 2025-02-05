@@ -18,6 +18,7 @@ type Story = StoryObj<typeof AppBar>;
 export const Top: Story = {
   args: {
     children: 'Top',
+    className: styles.headerHorizontal,
   },
   decorators: [
     (Story) => (
@@ -50,7 +51,7 @@ export const Top: Story = {
 export const Right: Story = {
   args: {
     children: 'Right',
-    className: styles.headerRight,
+    className: classNames(styles.headerVertical, styles.headerRight),
   },
   decorators: [
     (Story) => (
@@ -83,7 +84,7 @@ export const Right: Story = {
 export const Bottom: Story = {
   args: {
     children: 'Bottom',
-    className: styles.headerBottom,
+    className: classNames(styles.headerHorizontal, styles.headerBottom),
   },
   decorators: [
     (Story) => (
@@ -115,7 +116,7 @@ export const Bottom: Story = {
 export const Left: Story = {
   args: {
     children: 'Left',
-    className: styles.headerLeft,
+    className: styles.headerVertical,
   },
   decorators: [
     (Story) => (
