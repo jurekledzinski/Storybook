@@ -1,6 +1,5 @@
-.decoratorVerticalContainer {
+.container {
   display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 1000px;
   height: calc(100% - 2rem);
@@ -10,15 +9,12 @@
   color: var(--color-text-white);
 }
 
+.decoratorVerticalContainer {
+  flex-direction: column;
+}
+
 .decoratorHorizontalContainer {
   display: flex;
-  width: 100%;
-  max-width: 1000px;
-  height: calc(100% - 2rem);
-  min-height: calc(100vh - 2rem);
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  color: var(--color-text-white);
 }
 
 .decoratorContent {

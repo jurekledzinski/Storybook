@@ -1,6 +1,7 @@
 import styles from './AppBar.module.css';
 import { AppBar } from './AppBar';
 import type { Meta, StoryObj } from '@storybook/react';
+import { classNames } from '../../helpers/classNames';
 
 const meta: Meta<typeof AppBar> = {
   args: {
@@ -20,7 +21,12 @@ export const Top: Story = {
   },
   decorators: [
     (Story) => (
-      <div className={styles.decoratorVerticalContainer}>
+      <div
+        className={classNames(
+          styles.container,
+          styles.decoratorVerticalContainer
+        )}
+      >
         <Story />
         <div className={styles.decoratorContent}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
@@ -48,7 +54,12 @@ export const Right: Story = {
   },
   decorators: [
     (Story) => (
-      <div className={styles.decoratorHorizontalContainer}>
+      <div
+        className={classNames(
+          styles.container,
+          styles.decoratorHorizontalContainer
+        )}
+      >
         <Story />
         <div className={styles.decoratorContent}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
@@ -76,7 +87,12 @@ export const Bottom: Story = {
   },
   decorators: [
     (Story) => (
-      <div className={styles.decoratorVerticalContainer}>
+      <div
+        className={classNames(
+          styles.container,
+          styles.decoratorVerticalContainer
+        )}
+      >
         <Story />
         <div className={styles.decoratorContent}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime
@@ -103,9 +119,14 @@ export const Left: Story = {
   },
   decorators: [
     (Story) => (
-      <div className={styles.decoratorHorizontalContainer}>
+      <div
+        className={classNames(
+          styles.container,
+          styles.decoratorHorizontalContainer
+        )}
+      >
         <Story />
-        <div className={styles.decoratorContent}>
+        <div className={classNames(styles.container, styles.decoratorContent)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
           blanditiis ipsa perspiciatis mollitia ducimus fugiat facere a
           voluptatum debitis animi, consequuntur nam quidem nobis ea accusantium
