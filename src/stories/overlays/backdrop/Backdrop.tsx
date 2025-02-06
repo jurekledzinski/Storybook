@@ -3,14 +3,14 @@ import { BackdropProps } from './types';
 import { CSSTransition } from 'react-transition-group';
 import { useRef } from 'react';
 
-export const Backdrop = ({ onClick, show }: BackdropProps) => {
+export const Backdrop = ({ onClick, open }: BackdropProps) => {
   const nodeRef = useRef(null);
 
   return (
     <>
       <CSSTransition
         nodeRef={nodeRef}
-        in={show}
+        in={open}
         timeout={300}
         classNames={{
           enter: styles.backdropEnter,
