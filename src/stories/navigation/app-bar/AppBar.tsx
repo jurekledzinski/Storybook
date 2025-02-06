@@ -1,10 +1,6 @@
 import styles from './AppBar.module.css';
+import { AppBarProps } from './types';
 import { classNames } from '../../helpers/classNames';
-
-type AppBarProps = {
-  children: React.ReactNode;
-  className?: string;
-};
 
 export const AppBar = ({ children, className }: AppBarProps) => {
   return (

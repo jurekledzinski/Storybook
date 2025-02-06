@@ -1,12 +1,6 @@
 import styles from './Drawer.module.css';
 import { classNames } from '../../helpers/classNames';
-
-type DrawerProps = {
-  children: React.ReactNode;
-  className?: string;
-  direction?: 'top' | 'right' | 'bottom' | 'left';
-  open?: boolean;
-};
+import { DrawerProps } from './types';
 
 export const Drawer = ({
   children,
