@@ -1,0 +1,178 @@
+.button {
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* colors */
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-primary);
+}
+
+.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-secondary);
+}
+
+.success {
+  background-color: var(--color-success);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-success);
+}
+
+.negative {
+  background-color: var(--color-negative);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-negative);
+}
+
+.warning {
+  background-color: var(--color-warning);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-warning);
+}
+
+/* variants */
+
+.outlined.primary {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.outlined.secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+}
+
+.outlined.success {
+  background-color: transparent;
+  color: var(--color-success);
+}
+
+.outlined.negative {
+  background-color: transparent;
+  color: var(--color-negative);
+}
+
+.outlined.warning {
+  background-color: transparent;
+  color: var(--color-warning);
+}
+
+.text.primary,
+.text.secondary,
+.text.success,
+.text.negative,
+.text.warning {
+  background-color: transparent;
+  border: none;
+}
+
+.text.primary {
+  color: var(--color-primary);
+}
+
+.text.secondary {
+  color: var(--color-secondary);
+}
+
+.text.success {
+  color: var(--color-success);
+}
+
+.text.negative {
+  color: var(--color-negative);
+}
+
+.text.warning {
+  color: var(--color-warning);
+}
+
+/* sizes */
+
+.small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.medium {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.large {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* full width */
+
+.fullWidth {
+  width: 100%;
+}
+
+/* disabled */
+
+button:disabled {
+  background-color: var(--color-disabled);
+}
+
+/* border radius */
+
+.radius-xs {
+  border-radius: 2px;
+}
+
+.radius-sm {
+  border-radius: 3px;
+}
+
+.radius-md {
+  border-radius: 4px;
+}
+
+.radius-lg {
+  border-radius: 5px;
+}
+
+.radius-xl {
+  border-radius: 6px;
+}
+
+.radius-x2 {
+  border-radius: 12px;
+}
+
+.radius-x3 {
+  border-radius: 18px;
+}
+
+.radius-full {
+  border-radius: 100vh;
+}
+
+/* border-width */
+
+.border-xs {
+  border-width: 1px;
+}
+
+.border-sm {
+  border-width: 2px;
+}
+
+.border-md {
+  border-width: 3px;
+}
+
+.border-lg {
+  border-width: 4px;
+}
+
+.border-xl {
+  border-width: 5px;
+}
