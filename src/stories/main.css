@@ -8,12 +8,19 @@
   --color-text-secondary: #dddddd;
   --color-text-white: white;
 
+  /* Feedback */
+  --color-negative: #ff4136;
+  --color-success: #2ecc40;
+  --color-warning: #ff851b;
+  --color-info: #0074d9;
+
   /* Fonts */
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
