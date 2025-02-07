@@ -1,0 +1,100 @@
+.modalElement {
+  position: absolute;
+  width: min(calc(100% - 2rem), 500px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  z-index: 2;
+  background-color: white;
+  will-change: opacity, transform;
+}
+
+.modalEnter {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modalEnterActive {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.modalExit {
+  opacity: 1;
+}
+
+.modalExitActive {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  background-color: var(--color-primary);
+}
+
+.title {
+  color: var(--color-text-white);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.body {
+  padding: 1rem 0.75rem 0;
+  color: var(--color-text-primary);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.buttonClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.iconClose {
+  transition: 300ms linear;
+}
+
+.iconClose:hover {
+  filter: brightness(0.9);
+  /* Zmiana koloru ikon w @phosphor-icons/react to fill: red*/
+  /* fill: red; */
+}
+
+/* Stories feedback */
+
+.headerDelete {
+  background-color: var(--color-negative);
+}
+
+.headerWarning {
+  background-color: var(--color-warning);
+}
+
+.headerSuccess {
+  background-color: var(--color-success);
+}
+
+.headerInfo {
+  background-color: var(--color-info);
+}
