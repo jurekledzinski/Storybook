@@ -1,18 +1,20 @@
 :root {
   /* Colors */
   --color-primary: #1976d2;
-  --color-secondary: #f9f9f9;
+  --color-secondary: #b7b7b7;
 
   /* Color text */
   --color-text-primary: #555555;
   --color-text-secondary: #dddddd;
   --color-text-white: white;
+  --color-text-dark: #555555;
 
   /* Feedback */
   --color-negative: #ff4136;
   --color-success: #2ecc40;
   --color-warning: #ff851b;
   --color-info: #0074d9;
+  --color-disabled: #dddddd;
 
   /* Fonts */
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
