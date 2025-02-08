@@ -5,6 +5,8 @@ import { Icon } from '../../graphics/icon/Icon';
 import { Loader } from '../../feedbacks/loader/Loader';
 
 // outline color icons jak primary to primary color ikon
+// outline hover background same as color primaries but lighter on hover like in material ui
+// same for text variant
 
 export const Button = ({
   border,
