@@ -1,5 +1,6 @@
 import { Button } from './Button';
 import { Meta, StoryObj } from '@storybook/react';
+import { Smiley, Sun, XSquare } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -15,12 +16,11 @@ export const Default: Story = {
     color: 'warning',
     size: 'medium',
     variant: 'contained',
+    iconStart: undefined,
+    iconEnd: undefined,
+    isLoading: false,
   },
   argTypes: {
-    color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'success', 'warning', 'negative'],
-    },
     border: {
       control: { type: 'select' },
       options: [
@@ -30,6 +30,33 @@ export const Default: Story = {
         'border-lg',
         'border-xl',
       ],
+    },
+    color: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'success', 'warning', 'negative'],
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    iconStart: {
+      control: { type: 'select' },
+      options: ['none', 'xsquare', 'smiley', 'sun'],
+      mapping: {
+        none: undefined,
+        xsquare: XSquare,
+        smiley: Smiley,
+        sun: Sun,
+      },
+    },
+    iconEnd: {
+      control: { type: 'select' },
+      options: ['none', 'xsquare', 'smiley', 'sun'],
+      mapping: {
+        none: undefined,
+        xsquare: XSquare,
+        smiley: Smiley,
+        sun: Sun,
+      },
     },
     radius: {
       control: { type: 'select' },
