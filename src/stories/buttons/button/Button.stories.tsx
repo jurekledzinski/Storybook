@@ -1,6 +1,7 @@
 import { Button } from './Button';
 import { Meta, StoryObj } from '@storybook/react';
 import { Smiley, Sun, XSquare } from '@phosphor-icons/react';
+import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -19,6 +20,7 @@ export const Default: Story = {
     iconStart: undefined,
     iconEnd: undefined,
     isLoading: false,
+    onClick: fn(),
   },
   argTypes: {
     border: {
