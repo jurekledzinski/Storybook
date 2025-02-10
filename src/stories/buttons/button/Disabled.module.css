@@ -1,0 +1,46 @@
+/* disabled */
+
+button:disabled,
+a.disabled {
+  display: flex;
+  background-color: var(--color-disabled);
+  border-color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+button.outlined:disabled,
+a.outlined.disabled {
+  border-color: var(--color-disabled);
+}
+
+button.outlined:disabled,
+button.outlined:disabled svg,
+button.text:disabled,
+button.text:disabled svg,
+a.outlined.disabled,
+a.outlined.disabled svg,
+a.text.disabled,
+a.text.disabled svg {
+  color: var(--color-text-disabled);
+  fill: var(--color-text-disabled);
+}
+
+/* Clear hover on disable */
+
+button.text:disabled:hover,
+a.text.disabled:hover {
+  border-color: transparent;
+}
+
+button.outlined:disabled:hover,
+button.text:disabled:hover,
+a.outlined.disabled:hover,
+a.text.disabled:hover {
+  background-color: transparent;
+}
+
+button:disabled:hover,
+a.disabled:hover {
+  background-color: var(--color-disabled);
+  border-color: var(--color-disabled);
+}
