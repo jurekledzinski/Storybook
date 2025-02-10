@@ -20,6 +20,7 @@ export const Button = ({
   iconStart,
   iconEnd,
   onClick,
+  label,
 }: ButtonProps) => {
   const buttonClassNames = classNames(
     styles.button,
@@ -57,10 +58,10 @@ export const Button = ({
           <span className={styles.iconCenter}>
             <Loader sizeSchema={size} />
           </span>
-          <span className={styles.text}>Click button</span>
+          <span className={styles.label}>{label}</span>
         </>
       ) : (
-        <span className={styles.text}>Click button</span>
+        <span className={styles.label}>{label}</span>
       )}
 
       {isLoading && iconEnd ? (

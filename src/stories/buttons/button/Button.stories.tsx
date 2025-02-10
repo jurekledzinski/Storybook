@@ -14,13 +14,14 @@ type Story = StoryObj<typeof Button>;
 export const Default: Story = {
   args: {
     radius: 'radius-xs',
-    color: 'warning',
+    color: 'success',
     size: 'medium',
     variant: 'contained',
     iconStart: undefined,
     iconEnd: undefined,
     isLoading: false,
     onClick: fn(),
+    label: 'Click button',
   },
   argTypes: {
     border: {
@@ -87,5 +88,6 @@ export const Default: Story = {
 export const FullWidth: Story = {
   args: {
     fullWidth: true,
+    label: 'Click button',
   },
 };

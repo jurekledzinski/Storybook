@@ -21,4 +21,5 @@ export type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
   variant?: 'contained' | 'outlined' | 'text';
+  label: string;
 };
