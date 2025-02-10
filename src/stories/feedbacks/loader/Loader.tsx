@@ -5,6 +5,8 @@ import { LoaderProps } from './types';
 export const Loader = ({
   border,
   className,
+  colorSpin,
+  colorTrack,
   position,
   size,
   sizeSchema,
@@ -20,7 +22,16 @@ export const Loader = ({
   return (
     <span
       className={loaderClassNames}
-      {...(size ? { style: { width: size, height: size } } : {})}
+      {...(size || colorSpin || colorTrack
+        ? {
+            style: {
+              width: size,
+              height: size,
+              borderColor: colorTrack,
+              borderTopColor: colorSpin,
+            },
+          }
+        : {})}
     ></span>
   );
 };
