@@ -1,0 +1,52 @@
+.linkButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  min-width: 64px;
+  width: fit-content;
+  border: none;
+  border-radius: initial;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s linear;
+  text-decoration: none;
+  line-height: normal;
+}
+
+a.disabled {
+  background-color: var(--color-disabled);
+  border-color: var(--color-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+a.outlined.disabled {
+  border-color: var(--color-disabled);
+}
+
+a.outlined.disabled,
+a.outlined.disabled svg,
+a.text.disabled,
+a.text.disabled svg {
+  color: var(--color-text-disabled);
+  fill: var(--color-text-disabled);
+}
+
+/* Clear hover on disable */
+
+a.text.disabled:hover {
+  border-color: transparent;
+}
+
+a.outlined.disabled:hover,
+a.text.disabled:hover {
+  background-color: transparent;
+}
+
+a.disabled.hover {
+  background-color: var(--color-disabled);
+  border-color: var(--color-disabled);
+}
