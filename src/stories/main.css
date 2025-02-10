@@ -84,7 +84,7 @@
   --color-disabled: #d3d3d3;
 
   /* Loader */
-  --color-track: #dddddd;
+  --color-track: #eeeeee;
   --color-spin: var(--color-primary-700);
 
   /* Fonts */
@@ -98,5 +98,10 @@
 
 body {
   color: var(--color-text-primary);
+  font-family: var(--font-family);
+}
+
+a,
+button {
   font-family: var(--font-family);
 }
