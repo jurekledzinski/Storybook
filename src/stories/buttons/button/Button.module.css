@@ -200,16 +200,16 @@
 
 .small {
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .medium {
-  padding: 8px 16px;
+  padding: 6px 12px;
   font-size: 14px;
 }
 
 .large {
-  padding: 12px 24px;
+  padding: 8px 16px;
   font-size: 16px;
 }
 
@@ -311,3 +311,13 @@ button:disabled:hover {
 .border-xl {
   border-width: 5px;
 }
+
+/* Responsive tweak */
+/* @media (max-width: 768px) {
+    .medium {
+      font-size: 12px;
+    }
+    .large {
+      font-size: 14px;
+    }
+  } */
