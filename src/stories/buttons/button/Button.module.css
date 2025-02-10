@@ -2,13 +2,16 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem;
   min-width: 64px;
   border: none;
+  border-radius: initial;
   cursor: pointer;
   user-select: none;
   transition: 0.3s linear;
+  line-height: normal;
 }
 
 .label {

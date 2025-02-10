@@ -6,7 +6,6 @@ export type ButtonProps = {
   iconEnd?: IconElement<Omit<IconProps, 'icon'>>;
   isLoading?: boolean;
   disabled?: boolean;
-  href?: string;
   fullWidth?: boolean;
   radius?:
     | 'radius-xs'
@@ -19,7 +18,15 @@ export type ButtonProps = {
     | 'radius-full';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   size?: 'small' | 'medium' | 'large';
-  color?: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
-  variant?: 'contained' | 'outlined' | 'text';
+  color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
+  variant: 'contained' | 'outlined' | 'text';
+  label: string;
+};
+
+export type ButtonBaseContentProps = {
+  isLoading?: boolean;
+  iconStart?: IconElement<Omit<IconProps, 'icon'>>;
+  iconEnd?: IconElement<Omit<IconProps, 'icon'>>;
+  size?: 'small' | 'medium' | 'large';
   label: string;
 };

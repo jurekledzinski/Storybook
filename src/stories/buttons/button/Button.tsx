@@ -1,21 +1,16 @@
 import styles from './Button.module.css';
+import { ButtonBaseContent } from './ButtonBaseContent';
 import { ButtonProps } from './types';
 import { classNames } from '../../helpers/classNames';
-import { Icon } from '../../graphics/icon/Icon';
-import { Loader } from '../../feedbacks/loader/Loader';
-
-// outline color icons jak primary to primary color ikon
-// outline hover background same as color primaries but lighter on hover like in material ui
-// same for text variant
 
 export const Button = ({
-  border,
+  border = 'border-xs',
   color,
   disabled,
   fullWidth,
   isLoading,
   radius,
-  size,
+  size = 'medium',
   variant,
   iconStart,
   iconEnd,
@@ -41,40 +36,13 @@ export const Button = ({
       disabled={disabled || isLoading}
       onClick={onClick}
     >
-      {isLoading && iconStart && !iconEnd ? (
-        <span className={styles.iconStart}>
-          <Loader sizeSchema={size} />
-        </span>
-      ) : (
-        iconStart && (
-          <span className={styles.iconStart}>
-            <Icon icon={iconStart} schemaSize={size} />
-          </span>
-        )
-      )}
-
-      {isLoading && !iconStart && !iconEnd ? (
-        <>
-          <span className={styles.iconCenter}>
-            <Loader sizeSchema={size} />
-          </span>
-          <span className={styles.label}>{label}</span>
-        </>
-      ) : (
-        <span className={styles.label}>{label}</span>
-      )}
-
-      {isLoading && iconEnd ? (
-        <span className={styles.iconEnd}>
-          <Loader sizeSchema={size} />
-        </span>
-      ) : (
-        iconEnd && (
-          <span className={styles.iconEnd}>
-            <Icon icon={iconEnd} schemaSize={size} />
-          </span>
-        )
-      )}
+      <ButtonBaseContent
+        label={label}
+        iconEnd={iconEnd}
+        iconStart={iconStart}
+        isLoading={isLoading}
+        size={size}
+      />
     </button>
   );
 };
