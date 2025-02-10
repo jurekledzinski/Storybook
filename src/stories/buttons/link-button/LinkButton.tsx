@@ -1,8 +1,8 @@
-import { LinkButtonProps } from './types';
 import styles from './LinkButton.module.css';
 import stylesButton from '../button/Button.module.css';
-import { classNames } from '../../helpers/classNames';
 import { ButtonBaseContent } from '../button/ButtonBaseContent';
+import { classNames } from '../../helpers/classNames';
+import { LinkButtonProps } from './types';
 
 export const LinkButton = ({
   href,
@@ -11,7 +11,7 @@ export const LinkButton = ({
   disabled,
   fullWidth,
   isLoading,
-  radius,
+  radius = 'radius-none',
   size = 'medium',
   variant,
   iconStart,

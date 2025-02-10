@@ -65,6 +65,7 @@ export const Default: Story = {
     radius: {
       control: { type: 'select' },
       options: [
+        'radius-none',
         'radius-xs',
         'radius-sm',
         'radius-md',
