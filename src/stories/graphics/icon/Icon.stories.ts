@@ -28,11 +28,11 @@ export const Default: Story = {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'success', 'warning', 'negative'],
       mapping: {
-        primary: getCssVariable('--color-primary'),
-        secondary: getCssVariable('--color-secondary'),
-        success: getCssVariable('--color-success'),
-        warning: getCssVariable('--color-warning'),
-        negative: getCssVariable('--color-negative'),
+        primary: getCssVariable('--color-primary-700'),
+        secondary: getCssVariable('--color-secondary-400'),
+        success: getCssVariable('--color-success-400'),
+        warning: getCssVariable('--color-warning-900'),
+        negative: getCssVariable('--color-negative-500'),
       },
     },
     size: {

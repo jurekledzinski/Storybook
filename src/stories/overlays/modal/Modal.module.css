@@ -37,7 +37,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 0.75rem 0.75rem;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-700);
 }
 
 .title {
@@ -84,17 +84,17 @@
 /* Stories feedback */
 
 .headerDelete {
-  background-color: var(--color-negative);
+  background-color: var(--color-negative-500);
 }
 
 .headerWarning {
-  background-color: var(--color-warning);
+  background-color: var(--color-warning-900);
 }
 
 .headerSuccess {
-  background-color: var(--color-success);
+  background-color: var(--color-success-400);
 }
 
 .headerInfo {
-  background-color: var(--color-info);
+  background-color: var(--color-info-700);
 }
