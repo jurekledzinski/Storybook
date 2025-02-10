@@ -1,0 +1,48 @@
+@import '../button/Colors.module.css';
+@import '../button/Variants.module.css';
+@import '../button/Disabled.module.css';
+@import '../button/Border.module.css';
+
+.iconButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s linear;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.icon {
+  display: inherit;
+}
+
+.iconCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.small {
+  padding: 6px;
+  font-size: 12px;
+}
+
+.medium {
+  padding: 7.5px;
+  font-size: 14px;
+}
+
+.large {
+  padding: 9.5px;
+  font-size: 16px;
+}
+
+.fullWidth {
+  width: 100%;
+}

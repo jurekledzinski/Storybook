@@ -1,3 +1,5 @@
+import { AppleLogo, Balloon, Sun } from '@phosphor-icons/react';
+import { fn } from '@storybook/test';
 import { IconButton } from './IconButton';
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -10,5 +12,67 @@ export default meta;
 type Story = StoryObj<typeof IconButton>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    radius: 'radius-xs',
+    color: 'success',
+    size: 'medium',
+    variant: 'contained',
+    isLoading: false,
+    onClick: fn(),
+    disabled: false,
+    border: 'border-xs',
+    fullWidth: false,
+    icon: Sun,
+  },
+  argTypes: {
+    border: {
+      control: { type: 'select' },
+      options: [
+        'border-xs',
+        'border-sm',
+        'border-md',
+        'border-lg',
+        'border-xl',
+      ],
+    },
+    color: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'success', 'warning', 'negative'],
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    icon: {
+      control: { type: 'select' },
+      options: ['none', 'apple', 'balloon', 'sun'],
+      mapping: {
+        none: undefined,
+        apple: AppleLogo,
+        balloon: Balloon,
+        sun: Sun,
+      },
+    },
+    radius: {
+      control: { type: 'select' },
+      options: [
+        'radius-none',
+        'radius-xs',
+        'radius-sm',
+        'radius-md',
+        'radius-lg',
+        'radius-xl',
+        'radius-x2',
+        'radius-x3',
+        'radius-full',
+      ],
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['contained', 'outlined', 'text'],
+    },
+  },
 };
