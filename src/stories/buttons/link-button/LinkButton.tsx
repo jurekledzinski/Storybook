@@ -7,13 +7,13 @@ import { LinkButtonProps } from './types';
 export const LinkButton = ({
   href,
   border = 'border-xs',
-  color,
+  color = 'primary',
   disabled,
   fullWidth,
   isLoading,
   radius = 'radius-none',
   size = 'medium',
-  variant,
+  variant = 'contained',
   iconStart,
   iconEnd,
   onClick,
@@ -32,7 +32,9 @@ export const LinkButton = ({
 
   return (
     <a
-      href={href}
+      aria-label="Link button"
+      role="link"
+      {...(disabled ? {} : { href })}
       className={
         fullWidth
           ? disabled || isLoading
@@ -46,7 +48,7 @@ export const LinkButton = ({
           ? classNames(linkButtonClassNames, styles.disabled)
           : classNames(linkButtonClassNames)
       }
-      onClick={onClick}
+      {...(disabled ? {} : { onClick })}
       {...props}
     >
       <ButtonBaseContent
