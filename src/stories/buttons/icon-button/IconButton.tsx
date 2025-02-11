@@ -9,7 +9,7 @@ export const IconButton = ({
   onClick,
   size = 'medium',
   disabled,
-  color,
+  color = 'primary',
   variant = 'contained',
   border = 'border-xs',
   fullWidth,
@@ -26,6 +26,7 @@ export const IconButton = ({
 
   return (
     <button
+      aria-label="Icon button"
       className={
         fullWidth
           ? classNames(iconButtonNames, styles.fullWidth)
