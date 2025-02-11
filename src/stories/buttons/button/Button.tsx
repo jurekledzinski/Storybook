@@ -5,7 +5,7 @@ import { classNames } from '../../helpers/classNames';
 
 export const Button = ({
   border = 'border-xs',
-  color,
+  color = 'primary',
   disabled,
   fullWidth,
   isLoading,
