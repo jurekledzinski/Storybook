@@ -14,56 +14,28 @@ export default meta;
 
 type Story = StoryObj<typeof Drawer>;
 
-export const Top: Story = {
-  decorators: [
-    (Story) => {
-      const [open, setOpen] = useState(false);
-      return (
-        <div className={styles.container}>
-          <button onClick={() => setOpen((prev) => !prev)}>Show top</button>
-          <Story args={{ open, direction: 'top' }} />
-        </div>
-      );
+export const Default: Story = {
+  args: {
+    direction: 'top',
+    open: false,
+  },
+  argTypes: {
+    direction: {
+      control: { type: 'select' },
+      options: ['top', 'right', 'bottom', 'left'],
+      mapping: {
+        top: 'top',
+        right: 'right',
+        bottom: 'bottom',
+        left: 'left',
+      },
     },
-  ],
-};
-
-export const Right: Story = {
+  },
   decorators: [
     (Story) => {
-      const [open, setOpen] = useState(false);
       return (
         <div className={styles.container}>
-          <button onClick={() => setOpen((prev) => !prev)}>Show right</button>
-          <Story args={{ open, direction: 'right' }} />
-        </div>
-      );
-    },
-  ],
-};
-
-export const Bottom: Story = {
-  decorators: [
-    (Story) => {
-      const [open, setOpen] = useState(false);
-      return (
-        <div className={styles.container}>
-          <button onClick={() => setOpen((prev) => !prev)}>Show bottom</button>
-          <Story args={{ open, direction: 'bottom' }} />
-        </div>
-      );
-    },
-  ],
-};
-
-export const Left: Story = {
-  decorators: [
-    (Story) => {
-      const [open, setOpen] = useState(false);
-      return (
-        <div className={styles.container}>
-          <button onClick={() => setOpen((prev) => !prev)}>Show left</button>
-          <Story args={{ open, direction: 'left' }} />
+          <Story />
         </div>
       );
     },
