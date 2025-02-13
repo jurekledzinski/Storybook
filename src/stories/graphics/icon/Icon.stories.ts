@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Icon>;
 export const Default: Story = {
   args: {
     color: 'red',
-    icon: XSquare,
+    icon: CloudSun,
     size: 24,
     weight: 'fill',
   },
