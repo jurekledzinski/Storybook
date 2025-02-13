@@ -10,7 +10,7 @@ The `Button` component is used for triggering actions or submitting forms. It ca
 
 #### Props (typescript)
 
-Here’s a list of the props for the `Button` component:
+Here’s a list of the base props for the `Button` or `LinkButton` component:
 
 ```js
 {
@@ -30,12 +30,19 @@ Here’s a list of the props for the `Button` component:
     | 'radius-x2'
     | 'radius-x3'
     | 'radius-full';
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   size?: 'small' | 'medium' | 'large';
-  type?: 'button' | 'reset' | 'submit';
   color?: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
+  type?: 'button' | 'reset' | 'submit';
   variant?: 'contained' | 'outlined' | 'text';
   label: string;
+}
+```
+
+Prop necessery to switch to `LinkButton`:
+
+```js
+{
+    href?: string;
 }
 ```
 
@@ -51,10 +58,14 @@ Here’s a list of the props for the `Button` component:
 }
 ```
 
-#### Example Usage
+#### Example Usage `Button`
 
 ```tsx
 <Button label="Click me" />
 ```
+#### Example Usage `LinkButton`
 
+```tsx
+<Button label="Click me" href="/" />
+```
 <Story of={ButtonStories.Default} />
