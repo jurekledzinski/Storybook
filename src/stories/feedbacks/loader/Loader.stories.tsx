@@ -15,8 +15,7 @@ export const Default: Story = {
     border: 'border-xs',
     colorSpin: getCssVariable('--color-primary-700'),
     colorTrack: getCssVariable('--color-track'),
-    position: 'center',
-    sizeSchema: 'extra-large',
+    sizeSchema: 'large',
   },
   argTypes: {
     colorSpin: { control: { type: 'color' } },
@@ -27,7 +26,11 @@ export const Default: Story = {
     },
     position: {
       control: { type: 'select' },
-      options: ['center'],
+      options: ['default', 'center'],
+      mapping: {
+        default: undefined,
+        center: 'center',
+      },
     },
     border: {
       control: { type: 'select' },
