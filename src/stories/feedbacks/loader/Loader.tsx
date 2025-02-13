@@ -27,8 +27,8 @@ export const Loader = ({
             style: {
               width: size,
               height: size,
-              borderColor: colorTrack,
-              borderTopColor: colorSpin,
+              ...(colorTrack ? { borderColor: colorTrack } : {}),
+              ...(colorSpin ? { borderTopColor: colorSpin } : {}),
             },
           }
         : {})}
