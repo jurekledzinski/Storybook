@@ -25,18 +25,18 @@
 }
 
 .medium {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
 }
 
 .large {
-  width: 18px;
-  height: 18px;
+  width: 28px;
+  height: 28px;
 }
 
 .extra-large {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
 }
 
 /* Position */
