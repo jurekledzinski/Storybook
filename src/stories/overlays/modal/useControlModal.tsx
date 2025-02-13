@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
 
 export const useControlModal = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return useMemo(
     () => ({
-      showModal,
-      onClose: () => setShowModal(false),
-      onOpen: () => setShowModal(true),
+      isOpen,
+      onClose: () => setIsOpen(false),
+      onOpen: () => setIsOpen(true),
     }),
-    [showModal]
+    [isOpen]
   );
 };

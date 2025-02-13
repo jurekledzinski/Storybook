@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Modal>;
 export const Default: Story = {
   decorators: [
     (Story) => {
-      const { onClose, onOpen, showModal } = useControlModal();
+      const { onClose, onOpen, isOpen } = useControlModal();
 
       return (
         <div>
@@ -22,7 +22,7 @@ export const Default: Story = {
           <Story
             args={{
               children: <>Example text</>,
-              isOpen: showModal,
+              isOpen,
               onClose,
               title: 'Example title',
             }}
@@ -36,7 +36,7 @@ export const Default: Story = {
 export const Delete: Story = {
   decorators: [
     (Story) => {
-      const { onClose, onOpen, showModal } = useControlModal();
+      const { onClose, onOpen, isOpen } = useControlModal();
 
       return (
         <div>
@@ -44,7 +44,7 @@ export const Delete: Story = {
           <Story
             args={{
               children: <>Example text</>,
-              isOpen: showModal,
+              isOpen,
               onClose,
               title: 'Example title',
               customStyle: {
@@ -61,7 +61,7 @@ export const Delete: Story = {
 export const Warning: Story = {
   decorators: [
     (Story) => {
-      const { onClose, onOpen, showModal } = useControlModal();
+      const { onClose, onOpen, isOpen } = useControlModal();
 
       return (
         <div>
@@ -69,7 +69,7 @@ export const Warning: Story = {
           <Story
             args={{
               children: <>Example text</>,
-              isOpen: showModal,
+              isOpen,
               onClose,
               title: 'Example title',
               customStyle: {
@@ -86,7 +86,7 @@ export const Warning: Story = {
 export const Success: Story = {
   decorators: [
     (Story) => {
-      const { onClose, onOpen, showModal } = useControlModal();
+      const { onClose, onOpen, isOpen } = useControlModal();
 
       return (
         <div>
@@ -94,7 +94,7 @@ export const Success: Story = {
           <Story
             args={{
               children: <>Example text</>,
-              isOpen: showModal,
+              isOpen,
               onClose,
               title: 'Example title',
               customStyle: {
@@ -111,7 +111,7 @@ export const Success: Story = {
 export const Info: Story = {
   decorators: [
     (Story) => {
-      const { onClose, onOpen, showModal } = useControlModal();
+      const { onClose, onOpen, isOpen } = useControlModal();
 
       return (
         <div>
@@ -119,7 +119,7 @@ export const Info: Story = {
           <Story
             args={{
               children: <>Example text</>,
-              isOpen: showModal,
+              isOpen,
               onClose,
               title: 'Example title',
               customStyle: {
