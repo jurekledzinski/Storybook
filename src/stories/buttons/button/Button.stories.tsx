@@ -13,8 +13,8 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    radius: 'radius-xs',
-    color: 'success',
+    radius: 'radius-none',
+    color: 'primary',
     size: 'medium',
     variant: 'contained',
     iconStart: undefined,

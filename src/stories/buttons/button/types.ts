@@ -19,8 +19,9 @@ export type ButtonProps = {
     | 'radius-full';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   size?: 'small' | 'medium' | 'large';
-  color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
-  variant: 'contained' | 'outlined' | 'text';
+  color?: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
+  type?: 'button' | 'reset' | 'submit';
+  variant?: 'contained' | 'outlined' | 'text';
   label: string;
 };
 

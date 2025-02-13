@@ -11,6 +11,7 @@ export const Button = ({
   isLoading,
   radius = 'radius-none',
   size = 'medium',
+  type = 'button',
   variant = 'contained',
   iconStart,
   iconEnd,
@@ -35,6 +36,7 @@ export const Button = ({
       }
       disabled={disabled || isLoading}
       onClick={onClick}
+      type={type}
     >
       <ButtonBaseContent
         label={label}
