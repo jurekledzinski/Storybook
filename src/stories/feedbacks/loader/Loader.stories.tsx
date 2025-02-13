@@ -16,7 +16,7 @@ export const Default: Story = {
     colorSpin: getCssVariable('--color-primary-700'),
     colorTrack: getCssVariable('--color-track'),
     position: 'center',
-    sizeSchema: 'small',
+    sizeSchema: 'extra-large',
   },
   argTypes: {
     colorSpin: { control: { type: 'color' } },
