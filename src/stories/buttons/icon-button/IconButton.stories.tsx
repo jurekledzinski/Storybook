@@ -44,9 +44,8 @@ export const Default: Story = {
     },
     icon: {
       control: { type: 'select' },
-      options: ['none', 'apple', 'balloon', 'sun'],
+      options: ['apple', 'balloon', 'sun'],
       mapping: {
-        none: undefined,
         apple: AppleLogo,
         balloon: Balloon,
         sun: Sun,

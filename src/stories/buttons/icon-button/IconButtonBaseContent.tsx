@@ -21,7 +21,7 @@ export const IconButtonBaseContent = ({
         </>
       ) : (
         <span className={styles.icon}>
-          <Icon icon={icon} schemaSize={size} />
+          {icon ? <Icon icon={icon} schemaSize={size} /> : null}
         </span>
       )}
     </>
