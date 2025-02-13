@@ -1,6 +1,6 @@
 import { IconElement, IconProps } from '../../graphics/icon/types';
 
-export type ButtonProps = {
+export type BaseButtonProps = {
   border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
   iconStart?: IconElement<Omit<IconProps, 'icon'>>;
   iconEnd?: IconElement<Omit<IconProps, 'icon'>>;
@@ -17,13 +17,23 @@ export type ButtonProps = {
     | 'radius-x2'
     | 'radius-x3'
     | 'radius-full';
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
   type?: 'button' | 'reset' | 'submit';
   variant?: 'contained' | 'outlined' | 'text';
   label: string;
 };
+
+export interface ButtonProps
+  extends BaseButtonProps,
+    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {}
+
+export interface LinkButtonProps
+  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'color'>,
+    BaseButtonProps {
+  href: string;
+  type?: never;
+}
 
 export type ButtonBaseContentProps = {
   isLoading?: boolean;

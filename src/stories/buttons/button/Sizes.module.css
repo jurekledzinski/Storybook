@@ -17,6 +17,7 @@
 
 /* full width */
 
-.fullWidth {
+a.fullWidth,
+button.fullWidth {
   width: 100%;
 }

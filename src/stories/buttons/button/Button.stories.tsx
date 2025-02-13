@@ -6,12 +6,6 @@ import { Smiley, Sun, XSquare } from '@phosphor-icons/react';
 const meta: Meta<typeof Button> = {
   component: Button,
   title: 'Components/Buttons/Button',
-};
-export default meta;
-
-type Story = StoryObj<typeof Button>;
-
-export const Default: Story = {
   args: {
     radius: 'radius-none',
     color: 'primary',
@@ -85,5 +79,16 @@ export const Default: Story = {
       control: { type: 'select' },
       options: ['contained', 'outlined', 'text'],
     },
+  },
+};
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const Default: Story = {};
+
+export const Link: Story = {
+  args: {
+    href: 'http://localhost:6006/?path=/story/components-buttons-button--link',
   },
 };
