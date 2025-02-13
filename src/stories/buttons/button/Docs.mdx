@@ -1,0 +1,60 @@
+import { Meta, Story } from '@storybook/blocks';
+
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+### Button Component
+
+The `Button` component is used for triggering actions or submitting forms. It can be customized using various props.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Button` component:
+
+```js
+{
+  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
+  iconStart?: IconElement<Omit<IconProps, 'icon'>>;
+  iconEnd?: IconElement<Omit<IconProps, 'icon'>>;
+  isLoading?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  radius?:
+    | 'radius-none'
+    | 'radius-xs'
+    | 'radius-sm'
+    | 'radius-md'
+    | 'radius-lg'
+    | 'radius-xl'
+    | 'radius-x2'
+    | 'radius-x3'
+    | 'radius-full';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  size?: 'small' | 'medium' | 'large';
+  type?: 'button' | 'reset' | 'submit';
+  color?: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
+  variant?: 'contained' | 'outlined' | 'text';
+  label: string;
+}
+```
+
+#### Default set props
+
+```js
+{
+  border: 'border-xs',
+  color: 'primary',
+  radius: 'radius-none',
+  size: 'medium',
+  variant:'contained',
+}
+```
+
+#### Example Usage
+
+```tsx
+<Button label="Click me" />
+```
+
+<Story of={ButtonStories.Default} />
