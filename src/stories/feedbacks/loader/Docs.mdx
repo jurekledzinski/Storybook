@@ -1,0 +1,33 @@
+import { Meta, Story } from '@storybook/blocks';
+
+import * as LoaderStories from './Loader.stories';
+
+<Meta of={LoaderStories} />
+
+### Loader Component
+
+The `Loader` component is used for showing loading state. It can be customized using various props.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Loader` component:
+
+```js
+{
+  className?: string;
+  colorTrack?: string;
+  colorSpin?: string;
+  size?: number;
+  sizeSchema?: 'small' | 'medium' | 'large' | 'extra-large';
+  position?: 'center';
+  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
+}
+```
+
+#### Example usage `Loader`
+
+```tsx
+<Loader sizeSchema="large" />
+```
+
+<Story of={LoaderStories.Default} />
