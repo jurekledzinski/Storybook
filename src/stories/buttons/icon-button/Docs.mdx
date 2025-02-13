@@ -1,0 +1,68 @@
+import { Meta, Story } from '@storybook/blocks';
+
+import * as IconButtonStories from './IconButton.stories';
+
+<Meta of={IconButtonStories} />
+
+### IconButton Component
+
+The `IconButton` component is used for triggering actions. It can be customized using various props.
+
+#### Props (typescript)
+
+Here’s a list of the base props for the `IconButton` or `LinkIconButton` component:
+
+```js
+{
+  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
+  icon: IconElement<Omit<IconProps, 'icon'>>;
+  isLoading?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  radius?:
+    | 'radius-none'
+    | 'radius-xs'
+    | 'radius-sm'
+    | 'radius-md'
+    | 'radius-lg'
+    | 'radius-xl'
+    | 'radius-x2'
+    | 'radius-x3'
+    | 'radius-full';
+  size?: 'small' | 'medium' | 'large';
+  color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
+  variant: 'contained' | 'outlined' | 'text';
+}
+```
+
+Prop necessery to switch to `LinkIconButton`:
+
+```js
+{
+    href?: string;
+}
+```
+
+#### Default set props
+
+```js
+{
+  border: 'border-xs',
+  color: 'primary',
+  radius: 'radius-none',
+  size: 'medium',
+  variant:'contained',
+}
+```
+
+#### Example Usage `IconButton`
+
+```tsx
+<IconButton label="Click me" />
+```
+#### Example Usage `IconLinkButton`
+
+```tsx
+<IconButton label="Click me" href="/" />
+```
+<Story of={IconButtonStories.Default} />
