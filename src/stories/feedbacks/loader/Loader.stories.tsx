@@ -1,3 +1,4 @@
+import { getCssVariable } from '../../helpers/cssVariables';
 import { Loader } from './Loader';
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -11,11 +12,15 @@ type Story = StoryObj<typeof Loader>;
 
 export const Default: Story = {
   args: {
-    position: 'center',
     border: 'border-xs',
+    colorSpin: getCssVariable('--color-primary-700'),
+    colorTrack: getCssVariable('--color-track'),
+    position: 'center',
     sizeSchema: 'small',
   },
   argTypes: {
+    colorSpin: { control: { type: 'color' } },
+    colorTrack: { control: { type: 'color' } },
     sizeSchema: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large', 'extra-large'],
