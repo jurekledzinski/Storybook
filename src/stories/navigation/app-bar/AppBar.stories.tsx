@@ -15,29 +15,6 @@ export default meta;
 
 type Story = StoryObj<typeof AppBar>;
 
-export const Defualt: Story = {
-  args: {
-    children: 'Top',
-    className: styles.headerHorizontal,
-  },
-  decorators: [
-    (Story) => (
-      <div
-        className={classNames(
-          styles.container,
-          styles.decoratorVerticalContainer
-        )}
-      >
-        <Story />
-        <div className={styles.decoratorContent}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-          placeat rerum quam dolorum est explicabo provident tempora et maiores
-        </div>
-      </div>
-    ),
-  ],
-};
-
 export const Top: Story = {
   args: {
     children: 'Top',
