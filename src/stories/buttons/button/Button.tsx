@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import styles from './styles/Button.module.css';
 import { ButtonBaseContent } from './ButtonBaseContent';
 import { ButtonProps, LinkButtonProps } from './types';
 import { classNames } from '../../helpers/classNames';
