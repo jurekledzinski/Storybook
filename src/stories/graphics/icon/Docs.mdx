@@ -1,0 +1,36 @@
+import { Meta, Story } from '@storybook/blocks';
+import { CloudSun } from '@phosphor-icons/react';
+
+import * as IconStories from './Icon.stories';
+
+<Meta of={IconStories} />
+
+### Icon Component
+
+The `Icon` component is used for display icon. It can be customized using various props.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Icon` component:
+
+```js
+{
+  className?: string;
+  icon: IconElement<Omit<IconProps, 'icon'>>;
+  alt?: string;
+  color?: string;
+  size?: string | number;
+  weight?: IconWeight;
+  mirrored?: boolean;
+}
+```
+
+#### Example usage `Icon`
+
+```tsx
+<Icon icon={CloudSun} />
+```
+
+#### Preview `Icon`
+
+<Story of={IconStories.Default} />
