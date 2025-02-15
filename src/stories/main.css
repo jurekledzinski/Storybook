@@ -23,16 +23,13 @@
   --color-secondary-800: #3d3d3d;
   --color-secondary-900: #1c1c1c;
 
-  /* --color-secondary: #b7b7b7; */
-
   /* Color text */
+
   --color-text-primary: #555555;
   --color-text-secondary: #dddddd;
   --color-text-white: white;
   --color-text-dark: #555555;
   --color-text-disabled: #c0c0c0;
-
-  /* Backgrounds */
 
   /* Feedback */
 
@@ -83,6 +80,10 @@
 
   --color-disabled: #d3d3d3;
 
+  /* Backgrounds */
+  --color-surface-fieldset: white;
+  --color-surface-input: white;
+
   /* Loader */
   --color-track: #eeeeee;
   --color-spin: var(--color-primary-700);
@@ -102,6 +103,36 @@ body {
 }
 
 a,
-button {
+button,
+input,
+textarea {
   font-family: var(--font-family);
+}
+
+::-moz-scrollbar {
+  scrollbar-color: #555555 #f1f1f1;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  border-radius: 100vh;
+  background-clip: padding-box;
+  background-color: var(--color-primary-700);
+  cursor: default;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-width: 0;
 }
