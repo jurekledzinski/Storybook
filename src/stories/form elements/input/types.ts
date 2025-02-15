@@ -3,14 +3,19 @@ type BaseInputProps = {
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };
 
-export interface InputProps
-  extends BaseInputProps,
-    React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends BaseInputProps {
   as: 'input';
+  name?: string;
+  ref?: React.LegacyRef<HTMLInputElement>;
+  type: 'email' | 'number' | 'password' | 'text';
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export interface TextareaProps
-  extends BaseInputProps,
-    React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends BaseInputProps {
   as: 'textarea';
+  cols?: number;
+  rows?: number;
+  name?: string;
+  ref?: React.LegacyRef<HTMLTextAreaElement>;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 }

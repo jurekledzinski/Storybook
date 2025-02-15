@@ -38,7 +38,12 @@ export const Input = ({
   if (as === 'textarea' && 'rows' in props && 'cols' in props) {
     return (
       <fieldset className={fieldsetClassNames}>
-        <textarea className={textareaClassNames} {...props} placeholder="" />
+        <textarea
+          aria-label={label}
+          className={textareaClassNames}
+          {...props}
+          placeholder=""
+        />
 
         {variant !== 'basic' && (
           <legend className={legendClassNames}>{label}</legend>
@@ -50,7 +55,12 @@ export const Input = ({
   if (as === 'input' && 'type' in props) {
     return (
       <fieldset className={fieldsetClassNames}>
-        <input className={inputClassNames} {...props} placeholder="" />
+        <input
+          aria-label={label}
+          className={inputClassNames}
+          {...props}
+          placeholder=""
+        />
 
         {variant !== 'basic' && (
           <legend className={legendClassNames}>{label}</legend>
