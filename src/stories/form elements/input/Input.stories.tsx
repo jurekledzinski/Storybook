@@ -34,9 +34,9 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 400 }}>
+      <form style={{ width: 400 }} noValidate>
         <Story />
-      </div>
+      </form>
     ),
   ],
 };

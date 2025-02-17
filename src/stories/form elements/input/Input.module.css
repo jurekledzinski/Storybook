@@ -1,11 +1,25 @@
 /* Variants */
 
+/* small to będzie */
+
 .fieldset {
   position: relative;
   width: 100%;
   min-height: 28px;
   padding: initial;
   border: none;
+}
+
+.fieldset.medium {
+  min-height: 30px;
+}
+
+.fieldset.large {
+  min-height: 32px;
+}
+
+.fieldset.extra-large {
+  min-height: 34px;
 }
 
 .fieldset.contained::before {
@@ -20,9 +34,53 @@
   z-index: -1;
 }
 
+.fieldset.contained::before:valid {
+  background-color: var(--color-success-400);
+}
+
 .fieldset.contained {
   padding: 16px 0 0;
 }
+
+.input.basic:not(:placeholder-shown):valid,
+.textarea.basic:not(:placeholder-shown):valid,
+.input.outlined:not(:placeholder-shown):valid,
+.textarea.outlined:not(:placeholder-shown):valid {
+  border-color: var(--color-success-400);
+  /* outline: 1px solid var(--color-success-400); */
+}
+
+.input.contained:not(:placeholder-shown):valid,
+.textarea.contained:not(:placeholder-shown):valid,
+.input.underline:not(:placeholder-shown):valid,
+.textarea.underline:not(:placeholder-shown):valid {
+  outline: none;
+  border-color: var(--color-success-400);
+  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
+}
+
+.input.basic:not(:placeholder-shown):invalid,
+.textarea.basic:not(:placeholder-shown):invalid,
+.input.outlined:not(:placeholder-shown):invalid,
+.textarea.outlined:not(:placeholder-shown):invalid {
+  border-color: var(--color-negative-500);
+  /* outline: 1px solid var(--color-negative-500); */
+}
+
+.input.contained:not(:placeholder-shown):invalid,
+.textarea.contained:not(:placeholder-shown):invalid,
+.input.underline:not(:placeholder-shown):invalid,
+.textarea.underline:not(:placeholder-shown):invalid {
+  outline: none;
+  border-color: var(--color-negative-500);
+  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
+}
+
+/* .input:focus:invalid,
+.textarea:focus:invalid {
+  border-color: orange;
+  outline: 1px solid orange;
+} */
 
 .input,
 .textarea {
@@ -73,6 +131,16 @@
   left: 4px;
 }
 
+/* Dodać trzeba startIcon do legend styles także */
+
+/* TO start icon move */
+
+.legend.outlined.startIcon,
+.legend.underline.startIcon {
+  left: 24px;
+  padding: 0 2px;
+}
+
 .input:focus.basic,
 .textarea:focus.basic {
   outline: 1px solid var(--color-primary-700);
@@ -113,6 +181,13 @@
   background-color: transparent;
 }
 
+/* TO start icon move */
+
+.input.outlined.startIcon:not(:placeholder-shown) + legend,
+.input.outlined.startIcon:focus + legend {
+  left: 5px;
+}
+
 .textarea {
   padding: 6px;
   resize: none;
@@ -131,4 +206,15 @@
   left: 4px;
 }
 
+.startIcon {
+  padding-left: 1.7rem;
+}
+
+.input.endIcon {
+  padding-right: 1.7rem;
+}
+
 /* media min-width 575px */
+
+/* Dodaj media queris dla desktop > 575px to co już sa style beda dla mobile
+Może jeszcze lekkie korekty odległości dla mobile */

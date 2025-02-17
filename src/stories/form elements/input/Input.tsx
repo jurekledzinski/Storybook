@@ -2,17 +2,11 @@ import styles from './Input.module.css';
 import { classNames } from '../../helpers/classNames';
 import { InputProps, TextareaProps } from './types';
 
-// Dodać loader gdy isPending ? <Loader/> : <Icon>
-// Dla password icon eye
-// Search icon
-
-// Dodaj media queris dla desktop > 575px to co już sa style beda dla mobile
-// Może jeszcze lekkie korekty odległości dla mobile
-
 export const Input = ({
   as = 'input',
   label,
   variant = 'basic',
+  placeholder = '',
   ...props
 }: InputProps | TextareaProps) => {
   const inputClassNames = classNames(
@@ -42,7 +36,8 @@ export const Input = ({
           aria-label={label}
           className={textareaClassNames}
           {...props}
-          placeholder=""
+          placeholder={placeholder}
+          required
         />
 
         {variant !== 'basic' && (
@@ -52,18 +47,46 @@ export const Input = ({
     );
   }
 
-  if (as === 'input' && 'type' in props) {
+  if ((as === 'input' && 'type' in props) || 'className' in props) {
+    const { size, ...rest } = props;
+
+    console.log('sss', size);
+
     return (
-      <fieldset className={fieldsetClassNames}>
+      <fieldset
+        className={classNames(
+          fieldsetClassNames,
+          size! ? styles[size! as keyof typeof styles] : ''
+        )}
+      >
         <input
           aria-label={label}
-          className={inputClassNames}
-          {...props}
-          placeholder=""
+          {...rest}
+          className={classNames(
+            inputClassNames,
+            props.className!
+              ? props.className
+                  .map((i) => styles[i as keyof typeof styles])
+                  .join(' ')
+              : ''
+          )}
+          placeholder={placeholder}
+          required
         />
 
         {variant !== 'basic' && (
-          <legend className={legendClassNames}>{label}</legend>
+          <legend
+            className={classNames(
+              legendClassNames,
+              props.className!
+                ? props.className
+                    .map((i) => styles[i as keyof typeof styles])
+                    .join(' ')
+                : ''
+            )}
+          >
+            {label}
+          </legend>
         )}
       </fieldset>
     );
