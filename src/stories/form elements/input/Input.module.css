@@ -123,6 +123,18 @@
   font-size: 16px;
 }
 
+.legend.medium {
+  top: 4px;
+}
+
+.legend.large {
+  top: 5px;
+}
+
+.legend.extra-large {
+  top: 6px;
+}
+
 .legend.underline {
   left: -2px;
 }
@@ -188,6 +200,11 @@
   left: 5px;
 }
 
+.input.underline.startIcon:not(:placeholder-shown) + legend,
+.input.underline.startIcon:focus + legend {
+  left: -2px;
+}
+
 .textarea {
   padding: 6px;
   resize: none;
@@ -206,7 +223,7 @@
   left: 4px;
 }
 
-.startIcon {
+.input.startIcon {
   padding-left: 1.7rem;
 }
 

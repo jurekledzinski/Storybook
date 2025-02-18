@@ -82,7 +82,8 @@ export const Input = ({
                 ? props.className
                     .map((i) => styles[i as keyof typeof styles])
                     .join(' ')
-                : ''
+                : '',
+              size! ? styles[size! as keyof typeof styles] : ''
             )}
           >
             {label}

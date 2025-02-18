@@ -18,6 +18,12 @@ export const Default: Story = {
     type: 'text',
     as: 'input',
   },
+  beforeEach: (props) => {
+    if (props.args.as === 'textarea' && !props.args.cols && !props.args.rows) {
+      props.args.cols = 4;
+      props.args.rows = 4;
+    }
+  },
   argTypes: {
     as: {
       control: { type: 'select' },
@@ -70,26 +76,4 @@ export const Default: Story = {
       include: ['as', 'cols', 'rows', 'size', 'type', 'variant'],
     },
   },
-
-  //   render: function Render(args) {
-  //     const [{ as }, updateArgs] = useArgs();
-
-  //     console.log('as', as);
-
-  //     useEffect(() => {
-  //       if (as === 'input') {
-  //         updateArgs({
-  //           args: {
-  //             as: 'input',
-  //             size: 'medium',
-  //             label: 'Input name',
-  //             variant: 'outlined',
-  //             type: 'text',
-  //           },
-  //         });
-  //       }
-  //     }, [as, updateArgs]);
-
-  //     return <Input {...args} />;
-  //   },
 };

@@ -8,29 +8,33 @@ export const TextInput = ({
   isError,
   isPending,
   startIcon,
+  size,
   label,
   variant = 'basic',
   type = 'text',
 }: TextInputProps) => {
   const classStartIcon = startIcon ? 'startIcon' : undefined;
-  const classEndIcon = endIcon || isError !== undefined ? 'endIcon' : undefined;
+  const classEndIcon =
+    endIcon || isError !== undefined || isPending ? 'endIcon' : undefined;
 
   return (
     <div className={styles.textInput}>
       <Input
         label={label}
         type={type}
+        size={size}
         variant={variant}
-        {...(startIcon || endIcon || isError !== undefined
+        {...(startIcon || endIcon || isError !== undefined || isPending
           ? { className: [classStartIcon, classEndIcon].filter(Boolean) }
           : {})}
       />
-
+      {/* undefined isError chowa ikony error */}
       <InputIcons
         endIcon={endIcon}
         isError={isError}
         isPending={isPending}
         startIcon={startIcon}
+        size={size}
         variant={variant}
       />
     </div>

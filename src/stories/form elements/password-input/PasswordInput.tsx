@@ -7,6 +7,7 @@ import { useState } from 'react';
 export const PasswordInput = ({
   endIcon,
   startIcon,
+  size,
   isPending,
   label,
   variant = 'basic',
@@ -18,6 +19,7 @@ export const PasswordInput = ({
       <Input
         label={label}
         type={showPassword ? 'text' : 'password'}
+        size={size}
         variant={variant}
         className={['endIcon']}
       />
@@ -26,6 +28,7 @@ export const PasswordInput = ({
         endIcon={showPassword ? startIcon : endIcon}
         isPending={isPending}
         onClick={() => setShowPassword((prev) => !prev)}
+        size={size}
         variant={variant}
       />
     </div>

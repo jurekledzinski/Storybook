@@ -17,6 +17,10 @@ export const Default: Story = {
     isPending: false,
     startIcon: '',
     endIcon: '',
+    size: 'small',
+    type: 'text',
+    variant: 'basic',
+    isError: undefined,
   },
   argTypes: {
     endIcon: {
@@ -28,6 +32,10 @@ export const Default: Story = {
         user: <UserCircle size={16} weight="fill" />,
         sun: <Sun size={16} weight="fill" />,
       },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large', 'extra-large'],
     },
     startIcon: {
       control: 'select',

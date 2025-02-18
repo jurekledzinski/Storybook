@@ -34,5 +34,6 @@ export type InputIconsProps = {
   isPending?: boolean;
   onClick?: React.MouseEventHandler<HTMLSpanElement>;
   startIcon?: React.ReactNode;
+  size?: 'small' | 'medium' | 'large' | 'extra-large';
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };

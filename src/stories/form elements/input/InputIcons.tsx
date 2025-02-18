@@ -9,12 +9,14 @@ export const InputIcons = ({
   isError,
   isPending,
   startIcon,
+  size,
   onClick,
   variant,
 }: InputIconsProps) => {
   const loaderClassNames = classNames(
     styles.loader,
-    styles[variant as keyof typeof styles]
+    styles[variant as keyof typeof styles],
+    styles[size! as keyof typeof styles]
   );
 
   const iconClassNames = classNames(
@@ -22,15 +24,33 @@ export const InputIcons = ({
     styles[variant as keyof typeof styles]
   );
 
+  const startIconClassNames = classNames(
+    iconClassNames,
+    styles.startIcon,
+    styles[size! as keyof typeof styles]
+  );
+  const endIconClassNames = classNames(
+    iconClassNames,
+    styles.endIcon,
+    styles[size! as keyof typeof styles]
+  );
+  const invalidIconClassNames = classNames(endIconClassNames, styles.invalid);
+  const validIconClassNames = classNames(endIconClassNames, styles.valid);
+
   return (
     <>
       {isPending ? (
         <span className={loaderClassNames}>
           <Loader sizeSchema="small" />
         </span>
-      ) : endIcon ? (
+      ) : endIcon && isError === undefined ? (
         <span
-          className={classNames(iconClassNames, styles.endIcon)}
+          //   className={classNames(
+          //     iconClassNames,
+          //     styles.endIcon,
+          //     styles[size! as keyof typeof styles]
+          //   )}
+          className={endIconClassNames}
           onClick={onClick}
         >
           {endIcon}
@@ -38,26 +58,35 @@ export const InputIcons = ({
       ) : null}
 
       {startIcon ? (
-        <span className={classNames(iconClassNames, styles.startIcon)}>
+        <span
+          //   className={classNames(
+          //     iconClassNames,
+          //     styles.startIcon,
+          //     styles[size! as keyof typeof styles]
+          //   )}
+          className={startIconClassNames}
+        >
           {startIcon}
         </span>
       ) : null}
 
-      {isError !== undefined ? (
+      {isError !== undefined && !isPending ? (
         isError ? (
           <span
-            className={classNames(
-              iconClassNames,
-              styles.endIcon,
-              styles.invalid
-            )}
+            // className={classNames(
+            //   iconClassNames,
+            //   styles.endIcon,
+            //   styles.invalid
+            // )}
+            className={invalidIconClassNames}
             onClick={onClick}
           >
             <Warning size={16} weight="bold" />
           </span>
         ) : (
           <span
-            className={classNames(iconClassNames, styles.endIcon, styles.valid)}
+            // className={classNames(iconClassNames, styles.endIcon, styles.valid)}
+            className={validIconClassNames}
             onClick={onClick}
           >
             <Check size={16} weight="bold" />

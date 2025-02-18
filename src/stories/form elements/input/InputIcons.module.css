@@ -22,6 +22,36 @@
   right: 6px;
 }
 
+.loader.medium {
+  top: 8px;
+}
+
+.loader.large {
+  top: 9px;
+}
+
+.loader.extra-large {
+  top: 10px;
+}
+
+.loader.contained.medium,
+.loader.underline.medium {
+  top: initial;
+  bottom: 7px;
+}
+
+.loader.contained.large,
+.loader.underline.large {
+  top: initial;
+  bottom: 8px;
+}
+
+.loader.contained.extra-large,
+.loader.underline.extra-large {
+  top: initial;
+  bottom: 9px;
+}
+
 /* Icon może left 0 bottom 0 right calc(100% - 2rem) top 0 */
 /* for end icon */
 /* by mieć przestrzeń i na icon wtedy flex align items justify content wtedy niezależnie od rozmiaru bedzie center */
@@ -70,6 +100,72 @@
 .icon.underline.startIcon {
   top: 6px;
   left: 6px;
+}
+
+.icon.basic.startIcon.medium,
+.icon.outlined.startIcon.medium {
+  top: 7px;
+}
+
+.icon.contained.startIcon.medium,
+.icon.underline.startIcon.medium {
+  top: initial;
+  bottom: 7px;
+}
+
+.icon.basic.startIcon.large,
+.icon.outlined.startIcon.large {
+  top: 9px;
+}
+
+.icon.contained.startIcon.large,
+.icon.underline.startIcon.large {
+  top: initial;
+  bottom: 8px;
+}
+
+.icon.basic.startIcon.extra-large,
+.icon.outlined.startIcon.extra-large {
+  top: 10px;
+}
+
+.icon.contained.startIcon.extra-large,
+.icon.underline.startIcon.extra-large {
+  top: initial;
+  bottom: 9px;
+}
+
+.icon.basic.endIcon.medium,
+.icon.outlined.endIcon.medium {
+  top: 7px;
+}
+
+.icon.contained.endIcon.medium,
+.icon.underline.endIcon.medium {
+  top: initial;
+  bottom: 7px;
+}
+
+.icon.basic.endIcon.large,
+.icon.outlined.endIcon.large {
+  top: 9px;
+}
+
+.icon.contained.endIcon.large,
+.icon.underline.endIcon.large {
+  top: initial;
+  bottom: 8px;
+}
+
+.icon.basic.endIcon.extra-large,
+.icon.outlined.endIcon.extra-large {
+  top: 10px;
+}
+
+.icon.contained.endIcon.extra-large,
+.icon.underline.endIcon.extra-large {
+  top: initial;
+  bottom: 9px;
 }
 
 .valid {
