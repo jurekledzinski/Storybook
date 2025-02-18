@@ -2,6 +2,8 @@ import styles from './Input.module.css';
 import { classNames } from '../../helpers/classNames';
 import { InputProps, TextareaProps } from './types';
 
+// Dodaj disabled lub readonly prop albo both
+
 export const Input = ({
   as = 'input',
   label,
@@ -49,8 +51,6 @@ export const Input = ({
 
   if ((as === 'input' && 'type' in props) || 'className' in props) {
     const { size, ...rest } = props;
-
-    console.log('sss', size);
 
     return (
       <fieldset

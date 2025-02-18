@@ -1,5 +1,7 @@
 import { Input } from './Input';
 import { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
+import { useEffect } from 'react';
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Form elements/Input',
@@ -15,8 +17,9 @@ export const Default: Story = {
     label: 'Name',
     variant: 'basic',
     type: 'text',
-    rows: 6,
-    cols: 3,
+    // rows: 6,
+    // cols: 3,
+    as: 'input',
   },
   argTypes: {
     as: {
@@ -39,4 +42,15 @@ export const Default: Story = {
       </form>
     ),
   ],
+  render: function Render(args) {
+    const [{ as }, updateArgs] = useArgs();
+
+    useEffect(() => {
+      if (as === 'input') {
+        updateArgs({ args: {} });
+      }
+    }, [as]);
+
+    return <Input {...args} />;
+  },
 };
