@@ -28,7 +28,7 @@ export const TextInput = ({
           ? { className: [classStartIcon, classEndIcon].filter(Boolean) }
           : {})}
       />
-      {/* undefined isError chowa ikony error */}
+
       <InputIcons
         endIcon={endIcon}
         isError={isError}
@@ -40,3 +40,5 @@ export const TextInput = ({
     </div>
   );
 };
+
+/* gdy undefined isError w prop InputIcons to schowa ikony error i check jeśli ich nie chcemy */
