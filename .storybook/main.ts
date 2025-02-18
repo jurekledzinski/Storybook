@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     'msw-storybook-addon',
     '@storybook/addon-viewport',
     '@storybook/addon-coverage',
+    '@storybook/preview-api',
   ],
   features: {
     // this flag ensure that all updates related to a test are processed and applied before making assertions, like a11y checks in react
