@@ -4,8 +4,6 @@ import { InputIcons } from '../input/InputIcons';
 import { PasswordInputProps } from './types';
 import { useState } from 'react';
 
-// Dodaj isError by działało także
-
 export const PasswordInput = ({
   endIcon,
   startIcon,
