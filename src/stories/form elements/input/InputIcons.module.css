@@ -52,10 +52,6 @@
   bottom: 9px;
 }
 
-/* Icon może left 0 bottom 0 right calc(100% - 2rem) top 0 */
-/* for end icon */
-/* by mieć przestrzeń i na icon wtedy flex align items justify content wtedy niezależnie od rozmiaru bedzie center */
-
 .icon {
   position: absolute;
   display: flex;
