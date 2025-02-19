@@ -27,7 +27,7 @@ export const Default: Story = {
       control: 'select',
       options: ['none', 'email', 'user', 'sun'],
       mapping: {
-        none: false,
+        none: undefined,
         email: <At size={16} weight="fill" />,
         user: <UserCircle size={16} weight="fill" />,
         sun: <Sun size={16} weight="fill" />,
