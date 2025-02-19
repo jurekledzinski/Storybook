@@ -1,6 +1,6 @@
 export type PasswordInputProps = {
-  className?: 'startIcon' | 'endIcon';
   endIcon?: React.ReactNode;
+  isError?: boolean;
   isPending?: boolean;
   startIcon?: React.ReactNode;
   size?: 'small' | 'medium' | 'large' | 'extra-large';

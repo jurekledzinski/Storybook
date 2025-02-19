@@ -14,9 +14,12 @@ type Story = StoryObj<typeof PasswordInput>;
 export const Default: Story = {
   args: {
     label: 'Password',
+    isError: undefined,
     isPending: false,
     startIcon: <Eye size={16} weight="fill" />,
     endIcon: <EyeSlash size={16} weight="fill" />,
+    size: 'small',
+    variant: 'basic',
   },
   argTypes: {
     endIcon: {
@@ -27,6 +30,15 @@ export const Default: Story = {
         eyeSlash: <EyeSlash size={16} weight="fill" />,
       },
     },
+    isError: {
+      control: 'select',
+      options: ['none', 'true', 'false'],
+      mapping: {
+        none: undefined,
+        true: true,
+        false: false,
+      },
+    },
     startIcon: {
       control: 'select',
       options: ['none', 'eye'],
@@ -35,6 +47,10 @@ export const Default: Story = {
         eye: <Eye size={16} weight="fill" />,
       },
     },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large', 'extra-large'],
+    },
     variant: {
       control: { type: 'select' },
       options: ['basic', 'contained', 'outlined', 'underline'],
@@ -42,9 +58,23 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 'min(400px,100%)' }}>
+      <form style={{ width: 'min(400px,100%)' }} noValidate>
         <Story />
-      </div>
+      </form>
     ),
   ],
+  parameters: {
+    controls: {
+      include: [
+        'endIcon',
+        'isError',
+        'isPending',
+        'label',
+        'size',
+        'startIcon',
+        'type',
+        'variant',
+      ],
+    },
+  },
 };

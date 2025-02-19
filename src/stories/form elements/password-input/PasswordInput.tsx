@@ -4,10 +4,13 @@ import { InputIcons } from '../input/InputIcons';
 import { PasswordInputProps } from './types';
 import { useState } from 'react';
 
+// Dodaj isError by działało także
+
 export const PasswordInput = ({
   endIcon,
   startIcon,
   size,
+  isError,
   isPending,
   label,
   variant = 'basic',
@@ -26,6 +29,7 @@ export const PasswordInput = ({
 
       <InputIcons
         endIcon={showPassword ? startIcon : endIcon}
+        isError={isError}
         isPending={isPending}
         onClick={() => setShowPassword((prev) => !prev)}
         size={size}
