@@ -120,6 +120,16 @@ textarea {
   font-family: var(--font-family);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
 ::-moz-scrollbar {
   scrollbar-color: #555555 #f1f1f1;
   scrollbar-width: thin;
