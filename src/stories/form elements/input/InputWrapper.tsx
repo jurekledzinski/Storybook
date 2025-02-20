@@ -1,8 +1,8 @@
 import styles from './InputWrapper.module.css';
 import { Check, Warning } from '@phosphor-icons/react';
+import { classNames } from '../../helpers/classNames';
 import { InputWrapperProps } from './types';
 import { Loader } from '../../feedbacks/loader/Loader';
-import { classNames } from '../../helpers/classNames';
 
 export const InputWrapper = ({
   children,

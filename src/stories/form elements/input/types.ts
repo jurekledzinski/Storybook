@@ -30,17 +30,6 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
   rows?: number;
 }
 
-export type InputIconsProps = {
-  endIcon?: React.ReactNode;
-  isError?: boolean;
-  isPending?: boolean;
-  onClickEndIcon?: React.MouseEventHandler<HTMLSpanElement>;
-  onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
-  startIcon?: React.ReactNode;
-  size?: 'small' | 'medium' | 'large' | 'extra-large';
-  variant?: 'basic' | 'contained' | 'outlined' | 'underline';
-};
-
 export type InputWrapperProps = {
   children: React.ReactNode;
   endIcon?: React.ReactNode;

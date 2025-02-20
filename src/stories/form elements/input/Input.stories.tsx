@@ -1,6 +1,5 @@
 import { Input } from './Input';
 import { Meta, StoryObj } from '@storybook/react';
-// import { useArgs } from '@storybook/preview-api';
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Form elements/Input',
