@@ -78,6 +78,17 @@
   --color-info-800: #0163c7;
   --color-info-900: #0044a8;
 
+  --color-black-50: #f7f7f7;
+  --color-black-100: #eeeeee;
+  --color-black-200: #e3e3e3;
+  --color-black-300: #d1d1d1;
+  --color-black-400: #acacac;
+  --color-black-500: #8b8b8b;
+  --color-black-600: #646464;
+  --color-black-700: #515151;
+  --color-black-800: #333333;
+  --color-black-900: #131313;
+
   --color-disabled: #d3d3d3;
 
   /* Backgrounds */
@@ -89,7 +100,7 @@
   --color-spin: var(--color-primary-700);
 
   /* Fonts */
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: 'Inter', sans-serif;
 }
 
 * {
