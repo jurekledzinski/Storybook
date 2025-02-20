@@ -1,8 +1,8 @@
 import styles from './PasswordInput.module.css';
 import { Input } from '../input/Input';
-import { InputIcons } from '../input/InputIcons';
 import { PasswordInputProps } from './types';
 import { useState } from 'react';
+import { InputWrapper } from '../input/InputWrapper';
 
 export const PasswordInput = ({
   endIcon,
@@ -17,22 +17,22 @@ export const PasswordInput = ({
 
   return (
     <div className={styles.passwordInput}>
-      <Input
-        label={label}
-        type={showPassword ? 'text' : 'password'}
-        size={size}
-        variant={variant}
-        className={['endIcon']}
-      />
-
-      <InputIcons
+      <InputWrapper
         endIcon={showPassword ? startIcon : endIcon}
         isError={isError}
         isPending={isPending}
-        onClick={() => setShowPassword((prev) => !prev)}
         size={size}
+        onClickEndIcon={() => setShowPassword((prev) => !prev)}
         variant={variant}
-      />
+      >
+        <Input
+          label={label}
+          type={showPassword ? 'text' : 'password'}
+          size={size}
+          variant={variant}
+          className={['endIcon']}
+        />
+      </InputWrapper>
     </div>
   );
 };

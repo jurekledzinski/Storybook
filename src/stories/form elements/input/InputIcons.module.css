@@ -19,7 +19,7 @@
 
 .loader.underline {
   top: 6px;
-  right: 6px;
+  right: 0px;
 }
 
 .loader.medium {
@@ -37,7 +37,7 @@
 .loader.contained.medium,
 .loader.underline.medium {
   top: initial;
-  bottom: 7px;
+  bottom: 6px;
 }
 
 .loader.contained.large,
@@ -52,6 +52,8 @@
   bottom: 9px;
 }
 
+/* Icon */
+
 .icon {
   position: absolute;
   display: flex;
@@ -59,7 +61,7 @@
 }
 
 .icon.basic.endIcon {
-  top: 6px;
+  top: 7px;
   right: 6px;
 }
 
@@ -69,17 +71,17 @@
 }
 
 .icon.outlined.endIcon {
-  top: 6px;
+  top: 7px;
   right: 6px;
 }
 
 .icon.underline.endIcon {
   top: 6px;
-  right: 6px;
+  right: 0px;
 }
 
 .icon.basic.startIcon {
-  top: 6px;
+  top: 7px;
   left: 6px;
 }
 
@@ -89,24 +91,25 @@
 }
 
 .icon.outlined.startIcon {
-  top: 6px;
+  top: 7px;
   left: 6px;
 }
 
 .icon.underline.startIcon {
   top: 6px;
-  left: 6px;
+  left: -2px;
 }
 
 .icon.basic.startIcon.medium,
 .icon.outlined.startIcon.medium {
-  top: 7px;
+  top: 8px;
 }
 
 .icon.contained.startIcon.medium,
 .icon.underline.startIcon.medium {
   top: initial;
-  bottom: 7px;
+  /* bottom: 7px; */
+  bottom: 6px;
 }
 
 .icon.basic.startIcon.large,
@@ -114,10 +117,14 @@
   top: 9px;
 }
 
-.icon.contained.startIcon.large,
-.icon.underline.startIcon.large {
+.icon.contained.startIcon.large {
   top: initial;
   bottom: 8px;
+}
+
+.icon.underline.startIcon.large {
+  top: initial;
+  bottom: 7px;
 }
 
 .icon.basic.startIcon.extra-large,
@@ -125,21 +132,25 @@
   top: 10px;
 }
 
-.icon.contained.startIcon.extra-large,
-.icon.underline.startIcon.extra-large {
+.icon.contained.startIcon.extra-large {
   top: initial;
   bottom: 9px;
 }
 
+.icon.underline.startIcon.extra-large {
+  top: initial;
+  bottom: 8px;
+}
+
 .icon.basic.endIcon.medium,
 .icon.outlined.endIcon.medium {
-  top: 7px;
+  top: 8px;
 }
 
 .icon.contained.endIcon.medium,
 .icon.underline.endIcon.medium {
   top: initial;
-  bottom: 7px;
+  bottom: 6px;
 }
 
 .icon.basic.endIcon.large,
@@ -147,10 +158,14 @@
   top: 9px;
 }
 
-.icon.contained.endIcon.large,
-.icon.underline.endIcon.large {
+.icon.contained.endIcon.large {
   top: initial;
   bottom: 8px;
+}
+
+.icon.underline.endIcon.large {
+  top: initial;
+  bottom: 7px;
 }
 
 .icon.basic.endIcon.extra-large,
@@ -158,10 +173,14 @@
   top: 10px;
 }
 
-.icon.contained.endIcon.extra-large,
-.icon.underline.endIcon.extra-large {
+.icon.contained.endIcon.extra-large {
   top: initial;
   bottom: 9px;
+}
+
+.icon.underline.endIcon.extra-large {
+  top: initial;
+  bottom: 8px;
 }
 
 .valid {

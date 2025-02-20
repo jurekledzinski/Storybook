@@ -10,7 +10,8 @@ export const InputIcons = ({
   isPending,
   startIcon,
   size,
-  onClick,
+  onClickEndIcon,
+  onClickStartIcon,
   variant,
 }: InputIconsProps) => {
   const loaderClassNames = classNames(
@@ -44,22 +45,24 @@ export const InputIcons = ({
           <Loader sizeSchema="small" />
         </span>
       ) : endIcon && isError === undefined ? (
-        <span className={endIconClassNames} onClick={onClick}>
+        <span className={endIconClassNames} onClick={onClickEndIcon}>
           {endIcon}
         </span>
       ) : null}
 
       {startIcon ? (
-        <span className={startIconClassNames}>{startIcon}</span>
+        <span className={startIconClassNames} onClick={onClickStartIcon}>
+          {startIcon}
+        </span>
       ) : null}
 
       {isError !== undefined && !isPending ? (
         isError ? (
-          <span className={invalidIconClassNames} onClick={onClick}>
+          <span className={invalidIconClassNames}>
             <Warning size={16} weight="bold" />
           </span>
         ) : (
-          <span className={validIconClassNames} onClick={onClick}>
+          <span className={validIconClassNames}>
             <Check size={16} weight="bold" />
           </span>
         )

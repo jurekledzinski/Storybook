@@ -16,8 +16,8 @@ export const Default: Story = {
     label: 'Password',
     isError: undefined,
     isPending: false,
-    startIcon: <Eye size={16} weight="fill" />,
-    endIcon: <EyeSlash size={16} weight="fill" />,
+    startIcon: <Eye weight="fill" />,
+    endIcon: <EyeSlash weight="fill" />,
     size: 'small',
     variant: 'basic',
   },
@@ -27,7 +27,7 @@ export const Default: Story = {
       options: ['none', 'eyeSlash'],
       mapping: {
         none: undefined,
-        eyeSlash: <EyeSlash size={16} weight="fill" />,
+        eyeSlash: <EyeSlash weight="fill" />,
       },
     },
     isError: {
@@ -44,7 +44,7 @@ export const Default: Story = {
       options: ['none', 'eye'],
       mapping: {
         none: undefined,
-        eye: <Eye size={16} weight="fill" />,
+        eye: <Eye weight="fill" />,
       },
     },
     size: {

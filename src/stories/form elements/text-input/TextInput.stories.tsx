@@ -1,4 +1,5 @@
-import { At, UserCircle, Sun } from '@phosphor-icons/react';
+import { Envelope, MagnifyingGlass, Sun, XCircle } from '@phosphor-icons/react';
+import { fn } from '@storybook/test';
 import { Meta, StoryObj } from '@storybook/react';
 import { TextInput } from './TextInput';
 
@@ -21,16 +22,18 @@ export const Default: Story = {
     type: 'text',
     variant: 'basic',
     isError: undefined,
+    onClickEndIcon: fn(),
+    onClickStartIcon: fn(),
   },
   argTypes: {
     endIcon: {
       control: 'select',
-      options: ['none', 'email', 'user', 'sun'],
+      options: ['none', 'magnifyingGlass', 'xCircle', 'sun'],
       mapping: {
         none: undefined,
-        email: <At size={16} weight="fill" />,
-        user: <UserCircle size={16} weight="fill" />,
-        sun: <Sun size={16} weight="fill" />,
+        magnifyingGlass: <MagnifyingGlass weight="bold" />,
+        xCircle: <XCircle weight="fill" />,
+        sun: <Sun weight="fill" />,
       },
     },
     size: {
@@ -39,12 +42,12 @@ export const Default: Story = {
     },
     startIcon: {
       control: 'select',
-      options: ['none', 'email', 'user', 'sun'],
+      options: ['none', 'magnifyingGlass', 'envelope', 'sun'],
       mapping: {
         none: undefined,
-        email: <At size={16} weight="fill" />,
-        user: <UserCircle size={16} weight="fill" />,
-        sun: <Sun size={16} weight="fill" />,
+        magnifyingGlass: <MagnifyingGlass weight="bold" />,
+        envelope: <Envelope weight="regular" />,
+        sun: <Sun weight="fill" />,
       },
     },
     isError: {
@@ -80,4 +83,18 @@ export const Default: Story = {
       </form>
     ),
   ],
+  parameters: {
+    controls: {
+      include: [
+        'endIcon',
+        'isError',
+        'isPending',
+        'label',
+        'size',
+        'startIcon',
+        'type',
+        'variant',
+      ],
+    },
+  },
 };

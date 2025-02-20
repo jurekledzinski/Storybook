@@ -1,0 +1,75 @@
+.inputWrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--color-black-700);
+  transition: 200ms linear;
+}
+
+.inputWrapper:focus-within {
+  border-color: var(--color-primary-700);
+  outline: 1px solid var(--color-primary-700);
+}
+
+.inputWrapper.contained:focus-within,
+.inputWrapper.underline:focus-within {
+  outline: none;
+}
+
+.inputWrapper.underline:focus-within,
+.inputWrapper.contained:focus-within {
+  outline: none;
+  border-color: var(--color-primary-700);
+  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
+  /* box-shadow: 0 1px 0 0 var(--color-primary-700); */
+}
+
+.inputWrapper.contained,
+.inputWrapper.underline {
+  border-right: none;
+  border-left: none;
+  border-top: none;
+}
+
+.inputWrapper.contained {
+  background-color: rgb(249, 249, 249);
+  z-index: 0;
+}
+
+.startIcon,
+.endIcon {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 6px 8px;
+}
+
+.startIcon.contained,
+.endIcon.contained {
+  align-items: center;
+  margin-top: 1rem;
+  background-color: rgb(249, 249, 249);
+  z-index: -1;
+}
+
+/* Size icons */
+
+.startIcon.small,
+.endIcon.small {
+  font-size: 14px;
+}
+
+.startIcon.medium,
+.endIcon.medium {
+  font-size: 15px;
+}
+
+.startIcon.large,
+.endIcon.large {
+  font-size: 16px;
+}
+
+.startIcon.extra-large,
+.endIcon.extra-large {
+  font-size: 16px;
+}

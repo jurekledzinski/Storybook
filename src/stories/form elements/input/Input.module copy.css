@@ -40,12 +40,52 @@
   padding: 16px 0 0;
 }
 
+.input.basic:not(:placeholder-shown):valid,
+.textarea.basic:not(:placeholder-shown):valid,
+.input.outlined:not(:placeholder-shown):valid,
+.textarea.outlined:not(:placeholder-shown):valid {
+  border-color: var(--color-success-400);
+  /* outline: 1px solid var(--color-success-400); */
+}
+
+.input.contained:not(:placeholder-shown):valid,
+.textarea.contained:not(:placeholder-shown):valid,
+.input.underline:not(:placeholder-shown):valid,
+.textarea.underline:not(:placeholder-shown):valid {
+  outline: none;
+  border-color: var(--color-success-400);
+  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
+}
+
+.input.basic:not(:placeholder-shown):invalid,
+.textarea.basic:not(:placeholder-shown):invalid,
+.input.outlined:not(:placeholder-shown):invalid,
+.textarea.outlined:not(:placeholder-shown):invalid {
+  border-color: var(--color-negative-500);
+  /* outline: 1px solid var(--color-negative-500); */
+}
+
+.input.contained:not(:placeholder-shown):invalid,
+.textarea.contained:not(:placeholder-shown):invalid,
+.input.underline:not(:placeholder-shown):invalid,
+.textarea.underline:not(:placeholder-shown):invalid {
+  outline: none;
+  border-color: var(--color-negative-500);
+  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
+}
+
+/* .input:focus:invalid,
+.textarea:focus:invalid {
+  border-color: orange;
+  outline: 1px solid orange;
+} */
+
 .input,
 .textarea {
   width: 100%;
   min-height: inherit;
   padding: 0 6px;
-  border: none;
+  border: 1px solid #777777;
   color: var(--color-text-primary);
   font-size: 14px;
   transition: 200ms linear;
@@ -73,6 +113,7 @@
 .textarea.contained {
   padding: initial;
   background-color: transparent;
+  border: 1px solid #777777;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -84,33 +125,23 @@
 
 .legend {
   position: absolute;
-  top: 6px;
-  left: 4px;
+  top: 4px;
+  left: 5px;
   z-index: -1;
   transition: 200ms linear;
   font-size: 14px;
 }
 
-/* new styles */
-
-.legend.startIcon {
-  left: -2px;
-}
-
-.legend.contained.startIcon {
-  left: -26px;
-}
-
 .legend.medium {
-  top: 7px;
+  top: 6px;
 }
 
 .legend.large {
-  top: 8px;
+  top: 7px;
 }
 
 .legend.extra-large {
-  top: 9px;
+  top: 8px;
 }
 
 .legend.underline {
@@ -119,6 +150,38 @@
 
 .legend.contained {
   top: 0px;
+  left: 4px;
+}
+
+.legend.outlined.startIcon {
+  left: 24px;
+  padding: 0 2px;
+}
+
+.legend.underline.startIcon {
+  left: 16px;
+  padding: 0 2px;
+}
+
+.input:focus.basic,
+.textarea:focus.basic {
+  outline: 1px solid var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+.input:focus.outlined,
+.textarea:focus.outlined {
+  outline: 1px solid var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+.input:focus.underline,
+.input:focus.contained,
+.textarea:focus.underline,
+.textarea:focus.contained {
+  outline: none;
+  border-color: var(--color-primary-700);
+  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
 }
 
 .input:not(:placeholder-shown) + legend,
@@ -132,15 +195,6 @@
   font-size: 12px;
 }
 
-.input.underline:not(:placeholder-shown) + legend,
-.input.underline:focus + legend,
-.textarea.underline:not(:placeholder-shown) + legend,
-.textarea.underline:focus + legend {
-  top: -12px;
-}
-
-/* new styles */
-
 .input.contained:not(:placeholder-shown) + legend,
 .input.contained:focus + legend,
 .textarea.contained:not(:placeholder-shown) + legend,
@@ -149,32 +203,17 @@
   background-color: transparent;
 }
 
-.input.contained.startIcon:not(:placeholder-shown) + legend,
-.input.contained.startIcon:focus + legend,
-.textarea.contained.startIcon:not(:placeholder-shown) + legend,
-.textarea.contained.startIcon:focus + legend {
-  background-color: transparent;
-}
-
-/* --- */
-
-/* new styles */
+/* TO start icon move */
 
 .input.outlined.startIcon:not(:placeholder-shown) + legend,
 .input.outlined.startIcon:focus + legend {
-  left: -26px;
+  left: 5px;
 }
-
-/* --- */
-
-/* new styles */
 
 .input.underline.startIcon:not(:placeholder-shown) + legend,
 .input.underline.startIcon:focus + legend {
-  left: -33px;
+  left: -2px;
 }
-
-/* --- */
 
 .textarea {
   padding: 6px;
@@ -194,25 +233,23 @@
   left: 4px;
 }
 
-/* new styles */
-
-.input:focus {
-  outline: none;
-}
-
 .input.startIcon {
-  padding-left: initial;
-  border-left: none;
+  padding-left: 1.7rem;
 }
 
 .input.endIcon {
-  padding-right: initial;
-  border-right: none;
+  padding-right: 1.7rem;
+}
+
+.input.underline.startIcon {
+  padding-left: 1.1rem;
+}
+
+.input.underline.endIcon {
+  padding-right: 1.2rem;
 }
 
 /* media min-width 575px */
 
 /* Dodaj media queris dla desktop > 575px to co już sa style beda dla mobile
 Może jeszcze lekkie korekty odległości dla mobile */
-
-/* ----------------- Nowe style ------------------- */
