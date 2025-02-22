@@ -2,7 +2,7 @@ import styles from './PasswordInput.module.css';
 import { Input } from '../input/Input';
 import { PasswordInputProps } from './types';
 import { useState } from 'react';
-import { InputWrapper } from '../input/InputWrapper';
+import { InputWrapper } from '../input/components/InputWrapper';
 
 export const PasswordInput = ({
   endIcon,

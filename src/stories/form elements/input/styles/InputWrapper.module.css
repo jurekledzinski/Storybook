@@ -71,3 +71,21 @@
 .endIcon.extra-large {
   font-size: 16px;
 }
+
+/* Status when inputWrapper used */
+
+.inputWrapper.inValid {
+  border-color: var(--color-negative-500);
+}
+
+.inputWrapper.valid {
+  border-color: var(--color-success-400);
+}
+
+.endIcon.inValid {
+  color: var(--color-negative-500);
+}
+
+.endIcon.valid {
+  color: var(--color-success-400);
+}

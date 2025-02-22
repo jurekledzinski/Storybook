@@ -1,5 +1,4 @@
-import styles from './Input.module.css';
-import { classNames } from '../../helpers/classNames';
+import { getClassNamesInput } from './styles/styles';
 import { InputProps, TextareaProps } from './types';
 
 export const Input = ({
@@ -11,52 +10,21 @@ export const Input = ({
   placeholder = '',
   ...props
 }: InputProps | TextareaProps) => {
-  const inputClassNames = classNames(
-    styles.input,
-    styles[variant as keyof typeof styles],
-    size! ? styles[size! as keyof typeof styles] : '',
-    className!
-      ? className.map((i) => styles[i as keyof typeof styles]).join(' ')
-      : ''
-  );
-
-  const textareaClassNames = classNames(
-    styles.textarea,
-    styles[variant as keyof typeof styles],
-    size! ? styles[size! as keyof typeof styles] : '',
-    className!
-      ? className.map((i) => styles[i as keyof typeof styles]).join(' ')
-      : ''
-  );
-
-  const legendClassNames = classNames(
-    styles.legend,
-    styles[variant as keyof typeof styles],
-    className!
-      ? className.map((i) => styles[i as keyof typeof styles]).join(' ')
-      : '',
-    size! ? styles[size! as keyof typeof styles] : ''
-  );
-
-  const fieldsetClassNames = classNames(
-    styles.fieldset,
-    styles[variant as keyof typeof styles],
-    size! ? styles[size! as keyof typeof styles] : ''
-  );
+  const classes = getClassNamesInput(variant, size, className);
 
   if (as === 'textarea' && 'rows' in props && 'cols' in props) {
     return (
-      <fieldset className={fieldsetClassNames}>
+      <fieldset className={classes.fieldset}>
         <textarea
           aria-label={label}
           {...props}
-          className={textareaClassNames}
+          className={classes.textarea}
           placeholder={placeholder}
           required
         />
 
         {variant !== 'basic' && (
-          <legend className={legendClassNames}>{label}</legend>
+          <legend className={classes.legend}>{label}</legend>
         )}
       </fieldset>
     );
@@ -64,17 +32,18 @@ export const Input = ({
 
   if (as === 'input' && 'type' in props) {
     return (
-      <fieldset className={fieldsetClassNames}>
+      <fieldset className={classes.fieldset}>
         <input
           aria-label={label}
           {...props}
-          className={inputClassNames}
+          className={classes.input}
           placeholder={placeholder}
           required
+          minLength={3}
         />
 
         {variant !== 'basic' && (
-          <legend className={legendClassNames}>{label}</legend>
+          <legend className={classes.legend}>{label}</legend>
         )}
       </fieldset>
     );

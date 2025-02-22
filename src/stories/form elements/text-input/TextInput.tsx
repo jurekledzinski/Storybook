@@ -1,6 +1,7 @@
 import styles from './TextInput.module.css';
+import { getInputClassNames, getInputProps } from './helpers/helpers';
 import { Input } from '../input/Input';
-import { InputWrapper } from '../input/InputWrapper';
+import { InputWrapper } from '../input/components/InputWrapper';
 import { TextInputProps } from './types';
 
 export const TextInput = ({
@@ -16,10 +17,6 @@ export const TextInput = ({
   variant = 'basic',
   type = 'text',
 }: TextInputProps) => {
-  const classStartIcon = startIcon ? 'startIcon' : undefined;
-  const classEndIcon =
-    endIcon || isError !== undefined || isPending ? 'endIcon' : undefined;
-
   return (
     <div className={styles.textInput}>
       <InputWrapper
@@ -37,15 +34,13 @@ export const TextInput = ({
           label={label}
           size={size}
           variant={variant}
-          {...(as === 'input' && { type })}
-          {...(as === 'textarea' && { cols: 4, rows: 6 })}
-          {...(classStartIcon
-            ? { className: [classStartIcon, 'noBorder'] }
-            : classEndIcon
-            ? { className: [classEndIcon, 'noBorder'] }
-            : classStartIcon && classEndIcon
-            ? { className: [classStartIcon, classEndIcon, 'noBorder'] }
-            : { className: ['noBorder'] })}
+          {...getInputProps(as, type)}
+          className={getInputClassNames(
+            !!startIcon,
+            !!endIcon,
+            isError,
+            isPending
+          )}
         />
       </InputWrapper>
     </div>

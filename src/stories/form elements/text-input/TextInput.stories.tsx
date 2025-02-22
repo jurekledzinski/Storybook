@@ -84,7 +84,7 @@ export const Default: Story = {
         }}
         noValidate
       >
-        <Story /> <Story />
+        <Story />
       </form>
     ),
   ],

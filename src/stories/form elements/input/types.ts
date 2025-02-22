@@ -1,6 +1,6 @@
 import React from 'react';
 
-type ClassName =
+export type ClassName =
   | ['startIcon']
   | ['endIcon']
   | ['startIcon', 'endIcon']

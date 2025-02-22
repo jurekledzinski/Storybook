@@ -131,6 +131,7 @@
   color: var(--color-primary-700);
   font-size: 12px;
 }
+
 .input.large:not(:placeholder-shown) + legend,
 .input.large:focus + legend,
 .textarea.large:not(:placeholder-shown) + legend,
@@ -222,6 +223,62 @@
   padding-right: initial;
   border-right: none;
 }
+
+/* Status when use only input component */
+
+.input.basic:not(:placeholder-shown):not(.noBorder):valid,
+.textarea.basic:not(:placeholder-shown):not(.noBorder):valid,
+.input.outlined:not(:placeholder-shown):not(.noBorder):valid,
+.textarea.outlined:not(:placeholder-shown):not(.noBorder):valid {
+  border-color: var(--color-success-400);
+  /* outline: 1px solid var(--color-success-400); */
+}
+
+.input.contained:not(:placeholder-shown):not(.noBorder):valid,
+.textarea.contained:not(:placeholder-shown):not(.noBorder):valid,
+.input.underline:not(:placeholder-shown):not(.noBorder):valid,
+.textarea.underline:not(:placeholder-shown):not(.noBorder):valid {
+  outline: none;
+  border-color: var(--color-success-400);
+  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
+}
+
+.input.basic:not(:placeholder-shown):not(.noBorder):invalid,
+.textarea.basic:not(:placeholder-shown):not(.noBorder):invalid,
+.input.outlined:not(:placeholder-shown):not(.noBorder):invalid,
+.textarea.outlined:not(:placeholder-shown):not(.noBorder):invalid {
+  border-color: var(--color-negative-500);
+  /* outline: 1px solid var(--color-negative-500); */
+}
+
+.input.contained:not(:placeholder-shown):not(.noBorder):invalid,
+.textarea.contained:not(:placeholder-shown):not(.noBorder):invalid,
+.input.underline:not(:placeholder-shown):not(.noBorder):invalid,
+.textarea.underline:not(:placeholder-shown):not(.noBorder):invalid {
+  outline: none;
+  border-color: var(--color-negative-500);
+  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
+}
+
+.input.outlined:not(:placeholder-shown):not(.noBorder):invalid + legend,
+.input.outlined:focus:not(.noBorder):invalid + legend,
+.textarea.outlined:not(:placeholder-shown):not(.noBorder):invalid + legend,
+.textarea.outlined:focus:not(.noBorder):invalid + legend {
+  color: var(--color-negative-500);
+}
+
+.input:not(:placeholder-shown):not(.noBorder):valid + legend,
+.input:focus:not(.noBorder):valid + legend,
+.textarea:not(:placeholder-shown):not(.noBorder):valid + legend,
+.textarea:focus:not(.noBorder):valid + legend {
+  color: var(--color-success-400);
+}
+
+/* .input:focus:invalid,
+.textarea:focus:invalid {
+  border-color: orange;
+  outline: 1px solid orange;
+} */
 
 /* media min-width 575px */
 
