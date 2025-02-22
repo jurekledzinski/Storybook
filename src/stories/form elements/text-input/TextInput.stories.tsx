@@ -26,6 +26,10 @@ export const Default: Story = {
     onClickStartIcon: fn(),
   },
   argTypes: {
+    as: {
+      control: { type: 'select' },
+      options: ['input', 'textarea'],
+    },
     endIcon: {
       control: 'select',
       options: ['none', 'magnifyingGlass', 'xCircle', 'sun'],
@@ -62,6 +66,7 @@ export const Default: Story = {
     type: {
       control: { type: 'select' },
       options: ['email', 'number', 'text'],
+      if: { arg: 'as', eq: 'input' },
     },
     variant: {
       control: { type: 'select' },
@@ -75,17 +80,18 @@ export const Default: Story = {
           width: 'min(400px,100%)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '0.5rem',
+          gap: '1rem',
         }}
         noValidate
       >
-        <Story />
+        <Story /> <Story />
       </form>
     ),
   ],
   parameters: {
     controls: {
       include: [
+        'as',
         'endIcon',
         'isError',
         'isPending',

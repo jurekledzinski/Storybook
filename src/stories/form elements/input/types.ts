@@ -1,27 +1,28 @@
 import React from 'react';
 
+type ClassName =
+  | ['startIcon']
+  | ['endIcon']
+  | ['startIcon', 'endIcon']
+  | ['endIcon', 'startIcon']
+  | string[];
+
 export type BaseInputProps<T> = {
+  className?: ClassName;
   disabled?: boolean;
   name?: string;
   ref?: React.LegacyRef<T>;
   onChange?: React.ChangeEventHandler<T>;
   placeholder?: string;
   readOnly?: boolean;
+  size?: 'small' | 'medium' | 'large' | 'extra-large';
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
   label: string;
 };
 
-type ClassName =
-  | ['startIcon']
-  | ['endIcon']
-  | ['startIcon', 'endIcon']
-  | ['endIcon', 'startIcon'];
-
 export interface InputProps extends BaseInputProps<HTMLInputElement> {
   as?: 'input';
-  className?: ClassName;
-  size?: 'small' | 'medium' | 'large' | 'extra-large';
-  type: 'email' | 'number' | 'password' | 'text';
+  type?: 'email' | 'number' | 'password' | 'text';
 }
 
 export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {

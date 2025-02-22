@@ -2,33 +2,46 @@ import styles from './Input.module.css';
 import { classNames } from '../../helpers/classNames';
 import { InputProps, TextareaProps } from './types';
 
-// Dodaj disabled lub readonly prop albo both
-
 export const Input = ({
   as = 'input',
+  className,
   label,
+  size,
   variant = 'basic',
   placeholder = '',
   ...props
 }: InputProps | TextareaProps) => {
   const inputClassNames = classNames(
     styles.input,
-    styles[variant as keyof typeof styles]
+    styles[variant as keyof typeof styles],
+    size! ? styles[size! as keyof typeof styles] : '',
+    className!
+      ? className.map((i) => styles[i as keyof typeof styles]).join(' ')
+      : ''
   );
 
   const textareaClassNames = classNames(
     styles.textarea,
-    styles[variant as keyof typeof styles]
+    styles[variant as keyof typeof styles],
+    size! ? styles[size! as keyof typeof styles] : '',
+    className!
+      ? className.map((i) => styles[i as keyof typeof styles]).join(' ')
+      : ''
   );
 
   const legendClassNames = classNames(
     styles.legend,
-    styles[variant as keyof typeof styles]
+    styles[variant as keyof typeof styles],
+    className!
+      ? className.map((i) => styles[i as keyof typeof styles]).join(' ')
+      : '',
+    size! ? styles[size! as keyof typeof styles] : ''
   );
 
   const fieldsetClassNames = classNames(
     styles.fieldset,
-    styles[variant as keyof typeof styles]
+    styles[variant as keyof typeof styles],
+    size! ? styles[size! as keyof typeof styles] : ''
   );
 
   if (as === 'textarea' && 'rows' in props && 'cols' in props) {
@@ -36,8 +49,8 @@ export const Input = ({
       <fieldset className={fieldsetClassNames}>
         <textarea
           aria-label={label}
-          className={textareaClassNames}
           {...props}
+          className={textareaClassNames}
           placeholder={placeholder}
           required
         />
@@ -49,45 +62,19 @@ export const Input = ({
     );
   }
 
-  if ((as === 'input' && 'type' in props) || 'className' in props) {
-    const { size, ...rest } = props;
-
+  if (as === 'input' && 'type' in props) {
     return (
-      <fieldset
-        className={classNames(
-          fieldsetClassNames,
-          size! ? styles[size! as keyof typeof styles] : ''
-        )}
-      >
+      <fieldset className={fieldsetClassNames}>
         <input
           aria-label={label}
-          {...rest}
-          className={classNames(
-            inputClassNames,
-            props.className!
-              ? props.className
-                  .map((i) => styles[i as keyof typeof styles])
-                  .join(' ')
-              : ''
-          )}
+          {...props}
+          className={inputClassNames}
           placeholder={placeholder}
           required
         />
 
         {variant !== 'basic' && (
-          <legend
-            className={classNames(
-              legendClassNames,
-              props.className!
-                ? props.className
-                    .map((i) => styles[i as keyof typeof styles])
-                    .join(' ')
-                : '',
-              size! ? styles[size! as keyof typeof styles] : ''
-            )}
-          >
-            {label}
-          </legend>
+          <legend className={legendClassNames}>{label}</legend>
         )}
       </fieldset>
     );

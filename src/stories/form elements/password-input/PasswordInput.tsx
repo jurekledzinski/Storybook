@@ -30,7 +30,7 @@ export const PasswordInput = ({
           type={showPassword ? 'text' : 'password'}
           size={size}
           variant={variant}
-          className={['endIcon']}
+          className={['endIcon', 'noBorder']}
         />
       </InputWrapper>
     </div>

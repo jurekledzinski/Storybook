@@ -4,6 +4,7 @@ import { InputWrapper } from '../input/InputWrapper';
 import { TextInputProps } from './types';
 
 export const TextInput = ({
+  as = 'input',
   endIcon,
   isError,
   isPending,
@@ -32,13 +33,19 @@ export const TextInput = ({
         variant={variant}
       >
         <Input
+          as={as}
           label={label}
-          type={type}
           size={size}
           variant={variant}
-          {...(startIcon || endIcon || isError !== undefined || isPending
-            ? { className: [classStartIcon, classEndIcon].filter(Boolean) }
-            : {})}
+          {...(as === 'input' && { type })}
+          {...(as === 'textarea' && { cols: 4, rows: 6 })}
+          {...(classStartIcon
+            ? { className: [classStartIcon, 'noBorder'] }
+            : classEndIcon
+            ? { className: [classEndIcon, 'noBorder'] }
+            : classStartIcon && classEndIcon
+            ? { className: [classStartIcon, classEndIcon, 'noBorder'] }
+            : { className: ['noBorder'] })}
         />
       </InputWrapper>
     </div>

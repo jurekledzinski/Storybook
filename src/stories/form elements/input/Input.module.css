@@ -1,5 +1,3 @@
-/* Variants */
-
 .fieldset {
   position: relative;
   width: 100%;
@@ -42,24 +40,28 @@
 
 .input,
 .textarea {
+  display: grid;
   width: 100%;
   min-height: inherit;
   padding: 0 6px;
-  border: none;
   color: var(--color-text-primary);
   font-size: 14px;
+  border: 1px solid var(--color-black-700);
   transition: 200ms linear;
 }
 
-/* Font size when change size input */
-
-.fieldset.medium > .input {
-  font-size: 15px;
+.input.noBorder,
+.textarea.noBorder {
+  border: none;
 }
 
+.fieldset.medium > .input,
+.fieldset.medium > .textarea,
 .fieldset.large > .input,
-.fieldset.extra-large > .input {
-  font-size: 16px;
+.fieldset.large > .textarea,
+.fieldset.extra-large > .input,
+.fieldset.extra-large > .textarea {
+  font-size: 15px;
 }
 
 .input.outlined,
@@ -91,8 +93,6 @@
   font-size: 14px;
 }
 
-/* new styles */
-
 .legend.startIcon {
   left: -2px;
 }
@@ -118,7 +118,7 @@
 }
 
 .legend.contained {
-  top: 0px;
+  top: 2px;
 }
 
 .input:not(:placeholder-shown) + legend,
@@ -131,6 +131,16 @@
   color: var(--color-primary-700);
   font-size: 12px;
 }
+.input.large:not(:placeholder-shown) + legend,
+.input.large:focus + legend,
+.textarea.large:not(:placeholder-shown) + legend,
+.textarea.large:focus + legend,
+.input.extra-large:not(:placeholder-shown) + legend,
+.input.extra-large:focus + legend,
+.textarea.extra-large:not(:placeholder-shown) + legend,
+.textarea.extra-large:focus + legend {
+  font-size: 14px;
+}
 
 .input.underline:not(:placeholder-shown) + legend,
 .input.underline:focus + legend,
@@ -138,8 +148,6 @@
 .textarea.underline:focus + legend {
   top: -12px;
 }
-
-/* new styles */
 
 .input.contained:not(:placeholder-shown) + legend,
 .input.contained:focus + legend,
@@ -156,25 +164,15 @@
   background-color: transparent;
 }
 
-/* --- */
-
-/* new styles */
-
 .input.outlined.startIcon:not(:placeholder-shown) + legend,
 .input.outlined.startIcon:focus + legend {
   left: -26px;
 }
 
-/* --- */
-
-/* new styles */
-
 .input.underline.startIcon:not(:placeholder-shown) + legend,
 .input.underline.startIcon:focus + legend {
   left: -33px;
 }
-
-/* --- */
 
 .textarea {
   padding: 6px;
@@ -194,9 +192,24 @@
   left: 4px;
 }
 
-/* new styles */
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-primary-700);
+  outline: 1px solid var(--color-primary-700);
+}
 
-.input:focus {
+.input.contained:focus,
+.input.underline:focus,
+.textarea.contained:focus,
+.textarea.underline:focus {
+  outline: none;
+  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
+}
+
+/* Clear border with icon input wrapper */
+
+.input.noBorder:focus,
+.textarea.noBorder:focus {
   outline: none;
 }
 
