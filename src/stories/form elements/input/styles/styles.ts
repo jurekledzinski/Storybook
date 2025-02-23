@@ -33,6 +33,7 @@ export const getClassNamesInputWrapper = (
   ),
   statusIcon: classNames(
     stylesIcons.endIcon,
+    stylesIcons[variant],
     isError === true
       ? stylesIcons['inValid']
       : isError === false
