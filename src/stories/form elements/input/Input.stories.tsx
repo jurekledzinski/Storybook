@@ -36,6 +36,15 @@ export const Default: Story = {
       },
       if: { arg: 'as', eq: 'textarea' },
     },
+    isError: {
+      control: 'select',
+      options: ['none', 'true', 'false'],
+      mapping: {
+        none: undefined,
+        true: true,
+        false: false,
+      },
+    },
     rows: {
       control: {
         type: 'select',
@@ -71,7 +80,7 @@ export const Default: Story = {
   ],
   parameters: {
     controls: {
-      include: ['as', 'cols', 'rows', 'size', 'type', 'variant'],
+      include: ['as', 'cols', 'isError', 'rows', 'size', 'type', 'variant'],
     },
   },
 };

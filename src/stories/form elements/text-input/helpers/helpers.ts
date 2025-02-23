@@ -11,8 +11,6 @@ export const getInputClassNames = (
 ) => {
   const classes = ['noBorder'];
   if (startIcon) classes.push('startIcon');
-  if (isError) classes.push('inValid');
-  if (!isError && isError !== undefined) classes.push('valid');
   if (endIcon || isError !== undefined || isPending) classes.push('endIcon');
   return classes;
 };

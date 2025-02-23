@@ -10,6 +10,7 @@ export type ClassName =
 export type BaseInputProps<T> = {
   className?: ClassName;
   disabled?: boolean;
+  isError?: boolean;
   name?: string;
   ref?: React.LegacyRef<T>;
   onChange?: React.ChangeEventHandler<T>;

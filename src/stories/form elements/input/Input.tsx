@@ -4,13 +4,14 @@ import { InputProps, TextareaProps } from './types';
 export const Input = ({
   as = 'input',
   className,
+  isError,
   label,
   size,
   variant = 'basic',
   placeholder = '',
   ...props
 }: InputProps | TextareaProps) => {
-  const classes = getClassNamesInput(variant, size, className);
+  const classes = getClassNamesInput(variant, size, className, isError);
 
   if (as === 'textarea' && 'rows' in props && 'cols' in props) {
     return (
@@ -39,7 +40,6 @@ export const Input = ({
           className={classes.input}
           placeholder={placeholder}
           required
-          minLength={3}
         />
 
         {variant !== 'basic' && (

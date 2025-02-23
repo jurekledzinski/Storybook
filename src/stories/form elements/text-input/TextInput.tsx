@@ -31,6 +31,7 @@ export const TextInput = ({
       >
         <Input
           as={as}
+          isError={isError}
           label={label}
           size={size}
           variant={variant}

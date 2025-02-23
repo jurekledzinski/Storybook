@@ -14,7 +14,7 @@ export const getClassNamesInputWrapper = (
 ) => ({
   inputWrapper: classNames(
     stylesIcons.inputWrapper,
-    stylesIcons[variant as keyof typeof stylesIcons],
+    stylesIcons[variant] || '',
     isError === true
       ? stylesIcons['inValid']
       : isError === false
@@ -33,20 +33,30 @@ export const getClassNamesInputWrapper = (
   ),
   statusIcon: classNames(
     stylesIcons.endIcon,
-    isError === true ? stylesIcons['inValid'] : stylesIcons['valid']
+    isError === true
+      ? stylesIcons['inValid']
+      : isError === false
+      ? stylesIcons['valid']
+      : ''
   ),
 });
 
 export const getClassNamesInput = (
   variant: Variant = 'basic',
   size: Size = 'small',
-  className: ClassName
+  className: ClassName,
+  isError?: boolean
 ) => ({
   input: classNames(
     stylesInput.input,
     stylesInput[variant] || '',
     stylesInput[size] || '',
-    className ? className.map((i) => stylesInput[i] || i).join(' ') : ''
+    className ? className.map((i) => stylesInput[i] || i).join(' ') : '',
+    isError === true
+      ? stylesInput['inValid']
+      : isError === false
+      ? stylesInput['valid']
+      : ''
   ),
   fieldset: classNames(
     stylesInput.fieldset,
@@ -57,12 +67,22 @@ export const getClassNamesInput = (
     stylesInput.legend,
     stylesInput[variant] || '',
     stylesInput[size] || '',
-    className ? className.map((i) => stylesInput[i] || i).join(' ') : ''
+    className ? className.map((i) => stylesInput[i] || i).join(' ') : '',
+    isError === true
+      ? stylesInput['inValid']
+      : isError === false
+      ? stylesInput['valid']
+      : ''
   ),
   textarea: classNames(
     stylesInput.textarea,
     stylesInput[variant] || '',
     stylesInput[size] || '',
-    className ? className.map((i) => stylesInput[i] || i).join(' ') : ''
+    className ? className.map((i) => stylesInput[i] || i).join(' ') : '',
+    isError === true
+      ? stylesInput['inValid']
+      : isError === false
+      ? stylesInput['valid']
+      : ''
   ),
 });
