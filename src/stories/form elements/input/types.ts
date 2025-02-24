@@ -33,6 +33,7 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
 }
 
 export type InputWrapperProps = {
+  disabled?: boolean;
   children: React.ReactNode;
   endIcon?: React.ReactNode;
   isError?: boolean;
@@ -41,5 +42,6 @@ export type InputWrapperProps = {
   onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
   size?: 'small' | 'medium' | 'large' | 'extra-large';
   startIcon?: React.ReactNode;
+  readOnly?: boolean;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };

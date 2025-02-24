@@ -10,12 +10,8 @@ export const TextInput = ({
   isError,
   isPending,
   startIcon,
-  size,
-  label,
-  onClickEndIcon,
-  onClickStartIcon,
-  variant = 'basic',
   type = 'text',
+  ...props
 }: TextInputProps) => {
   return (
     <div className={styles.textInput}>
@@ -23,18 +19,12 @@ export const TextInput = ({
         endIcon={endIcon}
         isError={isError}
         isPending={isPending}
-        size={size}
         startIcon={startIcon}
-        onClickEndIcon={onClickEndIcon}
-        onClickStartIcon={onClickStartIcon}
-        variant={variant}
+        {...props}
       >
         <Input
           as={as}
           isError={isError}
-          label={label}
-          size={size}
-          variant={variant}
           {...getInputProps(as, type)}
           className={getInputClassNames(
             !!startIcon,
@@ -42,6 +32,7 @@ export const TextInput = ({
             isError,
             isPending
           )}
+          {...props}
         />
       </InputWrapper>
     </div>

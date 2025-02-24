@@ -111,3 +111,20 @@
   border-color: var(--color-negative-500);
   box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
 }
+
+/* Disabled */
+
+.inputWrapper.disabled {
+  border-color: var(--color-black-300);
+}
+
+.startIcon.disabled,
+.endIcon.disabled {
+  color: var(--color-black-400);
+  pointer-events: none;
+}
+
+.startIcon.readOnly,
+.endIcon.readOnly {
+  pointer-events: none;
+}

@@ -4,6 +4,7 @@ import { InputWrapperProps } from '../types';
 import { Loader } from '../../../feedbacks/loader/Loader';
 
 export const InputWrapper = ({
+  disabled,
   children,
   endIcon,
   isError,
@@ -12,9 +13,16 @@ export const InputWrapper = ({
   onClickStartIcon,
   size,
   startIcon,
+  readOnly,
   variant,
 }: InputWrapperProps) => {
-  const classes = getClassNamesInputWrapper(variant, size, isError);
+  const classes = getClassNamesInputWrapper(
+    variant,
+    size,
+    isError,
+    disabled,
+    readOnly
+  );
 
   return (
     <div className={classes.inputWrapper}>

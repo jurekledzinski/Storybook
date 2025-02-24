@@ -6,6 +6,9 @@ import { TextInput } from './TextInput';
 const meta: Meta<typeof TextInput> = {
   title: 'Components/Form elements/TextInput',
   component: TextInput,
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
@@ -24,6 +27,8 @@ export const Default: Story = {
     isError: undefined,
     onClickEndIcon: fn(),
     onClickStartIcon: fn(),
+    disabled: false,
+    readOnly: false,
   },
   argTypes: {
     as: {
@@ -77,7 +82,7 @@ export const Default: Story = {
     (Story) => (
       <form
         style={{
-          width: 'min(400px,100%)',
+          width: '400px',
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
@@ -92,12 +97,14 @@ export const Default: Story = {
     controls: {
       include: [
         'as',
+        'disabled',
         'endIcon',
         'isError',
         'isPending',
         'label',
         'size',
         'startIcon',
+        'readOnly',
         'type',
         'variant',
       ],

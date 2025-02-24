@@ -10,8 +10,7 @@ export const PasswordInput = ({
   size,
   isError,
   isPending,
-  label,
-  variant = 'basic',
+  ...props
 }: PasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -23,14 +22,14 @@ export const PasswordInput = ({
         isPending={isPending}
         size={size}
         onClickEndIcon={() => setShowPassword((prev) => !prev)}
-        variant={variant}
+        {...props}
       >
         <Input
-          label={label}
+          isError={isError}
           type={showPassword ? 'text' : 'password'}
           size={size}
-          variant={variant}
           className={['endIcon', 'noBorder']}
+          {...props}
         />
       </InputWrapper>
     </div>

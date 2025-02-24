@@ -1,4 +1,6 @@
 export type PasswordInputProps = {
+  disabled?: boolean;
+  readOnly?: boolean;
   endIcon?: React.ReactNode;
   isError?: boolean;
   isPending?: boolean;

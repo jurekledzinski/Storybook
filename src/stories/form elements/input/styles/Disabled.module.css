@@ -1,0 +1,12 @@
+.input:disabled,
+.textarea:disabled {
+  border-color: var(--color-black-300);
+  cursor: not-allowed;
+  color: var(--color-black-400);
+}
+
+.input:disabled + .legend,
+.textarea:disabled + .legend {
+  cursor: not-allowed;
+  color: var(--color-black-400);
+}

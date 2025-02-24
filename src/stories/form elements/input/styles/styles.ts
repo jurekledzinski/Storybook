@@ -10,7 +10,9 @@ type ClassName = BaseInputProps<HTMLInputElement>['className'];
 export const getClassNamesInputWrapper = (
   variant: Variant = 'basic',
   size: Size = 'small',
-  isError?: boolean
+  isError?: boolean,
+  disabled?: boolean,
+  readOnly?: boolean
 ) => ({
   inputWrapper: classNames(
     stylesIcons.inputWrapper,
@@ -19,26 +21,33 @@ export const getClassNamesInputWrapper = (
       ? stylesIcons['inValid']
       : isError === false
       ? stylesIcons['valid']
-      : ''
+      : '',
+    disabled === true ? stylesIcons['disabled'] : disabled === false ? '' : ''
   ),
   startIcon: classNames(
     stylesIcons.startIcon,
     stylesIcons[variant],
-    stylesIcons[size]
+    stylesIcons[size],
+    disabled === true ? stylesIcons['disabled'] : disabled === false ? '' : '',
+    readOnly === true ? stylesIcons['readOnly'] : readOnly === false ? '' : ''
   ),
   endIcon: classNames(
     stylesIcons.endIcon,
     stylesIcons[variant],
-    stylesIcons[size]
+    stylesIcons[size],
+    disabled === true ? stylesIcons['disabled'] : disabled === false ? '' : '',
+    readOnly === true ? stylesIcons['readOnly'] : readOnly === false ? '' : ''
   ),
   statusIcon: classNames(
     stylesIcons.endIcon,
     stylesIcons[variant],
+    stylesIcons[size],
     isError === true
       ? stylesIcons['inValid']
       : isError === false
       ? stylesIcons['valid']
-      : ''
+      : '',
+    disabled === true ? stylesIcons['disabled'] : disabled === false ? '' : ''
   ),
 });
 

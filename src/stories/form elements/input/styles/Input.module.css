@@ -1,3 +1,8 @@
+@import './Status.module.css';
+@import './Disabled.module.css';
+@import './Focus.module.css';
+@import './Variants.module.css';
+
 .fieldset {
   position: relative;
   width: 100%;
@@ -16,22 +21,6 @@
 
 .fieldset.extra-large {
   min-height: 34px;
-}
-
-.fieldset.contained::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 1.5px;
-  background-color: rgb(249, 249, 249);
-  z-index: -1;
-}
-
-.fieldset.contained {
-  padding: 16px 0 0;
 }
 
 .input,
@@ -60,26 +49,6 @@
   font-size: 15px;
 }
 
-.input.outlined,
-.textarea.outlined {
-  background-color: transparent;
-}
-
-.input.underline,
-.input.contained,
-.textarea.underline,
-.textarea.contained {
-  padding: initial;
-  background-color: transparent;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-}
-
-.input.contained {
-  padding: 0 6px;
-}
-
 .legend {
   position: absolute;
   top: 6px;
@@ -91,10 +60,6 @@
 
 .legend.startIcon {
   left: -2px;
-}
-
-.legend.contained.startIcon {
-  left: -26px;
 }
 
 .legend.medium {
@@ -109,105 +74,9 @@
   top: 9px;
 }
 
-.legend.underline {
-  left: -2px;
-}
-
-.legend.contained {
-  top: 2px;
-}
-
-.input:not(:placeholder-shown) + legend,
-.input:focus + legend,
-.textarea:not(:placeholder-shown) + legend,
-.textarea:focus + legend {
-  top: -9px;
-  z-index: 1;
-  background-color: white;
-  color: var(--color-primary-700);
-  font-size: 12px;
-}
-
-.input.large:not(:placeholder-shown) + legend,
-.input.large:focus + legend,
-.textarea.large:not(:placeholder-shown) + legend,
-.textarea.large:focus + legend,
-.input.extra-large:not(:placeholder-shown) + legend,
-.input.extra-large:focus + legend,
-.textarea.extra-large:not(:placeholder-shown) + legend,
-.textarea.extra-large:focus + legend {
-  font-size: 14px;
-}
-
-.input.underline:not(:placeholder-shown) + legend,
-.input.underline:focus + legend,
-.textarea.underline:not(:placeholder-shown) + legend,
-.textarea.underline:focus + legend {
-  top: -12px;
-}
-
-.input.contained:not(:placeholder-shown) + legend,
-.input.contained:focus + legend,
-.textarea.contained:not(:placeholder-shown) + legend,
-.textarea.contained:focus + legend {
-  top: 3px;
-  background-color: transparent;
-}
-
-.input.contained.startIcon:not(:placeholder-shown) + legend,
-.input.contained.startIcon:focus + legend,
-.textarea.contained.startIcon:not(:placeholder-shown) + legend,
-.textarea.contained.startIcon:focus + legend {
-  background-color: transparent;
-}
-
-.input.outlined.startIcon:not(:placeholder-shown) + legend,
-.input.outlined.startIcon:focus + legend {
-  left: -26px;
-}
-
-.input.underline.startIcon:not(:placeholder-shown) + legend,
-.input.underline.startIcon:focus + legend {
-  left: -33px;
-}
-
 .textarea {
   padding: 6px;
   resize: none;
-}
-
-.textarea.contained {
-  padding: 6px;
-}
-
-.textarea.underline {
-  padding: 6px 0;
-}
-
-.textarea.legend.contained {
-  top: 6px;
-  left: 4px;
-}
-
-.input:not(.noBorder):focus,
-.textarea:not(.noBorder):focus {
-  border-color: var(--color-primary-700);
-  outline: 1px solid var(--color-primary-700);
-}
-
-.input:not(.noBorder).contained:focus,
-.input:not(.noBorder).underline:focus,
-.textarea:not(.noBorder).contained:focus,
-.textarea:not(.noBorder).underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
-}
-
-/* Clear border with icon input wrapper */
-
-.input.noBorder:focus,
-.textarea.noBorder:focus {
-  outline: none;
 }
 
 .input.startIcon {
@@ -218,68 +87,6 @@
 .input.endIcon {
   padding-right: initial;
   border-right: none;
-}
-
-/* Status  */
-
-.legend.valid {
-  color: var(--color-success-400);
-}
-
-.legend.inValid {
-  color: var(--color-negative-500);
-}
-
-.input.valid,
-.textarea.valid {
-  border-color: var(--color-success-400);
-}
-
-.input.inValid,
-.textarea.inValid {
-  border-color: var(--color-negative-500);
-}
-
-.input.valid:not(:placeholder-shown) + legend,
-.input.valid:focus + legend,
-.textarea.valid:not(:placeholder-shown) + legend,
-.textarea.valid:focus + legend {
-  color: var(--color-success-400);
-}
-
-.input.inValid:not(:placeholder-shown) + legend,
-.input.inValid:focus + legend,
-.textarea.inValid:not(:placeholder-shown) + legend,
-.textarea.inValid:focus + legend {
-  color: var(--color-negative-500);
-}
-
-.input:not(.noBorder).valid:focus,
-.textarea:not(.noBorder).valid:focus {
-  border-color: var(--color-success-400);
-  outline: 1px solid var(--color-success-400);
-}
-
-.input:not(.noBorder).valid.contained:focus,
-.input:not(.noBorder).valid.underline:focus,
-.textarea:not(.noBorder).valid.contained:focus,
-.textarea:not(.noBorder).valid.underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
-}
-
-.input:not(.noBorder).inValid:focus,
-.textarea:not(.noBorder).inValid:focus {
-  border-color: var(--color-negative-500);
-  outline: 1px solid var(--color-negative-500);
-}
-
-.input:not(.noBorder).inValid.contained:focus,
-.input:not(.noBorder).inValid.underline:focus,
-.textarea:not(.noBorder).inValid.contained:focus,
-.textarea:not(.noBorder).inValid.underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
 }
 
 /* media min-width 575px */

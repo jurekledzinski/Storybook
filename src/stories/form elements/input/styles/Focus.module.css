@@ -1,0 +1,34 @@
+.input:not(:placeholder-shown) + legend,
+.input:focus + legend,
+.textarea:not(:placeholder-shown) + legend,
+.textarea:focus + legend {
+  top: -9px;
+  z-index: 1;
+  background-color: white;
+  color: var(--color-primary-700);
+  font-size: 12px;
+}
+
+.input.large:not(:placeholder-shown) + legend,
+.input.large:focus + legend,
+.textarea.large:not(:placeholder-shown) + legend,
+.textarea.large:focus + legend,
+.input.extra-large:not(:placeholder-shown) + legend,
+.input.extra-large:focus + legend,
+.textarea.extra-large:not(:placeholder-shown) + legend,
+.textarea.extra-large:focus + legend {
+  font-size: 14px;
+}
+
+/* When icons wrapper used */
+
+.input:not(.noBorder):focus,
+.textarea:not(.noBorder):focus {
+  border-color: var(--color-primary-700);
+  outline: 1px solid var(--color-primary-700);
+}
+
+.input.noBorder:focus,
+.textarea.noBorder:focus {
+  outline: none;
+}

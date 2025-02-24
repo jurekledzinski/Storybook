@@ -5,6 +5,9 @@ import { PasswordInput } from './PasswordInput';
 const meta: Meta<typeof PasswordInput> = {
   title: 'Components/Form elements/PasswordInput',
   component: PasswordInput,
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
@@ -20,6 +23,8 @@ export const Default: Story = {
     endIcon: <EyeSlash weight="fill" />,
     size: 'small',
     variant: 'basic',
+    disabled: false,
+    readOnly: false,
   },
   argTypes: {
     endIcon: {
@@ -58,7 +63,7 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <form style={{ width: 'min(400px,100%)' }} noValidate>
+      <form style={{ width: '400px' }} noValidate>
         <Story />
       </form>
     ),
@@ -66,10 +71,12 @@ export const Default: Story = {
   parameters: {
     controls: {
       include: [
+        'disabled',
         'endIcon',
         'isError',
         'isPending',
         'label',
+        'readOnly',
         'size',
         'startIcon',
         'type',

@@ -4,6 +4,9 @@ import { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof Input> = {
   title: 'Components/Form elements/Input',
   component: Input,
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
@@ -16,6 +19,8 @@ export const Default: Story = {
     variant: 'basic',
     type: 'text',
     as: 'input',
+    disabled: false,
+    readOnly: false,
   },
   beforeEach: (props) => {
     if (props.args.as === 'textarea' && !props.args.cols && !props.args.rows) {
@@ -72,7 +77,7 @@ export const Default: Story = {
   decorators: [
     (Story) => {
       return (
-        <form style={{ width: 'min(400px,100%)' }} noValidate>
+        <form style={{ minWidth: '400px' }} noValidate>
           <Story />
         </form>
       );
@@ -80,7 +85,17 @@ export const Default: Story = {
   ],
   parameters: {
     controls: {
-      include: ['as', 'cols', 'isError', 'rows', 'size', 'type', 'variant'],
+      include: [
+        'as',
+        'cols',
+        'disabled',
+        'isError',
+        'readOnly',
+        'rows',
+        'size',
+        'type',
+        'variant',
+      ],
     },
   },
 };

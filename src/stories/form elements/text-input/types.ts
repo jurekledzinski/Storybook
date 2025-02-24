@@ -1,5 +1,7 @@
 export type TextInputProps = {
   as: 'input' | 'textarea';
+  disabled?: boolean;
+  readOnly?: boolean;
   endIcon?: React.ReactNode;
   isError?: boolean;
   isPending?: boolean;
