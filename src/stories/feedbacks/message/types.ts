@@ -1,4 +1,4 @@
 export type MessageProps = {
-  variant: 'info' | 'secondary' | 'success' | 'error' | 'warning';
-  message: string;
+  children: React.ReactNode;
+  variant?: 'info' | 'secondary' | 'success' | 'error' | 'warning';
 };

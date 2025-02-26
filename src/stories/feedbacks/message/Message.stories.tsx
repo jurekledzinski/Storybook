@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Message>;
 
 export const Default: Story = {
   args: {
-    message: 'Example message',
+    children: 'Example message',
   },
   argTypes: {
     variant: {
