@@ -1,4 +1,4 @@
-import { dropZoneClassNames } from './styles/classnames';
+import { dropZoneClassNames } from './styles/classNames';
 import { DropZoneProps } from './types';
 import { useControlDrop } from './hooks/useControlDrop';
 import { useDropZone } from './hooks/useDropZone';
