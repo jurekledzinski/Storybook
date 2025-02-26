@@ -3,6 +3,6 @@
   flex-direction: column;
   gap: 0.25rem;
   width: 100%;
-  background-color: white;
-  /* surface color variable or something */
+  z-index: 0;
+  background-color: transparent;
 }
