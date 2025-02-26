@@ -2,8 +2,8 @@ import styles from './Message.module.css';
 import { classNames } from '../../../helpers/classNames';
 import { MessageProps } from '../types';
 
-type Color = MessageProps['color'];
+type Variant = MessageProps['variant'];
 
-export const messageClassNames = (color: Color = 'error') => ({
-  message: classNames(styles.message, styles[color]),
+export const messageClassNames = (variant: Variant = 'error') => ({
+  message: classNames(styles.message, styles[variant]),
 });

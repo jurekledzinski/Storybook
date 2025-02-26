@@ -16,7 +16,7 @@ export const Default: Story = {
     message: 'Example message',
   },
   argTypes: {
-    color: {
+    variant: {
       control: { type: 'select' },
       options: ['error', 'info', 'secondary', 'success', 'warning'],
     },
