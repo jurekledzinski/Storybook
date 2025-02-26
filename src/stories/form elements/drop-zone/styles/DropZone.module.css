@@ -8,6 +8,7 @@
   padding: 0.5rem;
   width: 100%;
   height: 150px;
+  transition: 300ms linear;
 }
 
 .dropZone.enter {
