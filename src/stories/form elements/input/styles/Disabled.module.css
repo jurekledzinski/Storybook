@@ -10,3 +10,13 @@
   cursor: not-allowed;
   color: var(--color-black-400);
 }
+
+.input.valid:disabled + .legend,
+.textarea.valid:disabled + .legend {
+  color: var(--color-black-400);
+}
+
+.input.inValid:disabled + .legend,
+.textarea.inValid:disabled + .legend {
+  color: var(--color-black-400);
+}
