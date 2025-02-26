@@ -63,8 +63,17 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <form style={{ width: '400px' }} noValidate>
-        <Story />
+      <form
+        style={{
+          width: '400px',
+          height: 400,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+        }}
+        noValidate
+      >
+        <Story /> <Story /> <Story /> <Story />
       </form>
     ),
   ],

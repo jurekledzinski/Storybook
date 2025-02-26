@@ -83,12 +83,16 @@ export const Default: Story = {
       <form
         style={{
           width: '400px',
+          height: 400,
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
         }}
         noValidate
       >
+        <Story />
+        <Story />
+        <Story />
         <Story />
       </form>
     ),
