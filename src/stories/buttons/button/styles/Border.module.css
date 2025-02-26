@@ -1,9 +1,5 @@
 /* border radius */
 
-.radius-none {
-  border-radius: none;
-}
-
 .radius-xs {
   border-radius: 1px;
 }
