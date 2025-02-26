@@ -10,7 +10,7 @@ export const Button = ({ ...rest }: LinkButtonProps | ButtonProps) => {
     disabled,
     fullWidth,
     isLoading,
-    radius = 'radius-none',
+    radius,
     size = 'medium',
     type = 'button',
     variant = 'contained',

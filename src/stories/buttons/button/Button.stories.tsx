@@ -7,7 +7,6 @@ const meta: Meta<typeof Button> = {
   component: Button,
   title: 'Components/Buttons/Button',
   args: {
-    radius: 'radius-none',
     color: 'primary',
     size: 'medium',
     variant: 'contained',

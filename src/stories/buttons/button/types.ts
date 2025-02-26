@@ -8,7 +8,6 @@ export type BaseButtonProps = {
   disabled?: boolean;
   fullWidth?: boolean;
   radius?:
-    | 'radius-none'
     | 'radius-xs'
     | 'radius-sm'
     | 'radius-md'
