@@ -1,0 +1,8 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  background-color: white;
+  /* surface color variable or something */
+}
