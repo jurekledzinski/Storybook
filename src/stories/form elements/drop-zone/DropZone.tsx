@@ -3,7 +3,7 @@ import { DropZoneProps } from './types';
 import { useControlDrop } from './hooks/useControlDrop';
 import { useDropZone } from './hooks/useDropZone';
 
-export const DropZone = ({ title, onDrop }: DropZoneProps) => {
+export const DropZone = ({ children, title, onDrop }: DropZoneProps) => {
   const { isEnter, refZone, onEnter, onLeave } = useDropZone();
   const { onDragEnter, onDragOver, onDragLeave } = useControlDrop({
     isEnter,
@@ -25,6 +25,7 @@ export const DropZone = ({ title, onDrop }: DropZoneProps) => {
       ref={refZone}
     >
       <h4 className={classes.title}>{title}</h4>
+      {children}
     </div>
   );
 };

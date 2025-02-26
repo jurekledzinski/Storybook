@@ -1,4 +1,7 @@
+import React from 'react';
+
 export type DropZoneProps = {
+  children?: React.ReactNode;
   title: string;
   onDrop?: React.DragEventHandler<HTMLDivElement>;
 };
