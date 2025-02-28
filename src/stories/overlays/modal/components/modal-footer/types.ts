@@ -7,5 +7,5 @@ export type ModalFooterProps = {
   onCancel?: MouseEventHandler<HTMLButtonElement>;
   onConfirm?: MouseEventHandler<HTMLButtonElement>;
   type?: 'button' | 'submit' | 'reset';
-  variant: Variant;
+  variant?: Variant;
 };

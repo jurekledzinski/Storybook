@@ -25,7 +25,7 @@ export const ModalFooter = ({
       <Button
         label={confirmText}
         variant="contained"
-        color={mapVariantToColor(variant)}
+        color={mapVariantToColor(variant!)}
         onClick={onConfirm}
         type={type}
       />
