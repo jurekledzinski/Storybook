@@ -1,35 +1,16 @@
-import { MouseEventHandler } from 'react';
+import { ModalHeaderProps } from './components/modal-header/types';
+import { ModalFooterProps } from './components/modal-footer/types';
 
-export type ModalProps = {
-  cancel?: string;
-  customStyle?: Partial<{
-    body: string;
-    buttonCancel: string;
-    buttonClose: string;
-    buttonConfirm: string;
-    footer: string;
-    iconClose: string;
-    header: string;
-    modalElement: string;
-    title: string;
-  }>;
-  confirm?: string;
-  children?: React.ReactNode;
-  isClose?: boolean;
-  isCancel?: boolean;
-  isPending?: boolean;
-  isSuccess?: boolean;
-  isOpen?: boolean;
-  onClose?: MouseEventHandler<HTMLButtonElement>;
-  onConfirm?: MouseEventHandler<HTMLButtonElement>;
-  onSuccess?: () => void;
-  typeConfirm?: 'button' | 'submit' | 'reset';
-  title: string;
-};
+export type UseControlModalProps = Partial<{
+  isOpen: boolean;
+  isPending: boolean;
+  isSuccess: boolean;
+  onSuccess: () => void;
+}>;
 
-export type UseControlModalProps = {
-  isOpen?: boolean;
-  isPending?: boolean;
-  isSuccess?: boolean;
-  onSuccess?: () => void;
-};
+export interface ModalProps
+  extends ModalHeaderProps,
+    ModalFooterProps,
+    UseControlModalProps {
+  children: React.ReactNode;
+}
