@@ -10,91 +10,23 @@
   will-change: opacity, transform;
 }
 
-.modalEnter {
+.enter {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-.modalEnterActive {
+.enterActive {
   opacity: 1;
   transform: translate(-50%, -50%);
   transition: opacity 300ms, transform 300ms;
 }
 
-.modalExit {
+.exit {
   opacity: 1;
 }
 
-.modalExitActive {
+.exitActive {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.9);
   transition: opacity 300ms, transform 300ms;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.75rem 0.75rem;
-  background-color: var(--color-primary-700);
-}
-
-.title {
-  color: var(--color-text-white);
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.body {
-  padding: 1rem 0.75rem 0;
-  color: var(--color-text-primary);
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  padding: 0.75rem;
-}
-
-.buttonClose {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.iconClose {
-  transition: 300ms linear;
-}
-
-.iconClose:hover {
-  filter: brightness(0.9);
-  /* Zmiana koloru ikon w @phosphor-icons/react to fill: red*/
-  /* fill: red; */
-}
-
-/* Stories feedback */
-
-.headerDelete {
-  background-color: var(--color-negative-500);
-}
-
-.headerWarning {
-  background-color: var(--color-warning-900);
-}
-
-.headerSuccess {
-  background-color: var(--color-success-400);
-}
-
-.headerInfo {
-  background-color: var(--color-info-700);
 }
