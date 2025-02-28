@@ -1,7 +1,8 @@
+import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Meta, StoryObj } from '@storybook/react';
 import { Modal } from './Modal';
-import { useControlModal } from './useControlModal';
-import styles from './Modal.module.css';
+import { useControlModal } from './hooks/useControlModal';
 
 const meta: Meta<typeof Modal> = {
   component: Modal,
@@ -12,8 +13,23 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
+  args: {
+    confirmText: 'Confirm',
+    isOpen: false,
+    isPending: false,
+    isSuccess: false,
+    title: 'Modal title',
+    variant: 'delete',
+  },
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['delete', 'info', 'neutral', 'primary', 'success', 'warning'],
+    },
+  },
   decorators: [
-    (Story) => {
+    (Story, context) => {
+      const { args } = context;
       const { onClose, onOpen, isOpen } = useControlModal();
 
       return (
@@ -21,114 +37,34 @@ export const Default: Story = {
           <button onClick={onOpen}>Show Modal</button>
           <Story
             args={{
-              children: <>Example text</>,
-              isOpen,
+              children: <div>Are you sure you want confirm it?</div>,
+              isOpen: isOpen,
+              isPending: args.isPending,
+              isSuccess: args.isSuccess,
+              title: args.title,
               onClose,
-              title: 'Example title',
+              confirmText: args.confirmText,
+              onCancel: onClose,
+              variant: args.variant,
+              onSuccess: fn(() => {
+                action('onSuccess')('Submit form with success');
+              }),
             }}
           />
         </div>
       );
     },
   ],
-};
-
-export const Delete: Story = {
-  decorators: [
-    (Story) => {
-      const { onClose, onOpen, isOpen } = useControlModal();
-
-      return (
-        <div>
-          <button onClick={onOpen}>Show modal delete</button>
-          <Story
-            args={{
-              children: <>Example text</>,
-              isOpen,
-              onClose,
-              title: 'Example title',
-              customStyle: {
-                header: styles.headerDelete,
-              },
-            }}
-          />
-        </div>
-      );
+  parameters: {
+    controls: {
+      include: [
+        'confirmText',
+        'isOpen',
+        'isPending',
+        'isSuccess',
+        'title',
+        'variant',
+      ],
     },
-  ],
-};
-
-export const Warning: Story = {
-  decorators: [
-    (Story) => {
-      const { onClose, onOpen, isOpen } = useControlModal();
-
-      return (
-        <div>
-          <button onClick={onOpen}>Show modal warning</button>
-          <Story
-            args={{
-              children: <>Example text</>,
-              isOpen,
-              onClose,
-              title: 'Example title',
-              customStyle: {
-                header: styles.headerWarning,
-              },
-            }}
-          />
-        </div>
-      );
-    },
-  ],
-};
-
-export const Success: Story = {
-  decorators: [
-    (Story) => {
-      const { onClose, onOpen, isOpen } = useControlModal();
-
-      return (
-        <div>
-          <button onClick={onOpen}>Show modal success</button>
-          <Story
-            args={{
-              children: <>Example text</>,
-              isOpen,
-              onClose,
-              title: 'Example title',
-              customStyle: {
-                header: styles.headerSuccess,
-              },
-            }}
-          />
-        </div>
-      );
-    },
-  ],
-};
-
-export const Info: Story = {
-  decorators: [
-    (Story) => {
-      const { onClose, onOpen, isOpen } = useControlModal();
-
-      return (
-        <div>
-          <button onClick={onOpen}>Show modal info</button>
-          <Story
-            args={{
-              children: <>Example text</>,
-              isOpen,
-              onClose,
-              title: 'Example title',
-              customStyle: {
-                header: styles.headerInfo,
-              },
-            }}
-          />
-        </div>
-      );
-    },
-  ],
+  },
 };
