@@ -7,6 +7,8 @@ export const ButtonGroup = ({
   fullWidth = false,
   orientation = 'row',
   spacing = 'none',
+  marginBottom,
+  marginTop,
 }: ButtonGroupProps) => {
   const buttonGroupClassNames = classNames(
     styles.buttonGroup,
@@ -20,6 +22,7 @@ export const ButtonGroup = ({
       aria-label="Button group"
       className={buttonGroupClassNames}
       role="group"
+      style={{ marginTop, marginBottom }}
     >
       {children}
     </div>
