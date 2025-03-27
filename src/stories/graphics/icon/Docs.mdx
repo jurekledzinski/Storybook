@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/blocks';
-import { CloudSun } from '@phosphor-icons/react';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import * as IconStories from './Icon.stories';
 
@@ -16,7 +16,7 @@ Here’s a list of the props for the `Icon` component:
 ```js
 {
   className?: string;
-  icon: IconElement<Omit<IconProps, 'icon'>>;
+  icon: React.ElementType | IconDefinition;
   alt?: string;
   color?: string;
   size?: string | number;
@@ -28,7 +28,7 @@ Here’s a list of the props for the `Icon` component:
 #### Example usage `Icon`
 
 ```tsx
-<Icon icon={CloudSun} />
+<Icon icon={faCheckCircle} />
 ```
 
 #### Preview `Icon`

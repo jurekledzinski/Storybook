@@ -1,8 +1,5 @@
-import type { IconProps as PropsIcon } from '@phosphor-icons/react';
+import { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
-export type IconElement<T> = React.ElementType<T>;
-
-export interface IconProps extends PropsIcon {
-  className?: string;
-  icon: IconElement<Omit<IconProps, 'icon'>>;
+export interface IconProps extends FontAwesomeIconProps {
+  color?: 'info' | 'negative' | 'primary' | 'secondary' | 'success' | 'warning';
 }

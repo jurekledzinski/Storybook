@@ -2,11 +2,9 @@ import { getCssVariable } from '../../helpers/cssVariables';
 import { Icon } from './Icon';
 import { Meta, StoryObj } from '@storybook/react';
 import {
-  ArrowSquareUpRight,
-  XSquare,
-  CloudSun,
-  InstagramLogo,
-} from '@phosphor-icons/react';
+  faCheckCircle,
+  faExclamationCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
@@ -18,10 +16,10 @@ type Story = StoryObj<typeof Icon>;
 
 export const Default: Story = {
   args: {
-    color: getCssVariable('--color-primary-700'),
-    icon: CloudSun,
-    size: 24,
-    weight: 'fill',
+    // color: getCssVariable('--color-primary-700'),
+    color: 'primary',
+    icon: faCheckCircle,
+    size: '1x',
   },
   argTypes: {
     color: {
@@ -47,17 +45,11 @@ export const Default: Story = {
     },
     icon: {
       control: { type: 'select' },
-      options: ['arrow square', 'cloud sun', 'instagram logo', 'x square'],
+      options: ['faCheckCircle', 'faExclamationCircle'],
       mapping: {
-        'arrow square': ArrowSquareUpRight,
-        'cloud sun': CloudSun,
-        'instagram logo': InstagramLogo,
-        'x square': XSquare,
+        faCheckCircle: faCheckCircle,
+        faExclamationCircle: faExclamationCircle,
       },
-    },
-    weight: {
-      control: { type: 'select' },
-      options: ['thin', 'regular', 'light', 'fill', 'duotone', 'bold'],
     },
   },
 };
