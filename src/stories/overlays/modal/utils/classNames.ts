@@ -10,11 +10,9 @@ export const modalClassNames = () => ({
   modalElement: stylesModal.modalElement,
 });
 
-export const modalHeaderClassNames = (variant: Variant = 'primary') => ({
-  header: classNames(stylesHeader.header, stylesHeader[variant]),
-  title: classNames(stylesHeader.title, stylesHeader[variant]),
-  buttonClose: stylesHeader.buttonClose,
-  iconClose: stylesHeader.iconClose,
+export const modalHeaderClassNames = (variant: Variant) => ({
+  header: classNames(stylesHeader.header, stylesHeader[variant!]),
+  title: classNames(stylesHeader.title, stylesHeader[variant!]),
 });
 
 export const modalBodyClassNames = () => ({

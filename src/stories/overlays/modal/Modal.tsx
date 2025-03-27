@@ -26,6 +26,8 @@ export const Modal = ({
   const nodeRef = useRef(null);
   const [showBackdrop, setShowBackdrop] = useState(false);
 
+  console.log(nodeRef);
+
   useCloseModalOnSuccess({
     isOpen,
     isPending,

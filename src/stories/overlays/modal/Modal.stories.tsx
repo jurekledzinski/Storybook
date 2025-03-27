@@ -18,13 +18,13 @@ export const Default: Story = {
     isOpen: false,
     isPending: false,
     isSuccess: false,
-    title: 'Modal title',
-    variant: 'delete',
+    title: 'Delete account',
+    variant: 'negative',
   },
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['delete', 'info', 'neutral', 'primary', 'success', 'warning'],
+      options: ['negative', 'primary', 'secondary', 'success', 'warning'],
     },
   },
   decorators: [

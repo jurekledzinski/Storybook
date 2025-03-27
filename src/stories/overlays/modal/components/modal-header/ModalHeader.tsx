@@ -1,12 +1,22 @@
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { IconButton } from '../../../../buttons/icon-button/IconButton';
 import { modalHeaderClassNames } from '../../utils/classNames';
 import { ModalHeaderProps } from './types';
 
-export const ModalHeader = ({ title, variant }: ModalHeaderProps) => {
-  const classes = modalHeaderClassNames(variant);
+export const ModalHeader = ({ title, onClose, variant }: ModalHeaderProps) => {
+  const classes = modalHeaderClassNames(variant!);
 
   return (
     <header className={classes.header}>
-      <h5 className={classes.title}>{title}</h5>
+      <h3 className={classes.title}>{title}</h3>
+      <IconButton
+        icon={faXmark}
+        color={variant}
+        onClick={onClose}
+        size="size-xs"
+        variant={'contained'}
+        contrast={true}
+      />
     </header>
   );
 };

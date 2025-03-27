@@ -1,12 +1,6 @@
 import { MouseEventHandler } from 'react';
-
-export type Variant =
-  | 'delete'
-  | 'info'
-  | 'neutral'
-  | 'primary'
-  | 'success'
-  | 'warning';
+import { IconBaseButtonProps } from '../../../../buttons/icon-button/types';
+export type Variant = IconBaseButtonProps['color'];
 
 export type ModalHeaderProps = {
   title: string;
