@@ -1,8 +1,12 @@
-import { File, FileArrowUp, FilePlus } from '@phosphor-icons/react';
 import { FileInput } from './FileInput';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import {
+  faFile,
+  faFileAudio,
+  faFileArchive,
+} from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof FileInput> = {
   title: 'Components/Form elements/FileInput',
@@ -11,7 +15,7 @@ const meta: Meta<typeof FileInput> = {
     label: 'Upload file',
     variant: 'contained',
     color: 'primary',
-    size: 'medium',
+    size: 'size-sm',
     iconStart: undefined,
     iconEnd: undefined,
     isLoading: false,
@@ -43,22 +47,22 @@ const meta: Meta<typeof FileInput> = {
     },
     iconStart: {
       control: { type: 'select' },
-      options: ['none', 'filePlus', 'file', 'fileArrowUp'],
+      options: ['none', 'faFile', 'faFileAudio', 'faFileArchive'],
       mapping: {
         none: undefined,
-        filePlus: FilePlus,
-        file: File,
-        fileArrowUp: FileArrowUp,
+        faFile: faFile,
+        faFileAudio: faFileAudio,
+        faFileArchive: faFileArchive,
       },
     },
     iconEnd: {
       control: { type: 'select' },
-      options: ['none', 'filePlus', 'file', 'fileArrowUp'],
+      options: ['none', 'faFile', 'faFileAudio', 'faFileArchive'],
       mapping: {
         none: undefined,
-        filePlus: FilePlus,
-        file: File,
-        fileArrowUp: FileArrowUp,
+        faFile: faFile,
+        faFileAudio: faFileAudio,
+        faFileArchive: faFileArchive,
       },
     },
     radius: {
@@ -70,14 +74,11 @@ const meta: Meta<typeof FileInput> = {
         'radius-md',
         'radius-lg',
         'radius-xl',
-        'radius-x2',
-        'radius-x3',
-        'radius-full',
       ],
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     variant: {
       control: { type: 'select' },

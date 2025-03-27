@@ -7,7 +7,7 @@ export const FileInput = ({
   label,
   multiple,
   name,
-  size = 'small',
+  size = 'size-sm',
   variant = 'contained',
   onChange,
   ref,
