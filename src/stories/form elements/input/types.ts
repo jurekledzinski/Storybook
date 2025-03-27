@@ -1,14 +1,14 @@
 import React from 'react';
+import { Icon } from '../../types/ui';
 
-export type ClassName =
-  | ['startIcon']
-  | ['endIcon']
-  | ['startIcon', 'endIcon']
-  | ['endIcon', 'startIcon']
-  | string[];
+// export type ClassName =
+//   | ['startIcon']
+//   | ['endIcon']
+//   | ['startIcon', 'endIcon']
+//   | ['endIcon', 'startIcon']
+//   | string[];
 
 export type BaseInputProps<T> = {
-  className?: ClassName;
   disabled?: boolean;
   isError?: boolean;
   name?: string;
@@ -16,7 +16,7 @@ export type BaseInputProps<T> = {
   onChange?: React.ChangeEventHandler<T>;
   placeholder?: string;
   readOnly?: boolean;
-  size?: 'small' | 'medium' | 'large' | 'extra-large';
+  size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
   label: string;
 };
@@ -35,13 +35,13 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
 export type InputWrapperProps = {
   disabled?: boolean;
   children: React.ReactNode;
-  endIcon?: React.ReactNode;
+  endIcon?: Icon;
   isError?: boolean;
   isPending?: boolean;
   onClickEndIcon?: React.MouseEventHandler<HTMLSpanElement>;
   onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
-  size?: 'small' | 'medium' | 'large' | 'extra-large';
-  startIcon?: React.ReactNode;
+  size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
+  startIcon?: Icon;
   readOnly?: boolean;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };

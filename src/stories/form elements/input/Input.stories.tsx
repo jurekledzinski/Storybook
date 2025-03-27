@@ -62,7 +62,7 @@ export const Default: Story = {
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'extra-large'],
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     type: {
       control: { type: 'select' },
@@ -77,7 +77,11 @@ export const Default: Story = {
   decorators: [
     (Story) => {
       return (
-        <form style={{ minWidth: '400px' }} noValidate>
+        <form
+          style={{ minWidth: '400px' }}
+          onSubmit={(e) => e.preventDefault()}
+          noValidate
+        >
           <Story />
         </form>
       );

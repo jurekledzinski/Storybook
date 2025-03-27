@@ -1,9 +1,9 @@
 .inputWrapper {
   display: flex;
   position: relative;
-  width: 100%;
+  width: inherit;
+  min-height: 26px;
   border: 1px solid var(--color-black-700);
-  transition: 200ms linear;
 }
 
 .inputWrapper:focus-within {
@@ -39,7 +39,10 @@
 .endIcon {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 14px;
+  /* width: 2rem; */
+  /* min-height: inherit; */
   padding: 6px 8px;
 }
 
@@ -52,23 +55,23 @@
 
 /* Size icons */
 
-.startIcon.small,
-.endIcon.small {
+.startIcon.size-xs,
+.endIcon.size-xs {
   font-size: 14px;
 }
 
-.startIcon.medium,
-.endIcon.medium {
+.startIcon.size-sm,
+.endIcon.size-sm {
+  font-size: 14px;
+}
+
+.startIcon.size-md,
+.endIcon.size-md {
   font-size: 15px;
 }
 
-.startIcon.large,
-.endIcon.large {
-  font-size: 16px;
-}
-
-.startIcon.extra-large,
-.endIcon.extra-large {
+.startIcon.size-lg,
+.endIcon.size-lg {
   font-size: 16px;
 }
 

@@ -1,7 +1,11 @@
-import { CheckCircle, WarningCircle } from '@phosphor-icons/react';
-import { getClassNamesInputWrapper } from '../styles/styles';
+import { getClassNamesInputWrapper } from '../utils/classNames';
+import { Icon } from '../../../graphics/icon/Icon';
 import { InputWrapperProps } from '../types';
 import { Loader } from '../../../feedbacks/loader/Loader';
+import {
+  faCheckCircle,
+  faExclamationCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const InputWrapper = ({
   disabled,
@@ -28,7 +32,7 @@ export const InputWrapper = ({
     <div className={classes.inputWrapper}>
       {startIcon && (
         <span className={classes.startIcon} onClick={onClickStartIcon}>
-          {startIcon}
+          <Icon icon={startIcon} size="1x" />
         </span>
       )}
 
@@ -36,22 +40,22 @@ export const InputWrapper = ({
 
       {isPending ? (
         <span className={classes.endIcon}>
-          <Loader sizeSchema="small" />
+          <Loader sizeSchema="size-sm" />
         </span>
       ) : endIcon && isError === undefined ? (
         <span className={classes.endIcon} tabIndex={0} onClick={onClickEndIcon}>
-          {endIcon}
+          <Icon icon={endIcon} size="1x" />
         </span>
       ) : null}
 
       {isError !== undefined && !isPending ? (
         isError ? (
           <span className={classes.statusIcon}>
-            <WarningCircle size={16} weight="fill" />
+            <Icon icon={faExclamationCircle} size="1x" />
           </span>
         ) : (
           <span className={classes.statusIcon}>
-            <CheckCircle size={16} weight="fill" />
+            <Icon icon={faCheckCircle} size="1x" />
           </span>
         )
       ) : null}
