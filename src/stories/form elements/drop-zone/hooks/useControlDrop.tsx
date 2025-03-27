@@ -12,9 +12,7 @@ export const useControlDrop = ({
     if (!isEnter) onEnter();
   };
 
-  const onDragEnter = (e: Event) => {
-    e.preventDefault();
-  };
+  const onDragEnter = (e: Event) => e.preventDefault();
 
   const onDragLeave = (e: Event) => {
     e.preventDefault();
