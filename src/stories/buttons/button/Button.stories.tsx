@@ -1,14 +1,14 @@
 import { Button } from './Button';
 import { fn } from '@storybook/test';
 import { Meta, StoryObj } from '@storybook/react';
-import { Smiley, Sun, XSquare } from '@phosphor-icons/react';
+import { faCheck, faXmark, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof Button> = {
   component: Button,
   title: 'Components/Buttons/Button',
   args: {
     color: 'primary',
-    size: 'medium',
+    size: 'size-md',
     variant: 'contained',
     iconStart: undefined,
     iconEnd: undefined,
@@ -38,41 +38,37 @@ const meta: Meta<typeof Button> = {
     },
     iconStart: {
       control: { type: 'select' },
-      options: ['none', 'xsquare', 'smiley', 'sun'],
+      options: ['none', 'faXmark', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
-        xsquare: XSquare,
-        smiley: Smiley,
-        sun: Sun,
+        faXmark: faXmark,
+        faCheck: faCheck,
+        faSun: faSun,
       },
     },
     iconEnd: {
       control: { type: 'select' },
-      options: ['none', 'xsquare', 'smiley', 'sun'],
+      options: ['none', 'faXmark', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
-        xsquare: XSquare,
-        smiley: Smiley,
-        sun: Sun,
+        faXmark: faXmark,
+        faCheck: faCheck,
+        faSun: faSun,
       },
     },
     radius: {
       control: { type: 'select' },
       options: [
-        'radius-none',
         'radius-xs',
         'radius-sm',
         'radius-md',
         'radius-lg',
         'radius-xl',
-        'radius-x2',
-        'radius-x3',
-        'radius-full',
       ],
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     variant: {
       control: { type: 'select' },

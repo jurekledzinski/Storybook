@@ -1,19 +1,25 @@
 /* sizes */
 
-.small {
-  max-height: 28px;
+.size-xs {
+  /* max-height: 26px; */
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.size-sm {
+  /* max-height: 28px; */
   padding: 6px 12px;
   font-size: 12px;
 }
 
-.medium {
-  max-height: 30px;
+.size-md {
+  /* max-height: 30px; */
   padding: 6px 12px;
   font-size: 14px;
 }
 
-.large {
-  max-height: 36px;
+.size-lg {
+  /* max-height: 36px; */
   padding: 8px 16px;
   font-size: 16px;
 }

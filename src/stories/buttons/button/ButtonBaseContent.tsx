@@ -3,12 +3,6 @@ import { ButtonBaseContentProps } from './types';
 import { Icon } from '../../graphics/icon/Icon';
 import { Loader } from '../../feedbacks/loader/Loader';
 
-const sizesSchema = {
-  small: 16,
-  medium: 16,
-  large: 18,
-};
-
 export const ButtonBaseContent = ({
   isLoading,
   iconEnd,
@@ -20,15 +14,12 @@ export const ButtonBaseContent = ({
     <>
       {isLoading && iconStart && !iconEnd ? (
         <span className={styles.iconStart}>
-          <Loader size={sizesSchema[size as keyof typeof size]} />
+          <Loader sizeSchema={size} />
         </span>
       ) : (
         iconStart && (
           <span className={styles.iconStart}>
-            <Icon
-              icon={iconStart}
-              size={sizesSchema[size as keyof typeof sizesSchema]}
-            />
+            <Icon icon={iconStart} size="1x" />
           </span>
         )
       )}
@@ -36,7 +27,7 @@ export const ButtonBaseContent = ({
       {isLoading && !iconStart && !iconEnd ? (
         <>
           <span className={styles.iconCenter}>
-            <Loader size={sizesSchema[size as keyof typeof size]} />
+            <Loader sizeSchema={size} />
           </span>
           <span className={styles.label}>{label}</span>
         </>
@@ -46,15 +37,12 @@ export const ButtonBaseContent = ({
 
       {isLoading && iconEnd ? (
         <span className={styles.iconEnd}>
-          <Loader size={sizesSchema[size as keyof typeof size]} />
+          <Loader sizeSchema={size} />
         </span>
       ) : (
         iconEnd && (
           <span className={styles.iconEnd}>
-            <Icon
-              icon={iconEnd}
-              size={sizesSchema[size as keyof typeof sizesSchema]}
-            />
+            <Icon icon={iconEnd} size="1x" />
           </span>
         )
       )}

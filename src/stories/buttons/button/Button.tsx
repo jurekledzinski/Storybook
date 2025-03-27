@@ -1,50 +1,32 @@
-import styles from './styles/Button.module.css';
 import { ButtonBaseContent } from './ButtonBaseContent';
 import { ButtonProps, LinkButtonProps } from './types';
-import { classNames } from '../../helpers/classNames';
+import { getClassButton } from './utils/classNames';
+import { formatProps } from './utils/formatProps';
 
-export const Button = ({ ...rest }: LinkButtonProps | ButtonProps) => {
-  const {
-    border = 'border-xs',
-    color = 'primary',
-    disabled,
-    fullWidth,
-    isLoading,
-    radius,
-    size = 'medium',
-    type = 'button',
-    variant = 'contained',
-    iconStart,
-    iconEnd,
-    onClick,
-    label,
-    ...props
-  } = rest;
-  const buttonClassNames = classNames(
-    styles.button,
-    styles[color as keyof typeof styles],
-    styles[size as keyof typeof styles],
-    styles[variant as keyof typeof styles],
-    styles[radius as keyof typeof styles],
-    styles[border as keyof typeof styles],
-    fullWidth ? styles.fullWidth : '',
-    disabled || isLoading ? styles.disabled : ''
-  );
+export const Button = ({
+  iconStart,
+  iconEnd,
+  label,
+  ...props
+}: ButtonProps | LinkButtonProps) => {
+  const { button, rest } = formatProps(props);
+  const classElement = getClassButton(button);
 
-  if ('href' in props) {
+  if ('href' in rest) {
     return (
       <a
         aria-label="Link button"
         role="link"
-        className={buttonClassNames}
-        {...(disabled || isLoading ? {} : { href: props.href })}
+        className={classElement}
+        {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
+        {...rest}
       >
         <ButtonBaseContent
           label={label}
           iconEnd={iconEnd}
           iconStart={iconStart}
-          isLoading={isLoading}
-          size={size}
+          isLoading={button.isLoading}
+          size={button.size}
         />
       </a>
     );
@@ -52,18 +34,17 @@ export const Button = ({ ...rest }: LinkButtonProps | ButtonProps) => {
 
   return (
     <button
-      className={buttonClassNames}
-      {...props}
-      disabled={disabled || isLoading}
-      onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
-      type={type}
+      aria-label="Button"
+      className={classElement}
+      disabled={button.disabled || button.isLoading}
+      {...rest}
     >
       <ButtonBaseContent
         label={label}
         iconEnd={iconEnd}
         iconStart={iconStart}
-        isLoading={isLoading}
-        size={size}
+        isLoading={button.isLoading}
+        size={button.size}
       />
     </button>
   );

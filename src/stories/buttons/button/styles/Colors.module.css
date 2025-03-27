@@ -56,3 +56,30 @@
   background-color: var(--color-warning-1000);
   border-color: var(--color-warning-1000);
 }
+
+/* Contrast colors */
+
+.negative-contrast {
+  background-color: var(--color-negative-700);
+  border-color: var(--color-negative-700);
+}
+
+.primary-contrast {
+  background-color: var(--color-primary-900);
+  border-color: var(--color-primary-900);
+}
+
+.secondary-contrast {
+  background-color: var(--color-secondary-600);
+  border-color: var(--color-secondary-600);
+}
+
+.success-contrast {
+  background-color: var(--color-success-600);
+  border-color: var(--color-success-600);
+}
+
+.warning-contrast {
+  background-color: var(--color-warning-1100);
+  border-color: var(--color-warning-1100);
+}
