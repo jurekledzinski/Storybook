@@ -1,10 +1,14 @@
 import { Backdrop } from './Backdrop';
 import { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { useState } from 'react';
 
 const meta: Meta<typeof Backdrop> = {
   component: Backdrop,
   title: 'Components/Overlays/Backdrop',
+  args: {
+    onClick: fn(),
+  },
 };
 export default meta;
 
@@ -13,6 +17,11 @@ type Story = StoryObj<typeof Backdrop>;
 export const Default: Story = {
   args: {
     open: true,
+  },
+  parameters: {
+    controls: {
+      include: ['open'],
+    },
   },
 };
 
@@ -28,4 +37,9 @@ export const State: Story = {
       );
     },
   ],
+  parameters: {
+    controls: {
+      include: [],
+    },
+  },
 };
