@@ -19,24 +19,24 @@
 
 /* Sizes Schema */
 
-.small {
+.size-xs {
   width: 16px;
   height: 16px;
 }
 
-.medium {
-  width: 24px;
-  height: 24px;
+.size-sm {
+  width: 16px;
+  height: 16px;
 }
 
-.large {
-  width: 28px;
-  height: 28px;
+.size-md {
+  width: 16px;
+  height: 16px;
 }
 
-.extra-large {
-  width: 56px;
-  height: 56px;
+.size-lg {
+  width: 18px;
+  height: 18px;
 }
 
 /* Position */
