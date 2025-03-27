@@ -1,4 +1,8 @@
-import { Envelope, MagnifyingGlass, Sun, XCircle } from '@phosphor-icons/react';
+import {
+  faCheckCircle,
+  faExclamationCircle,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons';
 import { fn } from '@storybook/test';
 import { Meta, StoryObj } from '@storybook/react';
 import { TextInput } from './TextInput';
@@ -19,9 +23,7 @@ export const Default: Story = {
   args: {
     label: 'Name',
     isPending: false,
-    startIcon: '',
-    endIcon: '',
-    size: 'small',
+    size: 'size-sm',
     type: 'text',
     variant: 'basic',
     isError: undefined,
@@ -37,26 +39,26 @@ export const Default: Story = {
     },
     endIcon: {
       control: 'select',
-      options: ['none', 'magnifyingGlass', 'xCircle', 'sun'],
+      options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
       mapping: {
         none: undefined,
-        magnifyingGlass: <MagnifyingGlass weight="bold" />,
-        xCircle: <XCircle weight="fill" />,
-        sun: <Sun weight="fill" />,
+        faCheckCircle: faCheckCircle,
+        faExclamationCircle: faExclamationCircle,
+        faCheck: faCheck,
       },
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'extra-large'],
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     startIcon: {
       control: 'select',
-      options: ['none', 'magnifyingGlass', 'envelope', 'sun'],
+      options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
       mapping: {
         none: undefined,
-        magnifyingGlass: <MagnifyingGlass weight="bold" />,
-        envelope: <Envelope weight="regular" />,
-        sun: <Sun weight="fill" />,
+        faCheckCircle: faCheckCircle,
+        faExclamationCircle: faExclamationCircle,
+        faCheck: faCheck,
       },
     },
     isError: {
@@ -88,6 +90,7 @@ export const Default: Story = {
           flexDirection: 'column',
           gap: '1rem',
         }}
+        onSubmit={(e) => e.preventDefault()}
         noValidate
       >
         <Story />

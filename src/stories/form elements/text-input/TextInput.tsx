@@ -1,5 +1,5 @@
 import styles from './TextInput.module.css';
-import { getInputClassNames, getInputProps } from './helpers/helpers';
+import { getInputProps } from './helpers/helpers';
 import { Input } from '../input/Input';
 import { InputWrapper } from '../input/components/InputWrapper';
 import { TextInputProps } from './types';
@@ -11,6 +11,8 @@ export const TextInput = ({
   isPending,
   startIcon,
   type = 'text',
+  onClickEndIcon,
+  onClickStartIcon,
   ...props
 }: TextInputProps) => {
   return (
@@ -20,20 +22,11 @@ export const TextInput = ({
         isError={isError}
         isPending={isPending}
         startIcon={startIcon}
+        onClickEndIcon={onClickEndIcon}
+        onClickStartIcon={onClickStartIcon}
         {...props}
       >
-        <Input
-          as={as}
-          isError={isError}
-          {...getInputProps(as, type)}
-          className={getInputClassNames(
-            !!startIcon,
-            !!endIcon,
-            isError,
-            isPending
-          )}
-          {...props}
-        />
+        <Input as={as} {...getInputProps(as, type)} {...props} />
       </InputWrapper>
     </div>
   );
