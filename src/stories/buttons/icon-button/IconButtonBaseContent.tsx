@@ -1,13 +1,7 @@
-import styles from './IconButton.module.css';
+import styles from './styles/IconButton.module.css';
 import { Icon } from '../../graphics/icon/Icon';
 import { IconButtonBaseContentProps } from './types';
 import { Loader } from '../../feedbacks/loader/Loader';
-
-const sizesSchema = {
-  small: 16,
-  medium: 16,
-  large: 18,
-};
 
 export const IconButtonBaseContent = ({
   icon,
@@ -22,20 +16,12 @@ export const IconButtonBaseContent = ({
             <Loader sizeSchema={size} />
           </span>
           <span className={styles.icon}>
-            <Icon
-              icon={icon}
-              size={sizesSchema[size as keyof typeof sizesSchema]}
-            />
+            <Icon icon={icon} size="1x" />
           </span>
         </>
       ) : (
         <span className={styles.icon}>
-          {icon ? (
-            <Icon
-              icon={icon}
-              size={sizesSchema[size as keyof typeof sizesSchema]}
-            />
-          ) : null}
+          {icon ? <Icon icon={icon} size="1x" /> : null}
         </span>
       )}
     </>

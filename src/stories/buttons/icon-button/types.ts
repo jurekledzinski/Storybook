@@ -1,24 +1,16 @@
-import { IconElement, IconProps } from '../../graphics/icon/types';
+import { Border, Color, Icon, Radius, Size, Variant } from '../../types/ui';
 
 export type IconBaseButtonProps = {
-  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
-  icon: IconElement<Omit<IconProps, 'icon'>>;
+  border?: Border;
+  contrast?: boolean;
+  icon: Icon;
   isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  radius?:
-    | 'radius-none'
-    | 'radius-xs'
-    | 'radius-sm'
-    | 'radius-md'
-    | 'radius-lg'
-    | 'radius-xl'
-    | 'radius-x2'
-    | 'radius-x3'
-    | 'radius-full';
-  size?: 'small' | 'medium' | 'large';
-  color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
-  variant: 'contained' | 'outlined' | 'text';
+  radius?: Radius;
+  size?: Size;
+  color?: Color;
+  variant?: Variant;
 };
 
 export interface IconButtonProps
@@ -26,14 +18,14 @@ export interface IconButtonProps
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {}
 
 export interface IconLinkButtonProps
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'color'>,
-    IconBaseButtonProps {
+  extends IconBaseButtonProps,
+    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
   href: string;
   type?: never;
 }
 
 export type IconButtonBaseContentProps = {
-  icon: IconElement<Omit<IconProps, 'icon'>>;
+  icon: Icon;
   isLoading?: boolean;
-  size?: 'small' | 'medium' | 'large';
+  size?: Size;
 };

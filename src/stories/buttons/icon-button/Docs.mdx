@@ -15,21 +15,12 @@ Here’s a list of the base props for the `IconButton` or `LinkIconButton` compo
 ```js
 {
   border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
-  icon: IconElement<Omit<IconProps, 'icon'>>;
+  icon: React.ElementType | IconDefinition;
   isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  radius?:
-    | 'radius-none'
-    | 'radius-xs'
-    | 'radius-sm'
-    | 'radius-md'
-    | 'radius-lg'
-    | 'radius-xl'
-    | 'radius-x2'
-    | 'radius-x3'
-    | 'radius-full';
-  size?: 'small' | 'medium' | 'large';
+  radius?: 'radius-xs' | 'radius-sm' | 'radius-md' | 'radius-lg' | 'radius-xl';
+  size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
   variant: 'contained' | 'outlined' | 'text';
 }

@@ -1,0 +1,111 @@
+@import '../../button/styles/Colors.module.css';
+@import '../../button/styles/Variants.module.css';
+@import '../../button/styles/Disabled.module.css';
+@import '../../button/styles/Border.module.css';
+
+.iconButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s linear;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.icon {
+  display: inherit;
+}
+
+.iconCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.size-xs {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.size-sm {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.size-md {
+  padding: 6px;
+  font-size: 16px;
+}
+
+.size-lg {
+  padding: 8px;
+  font-size: 18px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Variant minimal only for icon button */
+
+.iconButton.minimal {
+  background-color: transparent;
+  border: none;
+  padding: initial;
+  min-width: initial;
+}
+
+.iconButton.minimal > span > svg {
+  fill: #555555;
+  transition: 300ms linear;
+}
+
+.iconButton.minimal:hover > span > svg {
+  fill: #444444;
+}
+
+.iconButton.minimal.primary > span > svg {
+  fill: var(--color-primary-700);
+}
+
+.iconButton.minimal.primary:hover > span > svg {
+  fill: var(--color-primary-800);
+}
+
+.iconButton.minimal.secondary > span > svg {
+  fill: var(--color-secondary-400);
+}
+
+.iconButton.minimal.secondary:hover > span > svg {
+  fill: var(--color-secondary-500);
+}
+
+.iconButton.minimal.success > span > svg {
+  fill: var(--color-success-400);
+}
+
+.iconButton.minimal.success:hover > span > svg {
+  fill: var(--color-success-500);
+}
+
+.iconButton.minimal.negative > span > svg {
+  fill: var(--color-negative-500);
+}
+
+.iconButton.minimal.negative:hover > span > svg {
+  fill: var(--color-negative-600);
+}
+
+.iconButton.minimal.warning > span > svg {
+  fill: var(--color-warning-900);
+}
+
+.iconButton.minimal.warning:hover > span > svg {
+  fill: var(--color-warning-1000);
+}

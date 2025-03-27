@@ -1,4 +1,4 @@
-import { AppleLogo, Balloon, Sun } from '@phosphor-icons/react';
+import { faCheck, faXmark, faSun } from '@fortawesome/free-solid-svg-icons';
 import { fn } from '@storybook/test';
 import { IconButton } from './IconButton';
 import { Meta, StoryObj } from '@storybook/react';
@@ -7,16 +7,16 @@ const meta: Meta<typeof IconButton> = {
   component: IconButton,
   title: 'Components/Buttons/IconButton',
   args: {
-    radius: 'radius-xs',
+    contrast: false,
     color: 'primary',
-    size: 'medium',
+    size: 'size-sm',
     variant: 'contained',
     isLoading: false,
     onClick: fn(),
     disabled: false,
     border: 'border-xs',
     fullWidth: false,
-    icon: Sun,
+    icon: faSun,
   },
   argTypes: {
     border: {
@@ -31,41 +31,44 @@ const meta: Meta<typeof IconButton> = {
     },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'success', 'warning', 'negative'],
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+        'negative',
+        'default',
+      ],
     },
     disabled: {
       control: { type: 'boolean' },
     },
     icon: {
       control: { type: 'select' },
-      options: ['apple', 'balloon', 'sun'],
+      options: ['faCheck', 'faXmark', 'faSun'],
       mapping: {
-        apple: AppleLogo,
-        balloon: Balloon,
-        sun: Sun,
+        faCheck: faCheck,
+        faXmark: faXmark,
+        faSun: faSun,
       },
     },
     radius: {
       control: { type: 'select' },
       options: [
-        'radius-none',
         'radius-xs',
         'radius-sm',
         'radius-md',
         'radius-lg',
         'radius-xl',
-        'radius-x2',
-        'radius-x3',
-        'radius-full',
       ],
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     variant: {
       control: { type: 'select' },
-      options: ['contained', 'outlined', 'text'],
+      options: ['contained', 'minimal', 'outlined', 'text'],
     },
   },
 };

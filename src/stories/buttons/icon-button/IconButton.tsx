@@ -1,41 +1,29 @@
-import styles from './IconButton.module.css';
-import { classNames } from '../../helpers/classNames';
+import { formatProps } from './utils/helpers';
+import { getClassIconButton } from './utils/classNames';
 import { IconButtonBaseContent } from './IconButtonBaseContent';
 import { IconButtonProps, IconLinkButtonProps } from './types';
 
 export const IconButton = ({
   icon,
-  isLoading,
-  onClick,
-  size = 'medium',
-  disabled,
-  color = 'primary',
-  variant = 'contained',
-  border = 'border-xs',
-  fullWidth,
-  radius = 'radius-none',
   ...props
 }: IconButtonProps | IconLinkButtonProps) => {
-  const iconButtonNames = classNames(
-    styles.iconButton,
-    styles[color as keyof typeof styles],
-    styles[size as keyof typeof styles],
-    styles[variant as keyof typeof styles],
-    styles[radius as keyof typeof styles],
-    styles[border as keyof typeof styles],
-    fullWidth ? styles.fullWidth : '',
-    disabled || isLoading ? styles.disabled : ''
-  );
+  const { button, rest } = formatProps(props);
+  const iconButtonClassNames = getClassIconButton(button);
 
-  if ('href' in props) {
+  if ('href' in rest) {
     return (
       <a
         aria-label="Icon link button"
         role="link"
-        className={iconButtonNames}
-        {...(disabled || isLoading ? {} : { href: props.href })}
+        className={iconButtonClassNames}
+        {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
+        {...rest}
       >
-        <IconButtonBaseContent icon={icon} isLoading={isLoading} size={size} />
+        <IconButtonBaseContent
+          icon={icon}
+          isLoading={button.isLoading}
+          size={button.size}
+        />
       </a>
     );
   }
@@ -43,12 +31,15 @@ export const IconButton = ({
   return (
     <button
       aria-label="Icon button"
-      className={iconButtonNames}
-      {...props}
-      disabled={disabled || isLoading}
-      onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
+      className={iconButtonClassNames}
+      disabled={button.disabled || button.isLoading}
+      {...rest}
     >
-      <IconButtonBaseContent icon={icon} isLoading={isLoading} size={size} />
+      <IconButtonBaseContent
+        icon={icon}
+        isLoading={button.isLoading}
+        size={button.size}
+      />
     </button>
   );
 };
