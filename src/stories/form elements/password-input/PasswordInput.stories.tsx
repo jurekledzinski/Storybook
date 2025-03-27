@@ -1,4 +1,4 @@
-import { Eye, EyeSlash } from '@phosphor-icons/react';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { Meta, StoryObj } from '@storybook/react';
 import { PasswordInput } from './PasswordInput';
 
@@ -19,9 +19,9 @@ export const Default: Story = {
     label: 'Password',
     isError: undefined,
     isPending: false,
-    startIcon: <Eye weight="fill" />,
-    endIcon: <EyeSlash weight="fill" />,
-    size: 'small',
+    startIcon: faEye,
+    endIcon: faEyeSlash,
+    size: 'size-md',
     variant: 'basic',
     disabled: false,
     readOnly: false,
@@ -29,10 +29,10 @@ export const Default: Story = {
   argTypes: {
     endIcon: {
       control: 'select',
-      options: ['none', 'eyeSlash'],
+      options: ['none', 'faEyeSlash'],
       mapping: {
         none: undefined,
-        eyeSlash: <EyeSlash weight="fill" />,
+        faEyeSlash: faEyeSlash,
       },
     },
     isError: {
@@ -46,15 +46,15 @@ export const Default: Story = {
     },
     startIcon: {
       control: 'select',
-      options: ['none', 'eye'],
+      options: ['none', 'faEye'],
       mapping: {
         none: undefined,
-        eye: <Eye weight="fill" />,
+        faEye: faEye,
       },
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'extra-large'],
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     variant: {
       control: { type: 'select' },
@@ -71,9 +71,11 @@ export const Default: Story = {
           flexDirection: 'column',
           gap: '0.5rem',
         }}
+        onSubmit={(e) => e.preventDefault()}
         noValidate
       >
-        <Story /> <Story />
+        <Story />
+        <Story />
       </form>
     ),
   ],

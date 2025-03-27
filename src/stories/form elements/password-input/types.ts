@@ -1,11 +1,13 @@
+import { Icon } from '../../types/ui';
+
 export type PasswordInputProps = {
   disabled?: boolean;
   readOnly?: boolean;
-  endIcon?: React.ReactNode;
+  endIcon?: Icon;
   isError?: boolean;
   isPending?: boolean;
-  startIcon?: React.ReactNode;
-  size?: 'small' | 'medium' | 'large' | 'extra-large';
+  startIcon?: Icon;
+  size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
   label: string;
 };
