@@ -25,4 +25,4 @@ export type Color =
 
 export type Variant = 'contained' | 'outlined' | 'text';
 
-export type Icon = IconProp;
+export type Icon = IconProp[];
