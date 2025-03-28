@@ -16,7 +16,7 @@ const meta: Meta<typeof IconButton> = {
     disabled: false,
     border: 'border-xs',
     fullWidth: false,
-    icon: faSun,
+    icon: [faSun],
   },
   argTypes: {
     border: {
@@ -47,9 +47,9 @@ const meta: Meta<typeof IconButton> = {
       control: { type: 'select' },
       options: ['faCheck', 'faXmark', 'faSun'],
       mapping: {
-        faCheck: faCheck,
-        faXmark: faXmark,
-        faSun: faSun,
+        faCheck: [faCheck],
+        faXmark: [faXmark],
+        faSun: [faSun],
       },
     },
     radius: {

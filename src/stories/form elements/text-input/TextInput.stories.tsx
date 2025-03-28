@@ -42,9 +42,9 @@ export const Default: Story = {
       options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
       mapping: {
         none: undefined,
-        faCheckCircle: faCheckCircle,
-        faExclamationCircle: faExclamationCircle,
-        faCheck: faCheck,
+        faCheckCircle: [faCheckCircle],
+        faExclamationCircle: [faExclamationCircle],
+        faCheck: [faCheck],
       },
     },
     size: {
@@ -56,9 +56,9 @@ export const Default: Story = {
       options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
       mapping: {
         none: undefined,
-        faCheckCircle: faCheckCircle,
-        faExclamationCircle: faExclamationCircle,
-        faCheck: faCheck,
+        faCheckCircle: [faCheckCircle],
+        faExclamationCircle: [faExclamationCircle],
+        faCheck: [faCheck],
       },
     },
     isError: {

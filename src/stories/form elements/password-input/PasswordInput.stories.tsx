@@ -19,22 +19,14 @@ export const Default: Story = {
     label: 'Password',
     isError: undefined,
     isPending: false,
-    startIcon: faEye,
-    endIcon: faEyeSlash,
+    startIcon: undefined,
+    endIcon: [faEye, faEyeSlash],
     size: 'size-md',
     variant: 'basic',
     disabled: false,
     readOnly: false,
   },
   argTypes: {
-    endIcon: {
-      control: 'select',
-      options: ['none', 'faEyeSlash'],
-      mapping: {
-        none: undefined,
-        faEyeSlash: faEyeSlash,
-      },
-    },
     isError: {
       control: 'select',
       options: ['none', 'true', 'false'],
@@ -42,14 +34,6 @@ export const Default: Story = {
         none: undefined,
         true: true,
         false: false,
-      },
-    },
-    startIcon: {
-      control: 'select',
-      options: ['none', 'faEye'],
-      mapping: {
-        none: undefined,
-        faEye: faEye,
       },
     },
     size: {
@@ -83,13 +67,11 @@ export const Default: Story = {
     controls: {
       include: [
         'disabled',
-        'endIcon',
         'isError',
         'isPending',
         'label',
         'readOnly',
         'size',
-        'startIcon',
         'type',
         'variant',
       ],

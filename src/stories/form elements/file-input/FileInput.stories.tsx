@@ -50,9 +50,9 @@ const meta: Meta<typeof FileInput> = {
       options: ['none', 'faFile', 'faFileAudio', 'faFileArchive'],
       mapping: {
         none: undefined,
-        faFile: faFile,
-        faFileAudio: faFileAudio,
-        faFileArchive: faFileArchive,
+        faFile: [faFile],
+        faFileAudio: [faFileAudio],
+        faFileArchive: [faFileArchive],
       },
     },
     iconEnd: {
@@ -60,9 +60,9 @@ const meta: Meta<typeof FileInput> = {
       options: ['none', 'faFile', 'faFileAudio', 'faFileArchive'],
       mapping: {
         none: undefined,
-        faFile: faFile,
-        faFileAudio: faFileAudio,
-        faFileArchive: faFileArchive,
+        faFile: [faFile],
+        faFileAudio: [faFileAudio],
+        faFileArchive: [faFileArchive],
       },
     },
     radius: {

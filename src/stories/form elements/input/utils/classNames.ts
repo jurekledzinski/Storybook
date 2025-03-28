@@ -4,7 +4,6 @@ import { classNames } from '../../../helpers/classNames';
 
 type Variant = BaseInputProps<HTMLInputElement>['variant'];
 type Size = BaseInputProps<HTMLInputElement>['size'];
-// type ClassName = BaseInputProps<HTMLInputElement>['className'];
 
 export const getClassNamesInputWrapper = (
   variant: Variant = 'basic',
@@ -53,14 +52,12 @@ export const getClassNamesInputWrapper = (
 export const getClassNamesInput = (
   variant: Variant = 'basic',
   size: Size = 'size-sm',
-  //   className: ClassName,
   isError?: boolean
 ) => ({
   input: classNames(
     stylesInput.input,
     stylesInput[variant] || '',
     stylesInput[size] || '',
-    // className ? className.map((i) => stylesInput[i] || i).join(' ') : '',
     isError === true
       ? stylesInput['inValid']
       : isError === false
@@ -76,7 +73,6 @@ export const getClassNamesInput = (
     stylesInput.legend,
     stylesInput[variant] || '',
     stylesInput[size] || '',
-    // className ? className.map((i) => stylesInput[i] || i).join(' ') : '',
     isError === true
       ? stylesInput['inValid']
       : isError === false
@@ -87,7 +83,6 @@ export const getClassNamesInput = (
     stylesInput.textarea,
     stylesInput[variant] || '',
     stylesInput[size] || '',
-    // className ? className.map((i) => stylesInput[i] || i).join(' ') : '',
     isError === true
       ? stylesInput['inValid']
       : isError === false

@@ -1,13 +1,14 @@
 import { MouseEvent, useRef } from 'react';
 import { useSelect } from '../../context/useSelect';
-import { SelectDisplayWrapper } from './components/SelectDisplayWrapper';
+// import { SelectDisplayWrapper } from './components/SelectDisplayWrapper';
 import { SelectDisplayProps } from './types';
 import { getClassNamesInput } from '../../../input/utils/classNames';
 import { useCloseOnClickOutside } from '../../../../hooks/useCloseOnClickOutside';
+import { InputWrapper } from '../../../input/components/InputWrapper';
 
 export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
   const fieldsetRef = useRef<HTMLFieldSetElement>(null);
-  const { label, variant, value, onOpen, size, isError } = useSelect();
+  const { label, variant, value, onOpen, size, isError, isOpen } = useSelect();
 
   useCloseOnClickOutside({
     onClick: () => onOpen && onOpen(),
@@ -23,7 +24,10 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
   };
 
   return (
-    <SelectDisplayWrapper endIcon={endIcon} onClickEndIcon={onClick}>
+    <InputWrapper
+      endIcon={isOpen ? endIcon[0] : endIcon[1]}
+      onClickEndIcon={onClick}
+    >
       <fieldset
         ref={fieldsetRef}
         className={classes.fieldset}
@@ -39,6 +43,6 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
           <legend className={classes.legend}>{label}</legend>
         )}
       </fieldset>
-    </SelectDisplayWrapper>
+    </InputWrapper>
   );
 };

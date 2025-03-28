@@ -1,12 +1,5 @@
 import React from 'react';
-import { Icon } from '../../types/ui';
-
-// export type ClassName =
-//   | ['startIcon']
-//   | ['endIcon']
-//   | ['startIcon', 'endIcon']
-//   | ['endIcon', 'startIcon']
-//   | string[];
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export type BaseInputProps<T> = {
   disabled?: boolean;
@@ -35,13 +28,13 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
 export type InputWrapperProps = {
   disabled?: boolean;
   children: React.ReactNode;
-  endIcon?: Icon;
+  endIcon?: IconProp;
   isError?: boolean;
   isPending?: boolean;
   onClickEndIcon?: React.MouseEventHandler<HTMLSpanElement>;
   onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
-  startIcon?: Icon;
+  startIcon?: IconProp;
   readOnly?: boolean;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };

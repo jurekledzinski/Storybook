@@ -32,7 +32,7 @@ export const SelectDisplayWrapper = ({
     <div className={classes.inputWrapper}>
       {startIcon && (
         <span className={classes.startIcon} onClick={onClickStartIcon}>
-          <Icon icon={startIcon} size="1x" />
+          <Icon icon={startIcon[0]} size="1x" />
         </span>
       )}
 
@@ -44,7 +44,7 @@ export const SelectDisplayWrapper = ({
         </span>
       ) : endIcon && isError === undefined ? (
         <span className={classes.endIcon} tabIndex={0} onClick={onClickEndIcon}>
-          <Icon icon={endIcon} size="1x" />
+          <Icon icon={endIcon[0]} size="1x" />
         </span>
       ) : null}
 

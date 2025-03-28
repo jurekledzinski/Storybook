@@ -1,4 +1,4 @@
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from './Select';
 import { SelectDisplay } from './components/select-display/SelectDisplay';
@@ -22,7 +22,7 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <SelectDisplay endIcon={faChevronDown} />
+        <SelectDisplay endIcon={[faChevronUp, faChevronDown]} />
         <SelectPanel>
           <SelectOption id="red">Red</SelectOption>
           <SelectOption id="green">Green</SelectOption>
@@ -60,7 +60,7 @@ export const FunctionWay: Story = {
   args: {
     children: (
       <>
-        <SelectDisplay endIcon={faChevronDown} />
+        <SelectDisplay endIcon={[faChevronUp, faChevronDown]} />
         <SelectPanel>
           {(item) => {
             return (

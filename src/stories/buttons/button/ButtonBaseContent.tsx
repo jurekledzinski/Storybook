@@ -19,7 +19,7 @@ export const ButtonBaseContent = ({
       ) : (
         iconStart && (
           <span className={styles.iconStart}>
-            <Icon icon={iconStart} size="1x" />
+            <Icon icon={iconStart[0]} size="1x" />
           </span>
         )
       )}
@@ -42,7 +42,7 @@ export const ButtonBaseContent = ({
       ) : (
         iconEnd && (
           <span className={styles.iconEnd}>
-            <Icon icon={iconEnd} size="1x" />
+            <Icon icon={iconEnd[0]} size="1x" />
           </span>
         )
       )}

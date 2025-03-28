@@ -18,12 +18,12 @@ export const TextInput = ({
   return (
     <div className={styles.textInput}>
       <InputWrapper
-        endIcon={endIcon}
         isError={isError}
         isPending={isPending}
-        startIcon={startIcon}
         onClickEndIcon={onClickEndIcon}
         onClickStartIcon={onClickStartIcon}
+        {...(endIcon && { endIcon: endIcon[0] })}
+        {...(startIcon && { startIcon: startIcon[0] })}
         {...props}
       >
         <Input as={as} {...getInputProps(as, type)} {...props} />

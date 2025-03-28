@@ -16,12 +16,12 @@ export const IconButtonBaseContent = ({
             <Loader sizeSchema={size} />
           </span>
           <span className={styles.icon}>
-            <Icon icon={icon} size="1x" />
+            <Icon icon={icon[0]} size="1x" />
           </span>
         </>
       ) : (
         <span className={styles.icon}>
-          {icon ? <Icon icon={icon} size="1x" /> : null}
+          {icon ? <Icon icon={icon[0]} size="1x" /> : null}
         </span>
       )}
     </>

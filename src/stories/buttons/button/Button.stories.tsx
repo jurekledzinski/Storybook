@@ -41,9 +41,9 @@ const meta: Meta<typeof Button> = {
       options: ['none', 'faXmark', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
-        faXmark: faXmark,
-        faCheck: faCheck,
-        faSun: faSun,
+        faXmark: [faXmark],
+        faCheck: [faCheck],
+        faSun: [faSun],
       },
     },
     iconEnd: {
@@ -51,9 +51,9 @@ const meta: Meta<typeof Button> = {
       options: ['none', 'faXmark', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
-        faXmark: faXmark,
-        faCheck: faCheck,
-        faSun: faSun,
+        faXmark: [faXmark],
+        faCheck: [faCheck],
+        faSun: [faSun],
       },
     },
     radius: {
