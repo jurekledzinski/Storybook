@@ -1,25 +1,23 @@
-import SelectProvider from './context/SelectProvider';
-import { SelectProps, Option } from './types';
-import { useLoadPosition } from './hooks/useLoadPosition';
+import PopOverProvider from '../../overlays/popover/context/PopOverProvider';
+import { Option, ParentPopOverProps } from '../../overlays/popover/types';
 import { useRef } from 'react';
 
 export const Select = <T extends Option = Option>({
   children,
   ...props
-}: SelectProps<T>) => {
+}: ParentPopOverProps<T>) => {
   const selectRef = useRef<HTMLDivElement | null>(null);
-  const position = useLoadPosition(selectRef);
 
   return (
     <div ref={selectRef}>
-      <SelectProvider<T>
+      <PopOverProvider<T>
         value={{
-          position,
+          parentRef: selectRef,
           ...props,
         }}
       >
         {children}
-      </SelectProvider>
+      </PopOverProvider>
     </div>
   );
 };

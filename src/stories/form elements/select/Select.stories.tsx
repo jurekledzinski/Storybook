@@ -10,7 +10,26 @@ const meta: Meta<typeof Select> = {
   title: 'Components/Form elements/Select',
   component: Select,
   args: {
-    variant: 'outlined',
+    variant: 'contained',
+  },
+  argTypes: {
+    isError: {
+      control: 'select',
+      options: ['none', 'true', 'false'],
+      mapping: {
+        none: undefined,
+        true: true,
+        false: false,
+      },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['basic', 'contained', 'outlined', 'underline'],
+    },
   },
 };
 
@@ -27,6 +46,9 @@ export const Default: Story = {
           <SelectOption id="red">Red</SelectOption>
           <SelectOption id="green">Green</SelectOption>
           <SelectOption id="orange">Orange</SelectOption>
+          <SelectOption id="blue">Blue</SelectOption>
+          <SelectOption id="yellow">Yellow</SelectOption>
+          <SelectOption id="purple">Purple</SelectOption>
         </SelectPanel>
       </>
     ),
@@ -51,7 +73,7 @@ export const Default: Story = {
   ],
   parameters: {
     controls: {
-      include: [],
+      include: ['isError', 'size', 'variant'],
     },
   },
 };
@@ -98,7 +120,7 @@ export const FunctionWay: Story = {
   ],
   parameters: {
     controls: {
-      include: [],
+      include: ['isError', 'size', 'variant'],
     },
   },
 };

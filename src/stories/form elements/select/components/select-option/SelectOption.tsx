@@ -1,18 +1,28 @@
-import { useSelect } from '../../context/useSelect';
+import { selectOptionClassNames } from '../../utils/classNames';
 import { SelectOptionProps } from './types';
-import styles from './SelectOption.module.css';
-import { classNames } from '../../../../helpers/classNames';
+import { usePopOver } from '../../../../overlays/popover/context/usePopOver';
 
 export const SelectOption = ({ children, id }: SelectOptionProps) => {
-  const { onChange, value } = useSelect();
+  const { onChange, value, onOpen } = usePopOver();
 
-  const classes = classNames(
-    styles.selectOption,
-    value === id ? styles.active : ''
-  );
+  const classes = selectOptionClassNames(id, value);
+
+  const onClick = () => onChange && onChange(id);
 
   return (
-    <li className={classes} id={id} onClick={() => onChange && onChange(id)}>
+    <li
+      className={classes.selectOption}
+      id={id}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.code === 'Enter' && onOpen) {
+          onClick();
+          onOpen(false);
+        }
+        if (e.code === 'Escape' && onOpen) onOpen(false);
+      }}
+      tabIndex={0}
+    >
       {children}
     </li>
   );

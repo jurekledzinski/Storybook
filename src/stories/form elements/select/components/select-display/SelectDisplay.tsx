@@ -1,32 +1,38 @@
-import { MouseEvent, useRef } from 'react';
-import { useSelect } from '../../context/useSelect';
-// import { SelectDisplayWrapper } from './components/SelectDisplayWrapper';
-import { SelectDisplayProps } from './types';
 import { getClassNamesInput } from '../../../input/utils/classNames';
-import { useCloseOnClickOutside } from '../../../../hooks/useCloseOnClickOutside';
 import { InputWrapper } from '../../../input/components/InputWrapper';
+import { InputWrapperIconsRef } from '../../../input/components/types';
+import { SelectDisplayProps } from './types';
+import { useCloseOnClickOutside } from '../../../../hooks/useCloseOnClickOutside';
+import { usePopOver } from '../../../../overlays/popover/context/usePopOver';
+import { useRef } from 'react';
 
 export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
+  const childsRef = useRef<InputWrapperIconsRef>(null);
   const fieldsetRef = useRef<HTMLFieldSetElement>(null);
-  const { label, variant, value, onOpen, size, isError, isOpen } = useSelect();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { isError, isOpen, label, onOpen, size, variant, value } = usePopOver();
 
   useCloseOnClickOutside({
-    onClick: () => onOpen && onOpen(),
-    ref: fieldsetRef,
+    onClick: () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => onOpen && onOpen(false), 100);
+    },
+    refs: { fieldsetRef, ...childsRef.current },
   });
 
   const classes = getClassNamesInput(variant, size, isError);
 
-  const onClick = (e: MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (onOpen) onOpen();
-  };
+  const onClick = () => onOpen && onOpen(true);
 
   return (
     <InputWrapper
       endIcon={isOpen ? endIcon[0] : endIcon[1]}
+      isError={isError}
       onClickEndIcon={onClick}
+      ref={childsRef}
+      size={size}
+      variant={variant}
+      toggleIcon={true}
     >
       <fieldset
         ref={fieldsetRef}
