@@ -5,6 +5,7 @@ import { SelectDisplayProps } from './types';
 import { useCloseOnClickOutside } from '../../../../hooks/useCloseOnClickOutside';
 import { usePopOver } from '../../../../overlays/popover/context/usePopOver';
 import { useRef } from 'react';
+import { capitalizeFirstLetter } from '../../../../helpers/formatText';
 
 export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
   const childsRef = useRef<InputWrapperIconsRef>(null);
@@ -43,7 +44,7 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
           className={classes.input}
           type="text"
           readOnly={true}
-          value={value}
+          value={capitalizeFirstLetter(value)}
         />
         {variant !== 'basic' && (
           <legend className={classes.legend}>{label}</legend>
