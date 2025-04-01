@@ -15,7 +15,7 @@ export const PopOver = <T extends Option = Option>({
   const { gap, items, isOpen, parentRef } = usePopOver();
 
   const { w, x, y } = useSetPositionPopOver({
-    gap: gap ?? 0,
+    gap: gap ?? 1,
     parentRef,
     panelRef,
     isOpen,
