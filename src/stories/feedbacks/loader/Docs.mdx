@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/blocks';
 
-import * as LoaderStories from './Loader.stories';
+import * as LoaderStories from './Loader.stories.tsx';
 
 <Meta of={LoaderStories} />
 
@@ -18,7 +18,7 @@ Here’s a list of the props for the `Loader` component:
   colorTrack?: string;
   colorSpin?: string;
   size?: number;
-  sizeSchema?: 'small' | 'medium' | 'large' | 'extra-large';
+  sizeSchema?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   position?: 'center';
   border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
 }
