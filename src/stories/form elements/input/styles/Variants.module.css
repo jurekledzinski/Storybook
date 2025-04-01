@@ -5,10 +5,14 @@
   background-color: transparent;
 }
 
-.input.outlined.startIcon:not(:placeholder-shown) + legend,
-.input.outlined.startIcon:focus + legend,
-.textarea.outlined.startIcon:not(:placeholder-shown) + legend,
-.textarea.outlined.startIcon:focus + legend {
+.inputWrapper.startIcon .legend.outlined {
+  left: -2px;
+}
+
+.inputWrapper.startIcon .input.outlined:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .input.outlined:focus + .legend,
+.inputWrapper.startIcon .textarea.outlined:not(:placeholder-shown) + legend,
+.inputWrapper.startIcon .textarea.outlined:focus + legend {
   left: -26px;
 }
 
@@ -40,8 +44,6 @@
 }
 
 .input.contained {
-  top: 6px;
-  left: 4px;
   padding: 0 6px;
 }
 
@@ -49,11 +51,14 @@
   padding: 6px;
 }
 
-.legend.contained.startIcon {
-  left: -26px;
+.inputWrapper.startIcon .legend.contained {
+  left: -24px;
 }
 
-.legend.contained {
+.legend.contained,
+.legend.contained.size-sm,
+.legend.contained.size-md,
+.legend.contained.size-lg {
   top: 2px;
 }
 
@@ -61,33 +66,8 @@
 .input.contained:focus + legend,
 .textarea.contained:not(:placeholder-shown) + legend,
 .textarea.contained:focus + legend {
-  top: 3px;
+  top: 4px;
   background-color: transparent;
-}
-
-.input.contained.startIcon:not(:placeholder-shown) + legend,
-.input.contained.startIcon:focus + legend,
-.textarea.contained.startIcon:not(:placeholder-shown) + legend,
-.textarea.contained.startIcon:focus + legend {
-  background-color: transparent;
-}
-
-.input:not(.noBorder).contained:focus,
-.textarea:not(.noBorder).contained:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
-}
-
-.input:not(.noBorder).valid.contained:focus,
-.textarea:not(.noBorder).valid.contained:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
-}
-
-.input:not(.noBorder).inValid.contained:focus,
-.textarea:not(.noBorder).inValid.contained:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
 }
 
 /* Variant underline */
@@ -112,31 +92,13 @@
   top: -12px;
 }
 
-.input.underline.startIcon:not(:placeholder-shown) + legend,
-.input.underline.startIcon:focus + legend,
-.textarea.underline.startIcon:not(:placeholder-shown) + legend,
-.textarea.underline.startIcon:focus + legend {
+.inputWrapper.startIcon .input.underline:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .input.underline:focus + .legend,
+.inputWrapper.startIcon .textarea.underline:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .textarea.underline:focus + .legend {
   left: -33px;
 }
 
 .textarea.underline {
   padding: 6px 0;
-}
-
-.input:not(.noBorder).underline:focus,
-.textarea:not(.noBorder).underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
-}
-
-.input:not(.noBorder).valid.underline:focus,
-.textarea:not(.noBorder).valid.underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
-}
-
-.input:not(.noBorder).inValid.underline:focus,
-.textarea:not(.noBorder).inValid.underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
 }

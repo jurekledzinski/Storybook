@@ -9,14 +9,17 @@
   font-size: 12px;
 }
 
-.input.large:not(:placeholder-shown) + legend,
-.input.large:focus + legend,
-.textarea.large:not(:placeholder-shown) + legend,
-.textarea.large:focus + legend,
-.input.extra-large:not(:placeholder-shown) + legend,
-.input.extra-large:focus + legend,
-.textarea.extra-large:not(:placeholder-shown) + legend,
-.textarea.extra-large:focus + legend {
+.input.size-md:not(:placeholder-shown) + legend,
+.input.size-md:focus + legend,
+.textarea.size-md:not(:placeholder-shown) + legend,
+.textarea.size-md:focus + legend {
+  font-size: 13px;
+}
+
+.input.size-lg:not(:placeholder-shown) + legend,
+.input.size-lg:focus + legend,
+.textarea.size-lg:not(:placeholder-shown) + legend,
+.textarea.size-lg:focus + legend {
   font-size: 14px;
 }
 

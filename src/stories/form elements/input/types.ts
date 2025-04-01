@@ -26,6 +26,7 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
 }
 
 export type InputWrapperProps = {
+  toggleIcon?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
   endIcon?: IconProp;

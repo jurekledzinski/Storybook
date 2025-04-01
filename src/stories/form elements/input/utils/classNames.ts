@@ -1,6 +1,7 @@
 import stylesInput from '../styles/Input.module.css';
 import { BaseInputProps } from '../types';
 import { classNames } from '../../../helpers/classNames';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 type Variant = BaseInputProps<HTMLInputElement>['variant'];
 type Size = BaseInputProps<HTMLInputElement>['size'];
@@ -10,7 +11,10 @@ export const getClassNamesInputWrapper = (
   size: Size = 'size-sm',
   isError?: boolean,
   disabled?: boolean,
-  readOnly?: boolean
+  readOnly?: boolean,
+  startIcon?: IconProp,
+  endIcon?: IconProp,
+  isPending?: boolean
 ) => ({
   inputWrapper: classNames(
     stylesInput.inputWrapper,
@@ -20,7 +24,9 @@ export const getClassNamesInputWrapper = (
       : isError === false
       ? stylesInput['valid']
       : '',
-    disabled === true ? stylesInput['disabled'] : ''
+    disabled === true ? stylesInput['disabled'] : '',
+    startIcon ? stylesInput['startIcon'] : '',
+    endIcon || isPending ? stylesInput['endIcon'] : ''
   ),
   startIcon: classNames(
     stylesInput.startIcon,

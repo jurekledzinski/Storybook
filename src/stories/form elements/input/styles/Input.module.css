@@ -27,25 +27,29 @@
   min-height: 36px;
 }
 
+/* Tu jest input padding */
 .input,
 .textarea {
-  display: grid;
+  display: flex;
   width: 100%;
   min-height: inherit;
   padding: 0 6px;
   color: var(--color-text-primary);
   font-size: 14px;
   border: 1px solid var(--color-black-700);
-  transition: 100ms linear;
 }
 
-.fieldset.medium > .input,
-.fieldset.medium > .textarea,
-.fieldset.large > .input,
-.fieldset.large > .textarea,
-.fieldset.extra-large > .input,
-.fieldset.extra-large > .textarea {
+/* Size font inputs */
+.fieldset.size-sm > .input,
+.fieldset.size-sm > .textarea,
+.fieldset.size-md > .input,
+.fieldset.size-md > .textarea {
   font-size: 15px;
+}
+
+.fieldset.size-lg > .input,
+.fieldset.size-lg > .textarea {
+  font-size: 16px;
 }
 
 .legend {
@@ -57,35 +61,21 @@
   font-size: 14px;
 }
 
-.legend.startIcon {
-  left: -2px;
+.legend.size-sm {
+  top: 6px;
 }
 
-.legend.medium {
+.legend.size-md {
   top: 7px;
 }
 
-.legend.large {
-  top: 8px;
-}
-
-.legend.extra-large {
-  top: 9px;
+.legend.size-lg {
+  top: 10px;
 }
 
 .textarea {
   padding: 6px;
   resize: none;
-}
-
-.input.startIcon {
-  padding-left: initial;
-  border-left: none;
-}
-
-.input.endIcon {
-  padding-right: initial;
-  border-right: none;
 }
 
 /* Input wrapper */
@@ -127,22 +117,65 @@
   z-index: 0;
 }
 
-.startIcon,
-.endIcon {
+.inputWrapper > button.endIcon,
+.inputWrapper > button.startIcon,
+.inputWrapper > span {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 14px;
-  /* width: 2rem; */
-  /* min-height: inherit; */
+  align-items: center;
+  border: none;
+  background-color: transparent;
   padding: 6px 8px;
 }
 
-.startIcon.contained,
-.endIcon.contained {
+.inputWrapper > button.startIcon:focus,
+.inputWrapper > button.endIcon:focus {
+  outline: none;
+}
+
+.inputWrapper.startIcon .input,
+.inputWrapper.startIcon .textarea {
+  padding-left: initial;
+}
+
+.inputWrapper.inValid .input,
+.inputWrapper.valid .input,
+.inputWrapper.endIcon .input,
+.inputWrapper.inValid .textarea,
+.inputWrapper.valid .textarea,
+.inputWrapper.endIcon .textarea {
+  padding-right: initial;
+}
+
+/* ---- */
+
+.inputWrapper.startIcon.contained > button,
+.inputWrapper.endIcon.contained > button,
+.inputWrapper.endIcon.contained > span {
   align-items: center;
   margin-top: 1rem;
   z-index: -1;
+}
+
+/* Tu valid */
+.inputWrapper:has(textarea).startIcon.contained > button,
+.inputWrapper:has(textarea).endIcon.contained > button,
+.inputWrapper:has(textarea).endIcon.contained > span,
+.inputWrapper:has(textarea).valid.contained > span,
+.inputWrapper:has(textarea).inValid.contained > span {
+  align-items: flex-start;
+  margin-top: 15px;
+  z-index: -1;
+}
+
+.inputWrapper:has(textarea).startIcon > button,
+.inputWrapper:has(textarea).endIcon > button,
+.inputWrapper:has(textarea).endIcon > span,
+.inputWrapper:has(textarea).valid > span,
+.inputWrapper:has(textarea).inValid > span {
+  align-items: flex-start;
+  margin-top: initial;
+  padding: 8px;
 }
 
 /* Size icons */
@@ -153,10 +186,7 @@
 }
 
 .startIcon.size-sm,
-.endIcon.size-sm {
-  font-size: 14px;
-}
-
+.endIcon.size-sm,
 .startIcon.size-md,
 .endIcon.size-md {
   font-size: 15px;
@@ -224,7 +254,7 @@
   pointer-events: none;
 }
 
-/* When used with input wrapper */
+/* When used with input or textarea wrapper */
 
 .inputWrapper > .fieldset > .input,
 .inputWrapper > .fieldset > .textarea {
@@ -234,4 +264,10 @@
 .inputWrapper > .fieldset > .input:focus,
 .inputWrapper > .fieldset > .textarea:focus {
   outline: none;
+}
+
+.inputWrapper:hover:not(:focus-within) {
+  border-color: var(--color-black-800);
+  outline: none;
+  box-shadow: none;
 }
