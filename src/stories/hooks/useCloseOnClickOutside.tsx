@@ -1,25 +1,24 @@
 import { useEffect } from 'react';
-
-type UseCloseOnClickOutsideProps = {
-  onClick: () => void;
-  ref: React.RefObject<HTMLElement>;
-};
+import { UseCloseOnClickOutsideProps } from './types/clickOutside';
 
 export const useCloseOnClickOutside = ({
   onClick,
-  ref,
+  refs,
 }: UseCloseOnClickOutsideProps) => {
   useEffect(() => {
-    const handleClickOutside = (event: globalThis.MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        onClick();
-      }
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!(event.target instanceof Node)) return;
+
+      const isNotClickOutside = Object.values(refs).some((item) =>
+        item?.current?.contains(event.target as Node)
+      );
+
+      if (!isNotClickOutside) onClick();
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [onClick, ref]);
+  }, [onClick, refs]);
 };
