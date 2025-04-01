@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/blocks';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-import * as IconStories from './Icon.stories';
+import * as IconStories from './Icon.stories.ts';
 
 <Meta of={IconStories} />
 
@@ -16,9 +16,9 @@ Here’s a list of the props for the `Icon` component:
 ```js
 {
   className?: string;
-  icon: React.ElementType | IconDefinition;
+  icon: IconProp[];
   alt?: string;
-  color?: string;
+  color?: 'info' | 'negative' | 'primary' | 'secondary' | 'success' | 'warning';
   size?: string | number;
   weight?: IconWeight;
   mirrored?: boolean;

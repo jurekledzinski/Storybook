@@ -1,4 +1,3 @@
-import { getCssVariable } from '../../helpers/cssVariables';
 import { Icon } from './Icon';
 import { Meta, StoryObj } from '@storybook/react';
 import {
@@ -16,7 +15,6 @@ type Story = StoryObj<typeof Icon>;
 
 export const Default: Story = {
   args: {
-    // color: getCssVariable('--color-primary-700'),
     color: 'primary',
     icon: faCheckCircle,
     size: '1x',
@@ -24,24 +22,18 @@ export const Default: Story = {
   argTypes: {
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'success', 'warning', 'negative'],
-      mapping: {
-        primary: getCssVariable('--color-primary-700'),
-        secondary: getCssVariable('--color-secondary-400'),
-        success: getCssVariable('--color-success-400'),
-        warning: getCssVariable('--color-warning-900'),
-        negative: getCssVariable('--color-negative-500'),
-      },
+      options: [
+        'info',
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+        'negative',
+      ],
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'very large'],
-      mapping: {
-        small: 16,
-        medium: 20,
-        large: 24,
-        'very large': 48,
-      },
+      options: ['xs', 'sm', 'lg', 'xl'],
     },
     icon: {
       control: { type: 'select' },
