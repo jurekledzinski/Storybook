@@ -1,9 +1,18 @@
+import { Border, Size } from '../../types/ui';
+
+type SizeSchema =
+  | Size
+  | 'inner-size-xs'
+  | 'inner-size-sm'
+  | 'inner-size-md'
+  | 'inner-size-lg';
+
 export type LoaderProps = {
   className?: string;
   colorTrack?: string;
   colorSpin?: string;
   size?: number;
-  sizeSchema?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
+  sizeSchema?: SizeSchema;
   position?: 'center';
-  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
+  border?: Border;
 };

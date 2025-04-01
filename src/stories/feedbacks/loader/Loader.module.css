@@ -17,7 +17,29 @@
   }
 }
 
-/* Sizes Schema */
+/* inner sizes */
+
+.inner-size-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.inner-size-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.inner-size-md {
+  width: 16px;
+  height: 16px;
+}
+
+.inner-size-lg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Sizes schema */
 
 .size-xs {
   width: 16px;
@@ -25,18 +47,18 @@
 }
 
 .size-sm {
-  width: 16px;
-  height: 16px;
+  width: 26px;
+  height: 26px;
 }
 
 .size-md {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
 }
 
 .size-lg {
-  width: 18px;
-  height: 18px;
+  width: 64px;
+  height: 64px;
 }
 
 /* Position */

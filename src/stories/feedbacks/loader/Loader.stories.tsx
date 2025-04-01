@@ -15,15 +15,14 @@ export const Default: Story = {
     border: 'border-xs',
     colorSpin: getCssVariable('--color-primary-700'),
     colorTrack: getCssVariable('--color-track'),
-    // sizeSchema: 'large',
   },
   argTypes: {
     colorSpin: { control: { type: 'color' } },
     colorTrack: { control: { type: 'color' } },
-    // sizeSchema: {
-    //   control: { type: 'select' },
-    //   options: ['small', 'medium', 'large', 'extra-large'],
-    // },
+    sizeSchema: {
+      control: { type: 'select' },
+      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
+    },
     position: {
       control: { type: 'select' },
       options: ['default', 'center'],
@@ -34,7 +33,18 @@ export const Default: Story = {
     },
     border: {
       control: { type: 'select' },
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: [
+        'border-xs',
+        'border-sm',
+        'border-md',
+        'border-lg',
+        'border-xl',
+      ],
+    },
+  },
+  parameters: {
+    controls: {
+      include: ['position', 'sizeSchema', 'border', 'colorSpin', 'colorTrack'],
     },
   },
 };
