@@ -1,5 +1,5 @@
 import styles from './Drawer.module.css';
-import { Backdrop } from '../../overlays/backdrop/Backdrop';
+import { Backdrop } from '@src/stories/overlays/backdrop';
 import { Drawer } from './Drawer';
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';

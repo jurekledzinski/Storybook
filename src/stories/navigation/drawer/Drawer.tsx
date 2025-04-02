@@ -1,5 +1,5 @@
 import styles from './Drawer.module.css';
-import { classNames } from '../../helpers/classNames';
+import { classNames } from '@src/stories/helpers';
 import { DrawerProps } from './types';
 
 export const Drawer = ({
