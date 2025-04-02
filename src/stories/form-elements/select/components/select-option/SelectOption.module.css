@@ -1,0 +1,23 @@
+.selectOption {
+  width: 100%;
+  padding: 6px;
+  list-style: none;
+  will-change: background-color, opacity;
+}
+
+.selectOption:last-child {
+  border-bottom: initial;
+}
+
+.active {
+  background-color: var(--color-primary-100);
+}
+
+.selectOption:focus {
+  background-color: var(--color-primary-50);
+  outline: none;
+}
+
+.selectOption:hover {
+  background-color: var(--color-primary-50);
+}
