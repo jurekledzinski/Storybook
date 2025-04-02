@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -34,6 +35,11 @@ const config: StorybookConfig = {
     // Ta flaga daje większe wsparcie dla typescript ale może mieć wpływ na preformance, normalnie można to zakomentować i jest użyty podstawowy typescript
     // ale nie zawsze to może wystarczyć przy bardziej skomplikowanych typach ale ponoć w większości przypadków działa
     reactDocgen: 'react-docgen-typescript',
+  },
+
+  viteFinal: (config) => {
+    config.plugins?.push(tsconfigPaths());
+    return config;
   },
 };
 export default config;
