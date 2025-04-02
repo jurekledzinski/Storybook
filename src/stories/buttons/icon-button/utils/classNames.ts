@@ -1,6 +1,6 @@
 import styles from '../styles/IconButton.module.css';
-import { classNames } from '../../../helpers/classNames';
-import { getBackgroundConstrast } from '../utils/helpers';
+import { classNames } from '@src/stories/helpers';
+import { getBackgroundConstrast } from './helpers';
 import { IconBaseButtonProps } from '../types';
 
 export const getClassIconButton = ({

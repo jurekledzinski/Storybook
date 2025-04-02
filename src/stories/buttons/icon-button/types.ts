@@ -1,4 +1,4 @@
-import { Border, Color, Icon, Radius, Size, Variant } from '../../types/ui';
+import { Border, Color, Icon, Radius, Size, Variant } from '@src/stories/types';
 
 export type IconBaseButtonProps = {
   border?: Border;
@@ -23,9 +23,3 @@ export interface IconLinkButtonProps
   href: string;
   type?: never;
 }
-
-export type IconButtonBaseContentProps = {
-  icon: Icon;
-  isLoading?: boolean;
-  size?: Size;
-};

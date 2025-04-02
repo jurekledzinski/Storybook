@@ -1,13 +1,13 @@
 import styles from './styles/IconButton.module.css';
-import { Icon } from '../../graphics/icon/Icon';
-import { IconButtonBaseContentProps } from './types';
-import { Loader } from '../../feedbacks/loader/Loader';
+import { Icon } from '@src/stories/graphics/icon';
+import { IconButtonContentProps } from './types';
+import { Loader } from '@src/stories/feedbacks/loader';
 
-export const IconButtonBaseContent = ({
+export const IconButtonContent = ({
   icon,
   isLoading,
   size,
-}: IconButtonBaseContentProps) => {
+}: IconButtonContentProps) => {
   return (
     <>
       {isLoading ? (

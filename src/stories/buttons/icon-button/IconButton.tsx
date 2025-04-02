@@ -1,6 +1,6 @@
 import { formatProps } from './utils/helpers';
-import { getClassIconButton } from './utils/classNames';
-import { IconButtonBaseContent } from './IconButtonBaseContent';
+import { getClassIconButton } from '@src/stories/buttons/icon-button';
+import { IconButtonContent } from './components';
 import { IconButtonProps, IconLinkButtonProps } from './types';
 
 export const IconButton = ({
@@ -19,7 +19,7 @@ export const IconButton = ({
         {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
         {...rest}
       >
-        <IconButtonBaseContent
+        <IconButtonContent
           icon={icon}
           isLoading={button.isLoading}
           size={button.size}
@@ -35,7 +35,7 @@ export const IconButton = ({
       disabled={button.disabled || button.isLoading}
       {...rest}
     >
-      <IconButtonBaseContent
+      <IconButtonContent
         icon={icon}
         isLoading={button.isLoading}
         size={button.size}
