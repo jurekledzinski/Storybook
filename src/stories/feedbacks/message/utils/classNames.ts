@@ -1,5 +1,5 @@
-import styles from './Message.module.css';
-import { classNames } from '../../../helpers/classNames';
+import styles from '../Message.module.css';
+import { classNames } from '@src/stories/helpers';
 import { MessageProps } from '../types';
 
 type Variant = MessageProps['variant'];

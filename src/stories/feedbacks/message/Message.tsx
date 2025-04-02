@@ -1,4 +1,4 @@
-import { messageClassNames } from './styles/classNames';
+import { messageClassNames } from './utils/classNames';
 import { MessageProps } from './types';
 
 export const Message = ({ variant = 'error', children }: MessageProps) => {
