@@ -1,7 +1,6 @@
 import { NewPosition, UseSetPositionPopOverProps } from './types';
 import { useCallback, useEffect, useState } from 'react';
-import { useResizeObserver } from '../../../hooks/useResizeObserver';
-import { useWindowResize } from '../../../hooks/useWindowResize';
+import { useResizeObserver, useWindowResize } from '@src/stories/hooks';
 
 export const useSetPositionPopOver = ({
   gap,
