@@ -1,6 +1,6 @@
-import { classNames } from '../../helpers/classNames';
-import { ButtonGroupProps } from './types';
 import styles from './ButtonGroup.module.css';
+import { ButtonGroupProps } from './types';
+import { classNames } from '@src/stories/helpers';
 
 export const ButtonGroup = ({
   children,
