@@ -1,7 +1,7 @@
 import styles from './Icon.module.css';
-import { classNames } from '../../helpers/classNames';
-import { IconProps } from './types';
+import { classNames } from '@src/stories/helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProps } from './types';
 // import '../../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
 export const Icon = ({ color, ...props }: IconProps) => {
