@@ -1,7 +1,7 @@
 import { Button } from './Button';
+import { faCheck, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { fn } from '@storybook/test';
 import { Meta, StoryObj } from '@storybook/react';
-import { faCheck, faXmark, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof Button> = {
   component: Button,

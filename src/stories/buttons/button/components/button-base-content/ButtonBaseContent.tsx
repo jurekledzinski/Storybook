@@ -1,7 +1,7 @@
-import styles from './styles/Button.module.css';
+import styles from '../../styles/Button.module.css';
 import { ButtonBaseContentProps } from './types';
-import { Icon } from '../../graphics/icon/Icon';
-import { Loader } from '../../feedbacks/loader/Loader';
+import { Icon } from '@src/stories/graphics/icon';
+import { Loader } from '@src/stories/feedbacks/loader';
 
 export const ButtonBaseContent = ({
   isLoading,

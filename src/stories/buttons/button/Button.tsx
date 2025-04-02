@@ -1,7 +1,10 @@
-import { ButtonBaseContent } from './ButtonBaseContent';
 import { ButtonProps, LinkButtonProps } from './types';
-import { getClassButton } from './utils/classNames';
-import { formatProps } from './utils/formatProps';
+
+import {
+  ButtonBaseContent,
+  getClassButton,
+  formatProps,
+} from '@src/stories/buttons/button';
 
 export const Button = ({
   iconStart,

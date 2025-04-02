@@ -1,5 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { Border, Color, Icon, Radius, Size, Variant } from '../../types/ui';
+import { Border, Color, Icon, Radius, Size, Variant } from '@src/stories/types';
 
 export type BaseButtonProps = {
   label: string;
@@ -25,11 +25,3 @@ export interface LinkButtonProps
   href: string;
   type?: never;
 }
-
-export type ButtonBaseContentProps = {
-  isLoading?: boolean;
-  iconStart?: Icon;
-  iconEnd?: Icon;
-  size?: Size;
-  label: string;
-};

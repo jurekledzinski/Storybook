@@ -1,6 +1,6 @@
 import styles from '../styles/Button.module.css';
 import { BaseButtonProps } from '../types';
-import { classNames } from '../../../helpers/classNames';
+import { classNames } from '@src/stories/helpers';
 
 export const getClassButton = ({
   border = 'border-xs',
