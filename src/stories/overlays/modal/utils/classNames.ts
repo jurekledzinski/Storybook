@@ -2,7 +2,7 @@ import stylesBody from '../components/modal-body/ModalBody.module.css';
 import stylesFooter from '../components/modal-footer/ModalFooter.module.css';
 import stylesHeader from '../components/modal-header/ModalHeader.module.css';
 import stylesModal from '../Modal.module.css';
-import { classNames } from '../../../helpers/classNames';
+import { classNames } from '@src/stories/helpers';
 import { Variant } from '../components/modal-header/types';
 
 export const modalClassNames = () => ({

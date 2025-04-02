@@ -1,5 +1,5 @@
+import { IconBaseButtonProps } from '@src/stories/buttons/icon-button';
 import { MouseEventHandler } from 'react';
-import { IconBaseButtonProps } from '../../../../buttons/icon-button/types';
 export type Variant = IconBaseButtonProps['color'];
 
 export type ModalHeaderProps = {

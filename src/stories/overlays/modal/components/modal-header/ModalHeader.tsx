@@ -1,5 +1,5 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { IconButton } from '../../../../buttons/icon-button/IconButton';
+import { IconButton } from '@src/stories/buttons/icon-button';
 import { modalHeaderClassNames } from '../../utils/classNames';
 import { ModalHeaderProps } from './types';
 
@@ -10,11 +10,11 @@ export const ModalHeader = ({ title, onClose, variant }: ModalHeaderProps) => {
     <header className={classes.header}>
       <h3 className={classes.title}>{title}</h3>
       <IconButton
-        icon={faXmark}
+        icon={[faXmark]}
         color={variant}
         onClick={onClose}
         size="size-xs"
-        variant={'contained'}
+        variant="contained"
         contrast={true}
       />
     </header>

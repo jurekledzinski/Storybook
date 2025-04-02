@@ -1,11 +1,9 @@
-import { Backdrop } from '../backdrop/Backdrop';
+import { Backdrop } from '@src/stories/overlays/backdrop';
 import { CSSTransition } from 'react-transition-group';
-import { ModalBody } from './components/modal-body/ModalBody';
-import { modalClassNames } from './utils/classNames';
-import { ModalFooter } from './components/modal-footer/ModalFooter';
-import { ModalHeader } from './components/modal-header/ModalHeader';
+import { ModalBody, ModalFooter, ModalHeader } from './components';
+import { modalClassNames } from './utils';
 import { ModalProps } from './types';
-import { useCloseModalOnSuccess } from './hooks/useCloseModalOnSuccess';
+import { useCloseModalOnSuccess } from './hooks';
 import { useRef, useState } from 'react';
 
 export const Modal = ({
@@ -25,8 +23,6 @@ export const Modal = ({
 }: ModalProps) => {
   const nodeRef = useRef(null);
   const [showBackdrop, setShowBackdrop] = useState(false);
-
-  console.log(nodeRef);
 
   useCloseModalOnSuccess({
     isOpen,

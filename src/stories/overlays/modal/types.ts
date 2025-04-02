@@ -1,5 +1,4 @@
-import { ModalHeaderProps } from './components/modal-header/types';
-import { ModalFooterProps } from './components/modal-footer/types';
+import { ModalFooterProps, ModalHeaderProps } from './components';
 
 export type UseControlModalProps = Partial<{
   isOpen: boolean;

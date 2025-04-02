@@ -1,7 +1,6 @@
-import { Button } from '../../../../buttons/button/Button';
+import { Button } from '@src/stories/buttons/button';
 import { modalFooterClassNames } from '../../utils/classNames';
 import { ModalFooterProps } from './types';
-// import { mapVariantToColor } from '../../utils/mapVariantToColor ';
 
 export const ModalFooter = ({
   cancelText,
@@ -25,7 +24,6 @@ export const ModalFooter = ({
       <Button
         label={confirmText}
         variant="contained"
-        // color={mapVariantToColor(variant!)}
         color={variant}
         onClick={onConfirm}
         type={type}
