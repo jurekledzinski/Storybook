@@ -1,15 +1,15 @@
 import styles from '../../styles/Button.module.css';
-import { ButtonBaseContentProps } from './types';
+import { ButtonContentProps } from './types';
 import { Icon } from '@src/stories/graphics/icon';
 import { Loader } from '@src/stories/feedbacks/loader';
 
-export const ButtonBaseContent = ({
+export const ButtonContent = ({
   isLoading,
   iconEnd,
   iconStart,
   size,
   label,
-}: ButtonBaseContentProps) => {
+}: ButtonContentProps) => {
   return (
     <>
       {isLoading && iconStart && !iconEnd ? (

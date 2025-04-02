@@ -1,7 +1,7 @@
 import { ButtonProps, LinkButtonProps } from './types';
 
 import {
-  ButtonBaseContent,
+  ButtonContent,
   getClassButton,
   formatProps,
 } from '@src/stories/buttons/button';
@@ -24,7 +24,7 @@ export const Button = ({
         {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
         {...rest}
       >
-        <ButtonBaseContent
+        <ButtonContent
           label={label}
           iconEnd={iconEnd}
           iconStart={iconStart}
@@ -42,7 +42,7 @@ export const Button = ({
       disabled={button.disabled || button.isLoading}
       {...rest}
     >
-      <ButtonBaseContent
+      <ButtonContent
         label={label}
         iconEnd={iconEnd}
         iconStart={iconStart}
