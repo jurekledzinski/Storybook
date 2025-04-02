@@ -1,4 +1,4 @@
-import { getCssVariable } from '../../helpers/cssVariables';
+import { getCssVariable } from '@src/stories/helpers';
 import { Loader } from './Loader';
 import { Meta, StoryObj } from '@storybook/react';
 

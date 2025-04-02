@@ -8,7 +8,6 @@ type SizeSchema =
   | 'inner-size-lg';
 
 export type LoaderProps = {
-  className?: string;
   colorTrack?: string;
   colorSpin?: string;
   size?: number;
