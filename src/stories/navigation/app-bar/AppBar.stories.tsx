@@ -1,7 +1,7 @@
 import styles from './AppBar.module.css';
 import { AppBar } from './AppBar';
+import { classNames } from '@src/stories/helpers';
 import type { Meta, StoryObj } from '@storybook/react';
-import { classNames } from '../../helpers/classNames';
 
 const meta: Meta<typeof AppBar> = {
   args: {

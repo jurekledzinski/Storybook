@@ -1,6 +1,6 @@
 import styles from './AppBar.module.css';
 import { AppBarProps } from './types';
-import { classNames } from '../../helpers/classNames';
+import { classNames } from '@src/stories/helpers';
 
 export const AppBar = ({ children, className }: AppBarProps) => {
   return (
