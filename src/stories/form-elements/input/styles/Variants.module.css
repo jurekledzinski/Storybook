@@ -1,0 +1,104 @@
+/* Variant outlined */
+
+.input.outlined,
+.textarea.outlined {
+  background-color: transparent;
+}
+
+.inputWrapper.startIcon .legend.outlined {
+  left: -2px;
+}
+
+.inputWrapper.startIcon .input.outlined:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .input.outlined:focus + .legend,
+.inputWrapper.startIcon .textarea.outlined:not(:placeholder-shown) + legend,
+.inputWrapper.startIcon .textarea.outlined:focus + legend {
+  left: -26px;
+}
+
+/* Variant contained */
+
+.fieldset.contained::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 1.5px;
+  background-color: rgb(249, 249, 249);
+  z-index: -1;
+}
+
+.fieldset.contained {
+  padding: 16px 0 0;
+}
+
+.input.contained,
+.textarea.contained {
+  padding: initial;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.input.contained {
+  padding: 0 6px;
+}
+
+.textarea.contained {
+  padding: 6px;
+}
+
+.inputWrapper.startIcon .legend.contained {
+  left: -24px;
+}
+
+.legend.contained,
+.legend.contained.size-sm,
+.legend.contained.size-md,
+.legend.contained.size-lg {
+  top: 2px;
+}
+
+.input.contained:not(:placeholder-shown) + legend,
+.input.contained:focus + legend,
+.textarea.contained:not(:placeholder-shown) + legend,
+.textarea.contained:focus + legend {
+  top: 4px;
+  background-color: transparent;
+}
+
+/* Variant underline */
+
+.input.underline,
+.textarea.underline {
+  padding: initial;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.legend.underline {
+  left: -2px;
+}
+
+.input.underline:not(:placeholder-shown) + legend,
+.input.underline:focus + legend,
+.textarea.underline:not(:placeholder-shown) + legend,
+.textarea.underline:focus + legend {
+  top: -12px;
+}
+
+.inputWrapper.startIcon .input.underline:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .input.underline:focus + .legend,
+.inputWrapper.startIcon .textarea.underline:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .textarea.underline:focus + .legend {
+  left: -33px;
+}
+
+.textarea.underline {
+  padding: 6px 0;
+}

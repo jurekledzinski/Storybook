@@ -1,0 +1,31 @@
+.legend.valid {
+  color: var(--color-success-400);
+}
+
+.legend.inValid {
+  color: var(--color-negative-500);
+}
+
+.input.valid,
+.textarea.valid {
+  border-color: var(--color-success-400);
+}
+
+.input.inValid,
+.textarea.inValid {
+  border-color: var(--color-negative-500);
+}
+
+.input.valid:not(:placeholder-shown) + legend,
+.input.valid:focus + legend,
+.textarea.valid:not(:placeholder-shown) + legend,
+.textarea.valid:focus + legend {
+  color: var(--color-success-400);
+}
+
+.input.inValid:not(:placeholder-shown) + legend,
+.input.inValid:focus + legend,
+.textarea.inValid:not(:placeholder-shown) + legend,
+.textarea.inValid:focus + legend {
+  color: var(--color-negative-500);
+}
