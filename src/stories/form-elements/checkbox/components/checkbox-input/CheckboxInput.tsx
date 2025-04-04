@@ -21,7 +21,6 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxProps>(
           type="checkbox"
           {...props}
           onKeyDown={(e) => readOnly && e.preventDefault()}
-          value={[]}
         />
         <Icon className={classes.checkbox} />
       </>
