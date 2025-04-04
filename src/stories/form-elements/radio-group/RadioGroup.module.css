@@ -1,0 +1,149 @@
+.input {
+  opacity: 0;
+  position: absolute;
+}
+
+.radioCustom {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--color-primary-700);
+  background-color: white;
+  border-radius: 50%;
+  transition: border 200ms ease;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  position: relative;
+}
+
+.input:checked + .radioCustom {
+  border-color: var(--color-primary-700);
+  border-width: 4px;
+}
+
+.input:checked:active + .radioCustom {
+  border-color: var(--color-primary-700);
+}
+
+.input:active + .radioCustom {
+  border-color: var(--color-primary-700);
+}
+
+.input:focus-visible + .radioCustom {
+  outline: 2px solid var(--color-primary-700);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+
+.label.size-xs,
+.radioCustom.size-xs {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+}
+
+.label.size-sm,
+.radioCustom.size-sm {
+  width: 1rem;
+  height: 1rem;
+  font-size: 15px;
+}
+
+.label.size-md,
+.radioCustom.size-md {
+  width: 18px;
+  height: 18px;
+  font-size: 1rem;
+}
+
+.label.size-lg,
+.radioCustom.size-lg {
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+}
+
+/* Disabled */
+
+.input:disabled + .radioCustom {
+  border-color: var(--color-black-300);
+  cursor: not-allowed;
+}
+
+.label.disabled,
+.label.read-only {
+  cursor: auto;
+}
+
+.label.read-only {
+  pointer-events: none;
+}
+
+/* Variant */
+
+.input:checked + .radioCustom.primary {
+  border-color: var(--color-primary-700);
+}
+
+.input:checked + .radioCustom.secondary {
+  border-color: var(--color-secondary-400);
+}
+
+.input:checked + .radioCustom.success {
+  border-color: var(--color-success-400);
+}
+
+.input:checked + .radioCustom.negative {
+  border-color: var(--color-negative-500);
+}
+
+.input:checked + .radioCustom.warning {
+  border-color: var(--color-warning-900);
+}
+
+/* Radio group */
+
+.radioGroup {
+  display: flex;
+  width: fit-content;
+}
+
+.row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.none {
+  gap: initial;
+}
+
+.tight {
+  gap: 0.25rem;
+}
+
+.normal {
+  gap: 0.5rem;
+}
+
+.loose {
+  gap: 0.75rem;
+}
+
+.extra-loose {
+  gap: 1rem;
+}
