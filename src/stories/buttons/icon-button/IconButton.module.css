@@ -1,7 +1,7 @@
-@import '../../button/styles/Colors.module.css';
-@import '../../button/styles/Variants.module.css';
-@import '../../button/styles/Disabled.module.css';
-@import '../../button/styles/Border.module.css';
+@import '../button/styles/Colors.module.css';
+@import '../button/styles/Variants.module.css';
+@import '../button/styles/Disabled.module.css';
+@import '../button/styles/Border.module.css';
 
 .iconButton {
   position: relative;

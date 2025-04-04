@@ -1,4 +1,4 @@
-import styles from '../styles/IconButton.module.css';
+import styles from '../IconButton.module.css';
 import { classNames } from '@src/stories/helpers';
 import { getBackgroundConstrast } from './helpers';
 import { IconBaseButtonProps } from '../types';
