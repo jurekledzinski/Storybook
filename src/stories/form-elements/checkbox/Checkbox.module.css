@@ -1,0 +1,227 @@
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.label input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-black-600);
+  border-radius: 0;
+  background-color: transparent;
+  width: 1rem;
+  height: 1rem;
+  transition: background-color 300ms ease-in-out;
+}
+
+/* Checkmark (hidden by default) */
+.checkbox svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: white;
+  stroke-width: 3px;
+  stroke-dasharray: 22px;
+  stroke-dashoffset: 22px; /* Fully hidden */
+  transform: translateX(1px);
+  transition: stroke-dashoffset 300ms ease-in-out;
+}
+
+/* Checked state */
+.label input:checked + .checkbox {
+  border-color: var(--color-primary-700);
+  background-color: var(--color-primary-700);
+}
+
+.label input:checked + .checkbox svg {
+  stroke-dashoffset: 0; /* Makes checkmark visible */
+}
+
+/* Focus state */
+.label input:focus-visible + .checkbox {
+  outline: 2px solid var(--color-primary-700);
+  outline-offset: 1px;
+  border-color: var(--color-primary-700);
+}
+
+/* Hover effect */
+.label:hover .checkbox {
+  border-color: var(--color-black-500);
+}
+
+/* Sizes */
+
+.label.size-xs,
+.checkbox.size-xs,
+.checkbox.size-xs svg {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+}
+
+.label.size-sm,
+.checkbox.size-sm,
+.checkbox.size-sm svg {
+  width: 1rem;
+  height: 1rem;
+  font-size: 15px;
+}
+
+.label.size-md,
+.checkbox.size-md,
+.checkbox.size-md svg {
+  width: 18px;
+  height: 18px;
+  font-size: 1rem;
+}
+
+.label.size-lg,
+.checkbox.size-lg,
+.checkbox.size-lg svg {
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+}
+
+/* Disabled */
+
+.label input:not(:checked):disabled + .checkbox {
+  border-color: var(--color-black-300);
+  cursor: not-allowed;
+}
+
+.label input:checked:disabled + .checkbox,
+.label input:checked:disabled + .checkbox.primary,
+.label input:checked:disabled + .checkbox.secondary,
+.label input:checked:disabled + .checkbox.success,
+.label input:checked:disabled + .checkbox.negative,
+.label input:checked:disabled + .checkbox.warning {
+  background-color: var(--color-black-300);
+  border-color: var(--color-black-300);
+  cursor: not-allowed;
+}
+
+.label input:checked:disabled + .checkbox.unfilled,
+.label input:checked:disabled + .checkbox.unfilled.primary,
+.label input:checked:disabled + .checkbox.unfilled.secondary,
+.label input:checked:disabled + .checkbox.unfilled.success,
+.label input:checked:disabled + .checkbox.unfilled.negative,
+.label input:checked:disabled + .checkbox.unfilled.warning {
+  border-color: var(--color-black-300);
+}
+
+.label input:checked:disabled + .checkbox.unfilled svg,
+.label input:checked:disabled + .checkbox.unfilled.primary svg,
+.label input:checked:disabled + .checkbox.unfilled.secondary svg,
+.label input:checked:disabled + .checkbox.unfilled.success svg,
+.label input:checked:disabled + .checkbox.unfilled.negative svg,
+.label input:checked:disabled + .checkbox.unfilled.warning svg {
+  stroke: var(--color-black-300);
+}
+
+.label.disabled,
+.label.read-only {
+  cursor: auto;
+}
+
+.label.read-only {
+  pointer-events: none;
+}
+
+/* Variant */
+
+.label input:checked + .checkbox.unfilled {
+  border-color: var(--color-primary-700);
+  background-color: transparent;
+}
+
+.label input:checked + .checkbox.unfilled svg {
+  stroke: var(--color-primary-700);
+}
+
+/* Color */
+
+.label input:checked + .checkbox.primary {
+  border-color: var(--color-primary-700);
+  background-color: var(--color-primary-700);
+}
+
+.label input:checked + .checkbox.secondary {
+  border-color: var(--color-secondary-400);
+  background-color: var(--color-secondary-400);
+}
+
+.label input:checked + .checkbox.success {
+  border-color: var(--color-success-400);
+  background-color: var(--color-success-400);
+}
+
+.label input:checked + .checkbox.negative {
+  border-color: var(--color-negative-500);
+  background-color: var(--color-negative-500);
+}
+
+.label input:checked + .checkbox.warning {
+  border-color: var(--color-warning-900);
+  background-color: var(--color-warning-900);
+}
+
+/* Color unfilled */
+
+.label input:checked + .checkbox.unfilled.primary {
+  border-color: var(--color-primary-700);
+  background-color: transparent;
+}
+
+.label input:checked + .checkbox.unfilled.primary svg {
+  stroke: var(--color-primary-700);
+}
+
+.label input:checked + .checkbox.unfilled.secondary {
+  border-color: var(--color-secondary-400);
+  background-color: transparent;
+}
+
+.label input:checked + .checkbox.unfilled.secondary svg {
+  stroke: var(--color-secondary-400);
+}
+
+.label input:checked + .checkbox.unfilled.success {
+  border-color: var(--color-success-400);
+  background-color: transparent;
+}
+
+.label input:checked + .checkbox.unfilled.success svg {
+  stroke: var(--color-success-400);
+}
+
+.label input:checked + .checkbox.unfilled.negative {
+  border-color: var(--color-negative-500);
+  background-color: transparent;
+}
+
+.label input:checked + .checkbox.unfilled.negative svg {
+  stroke: var(--color-negative-500);
+}
+
+.label input:checked + .checkbox.unfilled.warning {
+  border-color: var(--color-warning-900);
+  background-color: transparent;
+}
+
+.label input:checked + .checkbox.unfilled.warning svg {
+  stroke: var(--color-warning-900);
+}
