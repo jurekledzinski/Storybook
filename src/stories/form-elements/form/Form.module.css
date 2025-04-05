@@ -5,10 +5,12 @@
   width: 100%;
 }
 
-.row {
-  flex-direction: row;
-}
+@media (min-width: 575px) {
+  .row {
+    flex-direction: row;
+  }
 
-.column {
-  flex-direction: column;
+  .column {
+    flex-direction: column;
+  }
 }
