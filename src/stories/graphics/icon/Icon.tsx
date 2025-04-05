@@ -1,17 +1,13 @@
-import styles from './Icon.module.css';
-import { classNames } from '@src/stories/helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getClassIcon } from './utils';
 import { IconProps } from './types';
 // import '../../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
 export const Icon = ({ color, ...props }: IconProps) => {
-  const classNamesIcon = classNames(
-    styles.icon,
-    styles[color as keyof typeof styles]
-  );
+  const classes = getClassIcon(color);
 
   return (
-    <span className={classNamesIcon}>
+    <span className={classes}>
       <FontAwesomeIcon {...props} />
     </span>
   );
