@@ -8,14 +8,14 @@ export const IconButton = ({
   ...props
 }: IconButtonProps | IconLinkButtonProps) => {
   const { button, rest } = formatProps(props);
-  const iconButtonClassNames = getClassIconButton(button);
+  const classes = getClassIconButton(button);
 
   if ('href' in rest) {
     return (
       <a
         aria-label="Icon link button"
         role="link"
-        className={iconButtonClassNames}
+        className={classes}
         {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
         {...rest}
       >
@@ -31,7 +31,7 @@ export const IconButton = ({
   return (
     <button
       aria-label="Icon button"
-      className={iconButtonClassNames}
+      className={classes}
       disabled={button.disabled || button.isLoading}
       {...rest}
     >
