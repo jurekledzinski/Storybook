@@ -1,6 +1,5 @@
-import styles from './ButtonGroup.module.css';
 import { ButtonGroupProps } from './types';
-import { classNames } from '@src/stories/helpers';
+import { getClassButtonGroup } from './utils';
 
 export const ButtonGroup = ({
   children,
@@ -10,17 +9,12 @@ export const ButtonGroup = ({
   marginBottom,
   marginTop,
 }: ButtonGroupProps) => {
-  const buttonGroupClassNames = classNames(
-    styles.buttonGroup,
-    styles[orientation as keyof typeof styles],
-    styles[spacing as keyof typeof styles],
-    fullWidth ? styles.fullWidth : ''
-  );
+  const classes = getClassButtonGroup(orientation, spacing, fullWidth);
 
   return (
     <div
       aria-label="Button group"
-      className={buttonGroupClassNames}
+      className={classes}
       role="group"
       style={{ marginTop, marginBottom }}
     >
