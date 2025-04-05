@@ -6,7 +6,7 @@
 .radioCustom {
   width: 1rem;
   height: 1rem;
-  border: 1px solid var(--color-primary-700);
+  border: 1px solid var(--color-black-700);
   background-color: white;
   border-radius: 50%;
   transition: border 200ms ease;
@@ -25,14 +25,6 @@
 .input:checked + .radioCustom {
   border-color: var(--color-primary-700);
   border-width: 4px;
-}
-
-.input:checked:active + .radioCustom {
-  border-color: var(--color-primary-700);
-}
-
-.input:active + .radioCustom {
-  border-color: var(--color-primary-700);
 }
 
 .input:focus-visible + .radioCustom {
@@ -54,6 +46,7 @@
 .label.size-sm {
   font-size: 15px;
 }
+
 .radioCustom.size-sm {
   width: 1rem;
   height: 1rem;
@@ -78,6 +71,10 @@
 }
 
 /* Disabled */
+
+.input:disabled {
+  cursor: not-allowed;
+}
 
 .input:disabled + .radioCustom {
   border-color: var(--color-black-300);
@@ -113,6 +110,100 @@
 
 .input:checked + .radioCustom.warning {
   border-color: var(--color-warning-900);
+}
+
+/* Variant */
+
+.input + .radioCustom.outlined {
+  border: none;
+}
+
+.input + .radioCustom.outlined::before {
+  content: '';
+  background: transparent;
+  border-radius: 100vw;
+  border: 1px solid var(--color-black-700);
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+}
+
+.input:checked + .radioCustom.outlined::before {
+  box-shadow: inset 0 0 0 4px white;
+  background-color: var(--color-primary-700);
+  transition: background-color 300ms ease;
+}
+
+.input:focus-visible + .radioCustom.outlined {
+  outline: none;
+}
+
+.input:focus-visible + .radioCustom.outlined::before {
+  outline: 2px solid var(--color-primary-700);
+  outline-offset: 2px;
+  border-color: var(--color-primary-700);
+}
+
+.input:disabled + .radioCustom.outlined {
+  cursor: not-allowed;
+}
+
+.input:disabled + .radioCustom.outlined::before {
+  box-shadow: inset 0 0 0 4px white;
+  border-color: var(--color-black-300);
+  background: var(--color-black-300);
+  cursor: not-allowed;
+}
+
+/* Sizes */
+
+.input + .radioCustom.outlined.size-xs::before {
+  width: 12px;
+  height: 12px;
+}
+
+.input:checked + .radioCustom.outlined.size-xs::before {
+  box-shadow: inset 0 0 0 3px white;
+}
+
+.input + .radioCustom.outlined.size-sm::before {
+  width: 14px;
+  height: 14px;
+}
+
+.input + .radioCustom.outlined.size-md::before {
+  width: 16px;
+  height: 16px;
+}
+
+.input + .radioCustom.outlined.size-lg::before {
+  width: 18px;
+  height: 18px;
+}
+
+/* Color outlined */
+
+.input:checked + .radioCustom.outlined.primary::before {
+  background-color: var(--color-primary-700);
+}
+
+.input:checked + .radioCustom.outlined.secondary::before {
+  background-color: var(--color-secondary-400);
+}
+
+.input:checked + .radioCustom.outlined.success::before {
+  background-color: var(--color-success-400);
+}
+
+.input:checked + .radioCustom.outlined.negative::before {
+  background-color: var(--color-negative-500);
+}
+
+.input:checked + .radioCustom.outlined.warning::before {
+  background-color: var(--color-warning-900);
 }
 
 /* Radio group */

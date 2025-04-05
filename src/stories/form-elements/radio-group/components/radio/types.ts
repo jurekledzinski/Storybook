@@ -1,7 +1,7 @@
 import { Color, Size } from '@src/stories/types';
 import { InputHTMLAttributes } from 'react';
 
-export type Variant = 'filled' | 'unfilled';
+export type Variant = 'filled' | 'outlined';
 
 export interface RadioProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
