@@ -42,32 +42,39 @@
 
 /* Sizes */
 
-.label.size-xs,
-.radioCustom.size-xs {
-  width: 14px;
-  height: 14px;
+.label.size-xs {
   font-size: 14px;
 }
 
-.label.size-sm,
+.radioCustom.size-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.label.size-sm {
+  font-size: 15px;
+}
 .radioCustom.size-sm {
   width: 1rem;
   height: 1rem;
-  font-size: 15px;
 }
 
-.label.size-md,
+.label.size-md {
+  font-size: 1rem;
+}
+
 .radioCustom.size-md {
   width: 18px;
   height: 18px;
+}
+
+.label.size-lg {
   font-size: 1rem;
 }
 
-.label.size-lg,
 .radioCustom.size-lg {
   width: 20px;
   height: 20px;
-  font-size: 1rem;
 }
 
 /* Disabled */
@@ -86,7 +93,7 @@
   pointer-events: none;
 }
 
-/* Variant */
+/* Color */
 
 .input:checked + .radioCustom.primary {
   border-color: var(--color-primary-700);

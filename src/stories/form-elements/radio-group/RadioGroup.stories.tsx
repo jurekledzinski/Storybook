@@ -18,22 +18,22 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <Radio id="wiosna" name="sezon" value="wiosna">
+        <Radio id="wiosna" name="sezon" value="wiosna" size="size-md">
           Wiosna
         </Radio>
-        <Radio id="lato" name="sezon" value="lato">
+        <Radio id="lato" name="sezon" value="lato" size="size-md">
           Lato
         </Radio>
-        <Radio id="jesień" name="sezon" value="Jesień">
+        <Radio id="jesień" name="sezon" value="Jesień" size="size-md">
           Jesień
         </Radio>
-        <Radio id="zima" name="sezon" value="zima">
+        <Radio id="zima" name="sezon" value="zima" size="size-md">
           Zima
         </Radio>
       </>
     ),
-    orientation: 'row',
-    spacing: 'none',
+    orientation: 'column',
+    spacing: 'normal',
   },
   argTypes: {
     orientation: {
