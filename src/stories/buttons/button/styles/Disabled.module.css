@@ -3,14 +3,14 @@
 button:disabled,
 a.disabled {
   display: flex;
-  background-color: var(--color-disabled);
-  border-color: var(--color-disabled);
+  background-color: var(--color-disabled-100);
+  border-color: var(--color-disabled-100);
   cursor: not-allowed;
 }
 
 button.outlined:disabled,
 a.outlined.disabled {
-  border-color: var(--color-disabled);
+  border-color: var(--color-disabled-100);
 }
 
 button.outlined:disabled,
@@ -41,6 +41,6 @@ a.text.disabled:hover {
 
 button:disabled:hover,
 a.disabled:hover {
-  background-color: var(--color-disabled);
-  border-color: var(--color-disabled);
+  background-color: var(--color-disabled-100);
+  border-color: var(--color-disabled-100);
 }

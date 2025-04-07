@@ -1,22 +1,29 @@
 .input:disabled,
-.textarea:disabled {
-  border-color: var(--color-black-300);
+.textarea:disabled,
+.input:disabled.outlined,
+.textarea:disabled.outlined {
+  border-color: var(--color-disabled-100);
+  background-color: var(--color-disabled-50);
+  color: var(--color-disabled-200);
   cursor: not-allowed;
-  color: var(--color-black-400);
 }
 
 .input:disabled + .legend,
-.textarea:disabled + .legend {
+.textarea:disabled + .legend,
+.input:disabled:not(:placeholder-shown) + .legend,
+.input:disabled:focus + .legend,
+.textarea:disabled:not(:placeholder-shown) + .legend,
+.textarea:disabled:focus + .legend {
+  color: var(--color-disabled-200);
   cursor: not-allowed;
-  color: var(--color-black-400);
 }
 
 .input.valid:disabled + .legend,
 .textarea.valid:disabled + .legend {
-  color: var(--color-black-400);
+  color: var(--color-disabled-200);
 }
 
 .input.inValid:disabled + .legend,
 .textarea.inValid:disabled + .legend {
-  color: var(--color-black-400);
+  color: var(--color-disabled-200);
 }

@@ -1,10 +1,20 @@
-
 .inputWrapper {
-  display: flex;
   position: relative;
+  display: flex;
   width: inherit;
   min-height: 26px;
-  border: 1px solid var(--color-black-700);
+  border: 1px solid var(--color-black-500);
+  transition: box-shadow 300ms linear;
+}
+
+.inputWrapper > .fieldset > .input,
+.inputWrapper > .fieldset > .textarea {
+  border: none;
+}
+
+.inputWrapper > .fieldset > .input:focus,
+.inputWrapper > .fieldset > .textarea:focus {
+  outline: none;
 }
 
 .inputWrapper:focus-within {
@@ -15,13 +25,11 @@
 .inputWrapper.contained:focus-within,
 .inputWrapper.underline:focus-within {
   outline: none;
+  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
 }
 
-.inputWrapper.underline:focus-within,
-.inputWrapper.contained:focus-within {
-  outline: none;
-  border-color: var(--color-primary-700);
-  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
+.inputWrapper > .fieldset.contained::before {
+  content: initial;
 }
 
 .inputWrapper.contained,
@@ -32,24 +40,48 @@
 }
 
 .inputWrapper.contained {
-  background-color: rgb(249, 249, 249);
+  background-color: var(--color-black-50);
   z-index: 0;
 }
 
-.inputWrapper > button.endIcon,
-.inputWrapper > button.startIcon,
+/* Elements inside */
+
+.inputWrapper.divider > button.endIcon::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  width: 1px;
+  background-color: var(--color-black-500);
+}
+
+.inputWrapper > .endIcon,
+.inputWrapper > .startIcon,
 .inputWrapper > span {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   background-color: transparent;
+  color: var(--color-black-600);
   padding: 6px 8px;
 }
 
-.inputWrapper > button.startIcon:focus,
-.inputWrapper > button.endIcon:focus {
+.inputWrapper > button.startIcon:focus {
   outline: none;
+}
+
+.inputWrapper > button.endIcon:focus-visible,
+.inputWrapper > button.startIcon:focus-visible {
+  color: var(--color-primary-700);
+  outline: none;
+}
+
+.inputWrapper.divider > button.endIcon:focus-visible:before {
+  background-color: transparent;
 }
 
 .inputWrapper.startIcon .input,
@@ -66,17 +98,16 @@
   padding-right: initial;
 }
 
-/* ---- */
-
 .inputWrapper.startIcon.contained > button,
 .inputWrapper.endIcon.contained > button,
-.inputWrapper.endIcon.contained > span {
+.inputWrapper.endIcon.contained > span,
+.inputWrapper.valid.contained > span,
+.inputWrapper.inValid.contained > span {
   align-items: center;
   margin-top: 1rem;
   z-index: -1;
 }
 
-/* Tu valid */
 .inputWrapper:has(textarea).startIcon.contained > button,
 .inputWrapper:has(textarea).endIcon.contained > button,
 .inputWrapper:has(textarea).endIcon.contained > span,
@@ -142,6 +173,13 @@
   outline: 1px solid var(--color-negative-500);
 }
 
+.inputWrapper.valid:focus-within > .fieldset > .input,
+.inputWrapper.inValid:focus-within > .fieldset > .input,
+.inputWrapper.valid:focus-within > .fieldset > .textarea,
+.inputWrapper.inValid:focus-within > .fieldset > .textarea {
+  box-shadow: initial;
+}
+
 .inputWrapper.valid.underline:focus-within,
 .inputWrapper.valid.contained:focus-within {
   outline: none;
@@ -156,37 +194,31 @@
   box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
 }
 
+.inputWrapper.valid > .fieldset > .legend {
+  color: var(--color-success-400);
+}
+
+.inputWrapper.inValid > .fieldset > .legend {
+  color: var(--color-negative-500);
+}
 /* Disabled */
 
 .inputWrapper.disabled {
-  border-color: var(--color-black-300);
+  border-color: var(--color-disabled-100);
+}
+
+.inputWrapper.disabled:not(.contained):not(.underline) > .startIcon,
+.inputWrapper.disabled:not(.contained):not(.underline) > .endIcon {
+  background-color: var(--color-disabled-50);
 }
 
 .startIcon.disabled,
 .endIcon.disabled {
-  color: var(--color-black-400);
+  color: var(--color-disabled-200);
   pointer-events: none;
 }
 
 .startIcon.readOnly,
 .endIcon.readOnly {
   pointer-events: none;
-}
-
-/* When used with input or textarea wrapper */
-
-.inputWrapper > .fieldset > .input,
-.inputWrapper > .fieldset > .textarea {
-  border: none;
-}
-
-.inputWrapper > .fieldset > .input:focus,
-.inputWrapper > .fieldset > .textarea:focus {
-  outline: none;
-}
-
-.inputWrapper:hover:not(:focus-within) {
-  border-color: var(--color-black-800);
-  outline: none;
-  box-shadow: none;
 }

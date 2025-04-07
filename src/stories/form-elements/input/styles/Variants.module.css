@@ -11,8 +11,8 @@
 
 .inputWrapper.startIcon .input.outlined:not(:placeholder-shown) + .legend,
 .inputWrapper.startIcon .input.outlined:focus + .legend,
-.inputWrapper.startIcon .textarea.outlined:not(:placeholder-shown) + legend,
-.inputWrapper.startIcon .textarea.outlined:focus + legend {
+.inputWrapper.startIcon .textarea.outlined:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon .textarea.outlined:focus + .legend {
   left: -26px;
 }
 
@@ -25,8 +25,8 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 1.5px;
-  background-color: rgb(249, 249, 249);
+  bottom: 0;
+  background-color: var(--color-black-50);
   z-index: -1;
 }
 
@@ -62,10 +62,10 @@
   top: 2px;
 }
 
-.input.contained:not(:placeholder-shown) + legend,
-.input.contained:focus + legend,
-.textarea.contained:not(:placeholder-shown) + legend,
-.textarea.contained:focus + legend {
+.input.contained:not(:placeholder-shown) + .legend,
+.input.contained:focus + .legend,
+.textarea.contained:not(:placeholder-shown) + .legend,
+.textarea.contained:focus + .legend {
   top: 4px;
   background-color: transparent;
 }
@@ -85,10 +85,10 @@
   left: -2px;
 }
 
-.input.underline:not(:placeholder-shown) + legend,
-.input.underline:focus + legend,
-.textarea.underline:not(:placeholder-shown) + legend,
-.textarea.underline:focus + legend {
+.input.underline:not(:placeholder-shown) + .legend,
+.input.underline:focus + .legend,
+.textarea.underline:not(:placeholder-shown) + .legend,
+.textarea.underline:focus + .legend {
   top: -12px;
 }
 

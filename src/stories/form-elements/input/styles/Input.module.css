@@ -2,6 +2,7 @@
 @import './Disabled.module.css';
 @import './Focus.module.css';
 @import './Variants.module.css';
+@import './InputWrapper.module.css';
 
 .fieldset {
   position: relative;
@@ -35,7 +36,8 @@
   padding: 0 6px;
   color: var(--color-text-primary);
   font-size: 14px;
-  border: 1px solid var(--color-black-600);
+  border: 1px solid var(--color-black-500);
+  transition: box-shadow 300ms linear;
 }
 
 /* Size font inputs */
@@ -55,6 +57,7 @@
   position: absolute;
   top: 6px;
   left: 4px;
+  /* padding: 0 2px; */
   z-index: -1;
   transition: 200ms linear;
   font-size: 14px;
@@ -75,218 +78,4 @@
 .textarea {
   padding: 6px;
   resize: none;
-}
-
-/* Input wrapper */
-
-.inputWrapper {
-  display: flex;
-  position: relative;
-  width: inherit;
-  min-height: 26px;
-  border: 1px solid var(--color-black-600);
-}
-
-.inputWrapper:focus-within {
-  border-color: var(--color-primary-700);
-  outline: 1px solid var(--color-primary-700);
-}
-
-.inputWrapper.contained:focus-within,
-.inputWrapper.underline:focus-within {
-  outline: none;
-}
-
-.inputWrapper.underline:focus-within,
-.inputWrapper.contained:focus-within {
-  outline: none;
-  border-color: var(--color-primary-700);
-  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
-}
-
-.inputWrapper.contained,
-.inputWrapper.underline {
-  border-right: none;
-  border-left: none;
-  border-top: none;
-}
-
-.inputWrapper.contained {
-  background-color: rgb(249, 249, 249);
-  z-index: 0;
-}
-
-.inputWrapper.divider > button.endIcon::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  left: 0;
-  width: 1px;
-  background-color: var(--color-black-600);
-}
-
-.inputWrapper > button.endIcon,
-.inputWrapper > button.startIcon,
-.inputWrapper > span {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  background-color: transparent;
-  padding: 6px 8px;
-}
-
-.inputWrapper > button.startIcon:focus {
-  outline: none;
-}
-
-.inputWrapper > button.endIcon:focus-visible {
-  background-color: var(--color-primary-700);
-  color: white;
-  outline: none;
-}
-
-.inputWrapper.divider > button.endIcon:focus-visible:before {
-  background-color: transparent;
-}
-
-.inputWrapper.startIcon .input,
-.inputWrapper.startIcon .textarea {
-  padding-left: initial;
-}
-
-.inputWrapper.inValid .input,
-.inputWrapper.valid .input,
-.inputWrapper.endIcon .input,
-.inputWrapper.inValid .textarea,
-.inputWrapper.valid .textarea,
-.inputWrapper.endIcon .textarea {
-  padding-right: initial;
-}
-
-/* ---- */
-
-.inputWrapper.startIcon.contained > button,
-.inputWrapper.endIcon.contained > button,
-.inputWrapper.endIcon.contained > span {
-  align-items: center;
-  margin-top: 1rem;
-  z-index: -1;
-}
-
-.inputWrapper:has(textarea).startIcon.contained > button,
-.inputWrapper:has(textarea).endIcon.contained > button,
-.inputWrapper:has(textarea).endIcon.contained > span,
-.inputWrapper:has(textarea).valid.contained > span,
-.inputWrapper:has(textarea).inValid.contained > span {
-  align-items: flex-start;
-  margin-top: 15px;
-  z-index: -1;
-}
-
-.inputWrapper:has(textarea).startIcon > button,
-.inputWrapper:has(textarea).endIcon > button,
-.inputWrapper:has(textarea).endIcon > span,
-.inputWrapper:has(textarea).valid > span,
-.inputWrapper:has(textarea).inValid > span {
-  align-items: flex-start;
-  margin-top: initial;
-  padding: 8px;
-}
-
-/* Size icons */
-
-.startIcon.size-xs,
-.endIcon.size-xs {
-  font-size: 14px;
-}
-
-.startIcon.size-sm,
-.endIcon.size-sm,
-.startIcon.size-md,
-.endIcon.size-md {
-  font-size: 15px;
-}
-
-.startIcon.size-lg,
-.endIcon.size-lg {
-  font-size: 16px;
-}
-
-/* Status when inputWrapper used */
-
-.inputWrapper.inValid {
-  border-color: var(--color-negative-500);
-}
-
-.inputWrapper.valid {
-  border-color: var(--color-success-400);
-}
-
-.endIcon.inValid {
-  color: var(--color-negative-500);
-}
-
-.endIcon.valid {
-  color: var(--color-success-400);
-}
-
-.inputWrapper.valid:focus-within {
-  outline: 1px solid var(--color-success-400);
-}
-
-.inputWrapper.inValid:focus-within {
-  outline: 1px solid var(--color-negative-500);
-}
-
-.inputWrapper.valid.underline:focus-within,
-.inputWrapper.valid.contained:focus-within {
-  outline: none;
-  border-color: var(--color-success-400);
-  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
-}
-
-.inputWrapper.inValid.underline:focus-within,
-.inputWrapper.inValid.contained:focus-within {
-  outline: none;
-  border-color: var(--color-negative-500);
-  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
-}
-
-/* Disabled */
-
-.inputWrapper.disabled {
-  border-color: var(--color-black-300);
-}
-
-.startIcon.disabled,
-.endIcon.disabled {
-  color: var(--color-black-400);
-  pointer-events: none;
-}
-
-.startIcon.readOnly,
-.endIcon.readOnly {
-  pointer-events: none;
-}
-
-/* When used with input or textarea wrapper */
-
-.inputWrapper > .fieldset > .input,
-.inputWrapper > .fieldset > .textarea {
-  border: none;
-}
-
-.inputWrapper > .fieldset > .input:focus,
-.inputWrapper > .fieldset > .textarea:focus {
-  outline: none;
-}
-
-.inputWrapper:hover:not(:focus-within) {
-  border-color: var(--color-black-800);
-  outline: none;
-  box-shadow: none;
 }
