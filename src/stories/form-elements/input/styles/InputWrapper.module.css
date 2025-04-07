@@ -201,6 +201,7 @@
 .inputWrapper.inValid > .fieldset > .legend {
   color: var(--color-negative-500);
 }
+
 /* Disabled */
 
 .inputWrapper.disabled {
@@ -221,4 +222,8 @@
 .startIcon.readOnly,
 .endIcon.readOnly {
   pointer-events: none;
+}
+
+.inputWrapper.disabled > .fieldset > .legend {
+  color: var(--color-disabled-200);
 }
