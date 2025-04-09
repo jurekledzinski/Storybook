@@ -25,7 +25,7 @@ export const TextInput = ({
         {...(startIcon && { startIcon: startIcon[0] })}
         {...props}
       >
-        <Input as={as} {...getInputProps(as, type)} {...props} />
+        <Input as={as} {...getInputProps(as, type, isError)} {...props} />
       </InputWrapper>
     </div>
   );
