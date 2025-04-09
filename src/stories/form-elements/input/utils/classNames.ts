@@ -19,44 +19,20 @@ export const getClassNamesInputWrapper = (
 ) => ({
   inputWrapper: classNames(
     stylesInput.inputWrapper,
-    stylesInput[variant] || '',
-    isError === true
-      ? stylesInput['inValid']
-      : isError === false
-      ? stylesInput['valid']
-      : '',
+    stylesInput[variant],
+    stylesInput[size],
     disabled ? stylesInput['disabled'] : '',
     startIcon ? stylesInput['startIcon'] : '',
     endIcon || isPending ? stylesInput['endIcon'] : '',
-    (divider && variant === 'basic') || (divider && variant === 'outlined')
-      ? stylesInput['divider']
-      : ''
-  ),
-  startIcon: classNames(
-    stylesInput.startIcon,
-    stylesInput[variant],
-    stylesInput[size],
-    disabled ? stylesInput['disabled'] : '',
+    divider && variant === 'basic' ? stylesInput['divider'] : '',
+    divider && variant === 'outlined' ? stylesInput['divider'] : '',
+    isError === true ? stylesInput['inValid'] : '',
+    isError === false ? stylesInput['valid'] : '',
     readOnly ? stylesInput['readOnly'] : ''
   ),
-  endIcon: classNames(
-    stylesInput.endIcon,
-    stylesInput[variant],
-    stylesInput[size],
-    disabled ? stylesInput['disabled'] : '',
-    readOnly ? stylesInput['readOnly'] : ''
-  ),
-  statusIcon: classNames(
-    stylesInput.endIcon,
-    stylesInput[variant],
-    stylesInput[size],
-    isError === true
-      ? stylesInput['inValid']
-      : isError === false
-      ? stylesInput['valid']
-      : '',
-    disabled ? stylesInput['disabled'] : ''
-  ),
+  startIcon: classNames(stylesInput.startIcon),
+  endIcon: classNames(stylesInput.endIcon),
+  statusIcon: classNames(stylesInput.endIcon),
 });
 
 export const getClassNamesInput = (
@@ -64,39 +40,14 @@ export const getClassNamesInput = (
   size: Size = 'size-sm',
   isError?: boolean
 ) => ({
-  input: classNames(
-    stylesInput.input,
-    stylesInput[variant] || '',
-    stylesInput[size] || '',
-    isError === true
-      ? stylesInput['inValid']
-      : isError === false
-      ? stylesInput['valid']
-      : ''
-  ),
   fieldset: classNames(
     stylesInput.fieldset,
     stylesInput[variant] || '',
-    stylesInput[size] || ''
-  ),
-  legend: classNames(
-    stylesInput.legend,
-    stylesInput[variant] || '',
     stylesInput[size] || '',
-    isError === true
-      ? stylesInput['inValid']
-      : isError === false
-      ? stylesInput['valid']
-      : ''
+    isError === true ? stylesInput['inValid'] : '',
+    isError === false ? stylesInput['valid'] : ''
   ),
-  textarea: classNames(
-    stylesInput.textarea,
-    stylesInput[variant] || '',
-    stylesInput[size] || '',
-    isError === true
-      ? stylesInput['inValid']
-      : isError === false
-      ? stylesInput['valid']
-      : ''
-  ),
+  input: classNames(stylesInput.input, stylesInput[size] || ''),
+  legend: classNames(stylesInput.legend, stylesInput[size] || ''),
+  textarea: classNames(stylesInput.textarea, stylesInput[size] || ''),
 });
