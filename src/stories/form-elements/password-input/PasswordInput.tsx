@@ -15,6 +15,7 @@ export const PasswordInput = ({
   return (
     <div className={styles.passwordInput}>
       <InputWrapper
+        divider={true}
         isPending={isPending}
         onClickEndIcon={() => setShowPassword((prev) => !prev)}
         {...(endIcon && { endIcon: showPassword ? endIcon[0] : endIcon[1] })}
