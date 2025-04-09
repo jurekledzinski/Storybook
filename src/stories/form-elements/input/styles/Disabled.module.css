@@ -1,29 +1,26 @@
-.input:disabled,
-.textarea:disabled,
-.input:disabled.outlined,
-.textarea:disabled.outlined {
+.fieldset .input:disabled,
+.fieldset .textarea:disabled,
+.fieldset.outlined .input:disabled,
+.fieldset.outlined .textarea:disabled {
   border-color: var(--color-disabled-100);
   background-color: var(--color-disabled-50);
   color: var(--color-disabled-200);
   cursor: not-allowed;
 }
 
-.input:disabled + .legend,
-.textarea:disabled + .legend,
-.input:disabled:not(:placeholder-shown) + .legend,
-.input:disabled:focus + .legend,
-.textarea:disabled:not(:placeholder-shown) + .legend,
-.textarea:disabled:focus + .legend {
+.fieldset .input:disabled + .legend,
+.fieldset .textarea:disabled + .legend,
+.fieldset .input:disabled:not(:placeholder-shown) + .legend,
+.fieldset .input:disabled:focus + .legend,
+.fieldset .textarea:disabled:not(:placeholder-shown) + .legend,
+.fieldset .textarea:disabled:focus + .legend {
   color: var(--color-disabled-200);
   cursor: not-allowed;
 }
 
-.input.valid:disabled + .legend,
-.textarea.valid:disabled + .legend {
-  color: var(--color-disabled-200);
-}
-
-.input.inValid:disabled + .legend,
-.textarea.inValid:disabled + .legend {
+.fieldset.valid .input:disabled + .legend,
+.fieldset.valid .textarea:disabled + .legend,
+.fieldset.inValid .input:disabled + .legend,
+.fieldset.inValid .textarea:disabled + .legend {
   color: var(--color-disabled-200);
 }

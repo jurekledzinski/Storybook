@@ -1,18 +1,18 @@
 /* Variant outlined */
 
-.input.outlined,
-.textarea.outlined {
+.fieldset.outlined .input,
+.fieldset.outlined .textarea {
   background-color: transparent;
 }
 
-.inputWrapper.startIcon .legend.outlined {
+.inputWrapper.startIcon.outlined .legend {
   left: -2px;
 }
 
-.inputWrapper.startIcon .input.outlined:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon .input.outlined:focus + .legend,
-.inputWrapper.startIcon .textarea.outlined:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon .textarea.outlined:focus + .legend {
+.inputWrapper.startIcon.outlined .input:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon.outlined .input:focus + .legend,
+.inputWrapper.startIcon.outlined .textarea:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon.outlined .textarea:focus + .legend {
   left: -26px;
 }
 
@@ -34,71 +34,52 @@
   padding: 16px 0 0;
 }
 
-.input.contained,
-.textarea.contained {
-  padding: initial;
+.fieldset.contained .input,
+.fieldset.contained .textarea {
   background-color: transparent;
   border-top: none;
   border-right: none;
   border-left: none;
 }
 
-.input.contained {
-  padding: 0 6px;
-}
-
-.textarea.contained {
-  padding: 6px;
-}
-
-.inputWrapper.startIcon .legend.contained {
+.inputWrapper.startIcon.contained .legend {
   left: -24px;
 }
 
-.legend.contained,
-.legend.contained.size-sm,
-.legend.contained.size-md,
-.legend.contained.size-lg {
-  top: 2px;
+.fieldset.contained .legend {
+  top: 4px;
 }
 
-.input.contained:not(:placeholder-shown) + .legend,
-.input.contained:focus + .legend,
-.textarea.contained:not(:placeholder-shown) + .legend,
-.textarea.contained:focus + .legend {
+.fieldset.contained .input:not(:placeholder-shown) + .legend,
+.fieldset.contained .input:focus + .legend,
+.fieldset.contained .textarea:not(:placeholder-shown) + .legend,
+.fieldset.contained .textarea:focus + .legend {
   top: 4px;
   background-color: transparent;
 }
 
 /* Variant underline */
 
-.input.underline,
-.textarea.underline {
-  padding: initial;
+.fieldset.underline .input,
+.fieldset.underline .textarea {
+  padding-left: initial;
+  padding-right: initial;
   background-color: transparent;
   border-top: none;
   border-right: none;
   border-left: none;
 }
 
-.legend.underline {
-  left: -2px;
+.fieldset.underline .input:not(:placeholder-shown) + .legend,
+.fieldset.underline .input:focus + .legend,
+.fieldset.underline .textarea:not(:placeholder-shown) + .legend,
+.fieldset.underline .textarea:focus + .legend {
+  top: -4px;
 }
 
-.input.underline:not(:placeholder-shown) + .legend,
-.input.underline:focus + .legend,
-.textarea.underline:not(:placeholder-shown) + .legend,
-.textarea.underline:focus + .legend {
-  top: -12px;
-}
-
-.inputWrapper.startIcon .input.underline:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon .input.underline:focus + .legend,
-.inputWrapper.startIcon .textarea.underline:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon .textarea.underline:focus + .legend {
+.inputWrapper.startIcon.underline .input:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon.underline .input:focus + .legend,
+.inputWrapper.startIcon.underline .textarea:not(:placeholder-shown) + .legend,
+.inputWrapper.startIcon.underline .textarea:focus + .legend {
   left: -33px;
-}
-
-.textarea.underline {
-  padding: 6px 0;
 }

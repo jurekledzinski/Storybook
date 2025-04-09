@@ -6,76 +6,103 @@
 
 .fieldset {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  min-height: inherit;
   padding: initial;
   border: none;
-}
-
-.fieldset.size-xs {
-  min-height: 26px;
-}
-
-.fieldset.size-sm {
-  min-height: 28px;
-}
-
-.fieldset.size-md {
-  min-height: 30px;
-}
-
-.fieldset.size-lg {
-  min-height: 36px;
 }
 
 .input,
 .textarea {
   display: flex;
   width: 100%;
-  min-height: inherit;
-  padding: 0 6px;
+  padding: 4px 6px;
   color: var(--color-text-primary);
   font-size: 14px;
   border: 1px solid var(--color-black-500);
   transition: box-shadow 300ms linear;
 }
 
+.input.size-xs,
+.textarea.size-xs {
+  padding: 4px 6px;
+}
+
+.input.size-sm,
+.textarea.size-sm {
+  padding: 4.5px 6px;
+}
+
+.input.size-md,
+.textarea.size-md {
+  padding: 5.5px 6px;
+}
+
+.input.size-lg,
+.textarea.size-lg {
+  padding: 8px 6px;
+}
+
 /* Size font inputs */
-.fieldset.size-sm > .input,
-.fieldset.size-sm > .textarea,
-.fieldset.size-md > .input,
-.fieldset.size-md > .textarea {
+.fieldset.size-sm .input,
+.fieldset.size-sm .textarea,
+.fieldset.size-md .input,
+.fieldset.size-md .textarea {
   font-size: 15px;
 }
 
-.fieldset.size-lg > .input,
-.fieldset.size-lg > .textarea {
+.fieldset.size-lg .input,
+.fieldset.size-lg .textarea {
   font-size: 16px;
 }
 
 .legend {
   position: absolute;
-  top: 6px;
-  left: 4px;
-  /* padding: 0 2px; */
+  top: 50%;
+  left: 0.25rem;
   z-index: -1;
+  font-size: 14px;
   transition: 200ms linear;
+}
+
+.fieldset.outlined .legend,
+.fieldset.underline .legend {
+  position: absolute;
+  top: 50%;
+  left: 0.25rem;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.fieldset.underline .legend {
+  left: -2px;
+}
+
+.fieldset.underline .textarea + .legend {
+  top: 0px;
+}
+
+.outlined .textarea + .legend {
+  top: 14px;
+}
+
+.fieldset.size-xs .legend {
   font-size: 14px;
 }
 
-.legend.size-sm {
-  top: 6px;
+.fieldset.size-sm .legend {
+  font-size: 14px;
 }
 
-.legend.size-md {
-  top: 7px;
+.fieldset.size-md .legend {
+  font-size: 15px;
 }
 
-.legend.size-lg {
-  top: 10px;
+.fieldset.size-lg .legend {
+  font-size: 16px;
 }
 
 .textarea {
-  padding: 6px;
   resize: none;
 }
