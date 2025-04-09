@@ -77,13 +77,9 @@ export const Default: Story = {
   decorators: [
     (Story) => {
       return (
-        <form
-          style={{ minWidth: '400px' }}
-          onSubmit={(e) => e.preventDefault()}
-          noValidate
-        >
+        <div style={{ minWidth: '400px' }}>
           <Story />
-        </form>
+        </div>
       );
     },
   ],
