@@ -1,6 +1,6 @@
 import { ButtonIcon } from '../button-icon/ButtonIcon';
 import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { getClassNewNamesInputWrapper } from '../../utils';
+import { getClassNamesInputWrapper } from '../../utils';
 import { InputWrapperIconsRef } from './types';
 import { InputWrapperProps } from '../../types';
 import { LoaderIcon } from '../loader-icon/LoaderIcon';
@@ -23,7 +23,7 @@ export const InputWrapper = forwardRef<InputWrapperIconsRef, InputWrapperProps>(
       endIcon: endIconRef,
     }));
 
-    const classes = getClassNewNamesInputWrapper({ ...props, size, variant });
+    const classes = getClassNamesInputWrapper({ ...props, size, variant });
 
     const {
       isError,
