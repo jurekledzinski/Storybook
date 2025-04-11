@@ -17,6 +17,7 @@ export const TextInput = ({
   return (
     <div className={styles.textInput}>
       <InputWrapper
+        as={as}
         isError={isError}
         isPending={isPending}
         onClickEndIcon={onClickEndIcon}
