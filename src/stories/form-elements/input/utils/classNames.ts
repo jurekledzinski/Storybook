@@ -1,4 +1,4 @@
-import stylesInput from '../new-styles/Styles.module.css';
+import stylesInput from '../styles/Styles.module.css';
 import { classNames, generateClassNames } from '@src/stories/helpers';
 import { GetClassNamesInput, GetClassNamesInputWrapper } from './types';
 
