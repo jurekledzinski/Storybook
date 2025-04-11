@@ -1,31 +1,31 @@
-.fieldset.valid .legend {
+legend.legend-valid {
   color: var(--color-success-400);
 }
 
-.fieldset.inValid .legend {
+legend.legend-inValid {
   color: var(--color-negative-500);
 }
 
-.fieldset.valid .input,
-.fieldset.valid .textarea {
+input.input-valid,
+textarea.textarea-valid {
   border-color: var(--color-success-400);
 }
 
-.fieldset.inValid .input,
-.fieldset.inValid .textarea {
+input.input-inValid,
+textarea.textarea-inValid {
   border-color: var(--color-negative-500);
 }
 
-.fieldset.valid .input:not(:placeholder-shown) + .legend,
-.fieldset.valid .input:focus + .legend,
-.fieldset.valid .textarea:not(:placeholder-shown) + .legend,
-.fieldset.valid .textarea:focus + .legend {
+input.input-valid:not(:placeholder-shown) + .legend,
+input.input-valid:focus + .legend,
+textarea.textarea-valid:not(:placeholder-shown) + .legend,
+textarea.textarea-valid:focus + .legend {
   color: var(--color-success-400);
 }
 
-.fieldset.inValid .input:not(:placeholder-shown) + .legend,
-.fieldset.inValid .input:focus + .legend,
-.fieldset.inValid .textarea:not(:placeholder-shown) + .legend,
-.fieldset.inValid .textarea:focus + .legend {
+input.input-inValid:not(:placeholder-shown) + .legend,
+input.input-inValid:focus + .legend,
+textarea.textarea-inValid:not(:placeholder-shown) + .legend,
+textarea.textarea-inValid:focus + .legend {
   color: var(--color-negative-500);
 }

@@ -1,26 +1,40 @@
-.fieldset .input:disabled,
-.fieldset .textarea:disabled,
-.fieldset.outlined .input:disabled,
-.fieldset.outlined .textarea:disabled {
+.input:disabled,
+.textarea:disabled,
+.input:disabled:focus,
+.textarea:disabled:focus {
   border-color: var(--color-disabled-100);
   background-color: var(--color-disabled-50);
   color: var(--color-disabled-200);
   cursor: not-allowed;
 }
 
-.fieldset .input:disabled + .legend,
-.fieldset .textarea:disabled + .legend,
-.fieldset .input:disabled:not(:placeholder-shown) + .legend,
-.fieldset .input:disabled:focus + .legend,
-.fieldset .textarea:disabled:not(:placeholder-shown) + .legend,
-.fieldset .textarea:disabled:focus + .legend {
+.input:disabled + .legend,
+.textarea:disabled + .legend,
+.input:disabled:not(:placeholder-shown) + .legend,
+.input:disabled:focus + .legend,
+.textarea:disabled:not(:placeholder-shown) + .legend,
+.textarea:disabled:focus + .legend {
   color: var(--color-disabled-200);
   cursor: not-allowed;
 }
 
-.fieldset.valid .input:disabled + .legend,
-.fieldset.valid .textarea:disabled + .legend,
-.fieldset.inValid .input:disabled + .legend,
-.fieldset.inValid .textarea:disabled + .legend {
-  color: var(--color-disabled-200);
+.input-underline:disabled,
+.textarea-underline:disabled {
+  background-color: transparent;
+}
+
+.input-underline:disabled:focus,
+.textarea-underline:disabled:focus,
+.input-contained:disabled:focus,
+.textarea-contained:disabled:focus {
+  box-shadow: inset 0 -1px 0 0 var(--color-disabled-100);
+}
+
+.fieldset-contained.fieldset-disabled::before {
+  background-color: var(--color-disabled-50);
+}
+
+.fieldset-contained.fieldset-disabled .input,
+.fieldset-contained.fieldset-disabled .textarea {
+  background-color: transparent;
 }

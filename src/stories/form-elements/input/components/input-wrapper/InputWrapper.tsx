@@ -1,6 +1,6 @@
 import { ButtonIcon } from '../button-icon/ButtonIcon';
 import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { getClassNamesInputWrapper } from '../../utils/classNames';
+import { getClassNewNamesInputWrapper } from '../../utils';
 import { InputWrapperIconsRef } from './types';
 import { InputWrapperProps } from '../../types';
 import { LoaderIcon } from '../loader-icon/LoaderIcon';
@@ -12,20 +12,7 @@ import {
 
 export const InputWrapper = forwardRef<InputWrapperIconsRef, InputWrapperProps>(
   (
-    {
-      divider,
-      disabled,
-      children,
-      endIcon,
-      isError,
-      isPending,
-      onClickEndIcon,
-      onClickStartIcon,
-      size,
-      startIcon,
-      readOnly,
-      variant,
-    },
+    { children, size = 'size-sm', variant = 'basic', ...props },
     ref: Ref<InputWrapperIconsRef>
   ) => {
     const startIconRef = useRef<HTMLButtonElement>(null);
@@ -36,21 +23,21 @@ export const InputWrapper = forwardRef<InputWrapperIconsRef, InputWrapperProps>(
       endIcon: endIconRef,
     }));
 
-    const classes = getClassNamesInputWrapper(
-      variant,
-      size,
+    const classes = getClassNewNamesInputWrapper({ ...props, size, variant });
+
+    const {
       isError,
-      disabled,
-      readOnly,
-      startIcon,
-      endIcon,
       isPending,
-      divider
-    );
+      startIcon,
+      divider,
+      endIcon,
+      onClickStartIcon,
+      onClickEndIcon,
+    } = props;
 
     return (
       <div className={classes.inputWrapper}>
-        {startIcon && (
+        {props.as === 'input' && startIcon && (
           <ButtonIcon
             className={classes.startIcon}
             icon={startIcon}

@@ -1,30 +1,31 @@
-import { getClassNamesInput } from './utils/classNames';
+import { getClassNamesInput } from './utils';
 import { InputProps, TextareaProps } from './types';
 
 export const Input = ({
   as = 'input',
+  disabled,
   isError,
-  label,
   size,
   variant = 'basic',
   placeholder = '',
   ...props
 }: InputProps | TextareaProps) => {
-  const classes = getClassNamesInput(variant, size, isError);
+  const classes = getClassNamesInput({ variant, size, isError, disabled });
 
   if (as === 'textarea' && 'rows' in props && 'cols' in props) {
     return (
       <fieldset className={classes.fieldset}>
         <textarea
-          aria-label={label}
           {...props}
+          aria-label={props.label}
           className={classes.textarea}
+          disabled={disabled}
           placeholder={placeholder}
           required
         />
 
         {variant !== 'basic' && (
-          <legend className={classes.legend}>{label}</legend>
+          <legend className={classes.legend}>{props.label}</legend>
         )}
       </fieldset>
     );
@@ -34,15 +35,16 @@ export const Input = ({
     return (
       <fieldset className={classes.fieldset}>
         <input
-          aria-label={label}
           {...props}
+          aria-label={props.label}
           className={classes.input}
+          disabled={disabled}
           placeholder={placeholder}
           required
         />
 
         {variant !== 'basic' && (
-          <legend className={classes.legend}>{label}</legend>
+          <legend className={classes.legend}>{props.label}</legend>
         )}
       </fieldset>
     );

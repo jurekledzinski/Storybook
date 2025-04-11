@@ -1,53 +1,108 @@
-import stylesInput from '../styles/Input.module.css';
-import { BaseInputProps } from '../types';
-import { classNames } from '@src/stories/helpers';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import stylesInput from '../new-styles/Styles.module.css';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { GetClassNamesInput, GetClassNamesInputWrapper } from './types';
 
-type Variant = BaseInputProps<HTMLInputElement>['variant'];
-type Size = BaseInputProps<HTMLInputElement>['size'];
+export const getClassNewNamesInputWrapper: GetClassNamesInputWrapper = (
+  params
+) => {
+  const {
+    as,
+    disabled,
+    divider,
+    endIcon,
+    isError,
+    size = 'size-sm',
+    readOnly,
+    startIcon,
+    variant = 'basic',
+    isPending,
+  } = params;
 
-export const getClassNamesInputWrapper = (
-  variant: Variant = 'basic',
-  size: Size = 'size-sm',
-  isError?: boolean,
-  disabled?: boolean,
-  readOnly?: boolean,
-  startIcon?: IconProp,
-  endIcon?: IconProp,
-  isPending?: boolean,
-  divider?: boolean
-) => ({
-  inputWrapper: classNames(
-    stylesInput.inputWrapper,
-    stylesInput[variant],
-    stylesInput[size],
-    disabled ? stylesInput['disabled'] : '',
-    startIcon ? stylesInput['startIcon'] : '',
-    endIcon || isPending ? stylesInput['endIcon'] : '',
-    divider && variant === 'basic' ? stylesInput['divider'] : '',
-    divider && variant === 'outlined' ? stylesInput['divider'] : '',
-    isError === true ? stylesInput['inValid'] : '',
-    isError === false ? stylesInput['valid'] : '',
-    readOnly ? stylesInput['readOnly'] : ''
-  ),
-  startIcon: classNames(stylesInput.startIcon),
-  endIcon: classNames(stylesInput.endIcon),
-  statusIcon: classNames(stylesInput.endIcon),
-});
+  return {
+    inputWrapper: classNames(
+      stylesInput.wrapper,
+      generateClassNames(stylesInput, {
+        [`wrapper-${variant}`]: true,
+        'wrapper-disabled': Boolean(disabled),
+        'wrapper-inValid': isError === true,
+        'wrapper-valid': isError === false,
+        'wrapper-startIcon': Boolean(startIcon),
+        'wrapper-endIcon': Boolean(endIcon) || Boolean(isPending),
+        'wrapper-divider':
+          (Boolean(divider) && variant === 'basic') ||
+          (Boolean(divider) && variant === 'outlined'),
+        'wrapper-text': as === 'input',
+        'wrapper-area': as === 'textarea',
+      })
+    ),
+    startIcon: classNames(
+      stylesInput.startIcon,
+      generateClassNames(stylesInput, {
+        [`startIcon-${size}`]: true,
+        [`startIcon-${variant}`]: true,
+        'startIcon-disabled': Boolean(disabled),
+        'startIcon-read-only': Boolean(readOnly),
+      })
+    ),
+    endIcon: classNames(
+      stylesInput.endIcon,
+      generateClassNames(stylesInput, {
+        [`endIcon-${size}`]: true,
+        [`endIcon-${variant}`]: true,
+        'endIcon-disabled': Boolean(disabled),
+        'endIcon-read-only': Boolean(readOnly),
+      })
+    ),
+    statusIcon: classNames(
+      stylesInput.endIcon,
+      generateClassNames(stylesInput, {
+        [`endIcon-${size}`]: true,
+        [`endIcon-${variant}`]: true,
+        'endIcon-disabled': Boolean(disabled),
+        'endIcon-inValid': isError === true,
+        'endIcon-valid': isError === false,
+      })
+    ),
+  };
+};
 
-export const getClassNamesInput = (
-  variant: Variant = 'basic',
-  size: Size = 'size-sm',
-  isError?: boolean
-) => ({
-  fieldset: classNames(
-    stylesInput.fieldset,
-    stylesInput[variant] || '',
-    stylesInput[size] || '',
-    isError === true ? stylesInput['inValid'] : '',
-    isError === false ? stylesInput['valid'] : ''
-  ),
-  input: classNames(stylesInput.input, stylesInput[size] || ''),
-  legend: classNames(stylesInput.legend, stylesInput[size] || ''),
-  textarea: classNames(stylesInput.textarea, stylesInput[size] || ''),
-});
+export const getClassNamesInput: GetClassNamesInput = (params) => {
+  const { size = 'size-sm', isError, variant = 'basic', disabled } = params;
+  return {
+    fieldset: classNames(
+      stylesInput.fieldset,
+      generateClassNames(stylesInput, {
+        [`fieldset-${size}`]: true,
+        [`fieldset-${variant}`]: true,
+        'fieldset-disabled': Boolean(disabled),
+      })
+    ),
+    input: classNames(
+      stylesInput.input,
+      generateClassNames(stylesInput, {
+        [`input-${size}`]: true,
+        [`input-${variant}`]: true,
+        'input-inValid': isError === true,
+        'input-valid': isError === false,
+      })
+    ),
+    legend: classNames(
+      stylesInput.legend,
+      generateClassNames(stylesInput, {
+        [`legend-${size}`]: true,
+        [`legend-${variant}`]: true,
+        'legend-inValid': isError === true,
+        'legend-valid': isError === false,
+      })
+    ),
+    textarea: classNames(
+      stylesInput.textarea,
+      generateClassNames(stylesInput, {
+        [`textarea-${size}`]: true,
+        [`textarea-${variant}`]: true,
+        'textarea-inValid': isError === true,
+        'textarea-valid': isError === false,
+      })
+    ),
+  };
+};

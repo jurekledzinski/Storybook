@@ -27,6 +27,7 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
 }
 
 export type InputWrapperProps = {
+  as?: 'input' | 'textarea';
   divider?: boolean;
   disabled?: boolean;
   children: React.ReactNode;

@@ -1,24 +1,37 @@
-/* Variant outlined */
+/* --- Variant outlined --- */
 
-.fieldset.outlined .input,
-.fieldset.outlined .textarea {
+/* input.input-outlined,
+textarea.textarea-outlined {
   background-color: transparent;
-}
+} */
 
-.inputWrapper.startIcon.outlined .legend {
+/* Dodane */
+.wrapper-startIcon.wrapper-outlined .legend {
   left: -2px;
 }
 
-.inputWrapper.startIcon.outlined .input:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon.outlined .input:focus + .legend,
-.inputWrapper.startIcon.outlined .textarea:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon.outlined .textarea:focus + .legend {
+/* .wrapper-startIcon.wrapper-outlined.wrapper-area .legend {
+  left: 1.8rem;
+} */
+
+/* Dodane */
+.wrapper-startIcon.wrapper-outlined .input:not(:placeholder-shown) + .legend,
+.wrapper-startIcon.wrapper-outlined .input:focus + .legend,
+.wrapper-startIcon.wrapper-outlined .textarea:not(:placeholder-shown) + .legend,
+.wrapper-startIcon.wrapper-outlined .textarea:focus + .legend {
   left: -26px;
 }
 
-/* Variant contained */
+/* .wrapper-startIcon.wrapper-outlined .input:not(:placeholder-shown) + .legend,
+.wrapper-startIcon.wrapper-outlined .input:focus + .legend,
+.wrapper-startIcon.wrapper-outlined .textarea:not(:placeholder-shown) + .legend,
+.wrapper-startIcon.wrapper-outlined .textarea:focus + .legend {
+  left: 0.3rem;
+} */
 
-.fieldset.contained::before {
+/* --- Variant contained ---*/
+
+/* fieldset.fieldset-contained::before {
   display: block;
   content: '';
   position: absolute;
@@ -28,58 +41,73 @@
   bottom: 0;
   background-color: var(--color-black-50);
   z-index: -1;
-}
+} */
 
-.fieldset.contained {
+/* fieldset.fieldset-contained {
   padding: 16px 0 0;
-}
+} */
 
-.fieldset.contained .input,
-.fieldset.contained .textarea {
+/* input.input-contained,
+textarea.textarea-contained {
   background-color: transparent;
   border-top: none;
   border-right: none;
   border-left: none;
+} */
+
+/* Dodane */
+.wrapper-area.wrapper-startIcon.wrapper-contained .legend {
+  left: 0.3rem;
 }
 
-.inputWrapper.startIcon.contained .legend {
-  left: -24px;
+/* Dodane */
+.wrapper-startIcon.wrapper-contained .legend {
+  left: -1.5rem;
 }
 
-.fieldset.contained .legend {
+/* legend.legend-contained {
   top: 4px;
-}
+} */
 
-.fieldset.contained .input:not(:placeholder-shown) + .legend,
-.fieldset.contained .input:focus + .legend,
-.fieldset.contained .textarea:not(:placeholder-shown) + .legend,
-.fieldset.contained .textarea:focus + .legend {
+/* input.input-contained:not(:placeholder-shown) + .legend,
+input.input-contained:focus + .legend,
+textarea.textarea-contained:not(:placeholder-shown) + .legend,
+textarea.textarea-contained:focus + .legend {
   top: 4px;
   background-color: transparent;
-}
+} */
 
-/* Variant underline */
+/* --- Variant underline --- */
 
-.fieldset.underline .input,
-.fieldset.underline .textarea {
-  padding-left: initial;
-  padding-right: initial;
+/* input.input-underline,
+textarea.textarea-underline {
+  padding-left: 0;
+  padding-right: 0;
   background-color: transparent;
   border-top: none;
   border-right: none;
   border-left: none;
-}
+} */
 
-.fieldset.underline .input:not(:placeholder-shown) + .legend,
-.fieldset.underline .input:focus + .legend,
-.fieldset.underline .textarea:not(:placeholder-shown) + .legend,
-.fieldset.underline .textarea:focus + .legend {
+/* input.input-underline:not(:placeholder-shown) + .legend,
+input.input-underline:focus + .legend,
+textarea.textarea-underline:not(:placeholder-shown) + .legend,
+textarea.textarea-underline:focus + .legend {
   top: -4px;
+} */
+
+/* Dodane */
+.wrapper-startIcon.wrapper-underline .input:not(:placeholder-shown) + .legend,
+.wrapper-startIcon.wrapper-underline .input:focus + .legend,
+.wrapper-startIcon.wrapper-underline
+  .textarea:not(:placeholder-shown)
+  + .legend,
+.wrapper-startIcon.wrapper-underline .textarea:focus + .legend {
+  left: -32px;
 }
 
-.inputWrapper.startIcon.underline .input:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon.underline .input:focus + .legend,
-.inputWrapper.startIcon.underline .textarea:not(:placeholder-shown) + .legend,
-.inputWrapper.startIcon.underline .textarea:focus + .legend {
-  left: -33px;
+/* Dodane */
+.wrapper.wrapper-startIcon.wrapper-area > .fieldset,
+.wrapper.wrapper-endIcon.wrapper-area > .fieldset {
+  position: static;
 }
