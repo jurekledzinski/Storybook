@@ -23,7 +23,7 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
     refs: { fieldsetRef, ...childsRef.current },
   });
 
-  const classes = getClassNamesInput(variant, size, isError);
+  const classes = getClassNamesInput({ variant, size, isError });
 
   const onClick = () => onOpen && onOpen(true);
 
