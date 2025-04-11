@@ -21,11 +21,12 @@ type Story = StoryObj<typeof TextInput>;
 
 export const Default: Story = {
   args: {
+    as: 'input',
+    variant: 'basic',
+    size: 'size-sm',
     label: 'Name',
     isPending: false,
-    size: 'size-sm',
     type: 'text',
-    variant: 'basic',
     isError: undefined,
     onClickEndIcon: fn(),
     onClickStartIcon: fn(),
