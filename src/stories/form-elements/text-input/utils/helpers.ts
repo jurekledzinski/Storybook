@@ -8,7 +8,7 @@ export const getInputProps = (
   type: TypeInput,
   isError?: boolean
 ) => {
-  if (as === 'input') return { type, isError };
-  if (as === 'textarea') return { cols: 4, rows: 6, isError };
+  if (as === 'input') return { as, type, isError };
+  if (as === 'textarea') return { as, cols: 4, rows: 6, isError };
   return {};
 };

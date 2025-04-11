@@ -41,3 +41,5 @@ export type InputWrapperProps = {
   readOnly?: boolean;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };
+
+export type MergeProps = InputProps | TextareaProps;
