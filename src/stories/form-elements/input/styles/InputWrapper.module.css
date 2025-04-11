@@ -275,6 +275,22 @@
   color: var(--color-disabled-200);
 }
 
+/* Disabled textarea with icons */
+
+.wrapper-area.wrapper-endIcon.wrapper-disabled,
+.wrapper-area.wrapper-startIcon.wrapper-disabled {
+  background-color: var(--color-disabled-50);
+}
+
+.wrapper-area.wrapper-endIcon.wrapper-disabled .endIcon,
+.wrapper-area.wrapper-startIcon.wrapper-disabled .startIcon {
+  background-color: transparent;
+}
+
+.wrapper-area.wrapper-endIcon .textarea:disabled {
+  background-color: transparent;
+}
+
 /* --- Textarea --- */
 
 .wrapper-area.wrapper-endIcon .textarea {
