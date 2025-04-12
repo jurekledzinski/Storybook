@@ -25,10 +25,12 @@ export type Color =
 
 export type Variant = 'contained' | 'outlined' | 'text';
 
-export type Icon = IconProp[];
+export type Icons = IconProp[];
 
 export type Orientation = 'row' | 'column';
 
 export type Spacing = 'none' | 'tight' | 'normal' | 'loose' | 'extra-loose';
 
 export type Margin = 4 | 8 | 12 | 16 | 20 | 24;
+
+export type Icon = IconProp;

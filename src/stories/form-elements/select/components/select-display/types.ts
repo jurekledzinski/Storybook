@@ -1,5 +1,5 @@
-import { Icon } from '@src/stories/types';
+import { Icons } from '@src/stories/types';
 
 export type SelectDisplayProps = {
-  endIcon: Icon;
+  endIcon: Icons;
 };

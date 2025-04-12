@@ -1,12 +1,12 @@
-import { Icon } from '@src/stories/types';
+import { Icons } from '@src/stories/types';
 
 export type PasswordInputProps = {
   disabled?: boolean;
   readOnly?: boolean;
-  endIcon?: Icon;
+  endIcon?: Icons;
   isError?: boolean;
   isPending?: boolean;
-  startIcon?: Icon;
+  startIcon?: Icons;
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
   label: string;

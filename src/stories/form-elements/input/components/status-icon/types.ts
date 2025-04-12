@@ -1,6 +1,6 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Icon } from '@src/stories/types';
 
 export type StatusIconProps = {
   className?: string;
-  icon: IconProp;
+  icon: Icon;
 };

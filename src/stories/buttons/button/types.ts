@@ -1,11 +1,11 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { Border, Color, Icon, Radius, Size, Variant } from '@src/stories/types';
+import { Border, Color, Icons, Radius, Size, Variant } from '@src/stories/types';
 
 export type BaseButtonProps = {
   label: string;
   border?: Border;
-  iconStart?: Icon;
-  iconEnd?: Icon;
+  iconStart?: Icons;
+  iconEnd?: Icons;
   isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;

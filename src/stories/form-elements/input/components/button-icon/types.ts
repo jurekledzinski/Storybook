@@ -1,7 +1,7 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Icon } from '@src/stories/types';
 
 export type ButtonIconProps = {
   className?: string;
-  icon: IconProp;
+  icon: Icon;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };

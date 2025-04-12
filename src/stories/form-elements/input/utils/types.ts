@@ -1,5 +1,5 @@
 import { BaseInputProps } from '../types';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Icon } from '@src/stories/types';
 
 type Variant = BaseInputProps<HTMLInputElement>['variant'];
 type Size = BaseInputProps<HTMLInputElement>['size'];
@@ -10,8 +10,8 @@ export type BaseParmas = {
   isError?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
-  startIcon?: IconProp;
-  endIcon?: IconProp;
+  startIcon?: Icon;
+  endIcon?: Icon;
   isPending?: boolean;
   divider?: boolean;
   as?: 'input' | 'textarea';

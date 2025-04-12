@@ -1,14 +1,14 @@
-import { Icon } from '@src/stories/types';
+import { Icons } from '@src/stories/types';
 
 export type TextInputProps = {
   as: 'input' | 'textarea';
   disabled?: boolean;
   readOnly?: boolean;
-  endIcon?: Icon;
+  endIcon?: Icons;
   isError?: boolean;
   isPending?: boolean;
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
-  startIcon?: Icon;
+  startIcon?: Icons;
   onClickEndIcon?: React.MouseEventHandler<HTMLSpanElement>;
   onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';

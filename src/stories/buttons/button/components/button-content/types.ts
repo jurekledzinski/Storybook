@@ -1,9 +1,9 @@
-import { Icon, Size } from '@src/stories/types/ui';
+import { Icons, Size } from '@src/stories/types/ui';
 
 export type ButtonContentProps = {
   isLoading?: boolean;
-  iconStart?: Icon;
-  iconEnd?: Icon;
+  iconStart?: Icons;
+  iconEnd?: Icons;
   size?: Size;
   label: string;
 };

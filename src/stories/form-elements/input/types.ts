@@ -1,6 +1,5 @@
 import React from 'react';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Size } from '@src/stories/types';
+import { Icon, Size } from '@src/stories/types';
 
 export type BaseInputProps<T> = {
   disabled?: boolean;
@@ -31,13 +30,13 @@ export type InputWrapperProps = {
   divider?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
-  endIcon?: IconProp;
+  endIcon?: Icon;
   isError?: boolean;
   isPending?: boolean;
   onClickEndIcon?: React.MouseEventHandler<HTMLButtonElement>;
   onClickStartIcon?: React.MouseEventHandler<HTMLButtonElement>;
   size?: Size;
-  startIcon?: IconProp;
+  startIcon?: Icon;
   readOnly?: boolean;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };
