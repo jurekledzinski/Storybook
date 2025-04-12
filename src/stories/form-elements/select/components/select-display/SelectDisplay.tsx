@@ -20,7 +20,7 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => onOpen && onOpen(false), 100);
     },
-    refs: { fieldsetRef, ...childsRef.current },
+    onLoadRefs: () => ({ fieldsetRef, ...childsRef.current }),
   });
 
   const classes = getClassNamesInput({ variant, size, isError });
