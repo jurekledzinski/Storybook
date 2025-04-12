@@ -46,6 +46,7 @@
   background-color: transparent;
   color: var(--color-black-600);
   padding: 6px 8px;
+  width: 38px;
 }
 
 .wrapper > button.startIcon:focus {
@@ -57,17 +58,13 @@
   outline: none;
 }
 
-.wrapper-divider > button.endIcon:focus-visible:before {
-  background-color: transparent;
-}
-
 .wrapper-startIcon .input {
   padding-left: 0;
 }
 
 .wrapper-inValid .input,
 .wrapper-valid .input,
-.wrapper-endIcon .input {
+.wrapper-endIcon:not(.wrapper-divider) .input {
   padding-right: 0;
 }
 
@@ -112,11 +109,11 @@
   border-color: var(--color-success-400);
 }
 
-.wrapper-inValid .endIcon {
+.wrapper-inValid span.endIcon {
   color: var(--color-negative-500);
 }
 
-.wrapper-valid .endIcon {
+.wrapper-valid span.endIcon {
   color: var(--color-success-400);
 }
 
@@ -256,6 +253,7 @@
 .wrapper-disabled:not(.wrapper-contained):not(.wrapper-underline) > .startIcon,
 .wrapper-disabled:not(.wrapper-contained):not(.wrapper-underline) > .endIcon {
   background-color: var(--color-disabled-50);
+  color: var(--color-disabled-200);
 }
 
 .wrapper-disabled .startIcon,
@@ -273,6 +271,10 @@
 
 .wrapper-disabled .legend {
   color: var(--color-disabled-200);
+}
+
+.wrapper-disabled.wrapper-divider button.endIcon::before {
+  background-color: var(--color-disabled-100);
 }
 
 /* Disabled textarea with icons */
