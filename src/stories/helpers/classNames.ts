@@ -23,6 +23,7 @@ export const generateClassNames = (
   styles: Record<string, string>,
   modifiers: Record<string, boolean>
 ) => {
+  //   console.log('modifiers', modifiers);
   return Object.entries(modifiers)
     .filter((item) => item[1])
     .map(([key]) => styles[key])
