@@ -1,12 +1,6 @@
-import { FileMimeType, MaxSize } from '@src/stories/types';
+import { FileMimeType } from '@src/stories/types';
+import { formatFileSize } from '@src/stories/helpers';
 import { UseValidateFilesProps } from './types';
-
-const formatFileSize = (size: number, unit: MaxSize[1]) => {
-  if (unit === 'KB') return (size / 1024).toFixed(2);
-  if (unit === 'MB') return (size / 1024 ** 2).toFixed(2);
-  if (unit === 'GB') return (size / 1024 ** 3).toFixed(2);
-  return size.toString();
-};
 
 export const useValidateFiles = ({
   allowTypes,
@@ -48,13 +42,3 @@ export const useValidateFiles = ({
 
   return onChangeInput;
 };
-
-// function returnFileSize(num: number) {
-//   if (num < 1e3) {
-//     return `${num} bytes`;
-//   } else if (num >= 1e3 && num < 1e6) {
-//     return `${(num / 1e3).toFixed(1)} KB`;
-//   } else {
-//     return `${(num / 1e6).toFixed(1)} MB`;
-//   }
-// }
