@@ -6,9 +6,5 @@ import { IconProps } from './types';
 export const Icon = ({ color, ...props }: IconProps) => {
   const classes = getClassIcon(color);
 
-  return (
-    <span className={classes}>
-      <FontAwesomeIcon {...props} />
-    </span>
-  );
+  return <FontAwesomeIcon className={classes} {...props} />;
 };
