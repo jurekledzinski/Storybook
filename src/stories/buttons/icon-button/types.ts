@@ -1,4 +1,11 @@
-import { Border, Color, Icons, Radius, Size, Variant } from '@src/stories/types';
+import {
+  Border,
+  Color,
+  Icons,
+  Radius,
+  Size,
+  Variant,
+} from '@src/stories/types';
 
 export type IconBaseButtonProps = {
   border?: Border;
@@ -8,7 +15,7 @@ export type IconBaseButtonProps = {
   disabled?: boolean;
   fullWidth?: boolean;
   radius?: Radius;
-  size?: Size;
+  size?: Size | 'size-xxs';
   color?: Color;
   variant?: Variant;
 };
