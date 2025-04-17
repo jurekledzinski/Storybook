@@ -6,12 +6,11 @@ export type BaseInputProps<T> = {
   isError?: boolean;
   name?: string;
   ref?: React.LegacyRef<T>;
-  onChange?: React.ChangeEventHandler<T>;
   placeholder?: string;
   readOnly?: boolean;
   size?: Size;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
-  label: string;
+  label?: string;
 };
 
 export interface InputProps extends BaseInputProps<HTMLInputElement> {
@@ -40,5 +39,7 @@ export type InputWrapperProps = {
   readOnly?: boolean;
   variant?: 'basic' | 'contained' | 'outlined' | 'underline';
 };
+
+export type UnionElements = HTMLTextAreaElement | HTMLInputElement;
 
 export type MergeProps = InputProps | TextareaProps;

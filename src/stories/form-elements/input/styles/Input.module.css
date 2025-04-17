@@ -9,6 +9,13 @@
   transition: box-shadow 300ms linear;
 }
 
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-black-200);
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .textarea {
   resize: none;
 }
