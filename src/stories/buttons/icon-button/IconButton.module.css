@@ -8,17 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 28px;
   width: fit-content;
   cursor: pointer;
   user-select: none;
   transition: 0.3s linear;
-  line-height: normal;
   text-decoration: none;
-}
-
-.icon {
-  display: inherit;
 }
 
 .iconCenter {
@@ -28,22 +22,37 @@
   transform: translate(-50%, -50%);
 }
 
-.size-xs {
-  padding: 5px;
+/* 20px */
+.size-xxs {
+  min-width: 24px;
+  padding: 4px;
   font-size: 14px;
 }
 
-.size-sm {
-  padding: 5px;
-  font-size: 16px;
-}
-
-.size-md {
+/* 28px */
+.size-xs {
+  min-width: 28px;
   padding: 6px;
+  font-size: 14px;
+}
+
+/* 30px */
+.size-sm {
+  min-width: 30px;
+  padding: 6.5px;
+  font-size: 15px;
+}
+
+/* 32px */
+.size-md {
+  min-width: 32px;
+  padding: 7px;
   font-size: 16px;
 }
 
+/* 36px */
 .size-lg {
+  min-width: 36px;
   padding: 8px;
   font-size: 18px;
 }
