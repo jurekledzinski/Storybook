@@ -1,7 +1,7 @@
 import styles from '../../IconButton.module.css';
 import { Icon } from '@src/stories/graphics/icon';
 import { IconButtonContentProps } from './types';
-import { Loader } from '@src/stories/feedbacks/loader';
+import { innerSizeMap, Loader } from '@src/stories/feedbacks/loader';
 
 export const IconButtonContent = ({
   icon,
@@ -13,16 +13,12 @@ export const IconButtonContent = ({
       {isLoading ? (
         <>
           <span className={styles.iconCenter}>
-            <Loader sizeSchema={size} />
+            <Loader {...(size ? { sizeSchema: innerSizeMap[size] } : {})} />
           </span>
-          <span className={styles.icon}>
-            <Icon icon={icon[0]} size="1x" />
-          </span>
+          <Icon icon={icon[0]} size="1x" />
         </>
       ) : (
-        <span className={styles.icon}>
-          {icon ? <Icon icon={icon[0]} size="1x" /> : null}
-        </span>
+        <>{icon ? <Icon icon={icon[0]} size="1x" /> : null}</>
       )}
     </>
   );
