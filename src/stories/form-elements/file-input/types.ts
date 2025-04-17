@@ -1,21 +1,18 @@
-import React from 'react';
 import { BaseButtonProps } from '@src/stories/buttons/button';
 import { FileMimeType, MaxSize } from '@src/stories/types';
+import { InputHTMLAttributes } from 'react';
 
-export type OnError = (
-  type: 'amount' | 'size' | 'type',
-  details: string,
-  name?: string
-) => void;
+type OmittedProps = 'onError' | 'size' | 'onClick' | 'color';
 
-export interface FileInputProps extends BaseButtonProps {
-  allowTypes: FileMimeType[];
-  name?: string;
-  accept?: string;
-  multiple?: boolean;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+type InputFile = Omit<InputHTMLAttributes<HTMLInputElement>, OmittedProps>;
+
+type Type = 'amount' | 'size' | 'type';
+
+export type OnError = (type: Type, details: string, name?: string) => void;
+
+export interface FileInputProps extends InputFile, BaseButtonProps {
   onError: OnError;
-  ref?: React.RefObject<HTMLInputElement>;
+  allowTypes?: FileMimeType[];
   maxAmount?: number;
   maxSize?: MaxSize;
 }
