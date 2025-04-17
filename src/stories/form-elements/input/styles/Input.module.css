@@ -4,7 +4,7 @@
   width: 100%;
   padding: 4px 6px;
   color: var(--color-text-primary);
-  font-size: 14px;
+  font-size: 15px;
   border: 1px solid var(--color-black-500);
   transition: box-shadow 300ms linear;
 }
@@ -24,19 +24,17 @@
 
 .input-size-xs,
 .textarea-size-xs {
-  padding: 4px 6px;
+  padding: 4.5px 6px;
 }
 
 .input-size-sm,
 .textarea-size-sm {
-  padding: 4.5px 6px;
-  font-size: 15px;
+  padding: 5.5px 6px;
 }
 
 .input-size-md,
 .textarea-size-md {
-  padding: 5.5px 6px;
-  font-size: 15px;
+  padding: 6.5px 6px;
 }
 
 .input-size-lg,

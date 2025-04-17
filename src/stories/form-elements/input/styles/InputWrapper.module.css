@@ -72,7 +72,7 @@
 
 .startIcon-size-xs,
 .endIcon-size-xs {
-  max-height: 24px;
+  max-height: 28px;
   font-size: 14px;
 }
 
@@ -85,12 +85,12 @@
 
 .startIcon-size-sm,
 .endIcon-size-sm {
-  max-height: 26px;
+  max-height: 30px;
 }
 
 .startIcon-size-md,
 .endIcon-size-md {
-  max-height: 30px;
+  max-height: 32px;
 }
 
 .startIcon-size-lg,
@@ -232,16 +232,7 @@
 
 /* --- Disabled --- */
 
-.wrapper-disabled {
-  border-color: var(--color-disabled-100);
-  outline: none;
-  box-shadow: none;
-}
-
-.wrapper-disabled.wrapper-contained {
-  background-color: var(--color-disabled-50);
-}
-
+.wrapper-disabled,
 .wrapper-disabled:focus-within,
 .wrapper-disabled.wrapper-inValid:focus-within,
 .wrapper-disabled.wrapper-valid:focus-within {
@@ -250,18 +241,26 @@
   box-shadow: none;
 }
 
-.wrapper-disabled:not(.wrapper-contained):not(.wrapper-underline) > .startIcon,
-.wrapper-disabled:not(.wrapper-contained):not(.wrapper-underline) > .endIcon {
-  background-color: var(--color-disabled-50);
-  color: var(--color-disabled-200);
-}
-
 .wrapper-disabled .startIcon,
 .wrapper-disabled .endIcon,
+.wrapper-disabled.wrapper-inValid .startIcon,
+.wrapper-disabled.wrapper-inValid .endIcon,
+.wrapper-disabled.wrapper-valid .startIcon,
+.wrapper-disabled.wrapper-valid .endIcon,
 .wrapper-disabled .startIcon:focus-visible,
 .wrapper-disabled .endIcon:focus-visible {
   color: var(--color-disabled-200);
+  background-color: var(--color-disabled-50);
   pointer-events: none;
+}
+
+.wrapper-disabled.wrapper-contained .startIcon,
+.wrapper-disabled.wrapper-contained .endIcon,
+.wrapper-disabled.wrapper-underline .startIcon,
+.wrapper-disabled.wrapper-underline .endIcon,
+.wrapper-disabled.wrapper-area .endIcon,
+.wrapper-disabled.wrapper-area .startIcon {
+  background-color: transparent;
 }
 
 .wrapper-readOnly .startIcon,
@@ -277,23 +276,23 @@
   background-color: var(--color-disabled-100);
 }
 
-/* Disabled textarea with icons */
-
-.wrapper-area.wrapper-endIcon.wrapper-disabled,
-.wrapper-area.wrapper-startIcon.wrapper-disabled {
+.wrapper-disabled.wrapper-contained {
   background-color: var(--color-disabled-50);
 }
 
-.wrapper-area.wrapper-endIcon.wrapper-disabled .endIcon,
-.wrapper-area.wrapper-startIcon.wrapper-disabled .startIcon {
-  background-color: transparent;
+/* Disabled textarea with icons */
+
+.wrapper-area.wrapper-endIcon.wrapper-disabled:not(.wrapper-underline),
+.wrapper-area.wrapper-disabled.wrapper-inValid:not(.wrapper-underline),
+.wrapper-area.wrapper-disabled.wrapper-valid:not(.wrapper-underline) {
+  background-color: var(--color-disabled-50);
 }
 
-.wrapper-area.wrapper-endIcon .textarea:disabled {
+.wrapper-area.wrapper-endIcon .textarea:disabled,
+.wrapper-area.wrapper-inValid .textarea:disabled,
+.wrapper-area.wrapper-valid .textarea:disabled {
   background-color: transparent;
 }
-
-/* --- Textarea --- */
 
 .wrapper-area.wrapper-endIcon .textarea {
   padding-right: 0;
