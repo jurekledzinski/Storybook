@@ -19,7 +19,8 @@
 
 /* inner sizes */
 
-.inner-size-xs {
+.inner-size-xs,
+.inner-size-xxs {
   width: 14px;
   height: 14px;
 }
