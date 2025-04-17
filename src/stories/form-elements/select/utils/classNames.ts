@@ -1,9 +1,17 @@
 import stylesSelectOption from '../components/select-option/SelectOption.module.css';
-import { classNames } from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { Size } from '@src/stories/types';
 
-export const selectOptionClassNames = (id: string, value?: string) => ({
+export const selectOptionClassNames = (
+  id: string,
+  value?: string,
+  size?: Size
+) => ({
   selectOption: classNames(
     stylesSelectOption.selectOption,
-    value === id ? stylesSelectOption.active : ''
+    generateClassNames(stylesSelectOption, {
+      active: value === id,
+      [`${size}`]: Boolean(size),
+    })
   ),
 });

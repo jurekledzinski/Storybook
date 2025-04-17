@@ -3,9 +3,9 @@ import { SelectOptionProps } from './types';
 import { usePopOver } from '@src/stories/overlays/popover';
 
 export const SelectOption = ({ children, id }: SelectOptionProps) => {
-  const { onChange, value, onOpen } = usePopOver();
+  const { onChange, value, onOpen, size } = usePopOver();
 
-  const classes = selectOptionClassNames(id, value);
+  const classes = selectOptionClassNames(id, value, size);
 
   const onClick = () => onChange && onChange(id);
 
