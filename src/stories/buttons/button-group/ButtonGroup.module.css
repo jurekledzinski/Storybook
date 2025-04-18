@@ -1,4 +1,4 @@
-.buttonGroup {
+.button-group {
   display: flex;
   width: fit-content;
 }
@@ -15,65 +15,67 @@
 
 /* Full width */
 
-.buttonGroup.fullWidth {
+.button-group.full-width {
   width: 100%;
 }
 
-.buttonGroup.row.none > button:first-child,
-.buttonGroup.row.none > button:first-child {
+.button-group.row.none > button:first-child,
+.button-group.row.none > button:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right-color: transparent;
   /* border-right-width: 0px; */
 }
 
-.buttonGroup.row.none > button:last-child,
-.buttonGroup.row.none > button:last-child {
+.button-group.row.none > button:last-child,
+.button-group.row.none > button:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left-color: transparent;
   /* border-left-width: 0px; */
 }
 
-.buttonGroup.column.none > button:first-child,
-.buttonGroup.column.none > button:first-child {
+.button-group.column.none > button:first-child,
+.button-group.column.none > button:first-child {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-color: transparent;
   /* border-bottom-width: 0px; */
 }
 
-.buttonGroup.column.none > button:last-child,
-.buttonGroup.column.none > button:last-child {
+.button-group.column.none > button:last-child,
+.button-group.column.none > button:last-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top-color: transparent;
   /* border-top-width: 0px; */
 }
 
-.buttonGroup.row:not(.none) > button:first-child,
-.buttonGroup.row:not(.none) > button:first-child {
+.button-group.row:not(.none) > button:first-child,
+.button-group.row:not(.none) > button:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.buttonGroup.row:not(.none) > button:last-child,
-.buttonGroup.row:not(.none) > button:last-child {
+.button-group.row:not(.none) > button:last-child,
+.button-group.row:not(.none) > button:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.buttonGroup.column:not(.none) > button:first-child,
-.buttonGroup.column:not(.none) > button:first-child {
+.button-group.column:not(.none) > button:first-child,
+.button-group.column:not(.none) > button:first-child {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.buttonGroup.column:not(.none) > button:last-child,
-.buttonGroup.column:not(.none) > button:last-child {
+.button-group.column:not(.none) > button:last-child,
+.button-group.column:not(.none) > button:last-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* --- Spacing --- */
 
 .none {
   gap: initial;
@@ -93,4 +95,48 @@
 
 .extra-loose {
   gap: 1rem;
+}
+
+/* --- Justify --- */
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+/* --- Aligment --- */
+
+.aligment-start {
+  align-items: flex-start;
+}
+
+.aligment-end {
+  align-items: flex-end;
+}
+
+.aligment-center {
+  align-items: center;
+}
+
+.stretch {
+  align-items: stretch;
 }

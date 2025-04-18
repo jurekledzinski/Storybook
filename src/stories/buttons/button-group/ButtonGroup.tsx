@@ -3,13 +3,11 @@ import { getClassButtonGroup } from './utils';
 
 export const ButtonGroup = ({
   children,
-  fullWidth = false,
-  orientation = 'row',
-  spacing = 'none',
   marginBottom,
   marginTop,
+  ...props
 }: ButtonGroupProps) => {
-  const classes = getClassButtonGroup(orientation, spacing, fullWidth);
+  const classes = getClassButtonGroup({ ...props });
 
   return (
     <div

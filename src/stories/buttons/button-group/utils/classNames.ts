@@ -1,16 +1,17 @@
 import styles from '../ButtonGroup.module.css';
-import { classNames } from '@src/stories/helpers';
-import { Orientation, Spacing } from '@src/stories/types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { GetClassButtonGroup } from './types';
 
-export const getClassButtonGroup = (
-  orientation?: Orientation,
-  spacing?: Spacing,
-  fullWidth?: boolean
-) => {
+export const getClassButtonGroup: GetClassButtonGroup = (params) => {
+  const { aligment, justify, fullWidth, orientation, spacing } = params;
   return classNames(
-    styles.buttonGroup,
-    styles[orientation as keyof typeof styles],
-    styles[spacing as keyof typeof styles],
-    fullWidth ? styles.fullWidth : ''
+    styles['button-group'],
+    generateClassNames(styles, {
+      [`${aligment}`]: Boolean(aligment),
+      [`${justify}`]: Boolean(justify),
+      [`${orientation}`]: Boolean(orientation),
+      [`${spacing}`]: Boolean(spacing),
+      [`full-width`]: Boolean(fullWidth),
+    })
   );
 };

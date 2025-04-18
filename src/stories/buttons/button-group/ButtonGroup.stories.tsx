@@ -22,9 +22,31 @@ export const Default: Story = {
     ),
     fullWidth: false,
     orientation: 'row',
-    spacing: 'none',
+    spacing: 'tight',
   },
   argTypes: {
+    aligment: {
+      control: 'select',
+      options: [
+        'none',
+        'aligment-start',
+        'aligment-end',
+        'aligment-center',
+        'stretch',
+      ],
+    },
+    justify: {
+      control: 'select',
+      options: [
+        'none',
+        'justify-end',
+        'justify-start',
+        'justify-center',
+        'space-around',
+        'space-between',
+        'space-evenly',
+      ],
+    },
     children: {
       control: 'select',
       options: [
