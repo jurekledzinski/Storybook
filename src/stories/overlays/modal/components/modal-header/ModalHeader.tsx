@@ -13,7 +13,7 @@ export const ModalHeader = ({ title, onClose, variant }: ModalHeaderProps) => {
         icon={[faXmark]}
         color={variant}
         onClick={onClose}
-        size="size-xs"
+        size="size-xxs"
         variant="contained"
         contrast={true}
       />

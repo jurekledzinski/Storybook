@@ -19,6 +19,7 @@ export const ModalFooter = ({
         variant="outlined"
         color="secondary"
         onClick={onCancel}
+        size="size-xs"
       />
 
       <Button
@@ -27,6 +28,7 @@ export const ModalFooter = ({
         color={variant}
         onClick={onConfirm}
         type={type}
+        size="size-xs"
       />
     </footer>
   );
