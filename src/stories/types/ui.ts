@@ -26,6 +26,7 @@ export type Color =
 export type Variant = 'contained' | 'outlined' | 'text';
 
 export type Icons = IconProp[];
+export type Icon = IconProp;
 
 export type Orientation = 'row' | 'column';
 
@@ -33,4 +34,16 @@ export type Spacing = 'none' | 'tight' | 'normal' | 'loose' | 'extra-loose';
 
 export type Margin = 4 | 8 | 12 | 16 | 20 | 24;
 
-export type Icon = IconProp;
+export type Justify =
+  | 'justify-end'
+  | 'justify-start'
+  | 'justify-center'
+  | 'space-around'
+  | 'space-between'
+  | 'space-evenly';
+
+export type Aligment =
+  | 'aligment-center'
+  | 'aligment-end'
+  | 'aligment-start'
+  | 'stretch';
