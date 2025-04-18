@@ -22,7 +22,7 @@ export const getClassNamesInputWrapper: GetClassNamesInputWrapper = (
     inputWrapper: classNames(
       stylesInput.wrapper,
       generateClassNames(stylesInput, {
-        [`wrapper-${variant}`]: true,
+        [`wrapper-${variant}`]: Boolean(variant),
         'wrapper-disabled': Boolean(disabled),
         'wrapper-inValid': isError === true,
         'wrapper-valid': isError === false,
@@ -38,8 +38,8 @@ export const getClassNamesInputWrapper: GetClassNamesInputWrapper = (
     startIcon: classNames(
       stylesInput.startIcon,
       generateClassNames(stylesInput, {
-        [`startIcon-${size}`]: true,
-        [`startIcon-${variant}`]: true,
+        [`startIcon-${size}`]: Boolean(size),
+        [`startIcon-${variant}`]: Boolean(variant),
         'startIcon-disabled': Boolean(disabled),
         'startIcon-read-only': Boolean(readOnly),
       })
@@ -47,8 +47,8 @@ export const getClassNamesInputWrapper: GetClassNamesInputWrapper = (
     endIcon: classNames(
       stylesInput.endIcon,
       generateClassNames(stylesInput, {
-        [`endIcon-${size}`]: true,
-        [`endIcon-${variant}`]: true,
+        [`endIcon-${size}`]: Boolean(size),
+        [`endIcon-${variant}`]: Boolean(variant),
         'endIcon-disabled': Boolean(disabled),
         'endIcon-read-only': Boolean(readOnly),
       })
@@ -56,8 +56,8 @@ export const getClassNamesInputWrapper: GetClassNamesInputWrapper = (
     statusIcon: classNames(
       stylesInput.endIcon,
       generateClassNames(stylesInput, {
-        [`endIcon-${size}`]: true,
-        [`endIcon-${variant}`]: true,
+        [`endIcon-${size}`]: Boolean(size),
+        [`endIcon-${variant}`]: Boolean(variant),
         'endIcon-disabled': Boolean(disabled),
         'endIcon-inValid': isError === true,
         'endIcon-valid': isError === false,
@@ -72,16 +72,16 @@ export const getClassNamesInput: GetClassNamesInput = (params) => {
     fieldset: classNames(
       stylesInput.fieldset,
       generateClassNames(stylesInput, {
-        [`fieldset-${size}`]: true,
-        [`fieldset-${variant}`]: true,
+        [`fieldset-${size}`]: Boolean(size),
+        [`fieldset-${variant}`]: Boolean(variant),
         'fieldset-disabled': Boolean(disabled),
       })
     ),
     input: classNames(
       stylesInput.input,
       generateClassNames(stylesInput, {
-        [`input-${size}`]: true,
-        [`input-${variant}`]: true,
+        [`input-${size}`]: Boolean(size),
+        [`input-${variant}`]: Boolean(variant),
         'input-inValid': isError === true,
         'input-valid': isError === false,
       })
@@ -89,8 +89,8 @@ export const getClassNamesInput: GetClassNamesInput = (params) => {
     legend: classNames(
       stylesInput.legend,
       generateClassNames(stylesInput, {
-        [`legend-${size}`]: true,
-        [`legend-${variant}`]: true,
+        [`legend-${size}`]: Boolean(size),
+        [`legend-${variant}`]: Boolean(variant),
         'legend-inValid': isError === true,
         'legend-valid': isError === false,
       })
@@ -98,8 +98,8 @@ export const getClassNamesInput: GetClassNamesInput = (params) => {
     textarea: classNames(
       stylesInput.textarea,
       generateClassNames(stylesInput, {
-        [`textarea-${size}`]: true,
-        [`textarea-${variant}`]: true,
+        [`textarea-${size}`]: Boolean(size),
+        [`textarea-${variant}`]: Boolean(variant),
         'textarea-inValid': isError === true,
         'textarea-valid': isError === false,
       })
