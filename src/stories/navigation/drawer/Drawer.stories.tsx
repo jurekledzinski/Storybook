@@ -1,7 +1,7 @@
 import styles from './Drawer.module.css';
+import { Backdrop } from '@src/stories/overlays/backdrop';
 import { Drawer } from './Drawer';
 import { Meta, StoryObj } from '@storybook/react';
-import { Backdrop } from '@src/stories/overlays/backdrop';
 
 const meta: Meta<typeof Drawer> = {
   args: {
@@ -43,9 +43,14 @@ type Story = StoryObj<typeof Drawer>;
 export const Default: Story = {
   decorators: [
     (Story, context) => {
+      const { args } = context;
       return (
         <div className={styles.body}>
           <div className={styles.container}>
+            {args.direction !== 'right' && args.direction !== 'bottom' ? (
+              <Story />
+            ) : null}
+
             <div className={styles.grid}>
               <div className={styles.box}>
                 <img
@@ -91,8 +96,12 @@ export const Default: Story = {
                 />
               </div>
             </div>
+
             <Backdrop open={Boolean(context.args.open)} />
-            <Story />
+
+            {args.direction !== 'left' && args.direction !== 'top' ? (
+              <Story />
+            ) : null}
           </div>
         </div>
       );

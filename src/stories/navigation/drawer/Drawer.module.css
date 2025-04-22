@@ -14,6 +14,16 @@
   margin: 0 auto;
 }
 
+/* Gdy push od top i bottom to container musi być flex direction column */
+/* Jeśli potrzeba dynamicznej zmiany w appce to potrzeba zmienić klase */
+/* To jest rozwiązanie dla nowych przeglądarek */
+/* To jest dla push elementu z góry lub dołu */
+.container:has(.horizontal, .bottom, .push):not(:has(.vertical)),
+.container:has(.horizontal, .bottom, .push):not(:has(.vertical)) {
+  flex-direction: column;
+  gap: 0;
+}
+
 .grid {
   display: flex;
   flex-direction: column;
@@ -107,7 +117,11 @@
 /* --- Variants --- */
 
 @media (min-width: 575px) {
+  .horizontal.top.push,
+  .vertical.left.push,
+  .vertical.left.pinned,
   .vertical.right.pinned,
+  .horizontal.top.pinned,
   .vertical.right.push {
     right: unset;
     bottom: unset;
@@ -118,8 +132,42 @@
     align-self: flex-start;
   }
 
-  .vertical.right.pinned {
+  .horizontal.bottom.push,
+  .horizontal.bottom.pinned {
+    right: unset;
+    top: unset;
+    transform: unset;
+
+    position: sticky;
+    bottom: 0;
+    align-self: flex-end;
+  }
+
+  /* --- Pinned --- */
+
+  .horizontal.top.pinned,
+  .horizontal.bottom.pinned {
+    max-height: 100px;
+  }
+
+  .vertical.right.pinned,
+  .vertical.left.pinned {
     width: 300px;
+  }
+
+  /* --- Push --- */
+
+  .horizontal.top.push,
+  .horizontal.bottom.push {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+  }
+
+  .horizontal.top.push.open,
+  .horizontal.bottom.push.open {
+    max-height: 100px;
   }
 
   .vertical.right.push {
@@ -127,6 +175,14 @@
   }
 
   .vertical.right.push.open {
+    width: 300px;
+  }
+
+  .vertical.left.push {
+    width: 2rem;
+  }
+
+  .vertical.left.push.open {
     width: 300px;
   }
 }
