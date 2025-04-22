@@ -1,23 +1,13 @@
 import styles from './Drawer.module.css';
-import { Backdrop } from '@src/stories/overlays/backdrop';
 import { Drawer } from './Drawer';
 import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import { Backdrop } from '@src/stories/overlays/backdrop';
 
 const meta: Meta<typeof Drawer> = {
-  args: {},
-  component: Drawer,
-  title: 'Components/Navigation/Drawer',
-};
-
-export default meta;
-
-type Story = StoryObj<typeof Drawer>;
-
-export const Default: Story = {
   args: {
     direction: 'top',
     open: false,
+    children: <>a</>,
   },
   argTypes: {
     direction: {
@@ -30,55 +20,80 @@ export const Default: Story = {
         left: 'left',
       },
     },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['overlay', 'push', 'pinned'],
+    },
   },
-  decorators: [
-    (Story) => {
-      return (
-        <div className={styles.container}>
-          <Story />
-        </div>
-      );
+  component: Drawer,
+  title: 'Components/Navigation/Drawer',
+  parameters: {
+    controls: {
+      include: ['direction', 'open', 'variant'],
     },
-  ],
+  },
 };
 
-export const DrawerBackdrop: Story = {
-  decorators: [
-    (Story) => {
-      const [open, setOpen] = useState(false);
-      return (
-        <div className={styles.container}>
-          <button onClick={() => setOpen((prev) => !prev)}>Show right</button>
-          <Backdrop onClick={() => setOpen(false)} open={open} />
-          <Story args={{ open, direction: 'right' }} />
-        </div>
-      );
-    },
-  ],
-};
+export default meta;
 
-export const BackdropCloseOutside: Story = {
+type Story = StoryObj<typeof Drawer>;
+
+export const Default: Story = {
   decorators: [
-    (Story) => {
-      const [open, setOpen] = useState(false);
+    (Story, context) => {
       return (
-        <div className={styles.container}>
-          <button onClick={() => setOpen(true)}>Show right</button>
-          <Backdrop open={open} />
-          <Story
-            args={{
-              open,
-              direction: 'right',
-              children: (
-                <button
-                  onClick={() => setOpen(false)}
-                  style={{ display: 'flex', justifySelf: 'flex-end' }}
-                >
-                  Close
-                </button>
-              ),
-            }}
-          />
+        <div className={styles.body}>
+          <div className={styles.container}>
+            <div className={styles.grid}>
+              <div className={styles.box}>
+                <img
+                  src="images/Beach.jpg"
+                  alt="Beach"
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.box}>
+                <img
+                  src="images/Desert-view.jpg"
+                  alt="Desert-view"
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.box}>
+                <img
+                  src="images/Desert.jpg"
+                  alt="Desert"
+                  className={styles.image}
+                />
+              </div>
+
+              <div className={styles.box}>
+                <img
+                  src="images/Beach.jpg"
+                  alt="Beach"
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.box}>
+                <img
+                  src="images/Desert-view.jpg"
+                  alt="Desert-view"
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.box}>
+                <img
+                  src="images/Desert.jpg"
+                  alt="Desert"
+                  className={styles.image}
+                />
+              </div>
+            </div>
+            <Backdrop open={Boolean(context.args.open)} />
+            <Story />
+          </div>
         </div>
       );
     },
