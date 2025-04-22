@@ -1,4 +1,6 @@
 :root {
+  overscroll-behavior: none;
+
   /* Colors */
 
   --color-primary-50: #e3f2fd;
@@ -117,6 +119,11 @@
 body {
   color: var(--color-text-primary);
   font-family: var(--font-family);
+}
+
+#root {
+  min-height: inherit;
+  overflow-x: clip;
 }
 
 a,
