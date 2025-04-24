@@ -1,0 +1,8 @@
+.button {
+  padding: 6px;
+  min-width: 32px;
+}
+
+.active {
+  background-color: goldenrod;
+}
