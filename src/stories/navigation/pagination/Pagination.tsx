@@ -6,6 +6,7 @@ import { getClassNamesPagination } from './utils';
 
 // Format props z helper function by lepiej to wyglądało
 // Dodać props do warunkowego wyświetlenia elementów
+// Size buttons check
 
 export const Pagination = ({
   maxRange = 10,

@@ -2,7 +2,7 @@ import { Color, Size, Spacing, Variant } from '@src/stories/types';
 
 export type UiPagination = {
   color?: Extract<Color, 'primary' | 'secondary'>;
-  size?: Size;
+  size?: Size | 'size-xxs';
   spacing?: Spacing;
   variant?: Variant;
 };

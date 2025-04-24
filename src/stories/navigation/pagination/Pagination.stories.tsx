@@ -26,7 +26,7 @@ const meta: Meta<typeof Pagination> = {
     },
     size: {
       control: 'select',
-      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
+      options: ['size-xxs', 'size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     variant: {
       control: 'select',

@@ -1,48 +1,47 @@
 .button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
-  border: 1px solid #555;
-  background-color: transparent;
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s linear;
+  text-decoration: none;
   /* min-width: 32px; */
 }
 
-/* 20px */
+/* 24px */
 .size-xxs {
   min-width: 24px;
-  padding: 4px;
   font-size: 14px;
+  padding: 2px 4px;
 }
 
 /* 28px */
 .size-xs {
   min-width: 28px;
-  max-height: 28px;
-  padding: 6px;
+  padding: 4px 4px;
   font-size: 14px;
 }
 
 /* 30px */
 .size-sm {
   min-width: 30px;
-  max-height: 30px;
-  padding: 6.5px;
+  padding: 4.5px 4px;
   font-size: 15px;
 }
 
 /* 32px */
 .size-md {
   min-width: 32px;
-  max-height: 32px;
-  padding: 7px;
+  padding: 5px 4px;
   font-size: 16px;
 }
 
 /* 36px */
 .size-lg {
   min-width: 36px;
-  max-height: 36px;
-  padding: 8px;
-  font-size: 18px;
+  padding: 7px 4px;
+  font-size: 16px;
 }

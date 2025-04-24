@@ -3,19 +3,11 @@ import { PaginationArrowProps } from './types';
 import { getClassNamesPaginationItems } from '../../utils';
 
 export const PaginationArrow = ({
-  color,
-  size,
-  spacing,
-  variant,
   label,
   onClick,
+  ...props
 }: PaginationArrowProps) => {
-  const classes = getClassNamesPaginationItems({
-    color,
-    size,
-    spacing,
-    variant,
-  });
+  const classes = getClassNamesPaginationItems({ ...props });
 
   return (
     <button className={classes.paginationArrow} onClick={onClick}>
