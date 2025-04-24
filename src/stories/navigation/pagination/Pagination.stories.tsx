@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Meta, StoryObj } from '@storybook/react';
 import { Pagination } from './Pagination';
 
@@ -7,7 +9,12 @@ const meta: Meta<typeof Pagination> = {
   parameters: {
     layout: 'centered',
   },
-  args: { totalPages: 1000 },
+  args: {
+    totalPages: 1000,
+    onChangePage: fn((page, pageSize) => {
+      action('onChangePage')({ page, pageSize });
+    }),
+  },
   argTypes: {
     spacing: {
       control: 'select',

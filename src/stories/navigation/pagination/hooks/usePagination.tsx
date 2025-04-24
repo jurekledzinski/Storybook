@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { ActionType, UsePaginationProps } from './types';
+import { useState } from 'react';
 
 export const usePagination = ({
   perPage = [10],
@@ -9,12 +9,13 @@ export const usePagination = ({
 }: UsePaginationProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(perPage[0]);
-  const amountButtons = Math.ceil(totalPages / itemsPerPage);
 
+  const amountButtons = Math.ceil(totalPages / itemsPerPage);
   const startValue = Math.floor(currentPage / maxRange) * maxRange;
   const endValue = Math.min(maxRange + startValue, amountButtons);
 
-  const setPage = (page: number) => setCurrentPage(page);
+  const onSetPage = (page: number) => setCurrentPage(page);
+  const onSetPerPage = (value: number) => setItemsPerPage(value);
 
   const onClick = (actionType: ActionType, value?: number) => {
     const page = currentPage;
@@ -25,24 +26,24 @@ export const usePagination = ({
 
     switch (actionType) {
       case 'first':
-        setPage(firstPage);
+        onSetPage(firstPage);
         onChangePage(firstPage + 1, itemsPerPage);
         break;
       case 'last':
-        setPage(lastPage);
+        onSetPage(lastPage);
         onChangePage(lastPage + 1, itemsPerPage);
         break;
       case 'next':
-        setPage(nextPage);
+        onSetPage(nextPage);
         onChangePage(nextPage + 1, itemsPerPage);
         break;
       case 'prev':
-        setPage(prevPage);
+        onSetPage(prevPage);
         onChangePage(prevPage + 1, itemsPerPage);
         break;
       case 'page':
-        setPage(value!);
-        onChangePage(page, itemsPerPage);
+        onSetPage(value!);
+        onChangePage(value! + 1, itemsPerPage);
     }
   };
 
@@ -51,5 +52,5 @@ export const usePagination = ({
     (_, i) => i + startValue
   );
 
-  return { onClick, paginationItems };
+  return { currentPage, onClick, onSetPerPage, paginationItems };
 };
