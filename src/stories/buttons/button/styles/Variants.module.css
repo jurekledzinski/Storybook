@@ -1,4 +1,4 @@
-/* ---------------- variants ----------------- */
+/* --- variants --- */
 
 .outlined.primary,
 .outlined.secondary,
@@ -36,7 +36,7 @@
 
 /* Outline text color icon */
 
-.outlined.primary svg,
+/* .outlined.primary svg,
 .text.primary svg {
   fill: var(--color-primary-700);
 }
@@ -59,9 +59,9 @@
 .outlined.warning svg,
 .text.warning svg {
   fill: var(--color-warning-900);
-}
+} */
 
-/* Hover outline variant */
+/* --- Hover outline variant --- */
 
 .outlined.primary:hover,
 .text.primary:hover {

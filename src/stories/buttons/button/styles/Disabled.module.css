@@ -1,4 +1,4 @@
-/* disabled */
+/* --- Disabled --- */
 
 button:disabled,
 a.disabled {
@@ -22,10 +22,9 @@ a.outlined.disabled svg,
 a.text.disabled,
 a.text.disabled svg {
   color: var(--color-text-disabled);
-  fill: var(--color-text-disabled);
 }
 
-/* Clear hover on disable */
+/* --- Clear hover on disable --- */
 
 button.text:disabled:hover,
 a.text.disabled:hover {
