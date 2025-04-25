@@ -10,7 +10,7 @@ export const PaginationArrow = ({
   const classes = getClassNamesPaginationItems({ ...props });
 
   return (
-    <button className={classes.paginationArrow} onClick={onClick}>
+    <button {...props} className={classes.paginationArrow} onClick={onClick}>
       {typeof label === 'string' ? label : <Icon icon={label!} />}
     </button>
   );

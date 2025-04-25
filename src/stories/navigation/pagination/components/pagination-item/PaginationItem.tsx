@@ -6,10 +6,10 @@ export const PaginationItem = ({
   onClick,
   ...props
 }: PaginationItemProps) => {
-  const classes = getClassNamesPaginationItems(props);
+  const classes = getClassNamesPaginationItems({ ...props });
 
   return (
-    <button className={classes.paginationItem} onClick={onClick}>
+    <button {...props} className={classes.paginationItem} onClick={onClick}>
       {page}
     </button>
   );

@@ -34,14 +34,16 @@ export const Pagination = ({
         label={faAnglesLeft}
         onClick={() => onClick('first')}
         {...props}
+        // disabled
       />
       <PaginationArrow
         label={'Prev'}
         onClick={() => onClick('prev')}
         {...props}
+        // disabled
       />
 
-      {paginationItems.map((item) => {
+      {paginationItems.map((item, index) => {
         return (
           <PaginationItem
             key={item}
@@ -49,6 +51,7 @@ export const Pagination = ({
             page={item + 1}
             onClick={() => onClick('page', item)}
             {...props}
+            disabled={true}
           />
         );
       })}
@@ -57,11 +60,13 @@ export const Pagination = ({
         label="Next"
         onClick={() => onClick('next')}
         {...props}
+        // disabled
       />
       <PaginationArrow
         label={faAnglesRight}
         onClick={() => onClick('last')}
         {...props}
+        // disabled
       />
     </div>
   );

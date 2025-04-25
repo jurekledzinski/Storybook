@@ -20,17 +20,46 @@ const meta: Meta<typeof Pagination> = {
       control: 'select',
       options: ['none', 'tight', 'normal', 'loose', 'extra-loose'],
     },
+    border: {
+      control: { type: 'select' },
+      options: [
+        'undefined',
+        'border-xs',
+        'border-sm',
+        'border-md',
+        'border-lg',
+        'border-xl',
+      ],
+    },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary'],
+      options: ['undefined', 'primary', 'secondary'],
+    },
+    radius: {
+      control: { type: 'select' },
+      options: [
+        'undefined',
+        'radius-xs',
+        'radius-sm',
+        'radius-md',
+        'radius-lg',
+        'radius-xl',
+      ],
     },
     size: {
       control: 'select',
-      options: ['size-xxs', 'size-xs', 'size-sm', 'size-md', 'size-lg'],
+      options: [
+        'undefined',
+        'size-xxs',
+        'size-xs',
+        'size-sm',
+        'size-md',
+        'size-lg',
+      ],
     },
     variant: {
       control: 'select',
-      options: ['contained', 'outlined'],
+      options: ['undefined', 'contained', 'outlined', 'text'],
     },
   },
 };
@@ -42,7 +71,7 @@ type Story = StoryObj<typeof Pagination>;
 export const Default: Story = {
   parameters: {
     controls: {
-      include: ['color', 'spacing', 'size', 'variant'],
+      include: ['border', 'color', 'radius', 'spacing', 'size', 'variant'],
     },
   },
 };

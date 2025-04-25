@@ -18,27 +18,33 @@ export const getClassNamesPagination: GetClassNamesPagination = (params) => {
 export const getClassNamesPaginationItems: GetClassNamesPaginationItems = (
   params
 ) => {
-  const { color, isActive, size, spacing, variant } = params;
+  const { border, color, isActive, radius, size, spacing, variant } = params;
 
   return {
     paginationArrow: generateClassNames(styles, {
       button: true,
+      [`${border}`]: Boolean(border),
       [`${color}`]: Boolean(color),
+      [`${radius}`]: Boolean(radius),
       [`${size}`]: Boolean(size),
       [`${spacing}`]: Boolean(spacing),
       [`${variant}`]: Boolean(variant),
     }),
     paginationDots: generateClassNames(styles, {
       button: true,
+      [`${border}`]: Boolean(border),
       [`${color}`]: Boolean(color),
+      [`${radius}`]: Boolean(radius),
       [`${size}`]: Boolean(size),
       [`${spacing}`]: Boolean(spacing),
       [`${variant}`]: Boolean(variant),
     }),
     paginationItem: generateClassNames(styles, {
       button: true,
+      [`${border}`]: Boolean(border),
       [`active`]: Boolean(isActive),
       [`${color}`]: Boolean(color),
+      [`${radius}`]: Boolean(radius),
       [`${size}`]: Boolean(size),
       [`${spacing}`]: Boolean(spacing),
       [`${variant}`]: Boolean(variant),
