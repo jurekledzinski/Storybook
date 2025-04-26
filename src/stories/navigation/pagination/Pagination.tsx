@@ -1,8 +1,8 @@
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { getClassNamesPagination } from './utils';
 import { PaginationArrow, PaginationItem } from './components';
 import { PaginationProps } from './types';
-import { faAnglesRight, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 import { usePagination } from './hooks';
-import { getClassNamesPagination } from './utils';
 
 // Format props z helper function by lepiej to wyglądało
 // Dodać props do warunkowego wyświetlenia elementów
@@ -34,16 +34,14 @@ export const Pagination = ({
         label={faAnglesLeft}
         onClick={() => onClick('first')}
         {...props}
-        // disabled
       />
       <PaginationArrow
         label={'Prev'}
         onClick={() => onClick('prev')}
         {...props}
-        // disabled
       />
 
-      {paginationItems.map((item, index) => {
+      {paginationItems.map((item, i) => {
         return (
           <PaginationItem
             key={item}
@@ -51,7 +49,7 @@ export const Pagination = ({
             page={item + 1}
             onClick={() => onClick('page', item)}
             {...props}
-            disabled={true}
+            disabled={1 === i}
           />
         );
       })}
@@ -60,13 +58,11 @@ export const Pagination = ({
         label="Next"
         onClick={() => onClick('next')}
         {...props}
-        // disabled
       />
       <PaginationArrow
         label={faAnglesRight}
         onClick={() => onClick('last')}
         {...props}
-        // disabled
       />
     </div>
   );
