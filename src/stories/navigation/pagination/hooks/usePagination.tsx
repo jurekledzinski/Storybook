@@ -14,6 +14,9 @@ export const usePagination = ({
   const startValue = Math.floor(currentPage / maxRange) * maxRange;
   const endValue = Math.min(maxRange + startValue, amountButtons);
 
+  const infoEnd = Math.min((currentPage + 1) * itemsPerPage, totalPages);
+  const infoStart = currentPage * itemsPerPage + 1;
+
   const onSetPage = (page: number) => setCurrentPage(page);
   const onSetPerPage = (value: number) => setItemsPerPage(value);
 
@@ -52,5 +55,12 @@ export const usePagination = ({
     (_, i) => i + startValue
   );
 
-  return { currentPage, onClick, onSetPerPage, paginationItems };
+  return {
+    currentPage,
+    infoEnd,
+    infoStart,
+    onClick,
+    onSetPerPage,
+    paginationItems,
+  };
 };

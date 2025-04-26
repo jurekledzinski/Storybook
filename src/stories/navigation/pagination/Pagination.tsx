@@ -1,6 +1,6 @@
 import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import { getClassNamesPagination } from './utils';
-import { PaginationArrow, PaginationItem } from './components';
+import { PaginationArrow, PaginationInfo, PaginationItem } from './components';
 import { PaginationProps } from './types';
 import { usePagination } from './hooks';
 
@@ -15,30 +15,31 @@ export const Pagination = ({
   onChangePage,
   ...props
 }: PaginationProps) => {
-  const { currentPage, onClick, paginationItems } = usePagination({
-    onChangePage,
-    totalPages,
-    maxRange,
-    perPage,
-  });
+  const { infoEnd, infoStart, currentPage, onClick, paginationItems } =
+    usePagination({
+      onChangePage,
+      totalPages,
+      maxRange,
+      perPage,
+    });
 
   const classes = getClassNamesPagination({ spacing: props.spacing });
-
-  //   const start = currentPage * itemsPerPage + 1;
-  //   const end = Math.min((currentPage + 1) * itemsPerPage, totalPages);
-  //   console.log('start mobile', start, '-', end, 'of', totalPages);
 
   return (
     <div className={classes}>
       <PaginationArrow
+        id="first"
         label={faAnglesLeft}
         onClick={() => onClick('first')}
         {...props}
+        disabled
       />
       <PaginationArrow
+        id="prev"
         label={'Prev'}
         onClick={() => onClick('prev')}
         {...props}
+        disabled
       />
 
       {paginationItems.map((item, i) => {
@@ -49,20 +50,31 @@ export const Pagination = ({
             page={item + 1}
             onClick={() => onClick('page', item)}
             {...props}
-            disabled={1 === i}
+            disabled={0 === i}
           />
         );
       })}
 
+      <PaginationInfo
+        itemEnd={infoEnd}
+        itemStart={infoStart}
+        totalItems={totalPages}
+        {...props}
+      />
+
       <PaginationArrow
+        id="next"
         label="Next"
         onClick={() => onClick('next')}
         {...props}
+        disabled
       />
       <PaginationArrow
+        id="last"
         label={faAnglesRight}
         onClick={() => onClick('last')}
         {...props}
+        disabled
       />
     </div>
   );

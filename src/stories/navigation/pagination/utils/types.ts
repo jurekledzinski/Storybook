@@ -13,3 +13,5 @@ export type GetClassNamesPaginationItems = (params: ParamsItem) => {
 type ParamsPagination = Pick<UiPagination, 'spacing'>;
 
 export type GetClassNamesPagination = (params: ParamsPagination) => string;
+
+export type GetClassNamesPaginationInfo = (params: UiPagination) => string;

@@ -1,0 +1,20 @@
+/* --- Disabled --- */
+
+.button:disabled:not(.outlined):not(.text).primary,
+.button:disabled:not(.outlined):not(.text).secondary,
+.active:not(.outlined):not(.text):disabled {
+  background-color: var(--color-disabled-100);
+  border-color: var(--color-disabled-100);
+  cursor: not-allowed;
+}
+
+button.outlined:disabled {
+  border-color: var(--color-disabled-100);
+}
+
+button.outlined:disabled,
+button.outlined:disabled svg,
+button.text:disabled,
+button.text:disabled svg {
+  color: var(--color-text-disabled);
+}

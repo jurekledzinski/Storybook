@@ -1,0 +1,79 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  border: 1px solid var(--color-black-700);
+  min-width: 28px;
+  padding: 5px 4px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s linear;
+  text-decoration: none;
+}
+
+/* --- Clear buttons border radius when none spacing --- */
+
+.button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* --- Active state --- */
+
+.active:not(:disabled) {
+  background-color: var(--color-black-400);
+  color: var(--color-text-white);
+}
+
+.button:not(:disabled):not(.primary):not(.secondary):hover {
+  background-color: var(--color-black-200);
+}
+
+.button:not(:disabled):not(.primary):not(.secondary).active:hover {
+  background-color: var(--color-black-400);
+}
+
+/* --- Clear hover on disable --- */
+
+button.text:disabled:hover {
+  border-color: transparent;
+}
+
+button.outlined:disabled:hover,
+button.text:disabled:hover {
+  background-color: transparent;
+}
+
+/* --- Clear buttons when none spacing --- */
+
+.button:disabled:not(
+    .tight,
+    .normal,
+    .loose,
+    .extra-loose,
+    :last-child,
+    .text
+  ) {
+  border-right: 0;
+}
+
+.button:not(:disabled)
+  + .button:not(:disabled, .tight, .normal, .loose, .extra-loose, .text),
+.button:not(:disabled)
+  + button.button:disabled:not(.tight, .normal, .loose, .extra-loose, .text) {
+  border-left: 0;
+}
+
+/* Wciąż trzeba dopracować na contained color kiedy active albo hover nie równo */
+/* Związane to jest z borderem trzeba ustawić dodatkowe dla tego przypdaku tylko prawdopodobnie */
