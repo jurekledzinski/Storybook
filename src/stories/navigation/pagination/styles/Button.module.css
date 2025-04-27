@@ -36,6 +36,16 @@
   color: var(--color-text-white);
 }
 
+/* --- When color set only --- */
+
+.active.primary:not(:disabled) {
+  background-color: var(--color-primary-800);
+}
+
+.active.secondary:not(:disabled) {
+  background-color: var(--color-secondary-800);
+}
+
 .button:not(:disabled):not(.primary):not(.secondary):hover {
   background-color: var(--color-black-200);
 }
@@ -46,13 +56,9 @@
 
 /* --- Clear hover on disable --- */
 
-button.text:disabled:hover {
+.button.outlined:disabled:hover,
+.button.text:disabled:hover {
   border-color: transparent;
-}
-
-button.outlined:disabled:hover,
-button.text:disabled:hover {
-  background-color: transparent;
 }
 
 /* --- Clear buttons when none spacing --- */

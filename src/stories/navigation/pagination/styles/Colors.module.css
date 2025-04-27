@@ -1,27 +1,68 @@
 /* --- Colors --- */
 
-.primary {
+.outlined {
+  background-color: transparent;
+}
+
+.text {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.contained.primary {
   background-color: var(--color-primary-700);
   color: var(--color-text-white);
   border-color: var(--color-primary-700);
 }
 
-.secondary {
+.contained.secondary {
   background-color: var(--color-secondary-400);
   color: var(--color-text-white);
   border-color: var(--color-secondary-400);
 }
 
-/* --- Hover color --- */
+.outlined.primary {
+  border-color: var(--color-primary-700);
+  color: var(--color-primary-700);
+}
 
-.primary:hover,
-.primary.active {
+.outlined.secondary {
+  border-color: var(--color-secondary-400);
+  color: var(--color-secondary-700);
+}
+
+.text.primary {
+  color: var(--color-primary-700);
+}
+
+.text.secondary {
+  color: var(--color-secondary-700);
+}
+
+/* --- Hover or select color --- */
+
+.contained.primary:hover,
+.contained.primary.active {
   background-color: var(--color-primary-800);
   border-color: var(--color-primary-800);
 }
 
-.secondary:hover,
-.secondary.active {
+.contained.secondary:hover,
+.contained.secondary.active {
   background-color: var(--color-secondary-500);
   border-color: var(--color-secondary-500);
+}
+
+.outlined.primary:hover,
+.text.primary:hover,
+.outlined.primary.active,
+.text.primary.active {
+  background-color: var(--color-primary-50);
+}
+
+.outlined.secondary:hover,
+.text.secondary:hover,
+.outlined.secondary.active,
+.text.secondary.active {
+  background-color: var(--color-secondary-100);
 }

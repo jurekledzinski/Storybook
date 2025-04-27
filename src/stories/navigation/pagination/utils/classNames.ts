@@ -5,6 +5,7 @@ import stylesPaginationInfo from '../components/pagination-info/styles/Styles.mo
 import styles from '../styles/Styles.module.css';
 
 import { generateClassNames } from '@src/stories/helpers';
+
 import {
   GetClassNamesPagination,
   GetClassNamesPaginationInfo,

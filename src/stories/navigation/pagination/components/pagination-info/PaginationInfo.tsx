@@ -8,6 +8,7 @@ export const PaginationInfo = ({
   ...props
 }: PaginationInfoProps) => {
   const classes = getClassNamesPaginationInfo(props);
+  
   return (
     <div className={classes}>
       <span>{itemStart}</span>
