@@ -9,10 +9,6 @@
   cursor: not-allowed;
 }
 
-/* .button.outlined:disabled {
-  border-color: var(--color-disabled-100);
-} */
-
 .button.outlined.primary:disabled,
 .button.outlined.secondary:disabled {
   border-color: var(--color-disabled-100);

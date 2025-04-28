@@ -1,7 +1,3 @@
-import { UiPagination } from '../../types';
+import { HTMLAttributes } from 'react';
 
-export interface PaginationInfoProps extends UiPagination {
-  itemStart: number;
-  itemEnd: number;
-  totalItems: number;
-}
+export type PaginationInfoProps = HTMLAttributes<HTMLDivElement>;

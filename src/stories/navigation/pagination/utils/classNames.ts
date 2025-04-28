@@ -1,7 +1,5 @@
 import stylesPagination from '../Pagination.module.css';
 import stylesPaginationInfo from '../components/pagination-info/styles/Styles.module.css';
-// import stylesItem from '../components/pagination-item/PaginationItem.module.css';
-// import stylesArrow from '../components/pagination-arrow/PaginationArrow.module.css';
 import styles from '../styles/Styles.module.css';
 
 import { generateClassNames } from '@src/stories/helpers';
@@ -28,15 +26,6 @@ export const getClassNamesPaginationItems: GetClassNamesPaginationItems = (
 
   return {
     paginationArrow: generateClassNames(styles, {
-      button: true,
-      [`${border}`]: Boolean(border),
-      [`${color}`]: Boolean(color),
-      [`${radius}`]: Boolean(radius),
-      [`${size}`]: Boolean(size),
-      [`${spacing}`]: Boolean(spacing),
-      [`${variant}`]: Boolean(variant),
-    }),
-    paginationDots: generateClassNames(styles, {
       button: true,
       [`${border}`]: Boolean(border),
       [`${color}`]: Boolean(color),

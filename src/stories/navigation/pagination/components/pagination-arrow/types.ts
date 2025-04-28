@@ -1,9 +1,13 @@
+import { ActionType } from '../../hooks';
 import { ButtonHTMLAttributes } from 'react';
 import { Icon } from '@src/stories/types';
-import { UiPagination } from '../../types';
 
-export interface PaginationArrowProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
-    UiPagination {
+type ButtonArrow = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'color' | 'id'
+>;
+
+export interface PaginationArrowProps extends ButtonArrow {
+  id?: ActionType;
   label?: Icon | string;
 }

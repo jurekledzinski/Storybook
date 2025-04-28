@@ -1,21 +1,18 @@
 import { getClassNamesPaginationInfo } from '../../utils';
 import { PaginationInfoProps } from './types';
+import { usePaginationContext } from '../../context';
 
-export const PaginationInfo = ({
-  itemEnd,
-  itemStart,
-  totalItems,
-  ...props
-}: PaginationInfoProps) => {
-  const classes = getClassNamesPaginationInfo(props);
-  
+export const PaginationInfo = ({ ...props }: PaginationInfoProps) => {
+  const { infoEnd, infoStart, totalPages, ...rest } = usePaginationContext();
+  const classes = getClassNamesPaginationInfo(rest);
+
   return (
-    <div className={classes}>
-      <span>{itemStart}</span>
+    <div {...props} className={classes}>
+      <span>{infoStart}</span>
       <span>-</span>
-      <span>{itemEnd}</span>
+      <span>{infoEnd}</span>
       <span>of</span>
-      <span>{totalItems}</span>
+      <span>{totalPages}</span>
     </div>
   );
 };

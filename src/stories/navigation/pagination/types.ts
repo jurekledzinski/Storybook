@@ -7,11 +7,14 @@ import {
   Variant,
 } from '@src/stories/types';
 
+type PaginationColor = Extract<Color, 'primary' | 'secondary'>;
+type PaginationSize = Size | 'size-xxs';
+
 export type UiPagination = {
   border?: Border;
-  color?: Extract<Color, 'primary' | 'secondary'>;
+  color?: PaginationColor;
   radius?: Radius;
-  size?: Size | 'size-xxs';
+  size?: PaginationSize;
   spacing?: Spacing;
   variant?: Variant;
 };
@@ -25,5 +28,6 @@ export type UxPagination = {
 export type OnChangePage = (page: number, pageSize: number) => void;
 
 export interface PaginationProps extends UiPagination, UxPagination {
+  children?: React.ReactNode;
   onChangePage: OnChangePage;
 }

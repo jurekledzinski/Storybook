@@ -1,16 +1,18 @@
+import { getClassNamesPaginationItems } from '../../utils';
 import { Icon } from '@src/stories/graphics/icon';
 import { PaginationArrowProps } from './types';
-import { getClassNamesPaginationItems } from '../../utils';
+import { usePaginationContext } from '../../context';
 
-export const PaginationArrow = ({
-  label,
-  onClick,
-  ...props
-}: PaginationArrowProps) => {
-  const classes = getClassNamesPaginationItems({ ...props });
+export const PaginationArrow = ({ id, label }: PaginationArrowProps) => {
+  const { onClick, ...props } = usePaginationContext();
+  const classes = getClassNamesPaginationItems(props);
 
   return (
-    <button {...props} className={classes.paginationArrow} onClick={onClick}>
+    <button
+      {...props}
+      className={classes.paginationArrow}
+      onClick={() => onClick(id!)}
+    >
       {typeof label === 'string' ? label : <Icon icon={label!} />}
     </button>
   );

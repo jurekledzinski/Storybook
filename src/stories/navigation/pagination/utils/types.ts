@@ -1,17 +1,16 @@
 import { UiPagination } from '../types';
 
-interface ParamsItem extends UiPagination {
+interface PaginationItemParams extends UiPagination {
   isActive?: boolean;
 }
 
-export type GetClassNamesPaginationItems = (params: ParamsItem) => {
+type PaginationParams = Pick<UiPagination, 'spacing'>;
+
+export type GetClassNamesPaginationItems = (params: PaginationItemParams) => {
   paginationArrow: string;
-  paginationDots: string;
   paginationItem: string;
 };
 
-type ParamsPagination = Pick<UiPagination, 'spacing'>;
-
-export type GetClassNamesPagination = (params: ParamsPagination) => string;
+export type GetClassNamesPagination = (params: PaginationParams) => string;
 
 export type GetClassNamesPaginationInfo = (params: UiPagination) => string;
