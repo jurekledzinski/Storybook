@@ -13,6 +13,22 @@
   text-decoration: none;
 }
 
+.info {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  min-width: 140px;
+  border: 1px solid var(--color-black-700);
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.info span {
+  display: block;
+}
+
 /* --- Clear buttons border radius when none spacing --- */
 
 .button:not(:first-child):not(:last-child) {
@@ -63,21 +79,16 @@
 
 /* --- Clear buttons when none spacing --- */
 
-.button:disabled:not(
-    .tight,
-    .normal,
-    .loose,
-    .extra-loose,
-    :last-child,
-    .text
-  ) {
+.button:disabled:not(.tight, .normal, .loose, .extra-loose, :last-child, .text),
+.info:not(.tight, .normal, .loose, .extra-loose, :last-child, .text) {
   border-right: 0;
 }
 
 .button:not(:disabled)
   + .button:not(:disabled, .tight, .normal, .loose, .extra-loose, .text),
 .button:not(:disabled)
-  + button.button:disabled:not(.tight, .normal, .loose, .extra-loose, .text) {
+  + button.button:disabled:not(.tight, .normal, .loose, .extra-loose, .text),
+.button:not(:disabled, .tight, .normal, .loose, .extra-loose, .text) + .info {
   border-left: 0;
 }
 

@@ -50,7 +50,7 @@ const meta: Meta<typeof Pagination> = {
         'pagination info': (
           <>
             <PaginationArrow id="first" label={faAnglesLeft} />
-            <PaginationArrow id="prev" label={faChevronLeft} />
+            <PaginationArrow id="prev" label={faChevronLeft} disabled />
             <PaginationInfo />
             <PaginationArrow id="next" label={faChevronRight} />
             <PaginationArrow id="last" label={faAnglesRight} />
@@ -69,12 +69,12 @@ const meta: Meta<typeof Pagination> = {
     },
     color: {
       control: { type: 'select' },
-      options: ['undefined', 'primary', 'secondary'],
+      options: [undefined, 'primary', 'secondary'],
     },
     radius: {
       control: { type: 'select' },
       options: [
-        'undefined',
+        undefined,
         'radius-xs',
         'radius-sm',
         'radius-md',
@@ -85,7 +85,7 @@ const meta: Meta<typeof Pagination> = {
     size: {
       control: 'select',
       options: [
-        'undefined',
+        undefined,
         'size-xxs',
         'size-xs',
         'size-sm',
@@ -99,7 +99,7 @@ const meta: Meta<typeof Pagination> = {
     },
     variant: {
       control: 'select',
-      options: ['undefined', 'contained', 'outlined', 'text'],
+      options: [undefined, 'contained', 'outlined', 'text'],
     },
   },
 };

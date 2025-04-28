@@ -63,8 +63,3 @@
   border-right: 0;
   border-left: 0;
 }
-
-.info
-  + button.button:disabled:not(.tight, .normal, .loose, .extra-loose, .text) {
-  border-left: 0;
-}

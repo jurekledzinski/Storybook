@@ -1,10 +1,9 @@
-import stylesPagination from '../Pagination.module.css';
-import stylesPaginationInfo from '../components/pagination-info/styles/Styles.module.css';
 import styles from '../styles/Styles.module.css';
-
+import stylesPagination from '../Pagination.module.css';
 import { generateClassNames } from '@src/stories/helpers';
 
 import {
+  GenerateCommonClasses,
   GetClassNamesPagination,
   GetClassNamesPaginationInfo,
   GetClassNamesPaginationItems,
@@ -19,30 +18,36 @@ export const getClassNamesPagination: GetClassNamesPagination = (params) => {
   });
 };
 
+const generateCommonClasses: GenerateCommonClasses = (params) => {
+  const { className, paginationParams, styles } = params;
+  const { border, color, isActive, radius, size, spacing, variant } =
+    paginationParams;
+
+  return generateClassNames(styles, {
+    [className]: true,
+    [`active`]: Boolean(isActive),
+    [`${border}`]: Boolean(border),
+    [`${color}`]: Boolean(color),
+    [`${radius}`]: Boolean(radius),
+    [`${size}`]: Boolean(size),
+    [`${spacing}`]: Boolean(spacing),
+    [`${variant}`]: Boolean(variant),
+  });
+};
+
 export const getClassNamesPaginationItems: GetClassNamesPaginationItems = (
   params
 ) => {
-  const { border, color, isActive, radius, size, spacing, variant } = params;
-
   return {
-    paginationArrow: generateClassNames(styles, {
-      button: true,
-      [`${border}`]: Boolean(border),
-      [`${color}`]: Boolean(color),
-      [`${radius}`]: Boolean(radius),
-      [`${size}`]: Boolean(size),
-      [`${spacing}`]: Boolean(spacing),
-      [`${variant}`]: Boolean(variant),
+    paginationArrow: generateCommonClasses({
+      className: 'button',
+      paginationParams: params,
+      styles,
     }),
-    paginationItem: generateClassNames(styles, {
-      button: true,
-      [`${border}`]: Boolean(border),
-      [`active`]: Boolean(isActive),
-      [`${color}`]: Boolean(color),
-      [`${radius}`]: Boolean(radius),
-      [`${size}`]: Boolean(size),
-      [`${spacing}`]: Boolean(spacing),
-      [`${variant}`]: Boolean(variant),
+    paginationItem: generateCommonClasses({
+      className: 'button',
+      paginationParams: params,
+      styles,
     }),
   };
 };
@@ -50,15 +55,9 @@ export const getClassNamesPaginationItems: GetClassNamesPaginationItems = (
 export const getClassNamesPaginationInfo: GetClassNamesPaginationInfo = (
   params
 ) => {
-  const { border, color, radius, size, spacing, variant } = params;
-
-  return generateClassNames(stylesPaginationInfo, {
-    info: true,
-    [`${border}`]: Boolean(border),
-    [`${color}`]: Boolean(color),
-    [`${radius}`]: Boolean(radius),
-    [`${size}`]: Boolean(size),
-    [`${spacing}`]: Boolean(spacing),
-    [`${variant}`]: Boolean(variant),
+  return generateCommonClasses({
+    className: 'info',
+    paginationParams: params,
+    styles,
   });
 };

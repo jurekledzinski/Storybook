@@ -2,11 +2,7 @@ import { PaginationContextValue } from '../context';
 import { PaginationProps } from '../types';
 
 type CustomPaginationProps = Omit<PaginationProps, 'children'>;
-
-type CustomPropsItems = Omit<
-  PaginationContextValue,
-  'currentPage' | 'onClick' | 'paginationItems'
->;
+type CustomPropsButton = Partial<PaginationContextValue>;
 
 export const getPaginationProps = (props: CustomPaginationProps) => {
   const { onChangePage, totalPages, maxRange, perPage, ...rest } = props;
@@ -17,7 +13,17 @@ export const getPaginationProps = (props: CustomPaginationProps) => {
   return { uiPaginationProps, uxPaginationProps };
 };
 
-export const getPaginationItemsProps = (props: CustomPropsItems) => {
+export const getCommonPaginationProps = <T extends CustomPropsButton>(
+  props: T
+) => {
   const { border, color, radius, size, spacing, variant } = props;
   return { border, color, radius, size, spacing, variant };
+};
+
+export const getPaginationItemsProps = (props: CustomPropsButton) => {
+  return getCommonPaginationProps(props);
+};
+
+export const getPaginationArrowProps = (props: CustomPropsButton) => {
+  return getCommonPaginationProps(props);
 };
