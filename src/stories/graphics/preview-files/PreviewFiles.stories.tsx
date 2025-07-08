@@ -32,7 +32,6 @@ export const Default: Story = {
         <div style={{ width: 400 }}>
           <Form onSubmit={(e) => e.preventDefault()} noValidate>
             <FileInput
-              allowTypes={['image/png', 'image/jpeg']}
               accept=".png,.jpg"
               label="Add images"
               multiple
@@ -40,11 +39,6 @@ export const Default: Story = {
                 if (!e.target.files) return;
                 const files = e.target.files;
                 setFiles([...files]);
-              }}
-              maxSize={[3, 'MB']}
-              maxAmount={4}
-              onError={(type, details, name) => {
-                console.log('Set error value', type, name, details);
               }}
             />
             <Story
