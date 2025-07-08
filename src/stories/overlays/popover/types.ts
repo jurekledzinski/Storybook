@@ -1,3 +1,4 @@
+import React from 'react';
 import { Size, Variant } from '../../types/ui';
 
 export type Option = { key: string; value: string };

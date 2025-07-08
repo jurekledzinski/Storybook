@@ -22,7 +22,6 @@ export const PopOver = <T extends Option = Option>({
   });
 
   const classes = popOverClassNames();
-  const renderChildren = getChildren(children, items as T[]);
 
   return ReactDOM.createPortal(
     <CSSTransition
@@ -41,7 +40,7 @@ export const PopOver = <T extends Option = Option>({
           width: w,
         }}
       >
-        {renderChildren}
+        {getChildren(children, items as T[])}
       </div>
     </CSSTransition>,
     document.body

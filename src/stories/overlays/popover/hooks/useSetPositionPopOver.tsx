@@ -15,19 +15,19 @@ export const useSetPositionPopOver = ({
   });
 
   const [parentPosition, setParentPosition] = useState<DOMRect>();
-  const [sizeHieight, setSizeHeight] = useState(0);
+  const [sizeHeight, setSizeHeight] = useState(0);
 
   useEffect(() => {
     if (!panelRef.current || !parentPosition) return;
 
     const panelHeight = panelRef.current.offsetHeight;
     const selectTillItsBottom = parentPosition.y + parentPosition.height;
-    const spaceBelowSelect = sizeHieight - selectTillItsBottom;
+    const spaceBelowSelect = sizeHeight - selectTillItsBottom;
 
     if (spaceBelowSelect < panelHeight && parentPosition.y < panelHeight) {
       setNewPos({
         x: parentPosition.x,
-        y: sizeHieight - panelHeight,
+        y: sizeHeight - panelHeight,
         w: parentPosition.width,
       });
     } else if (spaceBelowSelect < panelHeight) {
@@ -43,7 +43,7 @@ export const useSetPositionPopOver = ({
         w: parentPosition.width,
       });
     }
-  }, [gap, isOpen, panelRef, parentPosition, sizeHieight]);
+  }, [gap, isOpen, panelRef, parentPosition, sizeHeight]);
 
   useResizeObserver({
     onResize: useCallback((rect) => setParentPosition(rect), []),
