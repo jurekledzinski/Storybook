@@ -3,7 +3,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Form } from './stories/form-elements/form';
 import { Field } from './stories/form-elements/field';
 import { Message } from './stories/feedbacks/message';
-import { FileInput } from './stories/form-elements/file-input';
+import {
+  FileInput,
+  useValidateFiles,
+} from './stories/form-elements/file-input';
 import { Label } from '@src/stories/form-elements/label';
 import { Input } from './stories/form-elements/input';
 import { Button } from './stories/buttons/button';
@@ -24,11 +27,18 @@ const App = () => {
     setValue,
     formState: { errors },
   } = useForm<Inputs>({ defaultValues: { files: [], name: '' } });
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log('Submit', data);
 
-  console.log('errors', errors?.name);
-
-  const onErrorFile = () => {};
+  const {
+    checkFileType,
+    checkMaxAmountFiles,
+    checkMaxSize,
+    checkRequiredFiles,
+  } = useValidateFiles({
+    allowTypes: ['image/jpeg'],
+    maxSize: [3, 'MB'],
+    maxAmount: 2,
+  });
 
   return (
     <div className="container">
@@ -49,11 +59,21 @@ const App = () => {
           <FileInput
             accept=".jpg"
             label="Add images"
-            onError={onErrorFile}
             multiple
             {...register('files', {
-              required: { message: 'Files are required', value: true },
-              validate: (files) => files.length <= 2 || 'Only 2 files allowed',
+              validate: (files) => {
+                const type = checkFileType(files);
+                const maxAmount = checkMaxAmountFiles(files);
+                const maxSize = checkMaxSize(files);
+                const required = checkRequiredFiles(files);
+
+                if (type !== true) return type;
+                if (maxAmount !== true) return maxAmount;
+                if (maxSize !== true) return maxSize;
+                if (required !== true) return required;
+
+                return true;
+              },
             })}
           />
           <Message variant="error">{errors.files?.message}</Message>
@@ -68,7 +88,7 @@ const App = () => {
               setValue(
                 'files',
                 [...watch('files')].filter((_, i) => i !== index),
-                { shouldValidate: true, shouldDirty: true }
+                { shouldValidate: true, shouldDirty: false }
               );
             }}
           />
