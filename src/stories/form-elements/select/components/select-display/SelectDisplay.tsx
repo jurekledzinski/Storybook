@@ -25,13 +25,11 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
 
   const classes = getClassNamesInput({ variant, size, isError });
 
-  const onClick = () => onOpen && onOpen(true);
-
   return (
     <InputWrapper
       endIcon={isOpen ? endIcon[0] : endIcon[1]}
       isError={isError}
-      onClickEndIcon={onClick}
+      onClickEndIcon={() => onOpen && onOpen(true)}
       ref={childsRef}
       size={size}
       variant={variant}
@@ -40,7 +38,7 @@ export const SelectDisplay = ({ endIcon }: SelectDisplayProps) => {
       <fieldset
         ref={fieldsetRef}
         className={classes.fieldset}
-        onClick={onClick}
+        onClick={() => onOpen && onOpen(true)}
       >
         <input
           className={classes.input}

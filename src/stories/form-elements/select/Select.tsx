@@ -8,13 +8,13 @@ export const Select = <T extends Option = Option>({
   children,
   ...props
 }: ParentPopOverProps<T>) => {
-  const selectRef = useRef<HTMLDivElement | null>(null);
+  const parentRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div ref={selectRef}>
+    <div ref={parentRef}>
       <PopOverProvider<T>
         value={{
-          parentRef: selectRef,
+          parentRef,
           ...props,
         }}
       >
