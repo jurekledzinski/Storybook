@@ -6,39 +6,68 @@ export const useValidateFiles = ({
   allowTypes,
   maxAmount,
   maxSize,
-  onError,
 }: UseValidateFilesProps) => {
-  const checkFileType = (files: File[]) => {
-    files.forEach((file) => {
+  const checkFileType = (
+    files: File[],
+    onGetMessage: (file: File) => string = (file) =>
+      `Unsupported file type: ${file.name} (${file.type})`
+  ) => {
+    for (const file of files) {
       if (!allowTypes.includes(file.type as FileMimeType)) {
-        onError('type', file.type, file.name);
+        return onGetMessage(file);
       }
-    });
+    }
+
+    return true;
   };
 
-  const checkMaxSize = (files: File[]) => {
-    if (!maxSize || maxSize.length < 2) return;
+  const checkMaxSize = (
+    files: File[],
+    onGetMessage: (file: File, size: string) => string = (file, size) =>
+      `The file "${file.name}" exceeds the maximum allowed size of ${size}.`
+  ) => {
+    if (!maxSize || maxSize.length < 2) return true;
 
-    files.forEach((file) => {
+    for (const file of files) {
       const formattedSize = formatFileSize(file.size, maxSize[1]);
+
       if (parseFloat(formattedSize) > maxSize[0]) {
-        onError('size', formattedSize, file.name);
+        const size = maxSize.join('');
+        return onGetMessage(file, size);
       }
-    });
+    }
+
+    return true;
   };
 
-  const checkMaxAmountFiles = (files: File[]) => {
-    if (!maxAmount) return;
-    if (files.length > maxAmount) onError('amount', `${files.length}`);
+  const checkMaxAmountFiles = (
+    files: File[],
+    onGetMessage: (amount: number, maxAmount: number) => string = (
+      amount,
+      maxAmount
+    ) =>
+      `You selected ${amount} files, but the maximum allowed is ${maxAmount}.`
+  ) => {
+    if (!maxAmount) return true;
+    if (files.length > maxAmount) return onGetMessage(files.length, maxAmount);
+    return true;
   };
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return;
+  const checkRequiredFiles = (
+    files: File[],
+    onGetMessage: () => string = () => 'File is required'
+  ) => {
+    if (!files || files.length === 0) {
+      return onGetMessage();
+    }
 
-    checkFileType([...e.target.files]);
-    checkMaxSize([...e.target.files]);
-    checkMaxAmountFiles([...e.target.files]);
+    return true;
   };
 
-  return onChangeInput;
+  return {
+    checkFileType,
+    checkMaxSize,
+    checkMaxAmountFiles,
+    checkRequiredFiles,
+  };
 };
