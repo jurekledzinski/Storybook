@@ -1,25 +1,13 @@
-import { useRef } from 'react';
-import PopOverProvider, {
-  ParentPopOverProps,
-  Option,
-} from '@src/stories/overlays/popover';
+import PopOverProvider from '@src/stories/overlays/pop-over/store';
+import { SelectProps } from './types';
+import { SelectProvider } from './store';
 
-export const Select = <T extends Option = Option>({
-  children,
-  ...props
-}: ParentPopOverProps<T>) => {
-  const parentRef = useRef<HTMLDivElement | null>(null);
-
+export const Select = ({ children, ...props }: SelectProps) => {
   return (
-    <div ref={parentRef}>
-      <PopOverProvider<T>
-        value={{
-          parentRef,
-          ...props,
-        }}
-      >
-        {children}
-      </PopOverProvider>
+    <div>
+      <SelectProvider value={props}>
+        <PopOverProvider>{children}</PopOverProvider>
+      </SelectProvider>
     </div>
   );
 };

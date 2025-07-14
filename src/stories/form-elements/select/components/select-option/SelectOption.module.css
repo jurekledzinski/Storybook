@@ -1,4 +1,4 @@
-.selectOption {
+.select-option {
   width: 100%;
   padding: 6px;
   list-style: none;
@@ -6,7 +6,7 @@
   font-size: 14px;
 }
 
-.selectOption:last-child {
+.select-option:last-child {
   border-bottom: initial;
 }
 
@@ -14,12 +14,12 @@
   background-color: var(--color-primary-100);
 }
 
-.selectOption:focus {
+.select-option:focus {
   background-color: var(--color-primary-50);
   outline: none;
 }
 
-.selectOption:hover {
+.select-option:hover {
   background-color: var(--color-primary-50);
 }
 
