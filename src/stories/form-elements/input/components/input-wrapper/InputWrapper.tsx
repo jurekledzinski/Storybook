@@ -1,7 +1,6 @@
 import { ButtonIcon } from '../button-icon/ButtonIcon';
-import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
+import { forwardRef, Ref } from 'react';
 import { getClassNamesInputWrapper } from '../../utils';
-import { InputWrapperIconsRef } from './types';
 import { InputWrapperProps } from '../../types';
 import { LoaderIcon } from '../loader-icon/LoaderIcon';
 import { StatusIcon } from '../status-icon/StatusIcon';
@@ -10,19 +9,11 @@ import {
   faExclamationCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const InputWrapper = forwardRef<InputWrapperIconsRef, InputWrapperProps>(
+export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
   (
     { children, size = 'size-sm', variant = 'basic', ...props },
-    ref: Ref<InputWrapperIconsRef>
+    ref: Ref<HTMLDivElement>
   ) => {
-    const startIconRef = useRef<HTMLButtonElement>(null);
-    const endIconRef = useRef<HTMLButtonElement>(null);
-
-    useImperativeHandle(ref, () => ({
-      startIcon: startIconRef,
-      endIcon: endIconRef,
-    }));
-
     const classes = getClassNamesInputWrapper({ ...props, size, variant });
 
     const {
@@ -36,12 +27,11 @@ export const InputWrapper = forwardRef<InputWrapperIconsRef, InputWrapperProps>(
     } = props;
 
     return (
-      <div className={classes.inputWrapper}>
+      <div className={classes.inputWrapper} ref={ref}>
         {props.as === 'input' && startIcon && (
           <ButtonIcon
             className={classes.startIcon}
             icon={startIcon}
-            ref={startIconRef}
             onClick={onClickStartIcon}
           />
         )}
@@ -65,7 +55,6 @@ export const InputWrapper = forwardRef<InputWrapperIconsRef, InputWrapperProps>(
           <ButtonIcon
             className={classes.endIcon}
             icon={endIcon}
-            ref={endIconRef}
             onClick={onClickEndIcon}
           />
         ) : null}
