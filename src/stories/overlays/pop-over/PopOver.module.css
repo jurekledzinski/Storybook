@@ -1,9 +1,11 @@
-.selectPanelElement {
+.popOver {
   position: absolute;
-  width: 200px;
-  padding: 6px;
-  will-change: opacity;
+  padding: 0.5rem;
   border: 1px solid #ddd;
+  z-index: 10000;
+  background-color: white;
+  overflow: hidden;
+  will-change: opacity;
 }
 
 .enter {
