@@ -1,10 +1,10 @@
-import { UseCloseOnClickOutsideProps } from './types/clickOutside';
+import { UseClickOutsideProps } from './types';
 import { useEffect } from 'react';
 
-export const useCloseOnClickOutside = ({
+export const useClickOutside = ({
   onClick,
   onLoadRefs,
-}: UseCloseOnClickOutsideProps) => {
+}: UseClickOutsideProps) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!(event.target instanceof Node)) return;
@@ -12,9 +12,7 @@ export const useCloseOnClickOutside = ({
 
       const refs = onLoadRefs();
 
-      const isClickOutside = Object.values(refs).some(
-        (ref) => ref && ref.current && ref?.current?.contains(target)
-      );
+      const isClickOutside = refs.some((ref) => ref && ref?.contains(target));
 
       if (!isClickOutside) onClick();
     };

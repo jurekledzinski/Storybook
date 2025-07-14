@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
-import { UseResizeObserverProps } from './types/resize';
+import { UseResizeObserverProps } from './types';
 
 export const useResizeObserver = ({
   ref,
   onResize,
 }: UseResizeObserverProps) => {
   useEffect(() => {
-    if (!ref?.current) return;
+    const node = ref && 'current' in ref ? ref.current : ref;
+
+    if (!node) return;
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -15,7 +17,7 @@ export const useResizeObserver = ({
       }
     });
 
-    resizeObserver.observe(ref.current);
+    resizeObserver.observe(node);
 
     return () => resizeObserver.disconnect();
   }, [ref, onResize]);
