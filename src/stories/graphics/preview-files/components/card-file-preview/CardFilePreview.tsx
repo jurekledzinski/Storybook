@@ -11,7 +11,6 @@ export const CardFilePreview = ({
   gridPlacement,
 }: CardFilePreviewProps) => {
   const classes = getClassNamesCardFilePreview(gridPlacement);
-  //   console.log('gridPlacement', gridPlacement);
 
   useEffect(() => {
     return () => URL.revokeObjectURL(URL.createObjectURL(file));
