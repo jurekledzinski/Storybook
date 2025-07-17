@@ -46,5 +46,3 @@ export const CardFilePreview = ({
     </div>
   );
 };
-
-// style={{ aspectRatio: '1/1' }}
