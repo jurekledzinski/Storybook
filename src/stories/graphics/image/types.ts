@@ -1,1 +1,3 @@
-export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+import { ImgHTMLAttributes } from 'react';
+
+export type ImageProps = ImgHTMLAttributes<HTMLImageElement>;

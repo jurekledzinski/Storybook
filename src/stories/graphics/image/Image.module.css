@@ -1,18 +1,6 @@
 .image {
   display: block;
   height: auto;
+  width: 100%;
   max-width: 100%;
 }
-
-/* .preview-grid,
-.preview-column {
-  min-width: none;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: auto 3/4;
-}
-
-.preview-row {
-  max-width: initial;
-  min-width: 100%;
-} */
