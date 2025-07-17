@@ -1,11 +1,17 @@
 .loader {
   display: block;
+  width: 20px;
+  height: 20px;
   animation: spin 1s linear infinite;
   border: 1px solid var(--color-track);
   border-top: 1px solid var(--color-spin);
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+
+  --size-xs: 14px;
+  --size-xxs: 14px;
+  --size-sm: 16px;
+  --size-md: 16px;
+  --size-lg: 16px;
 }
 
 @keyframes spin {
@@ -17,15 +23,21 @@
   }
 }
 
+/* TODO: usuń te inner-size klasy a zostaw tylko ich wartość przypisane do size-xs itp */
+/* Jak będzie potrzeba większego loader to można przez style bezposrednio ustawić i tyle */
+
 /* inner sizes */
 
 .inner-size-xs,
 .inner-size-xxs {
+  --inner-size: var(var(--size-xs));
+  --inner-size: var(var(--size-xxs));
   width: 14px;
   height: 14px;
 }
 
 .inner-size-sm {
+  --inner-size: var(var(--size-sm));
   width: 16px;
   height: 16px;
 }
@@ -64,7 +76,17 @@
 
 /* Position */
 
-.center {
+.element {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  transform: translate(-50%, -50%);
+}
+
+/* potem calce left: calc(50% - var(--inner-size)) */
+/* Chodzi by jedną wartość  */
+
+.viewport {
   position: fixed;
   top: 50%;
   left: 50%;
