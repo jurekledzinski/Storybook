@@ -83,7 +83,7 @@ const App = () => {
           <Label>Preview files:</Label>
           <PreviewFiles
             images={[...watch('files')]}
-            gridPlacement="grid"
+            gridPlacement="row"
             onRemove={(index) => {
               setValue(
                 'files',
@@ -102,3 +102,7 @@ const App = () => {
 };
 
 export default App;
+
+// const App = () => {
+//   return <>Hello</>;
+// };
