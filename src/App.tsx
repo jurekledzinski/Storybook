@@ -1,18 +1,19 @@
-import './stories/main.css';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { Form } from './stories/form-elements/form';
+import { Button } from './stories/buttons/button';
+import { ButtonGroup } from './stories/buttons/button-group';
 import { Field } from './stories/form-elements/field';
+import { Form } from './stories/form-elements/form';
+import { Input } from './stories/form-elements/input';
+import { Label } from '@src/stories/form-elements/label';
 import { Message } from './stories/feedbacks/message';
+import { PreviewFiles } from './stories/graphics/preview-files';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import './stories/main.css';
 import {
   FileInput,
   useValidateFiles,
 } from './stories/form-elements/file-input';
-import { Label } from '@src/stories/form-elements/label';
-import { Input } from './stories/form-elements/input';
-import { Button } from './stories/buttons/button';
-import { ButtonGroup } from './stories/buttons/button-group';
-
-import { PreviewFiles } from './stories/graphics/preview-files';
+import { Icon } from './stories/graphics/icon';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 type Inputs = {
   name: string;
@@ -99,7 +100,30 @@ const App = () => {
                 { shouldValidate: true, shouldDirty: false }
               );
             }}
-          />
+          >
+            <>
+              <Icon
+                icon={faImage}
+                size="4x"
+                style={{
+                  position: 'absolute',
+                  transform: 'translate(-50%,-50%)',
+                  left: '50%',
+                  top: '50%',
+                }}
+              />
+              <p
+                style={{
+                  position: 'absolute',
+                  transform: 'translate(-50%,-50%)',
+                  left: '50%',
+                  top: '70%',
+                }}
+              >
+                No images
+              </p>
+            </>
+          </PreviewFiles>
         </Field>
         <ButtonGroup marginTop={16} fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
