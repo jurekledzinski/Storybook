@@ -15,7 +15,7 @@ export type LoaderProps = {
   colorSpin?: string;
   size?: number;
   sizeSchema?: SizeSchema;
-  position?: 'center';
+  position?: 'element' | 'viewport';
   border?: Border;
 };
 
