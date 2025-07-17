@@ -1,10 +1,13 @@
-import styles from './CardFilePreview.module.css';
 import { Alert } from '@src/stories/feedbacks/alert';
 import { CardFilePreviewProps } from './types';
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { getClassNamesCardFilePreview } from '../../utils';
+import { IconButton } from '@src/stories/buttons/icon-button';
 import { Image, ImageContainer } from '@src/stories/graphics/image';
 import { useObjectUrl } from './hooks';
+import {
+  faTriangleExclamation,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const CardFilePreview = ({
   file,
@@ -40,9 +43,12 @@ export const CardFilePreview = ({
         )}
       </ImageContainer>
       <p className={classes.title}>{file.name}</p>
-      <button className={styles.button} onClick={() => onRemove(index)}>
-        x
-      </button>
+      <IconButton
+        icon={[faXmark]}
+        style={{ position: 'absolute', top: 0, right: 0 }}
+        onClick={() => onRemove(index)}
+        size="size-xxs"
+      />
     </div>
   );
 };
