@@ -45,8 +45,9 @@ export const Default: Story = {
               args={{
                 ...context.args,
                 images: files,
-                onRemove: (index) =>
-                  setFiles((prev) => prev.filter((_, i) => i !== index)),
+                onRemove: (index) => {
+                  setFiles((prev) => prev.filter((_, i) => i !== index));
+                },
               }}
             />
           </Form>
