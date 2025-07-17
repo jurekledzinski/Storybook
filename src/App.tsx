@@ -110,7 +110,3 @@ const App = () => {
 };
 
 export default App;
-
-// const App = () => {
-//   return <>Hello</>;
-// };
