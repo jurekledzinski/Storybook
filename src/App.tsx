@@ -75,6 +75,14 @@ const App = () => {
                 return true;
               },
             })}
+            // onChange={(e) => {
+            //   const files = e.target.files;
+            //   if (!files) return;
+            //   setValue('files', [...watch('files'), ...Array.from(files)], {
+            //     shouldValidate: true,
+            //     shouldDirty: false,
+            //   });
+            // }}
           />
           <Message variant="error">{errors.files?.message}</Message>
         </Field>
@@ -83,7 +91,7 @@ const App = () => {
           <Label>Preview files:</Label>
           <PreviewFiles
             images={[...watch('files')]}
-            gridPlacement="row"
+            gridPlacement="column"
             onRemove={(index) => {
               setValue(
                 'files',
