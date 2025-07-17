@@ -11,6 +11,6 @@ body {
 }
 
 .container {
-  width: 300px;
-  margin: 50px;
+  width: 50%;
+  margin: 0 auto;
 }
