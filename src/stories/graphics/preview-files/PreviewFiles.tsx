@@ -6,6 +6,7 @@ export const PreviewFiles = ({
   gridPlacement = 'grid',
   images,
   onRemove,
+  children,
 }: PreviewFileProps) => {
   const classes = getClassNamesPreviewFiles(gridPlacement);
 
@@ -20,6 +21,7 @@ export const PreviewFiles = ({
           onRemove={onRemove}
         />
       ))}
+      {!images.length && children ? children : null}
     </div>
   );
 };
