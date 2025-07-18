@@ -1,5 +1,10 @@
-export const classNames = (...classes: string[]) =>
-  classes.filter(Boolean).join(' ');
+// Funkcja classNames filtruje undefined null false '' (empty string)
+
+export const classNames = (
+  ...classes: (string | false | null | undefined)[]
+) => {
+  return classes.filter(Boolean).join(' ');
+};
 
 export const generateClassNames = (
   styles: Record<string, string>,
