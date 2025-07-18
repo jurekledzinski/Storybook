@@ -127,6 +127,9 @@
   text-rendering: optimizeLegibility;
 }
 
+/* Możesz włączać lub wyłączać outline lub boxshadow dla button,a, input natomiast lokalnie ale color focus primary itp */
+/* to zmieni kolory focus input */
+
 button:focus-visible,
 a:focus-visible {
   transition: none;
