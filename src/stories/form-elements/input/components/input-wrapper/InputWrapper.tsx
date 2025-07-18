@@ -50,7 +50,9 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
         ) : null}
 
         {isPending ? (
-          <Loader className={classes.endIcon} size={size} />
+          <div className={classes.endIcon}>
+            <Loader size={size} />
+          </div>
         ) : (endIcon && isError === undefined) || (divider && endIcon) ? (
           <ButtonIcon
             className={classes.endIcon}
