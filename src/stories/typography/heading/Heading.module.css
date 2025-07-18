@@ -1,29 +1,59 @@
 .h1 {
   font-size: 48px;
-  font-weight: 700;
 }
 
 .h2 {
   font-size: 36px;
-  font-weight: 600;
 }
 
 .h3 {
   font-size: 28px;
-  font-weight: 600;
 }
 
 .h4 {
   font-size: 20px;
-  font-weight: 500;
 }
 
 .h5 {
   font-size: 16px;
-  font-weight: 500;
 }
 
 .h6 {
   font-size: 14px;
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-200 {
+  font-weight: 200;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
   font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.fw-900 {
+  font-weight: 900;
 }

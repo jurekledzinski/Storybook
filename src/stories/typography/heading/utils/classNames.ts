@@ -1,13 +1,17 @@
 import styles from '../Heading.module.css';
-import { generateClassNames } from '@src/stories/helpers';
-import { HeadingProps } from '../types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { FontWeightClass, HeadingProps } from '../types';
 
 export const getClassNamesHeading = (
-  level?: HeadingProps['level'],
-  className?: string
+  className?: string,
+  fw?: FontWeightClass,
+  level?: HeadingProps['level']
 ) => {
-  return generateClassNames(styles, {
-    [`h${level}`]: Boolean(level),
-    [`${className}`]: Boolean(className),
-  });
+  return classNames(
+    generateClassNames(styles, {
+      [`${fw}`]: Boolean(fw),
+      [`h${level}`]: Boolean(level),
+    }),
+    className ?? ''
+  );
 };
