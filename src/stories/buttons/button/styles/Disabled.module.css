@@ -24,6 +24,11 @@ a.text.disabled svg {
   color: var(--color-text-disabled);
 }
 
+a:focus-visible.disabled,
+a:focus-visible.disabled svg {
+  box-shadow: none;
+}
+
 /* --- Clear hover on disable --- */
 
 button.text:disabled:hover,
