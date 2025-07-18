@@ -96,6 +96,17 @@
   --color-disabled-100: #e5e7eb;
   --color-disabled-200: #9ca3af;
 
+  /* Focus */
+
+  --color-focus-primary: var(--color-primary-500);
+  --color-focus-secondary: var(--color-secondary-500);
+  --color-focus-negative: var(--color-negative-700);
+  --color-focus-success: var(--color-success-600);
+  --color-focus-warning: var(--color-warning-1000);
+  --color-focus-info: var(--color-info-500);
+
+  --focus-offset: 2px;
+
   /* Backgrounds */
   --color-surface-fieldset: white;
   --color-surface-input: white;
@@ -114,6 +125,25 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* *:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  box-shadow: var(--focus-shadow);
+} */
+
+button:focus-visible,
+a:focus-visible {
+  transition: none;
+  outline: none;
+  /* outline: 3px solid var(--color-focus, --color-focus-primary);
+  outline-offset: var(--focus-offset); */
+  box-shadow: 0 0 0 0.1rem var(--color-focus, --color-focus-primary);
+}
+
+input:focus,
+textarea:focus {
 }
 
 body {
