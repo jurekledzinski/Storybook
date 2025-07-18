@@ -75,7 +75,8 @@ export const FileForm = () => {
               },
             })}
             // onChange={(e) => {
-            // Przykład jak dodawać więcej zdjęć i nie usuwać wszystkich tylko te które usuwamy
+            // Przykład jak dodawać więcej zdjęć nie tracąc innych register musi zostać także z validate do validaci
+            // i będzie wszystko działać
             //   const files = e.target.files;
             //   if (!files) return;
             //   setValue('files', [...watch('files'), ...Array.from(files)], {
@@ -102,16 +103,12 @@ export const FileForm = () => {
           >
             <>
               <Icon
+                className={styles['form-icon']}
+                color="primary"
                 icon={faImage}
                 size="4x"
-                style={{
-                  position: 'absolute',
-                  transform: 'translate(-50%,-50%)',
-                  left: '50%',
-                  top: '50%',
-                }}
               />
-              <Heading fw="fw-900" level={4} className={styles.heading}>
+              <Heading className={styles['form-heading']} fw="fw-900" level={4}>
                 No Images
               </Heading>
             </>
