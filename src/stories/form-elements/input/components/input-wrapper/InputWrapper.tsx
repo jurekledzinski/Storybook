@@ -2,7 +2,7 @@ import { ButtonIcon } from '../button-icon/ButtonIcon';
 import { forwardRef, Ref } from 'react';
 import { getClassNamesInputWrapper } from '../../utils';
 import { InputWrapperProps } from '../../types';
-import { LoaderIcon } from '../loader-icon/LoaderIcon';
+import { Loader } from '@src/stories/feedbacks/loader';
 import { StatusIcon } from '../status-icon/StatusIcon';
 import {
   faCheckCircle,
@@ -50,7 +50,7 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
         ) : null}
 
         {isPending ? (
-          <LoaderIcon className={classes.endIcon} size={size} />
+          <Loader className={classes.endIcon} size={size} />
         ) : (endIcon && isError === undefined) || (divider && endIcon) ? (
           <ButtonIcon
             className={classes.endIcon}

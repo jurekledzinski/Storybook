@@ -26,52 +26,36 @@
 /* TODO: usuń te inner-size klasy a zostaw tylko ich wartość przypisane do size-xs itp */
 /* Jak będzie potrzeba większego loader to można przez style bezposrednio ustawić i tyle */
 
-/* inner sizes */
+/* Sizes */
 
-.inner-size-xs,
-.inner-size-xxs {
-  --inner-size: var(var(--size-xs));
-  --inner-size: var(var(--size-xxs));
+.size-xs {
+  --size: var(var(--size-xs));
   width: 14px;
   height: 14px;
 }
 
-.inner-size-sm {
-  --inner-size: var(var(--size-sm));
-  width: 16px;
-  height: 16px;
-}
-
-.inner-size-md {
-  width: 16px;
-  height: 16px;
-}
-
-.inner-size-lg {
-  width: 16px;
-  height: 16px;
-}
-
-/* Sizes schema */
-
-.size-xs {
-  width: 16px;
-  height: 16px;
+.size-xxs {
+  --size: var(var(--size-xxs));
+  width: 14px;
+  height: 14px;
 }
 
 .size-sm {
-  width: 26px;
-  height: 26px;
+  --size: var(var(--size-sm));
+  width: 16px;
+  height: 16px;
 }
 
 .size-md {
-  width: 32px;
-  height: 32px;
+  --size: var(var(--size-md));
+  width: 16px;
+  height: 16px;
 }
 
 .size-lg {
-  width: 64px;
-  height: 64px;
+  --size: var(var(--size-lg));
+  width: 16px;
+  height: 16px;
 }
 
 /* Position */

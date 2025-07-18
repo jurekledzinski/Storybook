@@ -14,7 +14,7 @@ export const ButtonContent = ({
     <>
       {isLoading && iconStart && !iconEnd ? (
         <span className={styles.iconStart}>
-          <Loader sizeSchema={size} />
+          <Loader size={size} />
         </span>
       ) : (
         iconStart && (
@@ -27,7 +27,7 @@ export const ButtonContent = ({
       {isLoading && !iconStart && !iconEnd ? (
         <>
           <span className={styles.iconCenter}>
-            <Loader sizeSchema={size} />
+            <Loader size={size} />
           </span>
           <span className={styles.label}>{label}</span>
         </>
@@ -37,7 +37,7 @@ export const ButtonContent = ({
 
       {isLoading && iconEnd ? (
         <span className={styles.iconEnd}>
-          <Loader sizeSchema={size} />
+          <Loader size={size} />
         </span>
       ) : (
         iconEnd && (

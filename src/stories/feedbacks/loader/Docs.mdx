@@ -17,8 +17,7 @@ Here’s a list of the props for the `Loader` component:
   className?: string;
   colorTrack?: string;
   colorSpin?: string;
-  size?: number;
-  sizeSchema?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
+  size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg' | number
   position?: 'center';
   border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
 }
@@ -27,7 +26,7 @@ Here’s a list of the props for the `Loader` component:
 #### Example usage `Loader`
 
 ```tsx
-<Loader sizeSchema="large" />
+<Loader size="large" />
 ```
 
 #### Preview `Loader`

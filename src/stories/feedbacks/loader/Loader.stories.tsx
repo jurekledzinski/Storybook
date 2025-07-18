@@ -19,7 +19,7 @@ export const Default: Story = {
   argTypes: {
     colorSpin: { control: { type: 'color' } },
     colorTrack: { control: { type: 'color' } },
-    sizeSchema: {
+    size: {
       control: { type: 'select' },
       options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
@@ -44,7 +44,7 @@ export const Default: Story = {
   },
   parameters: {
     controls: {
-      include: ['position', 'sizeSchema', 'border', 'colorSpin', 'colorTrack'],
+      include: ['position', 'size', 'border', 'colorSpin', 'colorTrack'],
     },
   },
 };
