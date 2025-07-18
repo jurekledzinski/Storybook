@@ -16,6 +16,7 @@ import {
   FileInput,
   useValidateFiles,
 } from '@src/stories/form-elements/file-input';
+import { Box } from '@src/stories/layout';
 
 export const FileForm = () => {
   const {
@@ -101,17 +102,21 @@ export const FileForm = () => {
               );
             }}
           >
-            <>
+            <Box className={styles['group-info']}>
               <Icon
-                className={styles['form-icon']}
+                // className={styles['form-icon']}
                 color="primary"
                 icon={faImage}
                 size="4x"
               />
-              <Heading className={styles['form-heading']} fw="fw-900" level={4}>
+              <Heading
+                //   className={styles['form-heading']}
+                fw="fw-900"
+                level={4}
+              >
                 No Images
               </Heading>
-            </>
+            </Box>
           </PreviewFiles>
         </Field>
         <ButtonGroup marginTop={16} fullWidth>
