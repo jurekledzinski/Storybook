@@ -19,8 +19,8 @@
 }
 
 .wrapper:focus-within {
-  border-color: var(--color-primary-700);
-  outline: 1px solid var(--color-primary-700);
+  border-color: var(--color-focus-primary);
+  outline: 1px solid var(--color-focus-primary);
 }
 
 /* --- Styled elements inside --- */
@@ -54,7 +54,7 @@
 }
 
 .wrapper > button:focus-visible {
-  color: var(--color-primary-700);
+  color: var(--color-focus-primary);
   outline: none;
 }
 
@@ -102,29 +102,29 @@
 /* --- Status --- */
 
 .wrapper-inValid {
-  border-color: var(--color-negative-500);
+  border-color: var(--color-focus-negative);
 }
 
 .wrapper-valid {
-  border-color: var(--color-success-400);
+  border-color: var(--color-focus-success);
 }
 
 .wrapper-inValid span.endIcon {
-  color: var(--color-negative-500);
+  color: var(--color-focus-negative);
 }
 
 .wrapper-valid span.endIcon {
-  color: var(--color-success-400);
+  color: var(--color-focus-success);
 }
 
 .wrapper-valid:focus-within {
-  outline: 1px solid var(--color-success-400);
-  border-color: var(--color-success-400);
+  outline: 1px solid var(--color-focus-success);
+  border-color: var(--color-focus-success);
 }
 
 .wrapper-inValid:focus-within {
-  outline: 1px solid var(--color-negative-500);
-  border-color: var(--color-negative-500);
+  outline: 1px solid var(--color-focus-negative);
+  border-color: var(--color-focus-negative);
 }
 
 .wrapper-valid:focus-within .input,
@@ -151,7 +151,7 @@
 .wrapper-contained:focus-within,
 .wrapper-underline:focus-within {
   outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-primary-700);
+  box-shadow: inset 0 -1px 0 0 var(--color-focus-primary);
 }
 
 .wrapper > .fieldset-contained::before {
@@ -201,15 +201,15 @@
 .wrapper-valid.wrapper-underline:focus-within,
 .wrapper-valid.wrapper-contained:focus-within {
   outline: none;
-  border-color: var(--color-success-400);
-  box-shadow: inset 0 -1px 0 0 var(--color-success-400);
+  border-color: var(--color-focus-success);
+  box-shadow: inset 0 -1px 0 0 var(--color-focus-success);
 }
 
 .wrapper-inValid.wrapper-underline:focus-within,
 .wrapper-inValid.wrapper-contained:focus-within {
   outline: none;
-  border-color: var(--color-negative-500);
-  box-shadow: inset 0 -1px 0 0 var(--color-negative-500);
+  border-color: var(--color-focus-negative);
+  box-shadow: inset 0 -1px 0 0 var(--color-focus-negative);
 }
 
 .wrapper-area.wrapper-startIcon.wrapper-contained .legend {
@@ -223,11 +223,11 @@
 /* --- Legend --- */
 
 .wrapper-valid .legend {
-  color: var(--color-success-400);
+  color: var(--color-focus-success);
 }
 
 .wrapper-inValid .legend {
-  color: var(--color-negative-500);
+  color: var(--color-focus-negative);
 }
 
 /* --- Disabled --- */

@@ -95,11 +95,11 @@
 /* --- Status legend --- */
 
 .legend-valid {
-  color: var(--color-success-400);
+  color: var(--color-focus-success);
 }
 
 .legend-inValid {
-  color: var(--color-negative-500);
+  color: var(--color-focus-negative);
 }
 
 /* --- Focus legend --- */
@@ -111,7 +111,8 @@
   top: -1px;
   z-index: 1;
   background-color: white;
-  color: var(--color-primary-700);
+  /* primary-700 */
+  color: var(--color-focus-primary);
   font-size: 12px;
 }
 
@@ -133,32 +134,32 @@
 
 input:focus,
 textarea:focus {
-  border-color: var(--color-primary-700);
-  outline: 1px solid var(--color-primary-700);
+  border-color: var(--color-focus-primary);
+  outline: 1px solid var(--color-focus-primary);
 }
 
 /* --- Status input --- */
 
 .input-valid,
 .textarea-valid {
-  border-color: var(--color-success-400);
+  border-color: var(--color-focus-success);
 }
 
 .input-inValid,
 .textarea-inValid {
-  border-color: var(--color-negative-500);
+  border-color: var(--color-focus-negative);
 }
 
 .input-valid:focus,
 .textarea-valid:focus {
-  border-color: var(--color-success-400);
-  outline-color: var(--color-success-400);
+  border-color: var(--color-focus-success);
+  outline-color: var(--color-focus-success);
 }
 
 .input-inValid:focus,
 .textarea-inValid:focus {
-  border-color: var(--color-negative-500);
-  outline-color: var(--color-negative-500);
+  border-color: var(--color-focus-negative);
+  outline-color: var(--color-focus-negative);
 }
 
 /* --- Status legend on focus --- */
@@ -167,12 +168,12 @@ textarea:focus {
 .input-valid:focus + .legend,
 .textarea-valid:not(:placeholder-shown) + .legend,
 .textarea-valid:focus + .legend {
-  color: var(--color-success-400);
+  color: var(--color-focus-success);
 }
 
 .input-inValid:not(:placeholder-shown) + .legend,
 .input-inValid:focus + .legend,
 .textarea-inValid:not(:placeholder-shown) + .legend,
 .textarea-inValid:focus + .legend {
-  color: var(--color-negative-500);
+  color: var(--color-focus-negative);
 }
