@@ -1,6 +1,8 @@
 import styles from './FileForm.module.css';
+import { Box } from '@src/stories/layout';
 import { Button } from '@src/stories/buttons/button';
 import { ButtonGroup } from '@src/stories/buttons/button-group';
+import { checkIsError } from '../utils';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { Field } from '@src/stories/form-elements/field';
 import { Form } from '@src/stories/form-elements/form';
@@ -16,7 +18,6 @@ import {
   FileInput,
   useValidateFiles,
 } from '@src/stories/form-elements/file-input';
-import { Box } from '@src/stories/layout';
 
 export const FileForm = () => {
   const {
@@ -24,7 +25,7 @@ export const FileForm = () => {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm<Inputs>({ defaultValues: { files: [], name: '' } });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log('Submit', data);
@@ -46,7 +47,7 @@ export const FileForm = () => {
         <Field>
           <Label>Name:</Label>
           <Input
-            isError={undefined}
+            isError={checkIsError('name', errors, isDirty)}
             {...register('name', {
               required: { message: 'Name is required', value: true },
             })}
