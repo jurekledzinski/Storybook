@@ -105,7 +105,7 @@
   --color-focus-warning: var(--color-warning-1000);
   --color-focus-info: var(--color-info-500);
 
-  --focus-offset: 2px;
+  --focus-offset: 1px;
 
   /* Backgrounds */
   --color-surface-fieldset: white;
@@ -134,9 +134,9 @@ button:focus-visible,
 a:focus-visible {
   transition: none;
   outline: none;
-  /* outline: 3px solid var(--color-focus, --color-focus-primary);
+  /* outline: 2px solid var(--color-focus, --color-focus-primary);
   outline-offset: var(--focus-offset); */
-  box-shadow: 0 0 0 0.1rem var(--color-focus, --color-focus-primary);
+  box-shadow: 0 0 0 0.1rem var(--color-focus, var(--color-primary-500, #2095f3));
 }
 
 body {
