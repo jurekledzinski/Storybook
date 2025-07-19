@@ -46,7 +46,7 @@ export const useValidateFiles = ({
       amount,
       maxAmount
     ) =>
-      `You selected ${amount} files, but the maximum allowed is ${maxAmount}.`
+      `You selected ${amount} files, but the maximum amount allowed is ${maxAmount}.`
   ) => {
     if (!maxAmount) return true;
     if (files.length > maxAmount) return onGetMessage(files.length, maxAmount);
