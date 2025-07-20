@@ -1,7 +1,7 @@
-import { SelectOptionProps } from './types';
-import { useSelect } from '../../store';
 import { selectOptionClassNames } from '../../utils';
+import { SelectOptionProps } from './types';
 import { useAriaAttributes } from '@src/stories/hooks';
+import { useSelect } from '../../store';
 
 export const SelectOption = ({ children, id }: SelectOptionProps) => {
   const { onChange, size, value } = useSelect();
@@ -11,6 +11,8 @@ export const SelectOption = ({ children, id }: SelectOptionProps) => {
 
   return (
     <li
+      data-id={id}
+      data-type="item"
       className={classes.selectOption}
       onClick={() => onChange && onChange(id)}
       tabIndex={0}
