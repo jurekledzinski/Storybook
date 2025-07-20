@@ -35,10 +35,44 @@ export const useAriaAttributes = (id?: string) => {
     };
   };
 
+  const selectTriggerA11y = (open: boolean) => {
+    return {
+      role: 'combobox',
+      'aria-haspopup': 'listbox',
+      'aria-expanded': open,
+      'aria-controls': 'select-list',
+    };
+  };
+
+  const selectPanelA11y = () => {
+    return {
+      role: 'presentation',
+      id: 'select-panel',
+    };
+  };
+
+  const selectListA11y = () => {
+    return {
+      role: 'listbox',
+      id: 'select-list',
+    };
+  };
+
+  const selectOptionA11y = (id: string) => {
+    return {
+      role: 'option',
+      id,
+    };
+  };
+
   return {
     menuA11y,
     menuItemA11y,
     menuPanelA11y,
     menuTriggerA11y,
+    selectTriggerA11y,
+    selectPanelA11y,
+    selectListA11y,
+    selectOptionA11y,
   };
 };
