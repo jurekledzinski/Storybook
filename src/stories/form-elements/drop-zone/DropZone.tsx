@@ -1,8 +1,14 @@
 import { dropZoneClassNames } from './utils/classNames';
 import { DropZoneProps } from './types';
 import { useControlDrop, useDropZone } from './hooks';
+import { classNames } from '@src/stories/helpers';
 
-export const DropZone = ({ children, title, onDrop }: DropZoneProps) => {
+export const DropZone = ({
+  children,
+  className,
+  title,
+  onDrop,
+}: DropZoneProps) => {
   const { isEnter, refZone, onEnter, onLeave } = useDropZone();
   const { onDragEnter, onDragOver, onDragLeave } = useControlDrop({
     isEnter,
@@ -15,7 +21,7 @@ export const DropZone = ({ children, title, onDrop }: DropZoneProps) => {
 
   return (
     <div
-      className={classes.zone}
+      className={classNames(classes.zone, className)}
       onDragOver={onDragOver}
       onDragEnter={onDragEnter}
       onDragLeave={onDragLeave}

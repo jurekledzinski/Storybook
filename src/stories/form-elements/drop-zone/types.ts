@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-export type DropZoneProps = {
+export interface DropZoneProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   title: string;
-  onDrop?: React.DragEventHandler<HTMLDivElement>;
-};
+}
 
 export type UseControlDropProps = {
   isEnter: boolean;
