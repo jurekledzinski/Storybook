@@ -1,7 +1,7 @@
 import { ButtonIcon } from '../button-icon/ButtonIcon';
 import { forwardRef, Ref } from 'react';
 import { getClassNamesInputWrapper } from '../../utils';
-import { InputWrapperProps } from '../../types';
+import { InputWrapperProps } from './types';
 import { Loader } from '@src/stories/feedbacks/loader';
 import { StatusIcon } from '../status-icon/StatusIcon';
 import {
@@ -11,7 +11,7 @@ import {
 
 export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
   (
-    { children, size = 'size-sm', variant = 'basic', ...props },
+    { children, size = 'size-sm', variant = 'basic', statusVisible, ...props },
     ref: Ref<HTMLDivElement>
   ) => {
     const classes = getClassNamesInputWrapper({ ...props, size, variant });
@@ -38,7 +38,7 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
 
         {children}
 
-        {isError !== undefined && !isPending ? (
+        {isError !== undefined && !isPending && statusVisible ? (
           isError ? (
             <StatusIcon
               className={classes.statusIcon}

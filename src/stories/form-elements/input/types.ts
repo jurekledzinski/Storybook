@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Size } from '@src/stories/types';
+import { Size } from '@src/stories/types';
 
 export type BaseInputProps<T> = {
   disabled?: boolean;
@@ -23,22 +23,6 @@ export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
   cols?: number;
   rows?: number;
 }
-
-export type InputWrapperProps = {
-  as?: 'input' | 'textarea';
-  divider?: boolean;
-  disabled?: boolean;
-  children: React.ReactNode;
-  endIcon?: Icon;
-  isError?: boolean;
-  isPending?: boolean;
-  onClickEndIcon?: React.MouseEventHandler<HTMLButtonElement>;
-  onClickStartIcon?: React.MouseEventHandler<HTMLButtonElement>;
-  size?: Size;
-  startIcon?: Icon;
-  readOnly?: boolean;
-  variant?: 'basic' | 'contained' | 'outlined' | 'underline';
-};
 
 export type UnionElements = HTMLTextAreaElement | HTMLInputElement;
 
