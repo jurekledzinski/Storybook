@@ -28,42 +28,35 @@ export const useAriaAttributes = (id?: string) => {
     const { triggerId, panelId } = getIds();
 
     return {
-      'aria-haspopup': 'menu' as const,
-      'aria-expanded': open,
       'aria-controls': panelId,
+      'aria-expanded': open,
+      'aria-haspopup': 'menu' as const,
       id: triggerId,
     };
   };
 
-  const selectTriggerA11y = (open: boolean) => {
-    return {
-      role: 'combobox',
-      'aria-haspopup': 'listbox',
-      'aria-expanded': open,
-      'aria-controls': 'select-list',
-    };
-  };
+  const selectTriggerA11y = (open: boolean, label: string = 'Select item') => ({
+    'aria-controls': 'select-list',
+    'aria-haspopup': 'listbox' as const,
+    'aria-expanded': open,
+    'aria-label': label,
+    role: 'combobox',
+  });
 
-  const selectPanelA11y = () => {
-    return {
-      role: 'presentation',
-      id: 'select-panel',
-    };
-  };
+  const selectPanelA11y = () => ({
+    role: 'presentation',
+    id: 'select-panel',
+  });
 
-  const selectListA11y = () => {
-    return {
-      role: 'listbox',
-      id: 'select-list',
-    };
-  };
+  const selectListA11y = () => ({
+    role: 'listbox',
+    id: 'select-list',
+  });
 
-  const selectOptionA11y = (id: string) => {
-    return {
-      role: 'option',
-      id,
-    };
-  };
+  const selectOptionA11y = (id: string) => ({
+    role: 'option',
+    id,
+  });
 
   return {
     menuA11y,

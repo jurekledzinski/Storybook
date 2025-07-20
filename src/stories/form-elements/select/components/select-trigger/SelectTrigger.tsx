@@ -1,5 +1,6 @@
 import { capitalizeFirstLetter } from '@src/stories/helpers';
 import { SelectTriggerProps } from './types';
+import { useAriaAttributes } from '@src/stories/hooks';
 import { usePopOver } from '@src/stories/overlays/pop-over';
 import { useSelect } from '../../store';
 import {
@@ -10,6 +11,7 @@ import {
 export const SelectTrigger = ({ endIcon }: SelectTriggerProps) => {
   const { onToggle, open, registerTriggerRef } = usePopOver();
   const { isError, label, size, value, variant } = useSelect();
+  const { selectTriggerA11y } = useAriaAttributes();
 
   const classes = getClassNamesInput({ variant, size, isError });
 
@@ -22,6 +24,7 @@ export const SelectTrigger = ({ endIcon }: SelectTriggerProps) => {
       size={size}
       variant={variant}
       divider={true}
+      {...selectTriggerA11y(open['root'], `Choose ${label}`)}
     >
       <fieldset className={classes.fieldset} onClick={() => onToggle('root')}>
         <input

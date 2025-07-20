@@ -1,4 +1,5 @@
 import { SelectPanelProps } from './types';
+import { useAriaAttributes } from '@src/stories/hooks';
 import { useRef } from 'react';
 import {
   PopOver,
@@ -9,18 +10,25 @@ import {
 export const SelectPanel = ({ children }: SelectPanelProps) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const { open, triggerRefs } = usePopOver();
-  const isOpen = open['root'];
+
+  const { selectPanelA11y } = useAriaAttributes();
+
   const { onSetPosition } = usePosition({
     autoWidth: true,
     id: 'root',
-    open: isOpen,
+    open: open['root'],
     panelRef,
     placement: 'bottom start',
     triggerRefs,
   });
 
   return (
-    <PopOver ref={panelRef} open={isOpen} onEntering={() => onSetPosition()}>
+    <PopOver
+      ref={panelRef}
+      open={open['root']}
+      onEntering={() => onSetPosition()}
+      {...selectPanelA11y()}
+    >
       {children}
     </PopOver>
   );
