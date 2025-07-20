@@ -20,7 +20,10 @@ export const PasswordInput = forwardRef<
         <InputWrapper
           divider={true}
           isPending={isPending}
-          onClickEndIcon={() => setShow((prev) => !prev)}
+          onClickEndIcon={(e) => {
+            e.preventDefault();
+            setShow((prev) => !prev);
+          }}
           {...(endIcon && { endIcon: show ? endIcon[0] : endIcon[1] })}
           {...(startIcon && { startIcon: startIcon[0] })}
           {...props}
