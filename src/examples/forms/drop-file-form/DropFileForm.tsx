@@ -1,47 +1,33 @@
 import styles from './DropFileForm.module.css';
+import { Box } from '@src/stories/layout';
 import { Button } from '@src/stories/buttons/button';
 import { ButtonGroup } from '@src/stories/buttons/button-group';
-import { checkIsError } from '../utils';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { DropZone } from '@src/stories/form-elements/drop-zone';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { Field } from '@src/stories/form-elements/field';
-import { Input } from '@src/stories/form-elements/input';
+import { Heading } from '@src/stories/typography/heading';
+import { Icon } from '@src/stories/graphics/icon';
 import { InputsDropFileForm } from './types';
 import { Label } from '@src/stories/form-elements/label';
 import { Message } from '@src/stories/feedbacks/message';
-import { PasswordInput } from '@src/stories/form-elements/password-input';
-import { SubmitHandler, useForm, Validate } from 'react-hook-form';
-import { ValidationItem } from '@src/stories/form-elements/validation-checklist/components';
+import { PreviewFiles } from '@src/stories/graphics/preview-files';
 import {
-  useValidateCheckList,
-  ValidationChecklist,
-} from '@src/stories/form-elements/validation-checklist';
-
-const mapRules: Record<string, Validate<string, InputsDropFileForm>> = {
-  minLength: (v) => v.length >= 8 || '',
-  hasNumber: (v) => /\d/.test(v) || '',
-  hasUppercase: (v) => /[A-Z]/.test(v) || '',
-  hasLowercase: (v) => /[a-z]/.test(v) || '',
-  hasSpecial: (v) => /[@#!]/.test(v) || '',
-  hasNoSpace: (v) => /^\S*$/.test(v) || '',
-};
-
-const confirmRules: Record<string, Validate<string, InputsDropFileForm>> = {
-  sameValues: (_, rest) => rest.password === rest.confirm,
-};
+  FileInput,
+  useValidateFiles,
+} from '@src/stories/form-elements/file-input';
 
 export const DropFileForm = () => {
   const {
+    control,
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
     watch,
+    setValue,
   } = useForm<InputsDropFileForm>({
     defaultValues: {
       files: [],
-      name: '',
-      confirm: '',
-      email: '',
-      password: '',
     },
   });
 
@@ -49,108 +35,117 @@ export const DropFileForm = () => {
     console.log('Submit', data);
   };
 
-  const { ruleResults: rulePassword, validate: validatePassword } =
-    useValidateCheckList({
-      mapRules,
-      value: watch('password'),
-      formValues: watch(),
+  const {
+    checkFileType,
+    checkMaxAmountFiles,
+    checkMaxSize,
+    checkRequiredFiles,
+  } = useValidateFiles({
+    allowTypes: ['image/jpeg'],
+    maxSize: [3, 'MB'],
+    maxAmount: 2,
+  });
+
+  const mergeFiles = (oldFiles: File[], newFiles: File[]) => {
+    const fileMap = new Map();
+    [...oldFiles, ...newFiles].forEach((file) => {
+      const key = `${file.name}-${file.size}`;
+      fileMap.set(key, file);
     });
 
-  const { ruleResults: ruleConfirm, validate: validateConfirm } =
-    useValidateCheckList({
-      mapRules: confirmRules,
-      value: watch('confirm'),
-      formValues: watch(),
-    });
+    return Array.from(fileMap.values());
+  };
 
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <Field>
-          <Label>Name:</Label>
-          <Input
-            isError={checkIsError('name', errors, Boolean(dirtyFields.name))}
-            {...register('name', {
-              required: { message: 'Name is required', value: true },
-            })}
-          />
-          <Message variant="error">{errors.name?.message}</Message>
-        </Field>
-        <Field>
-          <Label>Email:</Label>
-          <Input
-            isError={checkIsError('email', errors, Boolean(dirtyFields.email))}
-            {...register('email', {
-              required: { message: 'Email is required', value: true },
-              validate: {
-                matchPattern: (v) =>
-                  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-                  'Email address must be a valid address',
-              },
-            })}
-          />
-          <Message variant="error">{errors.email?.message}</Message>
-        </Field>
-        <Field>
-          <Label>Password:</Label>
-          <PasswordInput
-            endIcon={[faEye, faEyeSlash]}
-            isError={checkIsError(
-              'password',
-              errors,
-              Boolean(dirtyFields.password)
-            )}
-            {...register('password', {
-              required: { message: 'Password is required', value: true },
-              validate: validatePassword,
-            })}
-          />
-          <Message variant="error">{errors.password?.message}</Message>
-        </Field>
-        <Field>
-          <Label>Confirm password:</Label>
-          <PasswordInput
-            endIcon={[faEye, faEyeSlash]}
-            isError={checkIsError(
-              'confirm',
-              errors,
-              Boolean(dirtyFields.confirm)
-            )}
-            {...register('confirm', {
-              required: {
-                message: 'Confirm password is required',
-                value: true,
-              },
-              validate: validateConfirm,
-            })}
-          />
-          <Message variant="error">{errors.confirm?.message}</Message>
-        </Field>
+        <Box style={{ margin: '0.5rem 0', height: 200 }}>
+          <Controller
+            name="files"
+            control={control}
+            rules={{
+              validate: (files) => {
+                const type = checkFileType(files);
+                const maxAmount = checkMaxAmountFiles(files);
+                const maxSize = checkMaxSize(files);
+                const required = checkRequiredFiles(files);
 
-        <ValidationChecklist>
-          <ValidationItem id="min" isValid={rulePassword['minLength']}>
-            Password must be at least 8 characters
-          </ValidationItem>
-          <ValidationItem id="uppecase" isValid={rulePassword['hasUppercase']}>
-            Must include at least one uppercase letter
-          </ValidationItem>
-          <ValidationItem id="lowercase" isValid={rulePassword['hasLowercase']}>
-            Must include at least one lowercase letter
-          </ValidationItem>
-          <ValidationItem id="number" isValid={rulePassword['hasNumber']}>
-            Must include at least one number
-          </ValidationItem>
-          <ValidationItem id="special" isValid={rulePassword['hasSpecial']}>
-            Must include at least one special character: @#!
-          </ValidationItem>
-          <ValidationItem id="space" isValid={rulePassword['hasNoSpace']}>
-            Must not contain spaces
-          </ValidationItem>
-          <ValidationItem id="sameValues" isValid={ruleConfirm['sameValues']}>
-            Passwords do not match
-          </ValidationItem>
-        </ValidationChecklist>
+                if (type !== true) return type;
+                if (maxAmount !== true) return maxAmount;
+                if (maxSize !== true) return maxSize;
+                if (required !== true) return required;
 
+                return true;
+              },
+            }}
+            render={({ field: { onChange, ...rest } }) => (
+              <DropZone
+                onDrop={(e) => {
+                  const dropped = Array.from(e.dataTransfer.files);
+                  const mergedFiles = mergeFiles(watch('files'), dropped);
+                  onChange(mergedFiles);
+                }}
+                {...rest}
+                title="Drag and drop"
+              >
+                <FileInput
+                  accept=".jpg"
+                  label="Add images"
+                  multiple
+                  {...register('files', {
+                    validate: (files) => {
+                      const type = checkFileType(files);
+                      const maxAmount = checkMaxAmountFiles(files);
+                      const maxSize = checkMaxSize(files);
+                      const required = checkRequiredFiles(files);
+
+                      if (type !== true) return type;
+                      if (maxAmount !== true) return maxAmount;
+                      if (maxSize !== true) return maxSize;
+                      if (required !== true) return required;
+
+                      return true;
+                    },
+                  })}
+                  onChange={(e) => {
+                    //   Przykład jak dodawać więcej zdjęć nie tracąc innych register musi zostać także z validate do validaci
+                    //   i będzie wszystko działać
+                    if (!e.target.files) return;
+                    const dropped = Array.from(e.target.files);
+                    const mergedFiles = mergeFiles(watch('files'), dropped);
+
+                    setValue('files', mergedFiles, {
+                      shouldValidate: true,
+                      shouldDirty: false,
+                    });
+                  }}
+                />
+                <Message variant="error">{errors.files?.message}</Message>
+              </DropZone>
+            )}
+          />
+        </Box>
+        <Field>
+          <Label>Preview files:</Label>
+          <PreviewFiles
+            images={[...watch('files')]}
+            gridPlacement="column"
+            onRemove={(index) => {
+              setValue(
+                'files',
+                [...watch('files')].filter((_, i) => i !== index),
+                { shouldValidate: true, shouldDirty: false }
+              );
+            }}
+          >
+            <Box className={styles['group-info']}>
+              <Icon color="primary" icon={faImage} size="4x" />
+              <Heading fw="fw-900" level={4}>
+                No Images
+              </Heading>
+            </Box>
+          </PreviewFiles>
+        </Field>
         <ButtonGroup marginTop={16} fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
