@@ -2,7 +2,7 @@ import { SelectListProps } from './types';
 import { useAriaAttributes } from '@src/stories/hooks';
 
 export const SelectList = ({ children }: SelectListProps) => {
-  const { selectListA11y } = useAriaAttributes();
+  const a11y = useAriaAttributes().selectListA11y();
 
-  return <div {...selectListA11y()}>{children}</div>;
+  return <div {...a11y}>{children}</div>;
 };
