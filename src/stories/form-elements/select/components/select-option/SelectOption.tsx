@@ -5,7 +5,7 @@ import { useSelect } from '../../store';
 
 export const SelectOption = ({ children, id }: SelectOptionProps) => {
   const { onChange, size, value } = useSelect();
-  const { selectOptionA11y } = useAriaAttributes();
+  const a11y = useAriaAttributes().selectOptionA11y(id, value === id);
 
   const classes = selectOptionClassNames(id, value, size);
 
@@ -16,7 +16,7 @@ export const SelectOption = ({ children, id }: SelectOptionProps) => {
       className={classes.selectOption}
       onClick={() => onChange && onChange(id)}
       tabIndex={0}
-      {...selectOptionA11y(id)}
+      {...a11y}
     >
       {children}
     </li>
