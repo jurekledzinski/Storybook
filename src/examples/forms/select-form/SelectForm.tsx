@@ -1,24 +1,28 @@
-import styles from './SelectForm.module.css';
 import { Button } from '@src/stories/buttons/button';
 import { ButtonGroup } from '@src/stories/buttons/button-group';
-import { Checkbox } from '@src/stories/form-elements/checkbox';
-import { CheckboxGroup } from '@src/stories/form-elements/checkbox-group';
+import { checkIsError } from '../utils';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { Field } from '@src/stories/form-elements/field';
-import { InputsSelectForm } from './types';
-import { Label } from '@src/stories/form-elements/label';
 import { Message } from '@src/stories/feedbacks/message';
-import { Radio, RadioGroup } from '@src/stories/form-elements/radio-group';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  Select,
+  SelectList,
+  SelectOption,
+  SelectPanel,
+  SelectTrigger,
+} from '@src/stories/form-elements/select';
+import { InputsSelectForm } from './types';
 
 export const SelectForm = () => {
   const {
-    register,
+    control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm<InputsSelectForm>({
     defaultValues: {
       color: '',
-      season: [],
+      cars: '',
     },
   });
 
@@ -26,104 +30,70 @@ export const SelectForm = () => {
     console.log('Submit', data);
   };
 
-  console.log('errors', errors);
-
   return (
-    <div className={styles.container}>
+    <div style={{ width: 300, margin: '50px auto' }}>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <Field>
-          <Label>Color:</Label>
-
-          <RadioGroup orientation="column" spacing="normal">
-            <Radio
-              id="czerwony"
-              value="czerwony"
-              color={'primary'}
-              size={'size-xs'}
-              variant={'filled'}
-              {...register('color', {
-                required: { message: 'Color is required', value: true },
-              })}
-            >
-              Czerwony
-            </Radio>
-            <Radio
-              id="zielony"
-              value="zielony"
-              color={'primary'}
-              size={'size-xs'}
-              variant={'filled'}
-              {...register('color', {
-                required: { message: 'Color is required', value: true },
-              })}
-            >
-              Zielony
-            </Radio>
-            <Radio
-              id="żółty"
-              value="żółty"
-              color={'primary'}
-              size={'size-xs'}
-              variant={'filled'}
-              {...register('color', {
-                required: { message: 'Color is required', value: true },
-              })}
-            >
-              Żółty
-            </Radio>
-          </RadioGroup>
+          <Controller
+            name="color"
+            control={control}
+            rules={{ required: { message: 'Color is requird', value: true } }}
+            render={({ field: { onChange, ...rest } }) => (
+              <Select
+                isError={checkIsError(
+                  'color',
+                  errors,
+                  Boolean(dirtyFields.color)
+                )}
+                onChange={(id) => onChange(id)}
+                {...rest}
+              >
+                <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
+                <SelectPanel>
+                  <SelectList>
+                    <SelectOption id="red">Red</SelectOption>
+                    <SelectOption id="green">Green</SelectOption>
+                    <SelectOption id="orange">Orange</SelectOption>
+                    <SelectOption id="blue">Blue</SelectOption>
+                    <SelectOption id="yellow">Yellow</SelectOption>
+                    <SelectOption id="purple">Purple</SelectOption>
+                  </SelectList>
+                </SelectPanel>
+              </Select>
+            )}
+          />
           <Message variant="error">{errors.color?.message}</Message>
         </Field>
 
         <Field>
-          <Label>Season:</Label>
-          <CheckboxGroup orientation="column" spacing="tight">
-            <Checkbox
-              {...register('season', {
-                required: { message: 'Season is required', value: true },
-              })}
-              id="wiosna"
-              value="wiosna"
-              size="size-xs"
-            >
-              Wiosna
-            </Checkbox>
-
-            <Checkbox
-              {...register('season', {
-                required: { message: 'Season is required', value: true },
-              })}
-              id="lato"
-              value="lato"
-              size="size-xs"
-            >
-              Lato
-            </Checkbox>
-
-            <Checkbox
-              {...register('season', {
-                required: { message: 'Season is required', value: true },
-              })}
-              id="jesień"
-              value="Jesień"
-              size="size-xs"
-            >
-              Jesień
-            </Checkbox>
-            <Checkbox
-              {...register('season', {
-                required: { message: 'Season is required', value: true },
-              })}
-              id="zima"
-              value="zima"
-              size="size-xs"
-            >
-              Zima
-            </Checkbox>
-          </CheckboxGroup>
-          <Message variant="error">{errors.season?.message}</Message>
+          <Controller
+            name="cars"
+            control={control}
+            rules={{ required: { message: 'Cars is requird', value: true } }}
+            render={({ field: { onChange, ...rest } }) => (
+              <Select
+                isError={checkIsError(
+                  'cars',
+                  errors,
+                  Boolean(dirtyFields.cars)
+                )}
+                onChange={(id) => onChange(id)}
+                {...rest}
+              >
+                <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
+                <SelectPanel>
+                  <SelectList>
+                    <SelectOption id="polonez">Polonez</SelectOption>
+                    <SelectOption id="fiat">Fiat</SelectOption>
+                    <SelectOption id="syrenka">Syrenka</SelectOption>
+                    <SelectOption id="warszawa">Warszawa</SelectOption>
+                  </SelectList>
+                </SelectPanel>
+              </Select>
+            )}
+          />
+          <Message variant="error">{errors.cars?.message}</Message>
         </Field>
-
         <ButtonGroup marginTop={16} fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
