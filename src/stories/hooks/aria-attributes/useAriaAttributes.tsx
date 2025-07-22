@@ -53,7 +53,8 @@ export const useAriaAttributes = (id?: string) => {
     id: 'select-list',
   });
 
-  const selectOptionA11y = (id: string) => ({
+  const selectOptionA11y = (id: string, selected: boolean) => ({
+    'aria-selected': selected,
     role: 'option',
     id,
   });
