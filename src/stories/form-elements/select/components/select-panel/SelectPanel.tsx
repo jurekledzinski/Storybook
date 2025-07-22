@@ -1,6 +1,7 @@
 import { SelectPanelProps } from './types';
 import { useAriaAttributes } from '@src/stories/hooks';
 import { useRef } from 'react';
+import { useSelect } from '../../store';
 import {
   PopOver,
   usePopOver,
@@ -9,9 +10,10 @@ import {
 
 export const SelectPanel = ({ children }: SelectPanelProps) => {
   const panelRef = useRef<HTMLDivElement>(null);
-  const { open, triggerRefs } = usePopOver();
+  const { open, triggerRefs, onCloseAll } = usePopOver();
+  const { onKeyArrow, onKeyPress } = useSelect();
 
-  const { selectPanelA11y } = useAriaAttributes();
+  const a11y = useAriaAttributes().selectPanelA11y();
 
   const { onSetPosition } = usePosition({
     autoWidth: true,
@@ -22,12 +24,20 @@ export const SelectPanel = ({ children }: SelectPanelProps) => {
     triggerRefs,
   });
 
+  const onKeyboardNavigation = () => {
+    if (!panelRef.current || !onKeyPress || !onKeyArrow) return;
+    onKeyPress({ node: panelRef.current, onCloseAll });
+    onKeyArrow({ node: panelRef.current });
+  };
+
   return (
     <PopOver
       ref={panelRef}
       open={open['root']}
       onEntering={() => onSetPosition()}
-      {...selectPanelA11y()}
+      onEntered={onKeyboardNavigation}
+      onExited={onKeyboardNavigation}
+      {...a11y}
     >
       {children}
     </PopOver>
