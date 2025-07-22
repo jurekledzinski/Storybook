@@ -16,12 +16,14 @@ export const getClassNamesInputWrapper: GetClassNamesInputWrapper = (
     startIcon,
     variant = 'basic',
     isPending,
+    className,
   } = params;
 
   return {
     inputWrapper: classNames(
       stylesInput.wrapper,
       generateClassNames(stylesInput, {
+        ['focused']: Boolean(className),
         [`wrapper-${variant}`]: Boolean(variant),
         'wrapper-disabled': Boolean(disabled),
         'wrapper-inValid': isError === true,
