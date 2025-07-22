@@ -18,7 +18,8 @@
   outline: none;
 }
 
-.wrapper:focus-within {
+.wrapper:focus-within,
+.wrapper.focused {
   border-color: var(--color-focus-primary);
   outline: 1px solid var(--color-focus-primary);
 }
@@ -119,12 +120,14 @@
   color: var(--color-focus-success);
 }
 
-.wrapper-valid:focus-within {
+.wrapper-valid:focus-within,
+.wrapper-valid.focused {
   outline: 1px solid var(--color-focus-success);
   border-color: var(--color-focus-success);
 }
 
-.wrapper-inValid:focus-within {
+.wrapper-inValid:focus-within,
+.wrapper-inValid.focused {
   outline: 1px solid var(--color-focus-negative);
   border-color: var(--color-focus-negative);
 }
