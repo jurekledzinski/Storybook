@@ -24,10 +24,11 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
       endIcon,
       onClickStartIcon,
       onClickEndIcon,
+      ...rest
     } = props;
 
     return (
-      <div className={classes.inputWrapper} ref={ref}>
+      <div {...rest} className={classes.inputWrapper} ref={ref}>
         {props.as === 'input' && startIcon && (
           <ButtonIcon
             className={classes.startIcon}
