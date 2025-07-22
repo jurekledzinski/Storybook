@@ -1,4 +1,4 @@
-import styles from './SelectForm.module.css';
+import styles from './Checkbox.module.css';
 import { Button } from '@src/stories/buttons/button';
 import { ButtonGroup } from '@src/stories/buttons/button-group';
 import { Checkbox } from '@src/stories/form-elements/checkbox';
