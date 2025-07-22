@@ -1,0 +1,133 @@
+import styles from './SelectForm.module.css';
+import { Button } from '@src/stories/buttons/button';
+import { ButtonGroup } from '@src/stories/buttons/button-group';
+import { Checkbox } from '@src/stories/form-elements/checkbox';
+import { CheckboxGroup } from '@src/stories/form-elements/checkbox-group';
+import { Field } from '@src/stories/form-elements/field';
+import { InputsCheckboxForm } from './types';
+import { Label } from '@src/stories/form-elements/label';
+import { Message } from '@src/stories/feedbacks/message';
+import { Radio, RadioGroup } from '@src/stories/form-elements/radio-group';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+export const CheckBoxForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<InputsCheckboxForm>({
+    defaultValues: {
+      color: '',
+      season: [],
+    },
+  });
+
+  const onSubmit: SubmitHandler<InputsCheckboxForm> = (data) => {
+    console.log('Submit', data);
+  };
+
+  console.log('errors', errors);
+
+  return (
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <Field>
+          <Label>Color:</Label>
+
+          <RadioGroup orientation="column" spacing="normal">
+            <Radio
+              id="czerwony"
+              value="czerwony"
+              color={'primary'}
+              size={'size-xs'}
+              variant={'filled'}
+              {...register('color', {
+                required: { message: 'Color is required', value: true },
+              })}
+            >
+              Czerwony
+            </Radio>
+            <Radio
+              id="zielony"
+              value="zielony"
+              color={'primary'}
+              size={'size-xs'}
+              variant={'filled'}
+              {...register('color', {
+                required: { message: 'Color is required', value: true },
+              })}
+            >
+              Zielony
+            </Radio>
+            <Radio
+              id="żółty"
+              value="żółty"
+              color={'primary'}
+              size={'size-xs'}
+              variant={'filled'}
+              {...register('color', {
+                required: { message: 'Color is required', value: true },
+              })}
+            >
+              Żółty
+            </Radio>
+          </RadioGroup>
+          <Message variant="error">{errors.color?.message}</Message>
+        </Field>
+
+        <Field>
+          <Label>Season:</Label>
+          <CheckboxGroup orientation="column" spacing="tight">
+            <Checkbox
+              {...register('season', {
+                required: { message: 'Season is required', value: true },
+              })}
+              id="wiosna"
+              value="wiosna"
+              size="size-xs"
+            >
+              Wiosna
+            </Checkbox>
+
+            <Checkbox
+              {...register('season', {
+                required: { message: 'Season is required', value: true },
+              })}
+              id="lato"
+              value="lato"
+              size="size-xs"
+            >
+              Lato
+            </Checkbox>
+
+            <Checkbox
+              {...register('season', {
+                required: { message: 'Season is required', value: true },
+              })}
+              id="jesień"
+              value="Jesień"
+              size="size-xs"
+            >
+              Jesień
+            </Checkbox>
+            <Checkbox
+              {...register('season', {
+                required: { message: 'Season is required', value: true },
+              })}
+              id="zima"
+              value="zima"
+              size="size-xs"
+            >
+              Zima
+            </Checkbox>
+          </CheckboxGroup>
+          <Message variant="error">{errors.season?.message}</Message>
+        </Field>
+
+        <ButtonGroup marginTop={16} fullWidth>
+          <Button label="Submit" fullWidth color="success" size="size-lg" />
+        </ButtonGroup>
+      </form>
+    </div>
+  );
+};
