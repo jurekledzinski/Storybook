@@ -15,6 +15,7 @@ export type BaseParmas = {
   isPending?: boolean;
   divider?: boolean;
   as?: 'input' | 'textarea';
+  className?: string;
 };
 
 export type GetClassNamesInputWrapper = (params: BaseParmas) => {
