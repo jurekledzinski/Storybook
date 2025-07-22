@@ -1,13 +1,16 @@
 import PopOverProvider from '@src/stories/overlays/pop-over/store';
 import { SelectProps } from './types';
 import { SelectProvider } from './store';
+import { forwardRef } from 'react';
 
-export const Select = ({ children, ...props }: SelectProps) => {
-  return (
-    <div>
-      <SelectProvider value={props}>
-        <PopOverProvider>{children}</PopOverProvider>
-      </SelectProvider>
-    </div>
-  );
-};
+export const Select = forwardRef<HTMLInputElement, SelectProps>(
+  ({ children, ...props }, ref) => {
+    return (
+      <div>
+        <SelectProvider value={{ ...props, ref }}>
+          <PopOverProvider>{children}</PopOverProvider>
+        </SelectProvider>
+      </div>
+    );
+  }
+);
