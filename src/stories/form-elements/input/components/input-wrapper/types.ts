@@ -1,12 +1,12 @@
-import { HTMLAttributes } from 'react';
-import { Icon, Size } from '@src/stories/types';
+// extends HTMLAttributes<HTMLDivElement>
+import { Icon, InputVariant, Size } from '@src/stories/types';
 
-export interface InputWrapperProps extends HTMLAttributes<HTMLDivElement> {
+export interface InputWrapperProps {
   as?: 'input' | 'textarea';
   divider?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
-  endIcon?: Icon;
+  endIcon?: Icon | string;
   isError?: boolean;
   isPending?: boolean;
   statusVisible?: boolean;
@@ -15,5 +15,5 @@ export interface InputWrapperProps extends HTMLAttributes<HTMLDivElement> {
   size?: Size;
   startIcon?: Icon;
   readOnly?: boolean;
-  variant?: 'basic' | 'contained' | 'outlined' | 'underline';
+  variant?: InputVariant;
 }
