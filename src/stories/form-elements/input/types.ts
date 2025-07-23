@@ -1,5 +1,5 @@
 import React from 'react';
-import { Size } from '@src/stories/types';
+import { InputVariant, Size } from '@src/stories/types';
 
 export type BaseInputProps<T> = {
   disabled?: boolean;
@@ -9,7 +9,7 @@ export type BaseInputProps<T> = {
   placeholder?: string;
   readOnly?: boolean;
   size?: Size;
-  variant?: 'basic' | 'contained' | 'outlined' | 'underline';
+  variant?: InputVariant;
   label?: string;
 };
 
