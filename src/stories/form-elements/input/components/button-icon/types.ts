@@ -1,7 +1,7 @@
+import { ButtonHTMLAttributes } from 'react';
 import { Icon } from '@src/stories/types';
 
-export type ButtonIconProps = {
-  className?: string;
-  icon: Icon;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-};
+export interface ButtonIconProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: Icon | string;
+}
