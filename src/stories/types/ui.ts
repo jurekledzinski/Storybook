@@ -24,6 +24,7 @@ export type Color =
   | 'warning';
 
 export type Variant = 'contained' | 'outlined' | 'text';
+export type InputVariant = 'basic' | 'contained' | 'outlined' | 'underline';
 
 export type Icons = IconProp[];
 export type Icon = IconProp;
