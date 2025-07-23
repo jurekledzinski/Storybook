@@ -14,9 +14,9 @@ export const ValidationItem = ({
   return (
     <li {...props} className={classNames(styles.item, className)}>
       {isValid ? (
-        <Icon className={styles['space']} icon={icons[0]} color="success" />
+        <Icon className={styles.space} icon={icons[0]} color="success" />
       ) : (
-        <Icon className={styles['space']} icon={icons[1]} color="negative" />
+        <Icon className={styles.space} icon={icons[1]} color="negative" />
       )}
       {children}
     </li>
