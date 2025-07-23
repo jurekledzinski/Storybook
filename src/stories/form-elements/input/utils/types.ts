@@ -11,7 +11,7 @@ export type BaseParmas = {
   disabled?: boolean;
   readOnly?: boolean;
   startIcon?: Icon;
-  endIcon?: Icon;
+  endIcon?: Icon | string;
   isPending?: boolean;
   divider?: boolean;
   as?: 'input' | 'textarea';
