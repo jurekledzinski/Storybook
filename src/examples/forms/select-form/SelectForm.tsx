@@ -40,11 +40,7 @@ export const SelectForm = () => {
             rules={{ required: { message: 'Color is requird', value: true } }}
             render={({ field: { onChange, ...rest } }) => (
               <Select
-                isError={checkIsError(
-                  'color',
-                  errors,
-                  Boolean(dirtyFields.color)
-                )}
+                isError={checkIsError('color', errors, dirtyFields.color)}
                 onChange={(id) => onChange(id)}
                 {...rest}
               >
@@ -72,11 +68,7 @@ export const SelectForm = () => {
             rules={{ required: { message: 'Cars is requird', value: true } }}
             render={({ field: { onChange, ...rest } }) => (
               <Select
-                isError={checkIsError(
-                  'cars',
-                  errors,
-                  Boolean(dirtyFields.cars)
-                )}
+                isError={checkIsError('cars', errors, dirtyFields.cars)}
                 onChange={(id) => onChange(id)}
                 {...rest}
               >
