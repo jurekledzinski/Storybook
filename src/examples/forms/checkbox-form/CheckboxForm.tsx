@@ -26,8 +26,6 @@ export const CheckBoxForm = () => {
     console.log('Submit', data);
   };
 
-  console.log('errors', errors);
-
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
