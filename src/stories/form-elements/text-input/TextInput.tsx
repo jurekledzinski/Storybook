@@ -1,5 +1,5 @@
 import styles from './TextInput.module.css';
-import { forwardRef, Ref } from 'react';
+import { forwardRef } from 'react';
 import { getInputProps } from './utils';
 import { Input, InputWrapper } from '@src/stories/form-elements/input';
 import { TextInputProps } from './types';
@@ -18,10 +18,14 @@ export const TextInput = forwardRef<
       type = 'text',
       onClickEndIcon,
       onClickStartIcon,
+      size,
+      variant = 'basic',
       ...props
     },
-    ref: Ref<HTMLTextAreaElement | HTMLInputElement>
+    ref
   ) => {
+    const inputProps = getInputProps({ as, type, isError, size, variant });
+
     return (
       <div className={styles.textInput}>
         <InputWrapper
@@ -30,11 +34,14 @@ export const TextInput = forwardRef<
           isPending={isPending}
           onClickEndIcon={onClickEndIcon}
           onClickStartIcon={onClickStartIcon}
+          disabled={props.disabled}
+          readOnly={props.readOnly}
+          size={size}
+          variant={variant}
           {...(endIcon && { endIcon: endIcon[0] })}
           {...(startIcon && { startIcon: startIcon[0] })}
-          {...props}
         >
-          <Input ref={ref} {...getInputProps(as, type, isError)} {...props} />
+          <Input ref={ref} {...inputProps} {...props} />
         </InputWrapper>
       </div>
     );

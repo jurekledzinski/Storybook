@@ -1,17 +1,29 @@
-import { Icons, Size } from '@src/stories/types';
+import { Icons, InputVariant, Size } from '@src/stories/types';
+import { InputHTMLAttributes } from 'react';
 
-export type TextInputProps = {
-  as: 'input' | 'textarea';
-  disabled?: boolean;
-  readOnly?: boolean;
-  endIcon?: Icons;
+export type CommonProps = {
+  endIcon?: Icons | string[];
   isError?: boolean;
   isPending?: boolean;
   size?: Size;
   startIcon?: Icons;
   onClickEndIcon?: React.MouseEventHandler<HTMLSpanElement>;
   onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
-  variant?: 'basic' | 'contained' | 'outlined' | 'underline';
-  label: string;
-  type: 'email' | 'number' | 'text';
+  variant?: InputVariant;
+  label?: string;
 };
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  as?: 'input';
+  type: 'email' | 'number' | 'text';
+}
+
+export interface TextareaProps
+  extends InputHTMLAttributes<HTMLTextAreaElement> {
+  as?: 'textarea';
+  type?: never;
+  cols?: number;
+  rows?: number;
+}
+
+export type TextInputProps = CommonProps & (InputProps | TextareaProps);

@@ -1,14 +1,8 @@
-import { TextInputProps } from '../types';
+import { GroupInputProps } from './types';
 
-type AsElement = TextInputProps['as'];
-type TypeInput = TextInputProps['type'];
+export const getInputProps: GroupInputProps = (params) => {
+  const { as, type, isError, size, variant } = params;
 
-export const getInputProps = (
-  as: AsElement,
-  type: TypeInput,
-  isError?: boolean
-) => {
-  if (as === 'input') return { as, type, isError };
-  if (as === 'textarea') return { as, cols: 4, rows: 6, isError };
-  return {};
+  if (as === 'input') return { as, type, isError, size, variant };
+  else return { as, cols: 4, rows: 6, isError, size, variant };
 };
