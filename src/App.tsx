@@ -1,10 +1,10 @@
-import { SelectForm } from './examples';
+import { TextInputForm } from './examples';
 import './stories/main.css';
 
 const App = () => {
   return (
     <>
-      <SelectForm />
+      <TextInputForm />
     </>
   );
 };
