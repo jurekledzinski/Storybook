@@ -1,9 +1,9 @@
 .popOver {
   position: absolute;
   padding: 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-surface-30);
   z-index: 10000;
-  background-color: white;
+  background-color: var(--color-surface-panel);
   overflow: hidden;
   will-change: opacity;
 }
