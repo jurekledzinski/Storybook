@@ -14,6 +14,7 @@ const config: StorybookConfig = {
     '@storybook/addon-viewport',
     '@storybook/addon-coverage',
     '@storybook/preview-api',
+    '@storybook/addon-themes',
   ],
   features: {
     // this flag ensure that all updates related to a test are processed and applied before making assertions, like a11y checks in react

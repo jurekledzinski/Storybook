@@ -1,12 +1,11 @@
-import * as React from 'react';
-import ThemeProvider from './stores/theme/ThemeProvider';
 import { customViewports } from './custom-viewports';
 import { handlers } from '../src/mocks/handlers';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { Renderer } from 'storybook/internal/types';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import '../src/stories/main.css';
 import type { Preview } from '@storybook/react';
-// import { CreateDocs } from './helpers';
 
 initialize(
   {
@@ -44,16 +43,27 @@ const preview: Preview = {
     viewport: { viewports: { ...INITIAL_VIEWPORTS, ...customViewports } },
   },
   //   tags: ['autodocs'],
-  decorators: [
-    (Story, { parameters }) => {
-      const { theme = 'light' } = parameters;
+  //   decorators: [
+  //     (Story, { parameters }) => {
+  //       const { theme = 'light' } = parameters;
 
-      return (
-        <ThemeProvider theme={theme}>
-          <Story />
-        </ThemeProvider>
-      );
-    },
+  //       return (
+  //         <ThemeProvider theme={theme}>
+  //           <Story />
+  //         </ThemeProvider>
+  //       );
+  //     },
+  //   ],
+  decorators: [
+    withThemeByDataAttribute<Renderer>({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      attributeName: 'data-theme',
+      parentSelector: 'body',
+    }),
   ],
 };
 
