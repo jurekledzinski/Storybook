@@ -5,7 +5,8 @@
   padding: 4px 6px;
   color: var(--color-text-primary);
   font-size: 15px;
-  border: 1px solid var(--color-black-500);
+  border: 1px solid var(--color-surface-30);
+  background-color: var(--color-surface-input);
   transition: box-shadow 300ms linear;
 }
 
@@ -111,7 +112,6 @@
   top: -1px;
   z-index: 1;
   background-color: white;
-  /* primary-700 */
   color: var(--color-focus-primary);
   font-size: 12px;
 }
