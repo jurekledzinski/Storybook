@@ -4,8 +4,5 @@ import { Orientation } from '@src/stories/types';
 
 export const getClassForm = (orientation?: Orientation) => ({
   form: classNames(styles.form, orientation ? styles[orientation] : ''),
-  formGroup: classNames(
-    styles['form-group'],
-    orientation ? styles[orientation] : ''
-  ),
+  formGroup: classNames(styles['form-group']),
 });
