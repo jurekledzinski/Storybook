@@ -6,7 +6,7 @@
   color: var(--color-text-primary);
   font-size: 15px;
   border: 1px solid var(--color-surface-30);
-  background-color: var(--color-surface-input);
+  background-color: var(--color-surface-elevated);
   transition: box-shadow 300ms linear;
 }
 

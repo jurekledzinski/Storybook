@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   width: inherit;
-  border: 1px solid var(--color-black-500);
+  border: 1px solid var(--color-surface-30);
   transition: box-shadow 300ms linear;
 }
 
@@ -44,7 +44,7 @@
   justify-content: center;
   align-items: center;
   border: none;
-  background-color: transparent;
+  background-color: var(--color-surface-elevated);
   color: var(--color-black-600);
   padding: 6px 8px;
   width: 38px;
