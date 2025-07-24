@@ -9,8 +9,12 @@ type ThemeProviderProps = {
 const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   const [mode, setMode] = useState<ThemeContextType['mode']>(theme);
 
+  const onToggleMode = () => {
+    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
   return (
-    <ThemeContext.Provider value={{ mode, setMode }}>
+    <ThemeContext.Provider value={{ mode, onToggleMode }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,8 +1,10 @@
 import { createContext } from 'react';
 
 export type ThemeContextType = {
-  mode: null | 'light' | 'dark';
-  setMode?: (mode: 'light' | 'dark') => void;
+  mode: 'light' | 'dark';
+  onToggleMode: () => void;
 };
 
-export const ThemeContext = createContext<ThemeContextType>({ mode: null });
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined
+);
