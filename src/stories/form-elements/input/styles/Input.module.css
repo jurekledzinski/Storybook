@@ -71,10 +71,12 @@
 .legend {
   position: absolute;
   top: 50%;
-  left: 0.25rem;
+  left: 0.35rem;
   z-index: -1;
   font-size: 14px;
-  transition: 200ms linear;
+  transition-property: color, top, left, font-size;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
 }
 
 .legend-size-xs {
@@ -111,7 +113,7 @@
 .textarea:focus + .legend {
   top: -1px;
   z-index: 1;
-  background-color: white;
+  background-color: var(--color-surface);
   color: var(--color-focus-primary);
   font-size: 12px;
 }
