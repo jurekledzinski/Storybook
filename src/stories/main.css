@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 :root {
   overscroll-behavior: none;
 
@@ -107,27 +116,30 @@
 
   --focus-offset: 1px;
 
-  /* Backgrounds */
-  --color-surface-fieldset: white;
-  --color-surface-input: white;
-
   /* Loader */
   --color-track: #eeeeee;
   --color-spin: var(--color-primary-700);
 
   /* Fonts */
   --font-family: 'Inter', sans-serif;
+
+  /* Backgrounds */
+  --color-surface: #ffffff;
+  --color-surface-fieldset: #ffffff;
+  --color-surface-input: #ffffff;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+[data-theme='dark'] {
+  /* Backgrounds */
+  --color-surface: #333333;
+  --color-surface-fieldset: #ffffff;
+  --color-surface-input: #ffffff;
 }
 
-/* Możesz włączać lub wyłączać outline lub boxshadow dla button,a, input natomiast lokalnie ale color focus primary itp */
+/* ---- Styles ---- */
+
+/* Możesz włączać lub wyłączać outline lub boxshadow dla button */
+/* a input natomiast lokalnie ale color focus primary itp */
 /* to zmieni kolory focus input */
 
 button:focus-visible,
@@ -140,6 +152,7 @@ a:focus-visible {
 }
 
 body {
+  background-color: var(--color-surface);
   color: var(--color-text-primary);
   font-family: var(--font-family);
 }
@@ -207,7 +220,6 @@ h6 {
   left: 0;
   height: 100%;
   width: 100%;
-  /* background: linear-gradient(to right, transparent 0%, #f0f0f0 50%,transparent 100%); */
   background: linear-gradient(to right, transparent, #f0f0f0 50%, transparent);
   animation: skeleton 1.2s infinite;
 }
