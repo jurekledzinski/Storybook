@@ -1,6 +1,6 @@
 /* --- Disabled --- */
 
-button:disabled,
+.button:disabled,
 a.disabled {
   display: flex;
   background-color: var(--color-disabled-100);
@@ -8,15 +8,15 @@ a.disabled {
   cursor: not-allowed;
 }
 
-button.outlined:disabled,
+.button.outlined:disabled,
 a.outlined.disabled {
   border-color: var(--color-disabled-100);
 }
 
-button.outlined:disabled,
-button.outlined:disabled svg,
-button.text:disabled,
-button.text:disabled svg,
+.button.outlined:disabled,
+.button.outlined:disabled svg,
+.button.text:disabled,
+.button.text:disabled svg,
 a.outlined.disabled,
 a.outlined.disabled svg,
 a.text.disabled,
@@ -31,19 +31,19 @@ a:focus-visible.disabled svg {
 
 /* --- Clear hover on disable --- */
 
-button.text:disabled:hover,
+.button.text:disabled:hover,
 a.text.disabled:hover {
   border-color: transparent;
 }
 
-button.outlined:disabled:hover,
-button.text:disabled:hover,
+.button.outlined:disabled:hover,
+.button.text:disabled:hover,
 a.outlined.disabled:hover,
 a.text.disabled:hover {
   background-color: transparent;
 }
 
-button:disabled:hover,
+.button:disabled:hover,
 a.disabled:hover {
   background-color: var(--color-disabled-100);
   border-color: var(--color-disabled-100);
