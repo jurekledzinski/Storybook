@@ -49,7 +49,6 @@
 
 .active:not(:disabled) {
   background-color: var(--color-black-400);
-  /* background-color: red; */
   color: var(--color-text-white);
 }
 
@@ -69,13 +68,6 @@
 
 .button:not(:disabled):not(.primary):not(.secondary).active:hover {
   background-color: var(--color-black-400);
-}
-
-/* --- Clear hover on disable --- */
-
-.button.outlined:disabled:hover,
-.button.text:disabled:hover {
-  border-color: transparent;
 }
 
 /* --- Clear buttons when none spacing --- */

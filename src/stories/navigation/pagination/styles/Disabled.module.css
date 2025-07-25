@@ -1,16 +1,21 @@
 /* --- Disabled --- */
 
+.button:not(.outlined, .text):disabled {
+  background-color: var(--color-disabled-100);
+  cursor: not-allowed;
+}
+
+.button.outlined:disabled:hover,
+.button.text:disabled:hover {
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
 .button:disabled.contained.primary,
 .button:disabled.contained.secondary,
 .active.contained.primary:disabled,
 .active.contained.secondary:disabled {
   background-color: var(--color-disabled-100);
-  border-color: var(--color-disabled-100);
-  cursor: not-allowed;
-}
-
-.button.outlined.primary:disabled,
-.button.outlined.secondary:disabled {
   border-color: var(--color-disabled-100);
 }
 

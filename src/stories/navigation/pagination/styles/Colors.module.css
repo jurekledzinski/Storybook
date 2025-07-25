@@ -2,11 +2,13 @@
 
 .outlined {
   background-color: transparent;
+  color: var(--color-text-primary);
 }
 
 .text {
   background-color: transparent;
   border-color: transparent;
+  color: var(--color-text-primary);
 }
 
 .contained.primary {
@@ -41,28 +43,38 @@
 
 /* --- Hover or select color --- */
 
-.contained.primary:hover,
-.contained.primary.active {
+.contained:not(.info).primary:hover,
+.contained:not(.info).primary.active {
   background-color: var(--color-primary-800);
   border-color: var(--color-primary-800);
 }
 
-.contained.secondary:hover,
-.contained.secondary.active {
+.contained:not(.info).secondary:hover,
+.contained:not(.info).secondary.active {
   background-color: var(--color-secondary-500);
   border-color: var(--color-secondary-500);
 }
 
-.outlined.primary:hover,
-.text.primary:hover,
-.outlined.primary.active,
-.text.primary.active {
+.outlined:not(.info).primary:hover,
+.text:not(.info).primary:hover,
+.outlined:not(.info).primary.active,
+.text:not(.info).primary.active {
   background-color: var(--color-primary-50);
 }
 
-.outlined.secondary:hover,
-.text.secondary:hover,
-.outlined.secondary.active,
-.text.secondary.active {
+.outlined:not(.info).secondary:hover,
+.text:not(.info).secondary:hover,
+.outlined:not(.info).secondary.active,
+.text:not(.info).secondary.active {
   background-color: var(--color-secondary-100);
+}
+
+.info.primary,
+.info.secondary {
+  color: var(--color-text-primary);
+}
+
+.info.contained.primary,
+.info.contained.secondary {
+  color: var(--color-text-white);
 }
