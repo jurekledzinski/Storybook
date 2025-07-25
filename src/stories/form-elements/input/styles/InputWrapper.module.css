@@ -188,6 +188,11 @@
 
 /* --- Variant outlined --- */
 
+.wrapper-outlined > .startIcon,
+.wrapper-outlined > .endIcon {
+  background-color: transparent;
+}
+
 .wrapper-startIcon.wrapper-outlined .legend {
   left: -2px;
 }
