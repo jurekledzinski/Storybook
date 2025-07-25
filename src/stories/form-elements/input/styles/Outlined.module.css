@@ -14,5 +14,5 @@
 
 .input-outlined,
 .textarea-outlined {
-  background-color: transparent;
+  background-color: var(--color-surface-elevated);
 }
