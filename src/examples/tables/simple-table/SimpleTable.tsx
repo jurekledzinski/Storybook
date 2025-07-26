@@ -52,6 +52,7 @@ export const SimpleTable = () => {
     fn: ({ accessor }) => [
       accessor('firstName', {
         cell: (info) => info.getValue(),
+        header: () => <span>First Name</span>,
       }),
       accessor((row) => row.lastName, {
         id: 'lastName',
