@@ -1,0 +1,43 @@
+.table {
+  /* width: 100%; */
+  border-collapse: collapse;
+}
+
+/* .table thead {
+  border-bottom: 0.5rem solid red;
+} */
+
+.table th {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.tbody {
+  border-bottom: 1px solid lightgray;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+.table th {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  background-color: var(--color-primary-700);
+  color: white;
+}
+
+.input {
+  padding: 0.25rem;
+}
