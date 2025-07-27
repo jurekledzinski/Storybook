@@ -13,8 +13,10 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  PaginationState,
   useReactTable,
 } from '@tanstack/react-table';
+import { ColumnsFilterTableProps } from './types';
 
 type Person = {
   firstName: string;
@@ -25,36 +27,24 @@ type Person = {
   progress: number;
 };
 
-const defaultData: Person[] = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-];
+const defaultData = Array.from<Person>({ length: 50 }).map((_, index) => ({
+  firstName: `Bob-${index}`,
+  lastName: `Lee-${index}`,
+  age: 24 + index,
+  visits: 10 + index,
+  status: 'In Relationship',
+  progress: 3 + index,
+}));
 
-export const ColumnsFilterTable = () => {
+export const ColumnsFilterTable = ({
+  children,
+}: ColumnsFilterTableProps<Person>) => {
   const [data] = useState(() => [...defaultData]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [pagination, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 5,
+  });
 
   const columns = useCreateColumns<Person>({
     fn: ({ accessor }) => [
@@ -101,25 +91,34 @@ export const ColumnsFilterTable = () => {
     filterFns: {},
     state: {
       columnFilters,
+      pagination,
     },
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(), //client side filtering
+    getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination,
     debugTable: true,
     debugHeaders: true,
     debugColumns: false,
   });
 
   return (
-    <Table>
-      <TableHeader table={table}>
-        <ColumnsFilterHeader />
-      </TableHeader>
-      <TableBody table={table}>
-        <ColumnsFilterBody />
-      </TableBody>
-    </Table>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      <div style={{ overflow: 'auto' }}>
+        <Table>
+          <TableHeader table={table}>
+            <ColumnsFilterHeader />
+          </TableHeader>
+          <TableBody table={table}>
+            <ColumnsFilterBody />
+          </TableBody>
+        </Table>
+      </div>
+      <div style={{ alignSelf: 'flex-end' }}>
+        {children ? children(table) : null}
+      </div>
+    </div>
   );
 };
