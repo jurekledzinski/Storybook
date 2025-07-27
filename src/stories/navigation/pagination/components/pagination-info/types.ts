@@ -1,3 +1,7 @@
 import { HTMLAttributes } from 'react';
 
-export type PaginationInfoProps = HTMLAttributes<HTMLDivElement>;
+export interface PaginationInfoProps extends HTMLAttributes<HTMLDivElement> {
+  indexStart?: number;
+  indexEnd?: number;
+  totalAmount?: number;
+}
