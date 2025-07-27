@@ -50,7 +50,7 @@ const meta: Meta<typeof Pagination> = {
         'pagination info': (
           <>
             <PaginationArrow id="first" label={faAnglesLeft} />
-            <PaginationArrow id="prev" label={faChevronLeft} disabled />
+            <PaginationArrow id="prev" label={faChevronLeft} />
             <PaginationInfo />
             <PaginationArrow id="next" label={faChevronRight} />
             <PaginationArrow id="last" label={faAnglesRight} />
