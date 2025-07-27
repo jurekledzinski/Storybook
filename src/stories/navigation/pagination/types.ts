@@ -29,5 +29,5 @@ export type OnChangePage = (page: number, pageSize: number) => void;
 
 export interface PaginationProps extends UiPagination, UxPagination {
   children?: React.ReactNode;
-  onChangePage: OnChangePage;
+  onChangePage?: OnChangePage;
 }

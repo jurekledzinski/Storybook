@@ -35,24 +35,24 @@ export const usePagination = ({
       switch (actionType) {
         case 'first':
           onSetPage(firstPage);
-          onChangePage(firstPage + 1, itemsPerPage);
+          if (onChangePage) onChangePage(firstPage + 1, itemsPerPage);
           break;
         case 'last':
           onSetPage(lastPage);
-          onChangePage(lastPage + 1, itemsPerPage);
+          if (onChangePage) onChangePage(lastPage + 1, itemsPerPage);
           break;
         case 'next':
           onSetPage(nextPage);
-          onChangePage(nextPage + 1, itemsPerPage);
+          if (onChangePage) onChangePage(nextPage + 1, itemsPerPage);
           break;
         case 'prev':
           onSetPage(prevPage);
-          onChangePage(prevPage + 1, itemsPerPage);
+          if (onChangePage) onChangePage(prevPage + 1, itemsPerPage);
           break;
         case 'page':
           if (value === undefined) return;
           onSetPage(value);
-          onChangePage(value + 1, itemsPerPage);
+          if (onChangePage) onChangePage(value + 1, itemsPerPage);
       }
     },
     [itemsPerPage, lastPage, nextPage, onChangePage, onSetPage, prevPage]
