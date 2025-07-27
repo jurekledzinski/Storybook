@@ -9,9 +9,10 @@ import { usePaginationContext } from '../../context';
 export const PaginationArrow = ({
   id,
   label,
+  onClick,
   ...props
 }: PaginationArrowProps) => {
-  const { onClick, ...rest } = usePaginationContext();
+  const { onClick: onChange, ...rest } = usePaginationContext();
   const uiPaginationProps = getPaginationArrowProps(rest);
 
   const classes = getClassNamesPaginationItems(uiPaginationProps);
@@ -20,7 +21,10 @@ export const PaginationArrow = ({
     <button
       {...props}
       className={classes.paginationArrow}
-      onClick={() => onClick(id!)}
+      onClick={(e) => {
+        onChange(id!);
+        if (onClick) return onClick(e);
+      }}
     >
       {typeof label === 'string' ? label : <Icon icon={label!} />}
     </button>
