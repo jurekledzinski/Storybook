@@ -1,3 +1,6 @@
+import styles from './SimpleTable.module.css';
+import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import { SimpleTableProps } from './types';
 import { useState } from 'react';
 import {
   BasicBody,
@@ -5,9 +8,9 @@ import {
   Table,
   TableBody,
   TableHeader,
+  TableState,
   useCreateColumns,
 } from '../table';
-import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
 type Person = {
   firstName: string;
@@ -18,34 +21,18 @@ type Person = {
   progress: number;
 };
 
-const defaultData: Person[] = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-];
+const defaultData = Array.from<Person>({ length: 0 }).map((_, index) => ({
+  firstName: `Bob-${index}`,
+  lastName: `Lee-${index}`,
+  age: 24 + index,
+  visits: 10 + index,
+  status: 'In Relationship',
+  progress: 3 + index,
+}));
 
-export const SimpleTable = () => {
+export const SimpleTable = ({
+  emptyMessage = 'No data available',
+}: SimpleTableProps) => {
   const [data] = useState(() => [...defaultData]);
 
   const columns = useCreateColumns<Person>({
@@ -81,14 +68,23 @@ export const SimpleTable = () => {
     getCoreRowModel: getCoreRowModel(),
   });
 
+  const isEmpty = Boolean(table.options.data.length);
+
   return (
-    <Table>
-      <TableHeader table={table}>
-        <BasicHeader />
-      </TableHeader>
-      <TableBody table={table}>
-        <BasicBody />
-      </TableBody>
-    </Table>
+    <div className={styles.wrapper}>
+      <div className={styles.wrapperTable}>
+        <div className={styles.wrapperContent}>
+          <Table>
+            <TableHeader table={table}>
+              <BasicHeader />
+            </TableHeader>
+            <TableBody table={table}>
+              <BasicBody />
+            </TableBody>
+          </Table>
+          {!isEmpty && <TableState>{emptyMessage}</TableState>}
+        </div>
+      </div>
+    </div>
   );
 };
