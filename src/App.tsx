@@ -1,11 +1,11 @@
+import { ColumnsFilterTable } from './examples';
+import './stories/main.css';
 import {
   faAnglesLeft,
   faAnglesRight,
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import { ColumnsFilterTable } from './examples';
-import './stories/main.css';
 import {
   Pagination,
   PaginationArrow,
