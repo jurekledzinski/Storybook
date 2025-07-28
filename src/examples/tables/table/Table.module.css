@@ -8,11 +8,8 @@
 }
 
 .table th {
+  border-right: 1px solid var(--color-surface-30);
   font-weight: 400;
-}
-
-.table th {
-  border-right: 1px solid #ddd;
 }
 
 .table th:last-child {
@@ -20,7 +17,7 @@
 }
 
 .table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-surface-30);
 }
 
 .table td,
@@ -31,11 +28,12 @@
 }
 
 .table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-color: var(--color-surface-0);
 }
 
 .table tr:hover {
-  background-color: #f1f1f1;
+  background-color: var(--color-surface-20);
 }
 
 .table th {
@@ -44,13 +42,13 @@
   color: white;
 }
 
+.tbody tr {
+  background-color: var(--color-surface-10);
+}
+
 tbody:before {
   line-height: 0.5rem;
   content: '\200C';
   display: block;
   color: transparent;
-}
-
-.input {
-  padding: 0.25rem;
 }
