@@ -8,6 +8,7 @@ export const Loader = ({
   colorTrack,
   position,
   size,
+  style,
 }: LoaderProps) => {
   const classes = loaderClassNames({ border, className, position, size });
 
@@ -15,6 +16,7 @@ export const Loader = ({
     <span
       className={classes}
       style={{
+        ...style,
         ...(typeof size === 'number' ? { width: size, height: size } : {}),
         ...(colorTrack ? { borderColor: colorTrack } : {}),
         ...(colorSpin ? { borderTopColor: colorSpin } : {}),
