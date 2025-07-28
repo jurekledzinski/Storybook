@@ -135,6 +135,7 @@
   --color-surface-40: #c5c5c5;
   --color-surface-50: #b6b6b6;
   --color-surface-elevated: transparent;
+  --color-surface-elevated-base: #ffffff;
 }
 
 [data-theme='dark'] {
@@ -147,6 +148,7 @@
   --color-surface-40: #717171;
   --color-surface-50: #8b8b8b;
   --color-surface-elevated: var(--color-surface-10);
+  --color-surface-elevated-base: var(--color-surface-10);
 
   /* Color text */
 
