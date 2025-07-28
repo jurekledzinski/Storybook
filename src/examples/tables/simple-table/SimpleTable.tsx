@@ -11,6 +11,7 @@ import {
   TableState,
   useCreateColumns,
 } from '../table';
+import { Loader } from '@src/stories/feedbacks/loader';
 
 type Person = {
   firstName: string;
@@ -21,7 +22,7 @@ type Person = {
   progress: number;
 };
 
-const defaultData = Array.from<Person>({ length: 0 }).map((_, index) => ({
+const defaultData = Array.from<Person>({ length: 5 }).map((_, index) => ({
   firstName: `Bob-${index}`,
   lastName: `Lee-${index}`,
   age: 24 + index,
@@ -31,7 +32,10 @@ const defaultData = Array.from<Person>({ length: 0 }).map((_, index) => ({
 }));
 
 export const SimpleTable = ({
-  emptyMessage = 'No data available',
+  elementEmpty: ElementEmpty = TableState,
+  elementLoading: ElementLoading = TableState,
+  elementNoResults: ElementNoResults = TableState,
+  isLoading = true,
 }: SimpleTableProps) => {
   const [data] = useState(() => [...defaultData]);
 
@@ -82,9 +86,16 @@ export const SimpleTable = ({
               <BasicBody />
             </TableBody>
           </Table>
-          {!isEmpty && <TableState>{emptyMessage}</TableState>}
+
+          {!isEmpty && <ElementEmpty>No data available</ElementEmpty>}
         </div>
       </div>
     </div>
   );
 };
+
+//   isLoading && isEmpty && (
+//     <ElementLoading className={styles.overlay}>
+//       <Loader position="element" />
+//     </ElementLoading>
+//   );

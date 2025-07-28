@@ -1,3 +1,11 @@
+type DefaultProps = {
+  children?: React.ReactNode;
+  className?: string;
+};
+
 export type SimpleTableProps = {
-  emptyMessage?: string;
+  elementEmpty?: React.ComponentType<DefaultProps>;
+  elementLoading?: React.ComponentType<DefaultProps>;
+  elementNoResults?: React.ComponentType<DefaultProps>;
+  isLoading?: boolean;
 };
