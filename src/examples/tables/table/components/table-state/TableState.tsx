@@ -1,15 +1,14 @@
+import { classNames } from '@src/stories/helpers';
 import styles from './TableState.module.css';
 import { TableStateProps } from './types';
 
-export const TableState = ({ children, ...props }: TableStateProps) => {
-  //   const stateMessage = {
-  //     error: 'Something went wrong.',
-  //     empty: 'No data available.',
-  //     noResults: 'No results match your filter.',
-  //   };
-
+export const TableState = ({
+  className,
+  children,
+  ...props
+}: TableStateProps) => {
   return (
-    <div {...props} className={styles.wrapper}>
+    <div {...props} className={classNames(styles.wrapper, className ?? '')}>
       {children}
     </div>
   );
