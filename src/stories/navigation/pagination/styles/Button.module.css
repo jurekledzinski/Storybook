@@ -19,7 +19,7 @@
   padding: 0.25rem;
   justify-content: center;
   align-items: center;
-  min-width: 140px;
+  min-width: 140px !important;
   border: 1px solid var(--color-surface-30);
   background-color: transparent;
   font-size: 14px;
@@ -63,11 +63,11 @@
 }
 
 .button:not(:disabled):not(.primary):not(.secondary):hover {
-  background-color: var(--color-black-200);
+  background-color: var(--color-surface-10);
 }
 
 .button:not(:disabled):not(.primary):not(.secondary).active:hover {
-  background-color: var(--color-black-400);
+  background-color: var(--color-surface-10);
 }
 
 /* --- Clear buttons when none spacing --- */
