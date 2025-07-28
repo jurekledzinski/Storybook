@@ -1,12 +1,13 @@
-import { SortArrowsProps } from './types';
+import styles from './SortArrows.module.css';
 import { Icon } from '@src/stories/graphics/icon';
+import { SortArrowsProps } from './types';
 
 export const SortArrows = <T extends object>({
   icons,
   header,
 }: SortArrowsProps<T>) => {
   return (
-    <span>
+    <span className={styles.wrapper}>
       {{
         asc: <Icon icon={icons[0]} />,
         desc: <Icon icon={icons[1]} />,
