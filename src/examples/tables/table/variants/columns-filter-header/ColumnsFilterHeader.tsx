@@ -1,3 +1,4 @@
+import styles from './ColumnsFilterHeader.module.css';
 import { ColumnsFilterHeaderProps } from './types';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { Header } from '@tanstack/react-table';
@@ -24,8 +25,8 @@ export const ColumnsFilterHeader = <T extends object>({
           {!header.isPlaceholder && (
             <>
               <div
+                className={styles.wrapper}
                 onClick={(e) => onSort(e, header)}
-                style={{ display: 'flex', gap: '0.15rem' }}
               >
                 <HeaderLabel header={header} />
                 <SortArrows header={header} icons={[faArrowUp, faArrowDown]} />
