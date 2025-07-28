@@ -1,3 +1,5 @@
+import styles from './ColumnsFilterTable.module.css';
+import { ColumnsFilterTableProps } from './types';
 import { useState } from 'react';
 import {
   ColumnsFilterBody,
@@ -5,6 +7,7 @@ import {
   Table,
   TableBody,
   TableHeader,
+  TableState,
   useCreateColumns,
 } from '../table';
 import {
@@ -16,7 +19,6 @@ import {
   PaginationState,
   useReactTable,
 } from '@tanstack/react-table';
-import { ColumnsFilterTableProps } from './types';
 
 type Person = {
   firstName: string;
@@ -38,6 +40,8 @@ const defaultData = Array.from<Person>({ length: 50 }).map((_, index) => ({
 
 export const ColumnsFilterTable = ({
   children,
+  emptyMessage = 'No data available',
+  noResultsMessage = 'No results match your filter',
 }: ColumnsFilterTableProps<Person>) => {
   const [data] = useState(() => [...defaultData]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -104,19 +108,28 @@ export const ColumnsFilterTable = ({
     debugColumns: false,
   });
 
+  const isEmpty = Boolean(table.options.data.length);
+  const noResults = Boolean(table.getPrePaginationRowModel().rows.length);
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-      <div style={{ overflow: 'auto' }}>
-        <Table>
-          <TableHeader table={table}>
-            <ColumnsFilterHeader />
-          </TableHeader>
-          <TableBody table={table}>
-            <ColumnsFilterBody />
-          </TableBody>
-        </Table>
+    <div className={styles.wrapper}>
+      <div className={styles.wrapperTable}>
+        <div className={styles.wrapperContent}>
+          <Table>
+            <TableHeader table={table}>
+              <ColumnsFilterHeader />
+            </TableHeader>
+
+            <TableBody table={table}>
+              <ColumnsFilterBody />
+            </TableBody>
+          </Table>
+
+          {!isEmpty && <TableState>{emptyMessage}</TableState>}
+          {!noResults && isEmpty && <TableState>{noResultsMessage}</TableState>}
+        </div>
       </div>
-      <div style={{ alignSelf: 'flex-end' }}>
+      <div className={styles.wrapperPagination}>
         {children ? children(table) : null}
       </div>
     </div>

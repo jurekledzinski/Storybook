@@ -1,6 +1,7 @@
 .table {
-  width: 100%;
+  width: max-content;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .table thead {
@@ -28,7 +29,6 @@
 }
 
 .table tr:nth-child(even) {
-  /* background-color: #f9f9f9; */
   background-color: var(--color-surface-0);
 }
 
@@ -39,7 +39,7 @@
 .table th {
   text-align: left;
   background-color: var(--color-primary-700);
-  color: white;
+  color: var(--color-text-white);
 }
 
 .tbody tr {
@@ -51,4 +51,10 @@ tbody:before {
   content: '\200C';
   display: block;
   color: transparent;
+}
+
+@media (min-width: 1000px) {
+  .table {
+    width: 100%;
+  }
 }
