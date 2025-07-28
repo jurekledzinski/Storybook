@@ -1,3 +1,4 @@
+import styles from './TableSearch.module.css';
 import { TableSearchProps } from './types';
 
 export const TableSearch = ({
@@ -11,7 +12,7 @@ export const TableSearch = ({
       type="text"
       onChange={onChange}
       value={value}
-      style={{ padding: '0.25rem' }}
+      className={styles.input}
     />
   );
 };
