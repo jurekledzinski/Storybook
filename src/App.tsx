@@ -1,4 +1,4 @@
-import { SimpleTable } from './examples';
+import { SimpleTable } from './examples/tables/custom';
 import { Container, Header } from './app-ui';
 import './stories/main.css';
 
