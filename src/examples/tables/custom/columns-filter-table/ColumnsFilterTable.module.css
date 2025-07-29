@@ -1,20 +1,3 @@
-/* .wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.wrapperTable {
-  position: relative;
-  width: 100%;
-  overflow-x: auto;
-}
-
-.wrapperPagination {
-  align-self: flex-end;
-} */
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -24,7 +7,6 @@
 
 .wrapperTable {
   overflow-x: auto;
-  width: 100%;
 }
 
 .wrapperContent {
@@ -38,10 +20,4 @@
 
 .wrapperPagination {
   align-self: flex-end;
-}
-
-@media (min-width: 1000px) {
-  .wrapperContent {
-    min-width: initial;
-  }
 }

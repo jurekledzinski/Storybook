@@ -1,0 +1,71 @@
+/* Grid-based table container */
+.table {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Rows */
+.tr {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(150px, auto);
+}
+
+/* Header styles */
+
+.thead {
+  margin-bottom: 0.5rem;
+}
+
+.thead .tr {
+  background-color: var(--color-primary-700);
+}
+
+.th {
+  padding: 0.5rem;
+  font-weight: 400;
+  text-align: left;
+  color: var(--color-text-white);
+  border-right: 1px solid var(--color-surface-30);
+}
+
+.th:last-child {
+  border-right: 1px solid var(--color-primary-700);
+}
+
+/* Body rows */
+
+.tbody {
+  position: relative;
+}
+
+.tbody .tr {
+  border-bottom: 1px solid var(--color-surface-30);
+}
+
+.tbody .tr:first-child {
+  border-top: 1px solid var(--color-surface-30);
+}
+
+.td {
+  padding: 0.5rem;
+  border-right: 1px solid var(--color-surface-30);
+  background-color: var(--color-surface-10);
+  text-align: left;
+}
+
+.td:first-child {
+  border-left: 1px solid var(--color-surface-30);
+}
+
+/* Zebra striping */
+.tbody .tr:nth-of-type(even) .td {
+  background-color: var(--color-surface-0);
+}
+
+/* Hover effect */
+.tbody .tr:hover .td {
+  background-color: var(--color-surface-20);
+}

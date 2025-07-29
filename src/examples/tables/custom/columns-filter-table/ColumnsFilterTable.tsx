@@ -7,7 +7,7 @@ import {
   Table,
   TableBody,
   TableHeader,
-  TableState,
+  TableStatus,
   useCreateColumns,
 } from '../table';
 import {
@@ -40,8 +40,7 @@ const defaultData = Array.from<Person>({ length: 50 }).map((_, index) => ({
 
 export const ColumnsFilterTable = ({
   children,
-  emptyMessage = 'No data available',
-  noResultsMessage = 'No results match your filter',
+  isLoading = false,
 }: ColumnsFilterTableProps<Person>) => {
   const [data] = useState(() => [...defaultData]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -120,13 +119,16 @@ export const ColumnsFilterTable = ({
               <ColumnsFilterHeader />
             </TableHeader>
 
-            <TableBody table={table}>
-              <ColumnsFilterBody />
-            </TableBody>
+            <TableStatus
+              isEmpty={isEmpty}
+              isLoading={isLoading}
+              noResults={noResults}
+            >
+              <TableBody table={table}>
+                <ColumnsFilterBody />
+              </TableBody>
+            </TableStatus>
           </Table>
-
-          {!isEmpty && <TableState>{emptyMessage}</TableState>}
-          {!noResults && isEmpty && <TableState>{noResultsMessage}</TableState>}
         </div>
       </div>
       <div className={styles.wrapperPagination}>
