@@ -15,12 +15,15 @@ export const Loader = ({
   return (
     <span
       className={classes}
-      style={{
-        ...style,
-        ...(typeof size === 'number' ? { width: size, height: size } : {}),
-        ...(colorTrack ? { borderColor: colorTrack } : {}),
-        ...(colorSpin ? { borderTopColor: colorSpin } : {}),
-      }}
+      style={
+        {
+          ...style,
+          ...(typeof size === 'number' ? { width: size, height: size } : {}),
+          ...(colorTrack ? { borderColor: colorTrack } : {}),
+          ...(colorSpin ? { borderTopColor: colorSpin } : {}),
+          ...(size ? { '--size': `${size}px` } : {}),
+        } as React.CSSProperties
+      }
     ></span>
   );
 };
