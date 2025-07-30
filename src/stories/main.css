@@ -136,6 +136,14 @@
   --color-surface-50: #b6b6b6;
   --color-surface-elevated: transparent;
   --color-surface-elevated-base: #ffffff;
+
+  /* Spacing */
+  --space-initial: 'initial';
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
 }
 
 [data-theme='dark'] {
