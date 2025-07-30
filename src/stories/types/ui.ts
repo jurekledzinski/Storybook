@@ -48,3 +48,24 @@ export type Aligment =
   | 'aligment-end'
   | 'aligment-start'
   | 'stretch';
+
+export type PaddingToken =
+  | 'p-initial'
+  | 'p-xxs'
+  | 'p-xs'
+  | 'p-sm'
+  | 'p-md'
+  | 'p-lg'
+  | number;
+
+export type MarginToken =
+  | 'm-center'
+  | 'm-initial'
+  | 'm-xxs'
+  | 'm-xs'
+  | 'm-sm'
+  | 'm-md'
+  | 'm-lg'
+  | number;
+
+export type MaxWidthToken = 'max-sm' | 'max-md' | 'max-lg' | 'max-xl' | number;
