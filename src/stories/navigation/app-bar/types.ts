@@ -1,4 +1,3 @@
-export type AppBarProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+import { HTMLAttributes } from 'react';
+
+export type AppBarProps = HTMLAttributes<HTMLElement>;
