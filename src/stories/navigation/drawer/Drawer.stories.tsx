@@ -46,6 +46,9 @@ export const Default: Story = {
       const { args } = context;
       return (
         <div className={styles.body}>
+          <div
+            style={{ width: '100%', height: '100px', background: 'red' }}
+          ></div>
           <div className={styles.container}>
             {args.direction !== 'right' && args.direction !== 'bottom' ? (
               <Story />

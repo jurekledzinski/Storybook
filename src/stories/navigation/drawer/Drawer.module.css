@@ -1,6 +1,7 @@
 /* Extra styles for example to work*/
 
 .body {
+  height: 100vh;
   min-height: 100vh;
 }
 
@@ -9,7 +10,7 @@
   display: flex;
   gap: 0.5rem;
   max-width: 1200px;
-  min-height: inherit;
+  min-height: calc(100% - 100px);
   color: var(--color-text-white);
   margin: 0 auto;
 }
@@ -46,10 +47,21 @@
 
 /* --- */
 
+.drawer {
+  background-color: var(--color-surface-10);
+}
+
+.inner {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  color: black;
+}
+
 .horizontal,
 .vertical {
   position: fixed;
-  background-color: var(--color-surface-10);
+  /* background-color: var(--color-surface-10); */
   z-index: 5;
 }
 
@@ -129,7 +141,7 @@
 
     position: sticky;
     top: 0;
-    align-self: flex-start;
+    /* align-self: flex-start; */
   }
 
   .horizontal.bottom.push,
