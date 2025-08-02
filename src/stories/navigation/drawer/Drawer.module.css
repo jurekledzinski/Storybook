@@ -62,7 +62,7 @@
 .vertical {
   position: fixed;
   /* background-color: var(--color-surface-10); */
-  z-index: 5;
+  z-index: 10;
 }
 
 .horizontal {
@@ -72,6 +72,8 @@
 .vertical {
   width: min(300px, 100%);
   min-height: inherit;
+  height: 100vh;
+  flex-shrink: 0;
 }
 
 /* --- Directions --- */
