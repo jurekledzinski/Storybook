@@ -27,6 +27,8 @@
   width: 100%;
   padding: 1rem;
   background-color: var(--color-primary-700);
+  /* background-color: var(--color-surface-elevated-base);
+  border-bottom: 1px solid var(--color-surface-30); */
 }
 
 .headerHorizontal {
