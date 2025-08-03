@@ -1,14 +1,14 @@
 import styles from '../RadioGroup.module.css';
 import { classNames } from '@src/stories/helpers';
-import { Color, Size, Orientation, Spacing } from '@src/stories/types';
-import { Variant } from '../components';
+import { Color, Orientation, Size, Spacing } from '@src/stories/types';
+import { VariantRadio } from '../components';
 
 export const getClassRadio = (
   color?: Color,
   disabled?: boolean,
   readOnly?: boolean,
   size?: Size,
-  variant?: Variant
+  variant?: VariantRadio
 ) => ({
   label: classNames(
     styles.label,
