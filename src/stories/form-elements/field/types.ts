@@ -1,3 +1,3 @@
-export type FiledProps = {
-  children: React.ReactNode;
-};
+import { HTMLAttributes } from 'react';
+
+export type FiledProps = HTMLAttributes<HTMLFieldSetElement>;
