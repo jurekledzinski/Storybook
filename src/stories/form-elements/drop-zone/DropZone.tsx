@@ -34,3 +34,5 @@ export const DropZone = forwardRef<HTMLDivElement, DropZoneProps>(
     );
   }
 );
+
+DropZone.displayName = 'DropZone';

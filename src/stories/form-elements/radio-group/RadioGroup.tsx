@@ -16,3 +16,5 @@ export const RadioGroup = ({
     </div>
   );
 };
+
+RadioGroup.displayName = 'RadioGroup';

@@ -70,3 +70,5 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
     );
   }
 );
+
+InputWrapper.displayName = 'InputWrapper';
