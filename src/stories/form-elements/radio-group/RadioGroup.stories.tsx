@@ -1,12 +1,12 @@
 import { Color, Size } from '@src/stories/types';
 import { Meta, StoryObj } from '@storybook/react';
-import { Radio, Variant } from './components';
+import { Radio, VariantRadio } from './components';
 import { RadioGroup, RadioGroupProps } from './';
 
 interface RadioGroupExtendRadioProps extends RadioGroupProps {
   color?: Color;
   size?: Size;
-  variant?: Variant;
+  variant?: VariantRadio;
 }
 
 const meta: Meta<RadioGroupExtendRadioProps> = {
