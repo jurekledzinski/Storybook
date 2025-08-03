@@ -61,3 +61,5 @@ export const Input = forwardRef<UnionElements, MergeProps>(
     );
   }
 );
+
+Input.displayName = 'Input';
