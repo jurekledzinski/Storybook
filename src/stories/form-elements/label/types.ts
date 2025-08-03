@@ -1,4 +1,3 @@
-export interface LabelProps
-  extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  children: React.ReactNode;
-}
+import { LabelHTMLAttributes } from 'react';
+
+export type LabelProps = LabelHTMLAttributes<HTMLLabelElement>;
