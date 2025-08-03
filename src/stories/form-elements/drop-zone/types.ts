@@ -9,7 +9,7 @@ export type UseControlDropProps = {
   isEnter: boolean;
   onEnter: () => void;
   onLeave: () => void;
-  refZone: React.RefObject<HTMLDivElement>;
+  refZone: React.RefObject<HTMLDivElement | null>;
 };
 
 export type Event = React.DragEvent<HTMLDivElement>;
