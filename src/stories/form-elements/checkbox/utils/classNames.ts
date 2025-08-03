@@ -1,14 +1,14 @@
 import { classNames } from '@src/stories/helpers';
 import { Color, Size } from '@src/stories/types';
 import styles from '../Checkbox.module.css';
-import { Variant } from '../types';
+import { VariantCheckbox } from '../types';
 
 export const getClassCheckbox = (
   color?: Color,
   disabled?: boolean,
   readOnly?: boolean,
   size?: Size,
-  variant?: Variant
+  variant?: VariantCheckbox
 ) => ({
   label: classNames(
     styles.label,
