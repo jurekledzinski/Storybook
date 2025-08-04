@@ -32,6 +32,7 @@ export const Default: Story = {
     onClickStartIcon: fn(),
     disabled: false,
     readOnly: false,
+    placeholder: 'Hello placeholder',
   },
   argTypes: {
     as: {
