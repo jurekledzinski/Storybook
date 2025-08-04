@@ -13,13 +13,14 @@ export type CommonProps = {
   label?: string;
 };
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   as?: 'input';
   type: 'email' | 'number' | 'text';
 }
 
 export interface TextareaProps
-  extends InputHTMLAttributes<HTMLTextAreaElement> {
+  extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'> {
   as?: 'textarea';
   type?: never;
   cols?: number;
