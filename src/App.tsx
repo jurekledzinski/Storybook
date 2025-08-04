@@ -1,5 +1,5 @@
-import { SimpleTable } from './examples/tables/custom';
 import { Container, Header } from './app-ui';
+import { SimpleTable } from './examples/tables/custom';
 import './stories/main.css';
 
 const App = () => {
