@@ -13,7 +13,7 @@ const meta: Meta<typeof Select> = {
   title: 'Components/Form elements/Select',
   component: Select,
   args: {
-    // variant: 'contained',
+    variant: 'basic',
   },
   argTypes: {
     isError: {
@@ -44,7 +44,10 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
+        <SelectTrigger
+          endIcon={[faChevronUp, faChevronDown]}
+          placeholder="Select color"
+        />
         <SelectPanel>
           <SelectList>
             <SelectOption id="red">Red</SelectOption>
