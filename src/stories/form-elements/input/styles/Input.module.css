@@ -6,15 +6,41 @@
   color: var(--color-text-primary);
   font-size: 15px;
   border: 1px solid var(--color-surface-30);
-  background-color: var(--color-surface-elevated);
+  background-color: var(--color-surface-elevated-0);
   transition: box-shadow 300ms linear;
 }
 
 .input::placeholder,
 .textarea::placeholder {
-  color: var(--color-black-200);
+  color: var(--color-black-500);
   font-size: 14px;
   font-weight: 400;
+}
+
+.input:disabled::placeholder,
+.textarea:disabled::placeholder {
+  color: var(--color-disabled-200);
+}
+
+.input:focus:placeholder-shown::placeholder,
+.textarea:focus:placeholder-shown::placeholder {
+  color: transparent;
+}
+
+.input:read-only:focus:placeholder-shown::placeholder,
+.textarea:read-only:focus:placeholder-shown::placeholder {
+  color: var(--color-black-500);
+}
+
+.input-outlined::placeholder,
+.textarea-outlined::placeholder,
+.input-underline::placeholder,
+.textarea-underline::placeholder,
+.input-outlined:read-only:focus:placeholder-shown::placeholder,
+.textarea-outlined:read-only:focus:placeholder-shown::placeholder,
+.input-underline:read-only:focus:placeholder-shown::placeholder,
+.textarea-underline:read-only:focus:placeholder-shown::placeholder {
+  color: transparent;
 }
 
 .textarea {
@@ -134,8 +160,8 @@
 
 /* --- Focus input --- */
 
-input:focus,
-textarea:focus {
+.input:focus,
+.textarea:focus {
   border-color: var(--color-focus-primary);
   outline: 1px solid var(--color-focus-primary);
 }
