@@ -4,14 +4,22 @@ import { ClassesContainer } from './types';
 import { generateClassNames } from '@src/stories/helpers';
 
 export const getClassesContainer: ClassesContainer = (params) => {
-  const { margin, maxWidth, padding } = params;
+  const { m, mb, ml, mr, mt, maxWidth, p, pb, pl, pr, pt } = params;
 
   const mergedClasses = { ...styles, ...stylesSpace };
 
   return generateClassNames(mergedClasses, {
     container: true,
-    [`${margin}`]: Boolean(margin),
+    [`${m}`]: Boolean(m),
+    [`${mb}`]: Boolean(mb),
+    [`${ml}`]: Boolean(ml),
+    [`${mr}`]: Boolean(mr),
+    [`${mt}`]: Boolean(mt),
     [`${maxWidth}`]: Boolean(maxWidth),
-    [`${padding}`]: Boolean(padding),
+    [`${p}`]: Boolean(p),
+    [`${pb}`]: Boolean(pb),
+    [`${pl}`]: Boolean(pl),
+    [`${pr}`]: Boolean(pr),
+    [`${pt}`]: Boolean(pt),
   });
 };

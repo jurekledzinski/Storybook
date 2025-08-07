@@ -1,25 +1,18 @@
 import { ContainerProps } from './types';
 import { getClassesContainer } from './utils/classNames';
+import { getInlineContainerStyles } from './utils';
 
 export const Container = ({
   as = 'div',
   children,
-  margin,
-  padding,
-  maxWidth,
+  ...props
 }: ContainerProps) => {
   const Tag = `${as}` as keyof JSX.IntrinsicElements;
-  const classes = getClassesContainer({ margin, maxWidth, padding });
+  const classes = getClassesContainer(props);
+  const inline = getInlineContainerStyles(props);
 
   return (
-    <Tag
-      className={classes}
-      style={{
-        ...(typeof maxWidth === 'number' ? { maxWidth } : {}),
-        ...(typeof padding === 'number' ? { padding } : {}),
-        ...(typeof margin === 'number' ? { margin } : {}),
-      }}
-    >
+    <Tag className={classes} style={inline}>
       {children}
     </Tag>
   );
