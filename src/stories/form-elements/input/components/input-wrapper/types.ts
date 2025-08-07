@@ -1,9 +1,9 @@
-// extends HTMLAttributes<HTMLDivElement>
 import { Icon, InputVariant, Size } from '@src/stories/types';
 
 export interface InputWrapperProps {
   as?: 'input' | 'textarea';
-  divider?: boolean;
+  dividerStart?: boolean;
+  dividerEnd?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
   endIcon?: Icon | string;
