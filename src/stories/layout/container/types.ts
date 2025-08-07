@@ -14,6 +14,7 @@ import {
 
 export interface ContainerProps {
   as?: 'div' | 'main' | 'section';
+  className?: string;
   children?: React.ReactNode;
   maxWidth?: MaxWidthToken;
   mt?: MarginTopToken;
