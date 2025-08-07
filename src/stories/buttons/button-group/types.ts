@@ -1,8 +1,17 @@
 import {
   Aligment,
   Justify,
-  Margin,
+  MarginBottomToken,
+  MarginLeftToken,
+  MarginRightToken,
+  MarginToken,
+  MarginTopToken,
   Orientation,
+  PaddingBottomToken,
+  PaddingLeftToken,
+  PaddingRightToken,
+  PaddingToken,
+  PaddingTopToken,
   Spacing,
 } from '@src/stories/types';
 
@@ -13,6 +22,14 @@ export type ButtonGroupProps = {
   justify?: Justify;
   orientation?: Orientation;
   spacing?: Spacing;
-  marginTop?: Margin;
-  marginBottom?: Margin;
+  mt?: MarginTopToken;
+  mb?: MarginBottomToken;
+  mr?: MarginRightToken;
+  ml?: MarginLeftToken;
+  m?: MarginToken;
+  p?: PaddingToken;
+  pt?: PaddingTopToken;
+  pb?: PaddingBottomToken;
+  pr?: PaddingRightToken;
+  pl?: PaddingLeftToken;
 };

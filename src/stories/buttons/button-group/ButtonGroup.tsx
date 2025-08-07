@@ -1,20 +1,16 @@
 import { ButtonGroupProps } from './types';
-import { getClassButtonGroup } from './utils';
+import { getClassButtonGroup, getInlineBtnGroupStyles } from './utils';
 
-export const ButtonGroup = ({
-  children,
-  marginBottom,
-  marginTop,
-  ...props
-}: ButtonGroupProps) => {
+export const ButtonGroup = ({ children, ...props }: ButtonGroupProps) => {
   const classes = getClassButtonGroup({ ...props });
+  const inline = getInlineBtnGroupStyles({ ...props });
 
   return (
     <div
       aria-label="Button group"
       className={classes}
       role="group"
-      style={{ marginTop, marginBottom }}
+      style={inline}
     >
       {children}
     </div>
