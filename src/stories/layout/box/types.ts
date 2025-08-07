@@ -1,7 +1,26 @@
-import { MarginToken, PaddingToken } from '@src/stories/types';
 import { HTMLAttributes } from 'react';
+import {
+  MarginBottomToken,
+  MarginLeftToken,
+  MarginRightToken,
+  MarginToken,
+  MarginTopToken,
+  PaddingBottomToken,
+  PaddingLeftToken,
+  PaddingRightToken,
+  PaddingToken,
+  PaddingTopToken,
+} from '@src/stories/types';
 
 export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
-  padding?: PaddingToken;
-  margin?: MarginToken;
+  mt?: MarginTopToken;
+  mb?: MarginBottomToken;
+  mr?: MarginRightToken;
+  ml?: MarginLeftToken;
+  m?: MarginToken;
+  p?: PaddingToken;
+  pt?: PaddingTopToken;
+  pb?: PaddingBottomToken;
+  pr?: PaddingRightToken;
+  pl?: PaddingLeftToken;
 }
