@@ -122,7 +122,7 @@ export const CheckBoxForm = () => {
           <Message variant="error">{errors.season?.message}</Message>
         </Field>
 
-        <ButtonGroup marginTop={16} fullWidth>
+        <ButtonGroup mt={'mt-md'} fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </form>

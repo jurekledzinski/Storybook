@@ -152,7 +152,7 @@ export const RegisterForm = () => {
             Passwords do not match
           </ValidationItem>
         </ValidationChecklist>
-        <ButtonGroup marginTop={16} fullWidth>
+        <ButtonGroup mt="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </form>

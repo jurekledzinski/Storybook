@@ -103,7 +103,7 @@ export const TextInputForm = () => {
           <Message variant="error">{errors.price?.message}</Message>
         </Field>
 
-        <ButtonGroup marginTop={16} fullWidth>
+        <ButtonGroup mt="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </Form>

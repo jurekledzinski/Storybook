@@ -146,7 +146,7 @@ export const DropFileForm = () => {
             </Box>
           </PreviewFiles>
         </Field>
-        <ButtonGroup marginTop={16} fullWidth>
+        <ButtonGroup mt="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </form>

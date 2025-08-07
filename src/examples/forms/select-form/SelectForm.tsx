@@ -86,7 +86,7 @@ export const SelectForm = () => {
           />
           <Message variant="error">{errors.cars?.message}</Message>
         </Field>
-        <ButtonGroup marginTop={16} fullWidth>
+        <ButtonGroup mt="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </form>
