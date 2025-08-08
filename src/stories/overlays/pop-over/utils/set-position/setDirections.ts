@@ -10,6 +10,8 @@ export const setTop: SetTop = ({
 }) => {
   const triggerWidth = triggerPosition.width;
 
+  console.log('setTop triggerWidth', autoWidth, triggerWidth, panelWidth);
+
   const top = {
     x: triggerPosition.x - panelWidth / 2 + triggerWidth / 2,
     y: triggerPosition.y + window.scrollY - panelHeight,
@@ -23,6 +25,8 @@ export const setTop: SetTop = ({
   if (alignment === 'end') {
     top.x = triggerPosition.x - panelWidth + triggerWidth;
   }
+
+  console.log('top', top);
 
   return top;
 };

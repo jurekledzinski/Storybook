@@ -8,6 +8,7 @@ import {
   getClassNamesInput,
   InputWrapper,
 } from '@src/stories/form-elements/input';
+import { useEffect, useRef } from 'react';
 
 export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
   const { onToggle, open, registerTriggerRef } = usePopOver();
@@ -15,8 +16,17 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
   const { onClick, onKeyDown } = useTriggerEvents({ onToggle });
 
   const isOpen = open['root'];
-  const a11y = useAriaAttributes().selectTriggerA11y(isOpen, `Choose ${label}`);
+  const a11y = useAriaAttributes().selectTriggerA11y(isOpen, label);
   const classes = getClassNamesInput({ variant, size, isError });
+
+  const triggerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!triggerRef.current) return;
+    const rectTrigger = triggerRef.current.getBoundingClientRect();
+    console.log('MOUNT TRIGGER', rectTrigger);
+    registerTriggerRef(triggerRef.current, 'root');
+  }, [registerTriggerRef]);
 
   return (
     <InputWrapper
@@ -24,7 +34,8 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
       endIcon={isOpen ? endIcon[0] : endIcon[1]}
       isError={isError}
       onClickEndIcon={onClick}
-      ref={(node) => registerTriggerRef(node, 'root')}
+      ref={triggerRef}
+      //   ref={(node) => registerTriggerRef(node, 'root')}
       size={size}
       variant={variant}
       {...(isOpen && { className: 'focused' })}

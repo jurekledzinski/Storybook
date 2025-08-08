@@ -15,18 +15,21 @@ import {
 } from './helpers';
 
 export const usePosition = ({
-  autoWidth = false,
+  autoWidth = true,
   gap = 8,
   id,
   panelRef,
   placement = 'bottom',
-  triggerRefs,
   open,
   type = 'floating',
+  getTriggerRect,
+  refreshTriggerRect,
 }: UsePositionProps) => {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const sizeWindow = useRef({ width, height });
+  const sizeWindow = useRef({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
   const [arrowPlacement, setArrowPlacement] = useState<Placement>(placement);
 
   const { heightPanel, widthPanel } = usePanelSize(panelRef, open);
@@ -36,20 +39,19 @@ export const usePosition = ({
     setArrowPlacement((prev) => (prev !== flip ? flip : prev));
   }, []);
 
+  console.log('sizeWindow', sizeWindow);
+
   const onSetPosition = useCallback(
-    (dynamic?: Placement, el?: SizeWindow) => {
-      if (type !== 'floating') return;
-      if (!panelRef.current || !triggerRefs.current || !triggerRefs.current[id])
-        return;
+    (dynamic?: Placement, el?: SizeWindow, triggerPosition?: DOMRect) => {
+      if (type !== 'floating' || !panelRef.current || !triggerPosition) return;
 
       const size = updateSizeWindow(el, sizeWindow);
 
       const panelDirection = getPanelDirection(placement, dynamic);
 
-      const triggerRef = triggerRefs.current[id];
-      const triggerPosition = triggerRef.getBoundingClientRect();
-
       const panelRect = getPanelRect(panelRef.current, widthPanel, heightPanel);
+
+      console.log('triggerPosition onSetPosition', triggerPosition);
 
       const canPlace = getCheckSpace({
         triggerPosition,
@@ -81,7 +83,8 @@ export const usePosition = ({
 
       if (horiontalFlip) {
         onFlip(horiontalFlip);
-        return onSetPosition(horiontalFlip);
+        // return onSetPosition(horiontalFlip);
+        return onSetPosition(horiontalFlip, undefined, triggerPosition);
       }
 
       const verticalFlip = checkVerticalSpace({
@@ -95,7 +98,8 @@ export const usePosition = ({
 
       if (verticalFlip) {
         onFlip(verticalFlip);
-        return onSetPosition(verticalFlip);
+        // return onSetPosition(verticalFlip);
+        return onSetPosition(verticalFlip, undefined, triggerPosition);
       }
 
       setNewPosition({
@@ -107,31 +111,23 @@ export const usePosition = ({
       });
       onFlip(panelDirection.currentPlacement);
     },
-    [
-      autoWidth,
-      gap,
-      id,
-      panelRef,
-      placement,
-      triggerRefs,
-      widthPanel,
-      heightPanel,
-      type,
-      onFlip,
-    ]
+    [autoWidth, gap, panelRef, placement, widthPanel, heightPanel, type, onFlip]
   );
 
   useWindowResize({
     onResize: useCallback(
       (el) => {
         if (open) {
-          onSetPosition(placement, {
-            h: el.scrollHeight,
-            w: el.offsetWidth,
-          });
+          refreshTriggerRect(id);
+          const rect = getTriggerRect(id);
+          const size = { h: el.scrollHeight, w: el.offsetWidth };
+          onSetPosition(placement, size, rect);
+          console.log('CALL ----------------->');
+        } else {
+          refreshTriggerRect(id);
         }
       },
-      [open, onSetPosition, placement]
+      [getTriggerRect, id, open, onSetPosition, placement, refreshTriggerRect]
     ),
   });
 
