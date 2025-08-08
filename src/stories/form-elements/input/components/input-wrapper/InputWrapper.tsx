@@ -1,5 +1,5 @@
 import { ButtonIcon } from '../button-icon/ButtonIcon';
-import { forwardRef } from 'react';
+import { forwardRef, Ref } from 'react';
 import { getClassNamesInputWrapper } from '../../utils';
 import { InputWrapperProps } from './types';
 import { Loader } from '@src/stories/feedbacks/loader';
@@ -18,7 +18,7 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
       statusVisible = true,
       ...props
     },
-    ref
+    ref: Ref<HTMLDivElement>
   ) => {
     const classes = getClassNamesInputWrapper({ ...props, size, variant });
 
