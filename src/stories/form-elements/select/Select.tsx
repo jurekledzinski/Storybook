@@ -6,11 +6,9 @@ import { forwardRef } from 'react';
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
   ({ children, ...props }, ref) => {
     return (
-      <div>
-        <SelectProvider value={{ ...props, ref }}>
-          <PopOverProvider>{children}</PopOverProvider>
-        </SelectProvider>
-      </div>
+      <SelectProvider value={{ ...props, ref }}>
+        <PopOverProvider>{children}</PopOverProvider>
+      </SelectProvider>
     );
   }
 );
