@@ -35,8 +35,7 @@ export const SelectPanel = ({ children }: SelectPanelProps) => {
       ref={panelRef}
       open={open['root']}
       onEntering={() => {
-        const rect = getTriggerRect('root');
-        onSetPosition(undefined, undefined, rect);
+        onSetPosition(undefined, undefined, getTriggerRect('root'));
       }}
       onEntered={onKeyboardNavigation}
       onExited={onKeyboardNavigation}
