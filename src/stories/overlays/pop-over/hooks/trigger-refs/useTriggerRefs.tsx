@@ -33,7 +33,7 @@ export const useTriggerRefs = () => {
   return {
     getTriggerRect,
     refreshTriggerRect,
-    triggerRefs,
     registerTriggerRef,
+    triggerRefs,
   };
 };
