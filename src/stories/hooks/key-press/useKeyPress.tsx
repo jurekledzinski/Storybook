@@ -55,10 +55,12 @@ export const useKeyPress = ({
     [cleanupFns, onEnter, onEscape, onSpace, onTab, onSelectItem, query]
   );
 
+  // Dodałem to wypadku dodania ref z zewnątrz przez hook nie przez onKeyPress
   useEffect(() => {
     if (ref && ref.current) onKeyPress({ node: ref.current });
   }, [ref, onKeyPress]);
 
+  // Musi być czyszczenie keydown
   useEffect(() => {
     return () => cleanupFns.forEach((fn) => fn());
   }, [cleanupFns]);
