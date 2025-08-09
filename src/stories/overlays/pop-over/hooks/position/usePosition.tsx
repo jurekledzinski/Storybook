@@ -3,7 +3,7 @@ import { Placement, setPosition } from '@src/stories/overlays/pop-over';
 import { SizeWindow, UsePositionProps } from './types';
 import { useCallback, useRef, useState } from 'react';
 import { usePanelSize } from '../panel-size';
-import { useWindowResize } from '@src/stories/hooks';
+import { useWindowResize, useWindowScroll } from '@src/stories/hooks';
 import {
   checkHorizontalSpace,
   checkVerticalSpace,
@@ -39,8 +39,6 @@ export const usePosition = ({
     setArrowPlacement((prev) => (prev !== flip ? flip : prev));
   }, []);
 
-  console.log('sizeWindow', sizeWindow);
-
   const onSetPosition = useCallback(
     (dynamic?: Placement, el?: SizeWindow, triggerPosition?: DOMRect) => {
       if (type !== 'floating' || !panelRef.current || !triggerPosition) return;
@@ -51,14 +49,13 @@ export const usePosition = ({
 
       const panelRect = getPanelRect(panelRef.current, widthPanel, heightPanel);
 
-      console.log('triggerPosition onSetPosition', triggerPosition);
-
       const canPlace = getCheckSpace({
         triggerPosition,
         panelWidth: panelRect.panelWidth,
         panelHeight: panelRect.panelHeight,
         gap,
         width: size.width,
+        height: size.height,
       });
 
       const updatedPosition = setPosition({
@@ -83,8 +80,7 @@ export const usePosition = ({
 
       if (horiontalFlip) {
         onFlip(horiontalFlip);
-        // return onSetPosition(horiontalFlip);
-        return onSetPosition(horiontalFlip, undefined, triggerPosition);
+        return onSetPosition(horiontalFlip, el, triggerPosition);
       }
 
       const verticalFlip = checkVerticalSpace({
@@ -98,8 +94,7 @@ export const usePosition = ({
 
       if (verticalFlip) {
         onFlip(verticalFlip);
-        // return onSetPosition(verticalFlip);
-        return onSetPosition(verticalFlip, undefined, triggerPosition);
+        return onSetPosition(verticalFlip, el, triggerPosition);
       }
 
       setNewPosition({
@@ -115,20 +110,30 @@ export const usePosition = ({
   );
 
   useWindowResize({
-    onResize: useCallback(
-      (el) => {
-        if (open) {
-          refreshTriggerRect(id);
-          const rect = getTriggerRect(id);
-          const size = { h: el.scrollHeight, w: el.offsetWidth };
-          onSetPosition(placement, size, rect);
-          console.log('CALL ----------------->');
-        } else {
-          refreshTriggerRect(id);
-        }
-      },
-      [getTriggerRect, id, open, onSetPosition, placement, refreshTriggerRect]
-    ),
+    onResize: useCallback(() => {
+      if (open) {
+        //tu aktualizuje pozycje trigger
+        refreshTriggerRect(id);
+        // tu pobieram aktualną pozycje trigger
+        const rect = getTriggerRect(id);
+        const size = { h: window.innerHeight, w: window.innerWidth };
+        onSetPosition(placement, size, rect);
+      } else {
+        refreshTriggerRect(id);
+      }
+    }, [
+      getTriggerRect,
+      id,
+      open,
+      onSetPosition,
+      placement,
+      refreshTriggerRect,
+    ]),
+  });
+
+  // na skrol aktualizuje pozycje trigger ref dynamicznie ponieważ id będzie albo statyczne root jeden panel albo dynamiczne
+  useWindowScroll({
+    onScroll: () => refreshTriggerRect(id),
   });
 
   return { arrowPlacement, onSetPosition };
