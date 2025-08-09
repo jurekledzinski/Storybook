@@ -1,6 +1,7 @@
 import { capitalizeFirstLetter } from '@src/stories/helpers';
 import { SelectTriggerProps } from './types';
 import { useAriaAttributes } from '@src/stories/hooks';
+import { useEffect, useRef } from 'react';
 import { usePopOver } from '@src/stories/overlays/pop-over';
 import { useSelect } from '../../store';
 import { useTriggerEvents } from './hooks/trigger-events';
@@ -8,7 +9,6 @@ import {
   getClassNamesInput,
   InputWrapper,
 } from '@src/stories/form-elements/input';
-import { useEffect, useRef } from 'react';
 
 export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
   const { onToggle, open, registerTriggerRef } = usePopOver();
@@ -23,8 +23,6 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
 
   useEffect(() => {
     if (!triggerRef.current) return;
-    const rectTrigger = triggerRef.current.getBoundingClientRect();
-    console.log('MOUNT TRIGGER', rectTrigger);
     registerTriggerRef(triggerRef.current, 'root');
   }, [registerTriggerRef]);
 
@@ -35,7 +33,6 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
       isError={isError}
       onClickEndIcon={onClick}
       ref={triggerRef}
-      //   ref={(node) => registerTriggerRef(node, 'root')}
       size={size}
       variant={variant}
       {...(isOpen && { className: 'focused' })}
