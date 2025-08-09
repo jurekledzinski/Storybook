@@ -10,8 +10,7 @@ export const useTriggerRefs = () => {
 
       if (node) {
         triggerRefs.current[id] = node;
-        const rect = node.getBoundingClientRect();
-        triggerRects.current[id] = rect;
+        triggerRects.current[id] = node.getBoundingClientRect();
       } else {
         delete triggerRefs.current[id];
       }
