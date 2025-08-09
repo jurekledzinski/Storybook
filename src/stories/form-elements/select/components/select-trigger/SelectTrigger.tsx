@@ -1,7 +1,7 @@
 import { capitalizeFirstLetter } from '@src/stories/helpers';
 import { SelectTriggerProps } from './types';
 import { useAriaAttributes } from '@src/stories/hooks';
-import { useEffect, useRef } from 'react';
+import { useCallback } from 'react';
 import { usePopOver } from '@src/stories/overlays/pop-over';
 import { useSelect } from '../../store';
 import { useTriggerEvents } from './hooks/trigger-events';
@@ -19,12 +19,10 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
   const a11y = useAriaAttributes().selectTriggerA11y(isOpen, label);
   const classes = getClassNamesInput({ variant, size, isError });
 
-  const triggerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!triggerRef.current) return;
-    registerTriggerRef(triggerRef.current, 'root');
-  }, [registerTriggerRef]);
+  const setTriggerRef = useCallback(
+    (node: HTMLDivElement | null) => node && registerTriggerRef(node, 'root'),
+    [registerTriggerRef]
+  );
 
   return (
     <InputWrapper
@@ -32,7 +30,7 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
       endIcon={isOpen ? endIcon[0] : endIcon[1]}
       isError={isError}
       onClickEndIcon={onClick}
-      ref={triggerRef}
+      ref={setTriggerRef}
       size={size}
       variant={variant}
       {...(isOpen && { className: 'focused' })}
