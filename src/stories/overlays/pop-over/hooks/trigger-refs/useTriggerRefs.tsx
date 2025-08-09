@@ -6,13 +6,12 @@ export const useTriggerRefs = () => {
 
   const registerTriggerRef = useCallback(
     (node: HTMLElement | null, id: string) => {
-      if (!id || !node) return;
-
-      const rect = node.getBoundingClientRect();
-      triggerRects.current[id] = rect;
+      if (!id) return;
 
       if (node) {
         triggerRefs.current[id] = node;
+        const rect = node.getBoundingClientRect();
+        triggerRects.current[id] = rect;
       } else {
         delete triggerRefs.current[id];
       }
