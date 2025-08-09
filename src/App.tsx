@@ -13,7 +13,6 @@ const App = () => {
   return (
     <Container padding="padding-xs">
       <Header />
-      <div style={{ marginTop: 400 }}></div>
       <Select>
         <SelectTrigger
           endIcon={[faChevronUp, faChevronDown]}
