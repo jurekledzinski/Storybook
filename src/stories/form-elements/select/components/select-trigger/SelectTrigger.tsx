@@ -20,12 +20,13 @@ export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
   const classes = getClassNamesInput({ variant, size, isError });
 
   const setTriggerRef = useCallback(
-    (node: HTMLDivElement | null) => node && registerTriggerRef(node, 'root'),
+    (node: HTMLDivElement) => node && registerTriggerRef(node, 'root'),
     [registerTriggerRef]
   );
 
   return (
     <InputWrapper
+      disabled={props.disabled}
       dividerEnd={true}
       endIcon={isOpen ? endIcon[0] : endIcon[1]}
       isError={isError}
