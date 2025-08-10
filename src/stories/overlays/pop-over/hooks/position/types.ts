@@ -1,4 +1,3 @@
-// import { Placement } from '@src/pop-over/types';
 import { ReturnPosition } from '@src/stories/overlays/pop-over';
 import { Placement } from '../../types';
 
@@ -17,10 +16,9 @@ export type CommonPanelProps = {
 export interface UsePositionProps extends CommonPanelProps {
   open: boolean;
   panelRef: React.RefObject<HTMLDivElement | null>;
-  //   triggerRefs: React.RefObject<Record<string, HTMLElement | null>>;
-  type?: 'floating' | 'expand' | 'slide';
   getTriggerRect: (id: string) => DOMRect;
   refreshTriggerRect: (id: string) => void;
+  type?: 'floating' | 'expand' | 'slide';
 }
 
 // ---- Helper functions ----
