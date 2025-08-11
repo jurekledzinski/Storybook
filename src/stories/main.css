@@ -105,6 +105,7 @@
 
   /* Focus */
 
+  --color-focus-white: var(--color-black-100);
   --color-focus-primary: var(--color-primary-500);
   --color-focus-secondary: var(--color-secondary-500);
   --color-focus-negative: var(--color-negative-700);
