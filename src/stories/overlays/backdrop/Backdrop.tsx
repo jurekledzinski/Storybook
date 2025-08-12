@@ -1,9 +1,10 @@
 import styles from './Backdrop.module.css';
 import { BackdropProps } from './types';
+import { classNames } from '@src/stories/helpers';
 import { CSSTransition } from 'react-transition-group';
 import { useRef } from 'react';
 
-export const Backdrop = ({ onClick, open }: BackdropProps) => {
+export const Backdrop = ({ onClick, open, ...props }: BackdropProps) => {
   const nodeRef = useRef(null);
 
   return (
@@ -16,8 +17,9 @@ export const Backdrop = ({ onClick, open }: BackdropProps) => {
         unmountOnExit
       >
         <div
+          {...props}
           ref={nodeRef}
-          className={styles.backdropElement}
+          className={classNames(props.className, styles.backdropElement)}
           onClick={onClick}
         />
       </CSSTransition>
