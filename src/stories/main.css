@@ -118,10 +118,6 @@
   /* Hover */
   --color-surface-hover: var(--color-black-50);
 
-  /* Loader */
-  --color-track: #eeeeee;
-  --color-spin: var(--color-primary-700);
-
   /* Fonts */
   --font-family: 'Inter', sans-serif;
 
@@ -159,6 +155,18 @@
   --z-popover: 100;
   --z-modal: 1000;
   --z-toast: 1100;
+
+  /* Specific colors */
+
+  /* Loader */
+  --loader-track-color: #eeeeee;
+  --loader-spin-color: var(--color-primary-700);
+
+  /* Icon */
+  --icon-color-default: #555555;
+  --icon-color-muted: #bbbbbb;
+  --icon-color-hover: #333333;
+  --icon-color-active: #111111;
 }
 
 [data-theme='dark'] {
@@ -183,6 +191,13 @@
 
   /* Hover */
   --color-surface-hover: var(--color-black-800);
+
+  /* Icon */
+
+  --icon-color-default: #ffffff;
+  --icon-color-muted: #777777;
+  --icon-color-hover: #cccccc;
+  --icon-color-active: #dddddd;
 }
 
 /* ---- Styles ---- */
