@@ -14,7 +14,7 @@ export const Default: Story = {
   args: {
     border: 'border-xs',
     colorSpin: getCssVariable('--color-primary-700'),
-    colorTrack: getCssVariable('--color-track'),
+    colorTrack: getCssVariable('--loader-track-color'),
   },
   argTypes: {
     colorSpin: { control: { type: 'color' } },
