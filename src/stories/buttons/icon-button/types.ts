@@ -9,6 +9,7 @@ import {
 
 export type IconBaseButtonProps = {
   border?: Border;
+  className?: string;
   contrast?: boolean;
   icon: Icons;
   isLoading?: boolean;
