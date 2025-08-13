@@ -4,11 +4,9 @@ export type ContextPopOver = {
   onToggle: (id: string) => void;
   open: Record<string, boolean>;
   mapRefs: React.RefObject<Map<string, HTMLElement>>;
-
   triggers: React.RefObject<Record<string, HTMLElement | null>>;
   setTrigger: (node: HTMLElement | null, id: string) => void;
   getTriggerRect: (id: string) => DOMRect;
-
   updateTriggerRect: (id: string) => void;
 };
 
