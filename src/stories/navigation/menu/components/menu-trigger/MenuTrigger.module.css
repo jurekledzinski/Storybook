@@ -1,0 +1,13 @@
+.full-width {
+  width: 100%;
+}
+
+.menu-trigger {
+  padding: 0.25rem;
+  transition: 100ms linear;
+}
+
+.menu-trigger:focus {
+  background-color: #dddddd;
+  color: white;
+}
