@@ -10,7 +10,7 @@ export const useMenuPanelProps = ({
   placement,
   type = 'floating',
   getTriggerRect,
-  refreshTriggerRect,
+  updateTriggerRect,
   ...restProps
 }: UseMenuPanelProps) => {
   const positioningProps = () => ({
@@ -22,7 +22,7 @@ export const useMenuPanelProps = ({
     placement,
     type,
     getTriggerRect,
-    refreshTriggerRect,
+    updateTriggerRect,
   });
 
   const groupPopoverProps = () => {
