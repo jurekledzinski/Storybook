@@ -3,11 +3,20 @@
 }
 
 .menu-trigger {
-  padding: 0.25rem;
-  transition: 100ms linear;
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
-.menu-trigger:focus {
-  background-color: #dddddd;
+[role='menu'] > .menu-trigger {
+  padding: 0.25rem;
+  transition: 100ms linear;
+  border: none;
+  background-color: initial;
+  text-align: left;
+}
+
+[role='menu'] > .menu-trigger:focus-visible {
+  background-color: var(--color-surface-hover);
   color: white;
 }

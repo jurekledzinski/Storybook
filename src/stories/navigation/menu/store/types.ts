@@ -1,4 +1,5 @@
 import { OnKeyArrow, OnKeyArrowNested, OnKeyPress } from '@src/stories/hooks';
+import { Size } from '@src/stories/types';
 
 export type ContextMenu = {
   mapPlacements: React.RefObject<Map<string, string>>;
@@ -11,4 +12,5 @@ export type ContextMenu = {
 export type MenuProviderProps = {
   children: React.ReactNode;
   onSelectItem?: (id: string) => void;
+  size?: Size;
 };

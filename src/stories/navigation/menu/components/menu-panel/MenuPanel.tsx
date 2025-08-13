@@ -17,8 +17,8 @@ export const MenuPanel = ({ children, ...props }: MenuPanelProps) => {
   if (positionProps.type === 'floating') {
     return (
       <PopOver
-        {...a11y}
         {...popoverProps}
+        {...a11y}
         onEntering={() => {
           onSetPosition(undefined, undefined, getTriggerRect(props.id));
         }}

@@ -25,5 +25,5 @@ export const useMenuController = () => {
     }
   };
 
-  return { a11y, onClick };
+  return { ...a11y, onClick };
 };

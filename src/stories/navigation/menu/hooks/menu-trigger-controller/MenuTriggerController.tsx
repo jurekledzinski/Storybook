@@ -22,5 +22,5 @@ export const useMenuTriggerController = ({
     if (id) setTrigger(node, id);
   };
 
-  return { a11y, className, onClick, ref };
+  return { ...a11y, className, onClick, ref };
 };

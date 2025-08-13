@@ -5,11 +5,12 @@ import { MenuContainerProps } from './types';
 export const MenuContainer = ({
   children,
   onSelectItem,
+  size,
   ...props
 }: MenuContainerProps) => {
   return (
     <PopOverProvider>
-      <MenuProvider onSelectItem={onSelectItem}>
+      <MenuProvider onSelectItem={onSelectItem} size={size}>
         <div data-container="menu-container" {...props}>
           {children}
         </div>
