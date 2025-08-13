@@ -16,6 +16,7 @@ export const SelectPanel = ({ children }: SelectPanelProps) => {
   const a11y = useAriaAttributes().selectPanelA11y();
 
   const { onSetPosition } = usePosition({
+    autoWidth: true,
     id: 'root',
     open: open['root'],
     panelRef,
