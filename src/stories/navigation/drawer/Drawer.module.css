@@ -12,6 +12,7 @@
   top: var(--drawer-top);
   align-self: flex-start;
   color: black;
+  min-height: inherit;
 }
 
 .horizontal,
