@@ -16,8 +16,6 @@ export const getClassNamesDrawer = (params: Params) => {
       ['vertical']: direction === 'left' || direction === 'right',
       [`${variant}`]: Boolean(variant),
     }),
-    inner: generateClassNames(styles, {
-      inner: true,
-    }),
+    inner: styles.inner,
   };
 };

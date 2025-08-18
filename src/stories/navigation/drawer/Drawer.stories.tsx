@@ -1,4 +1,4 @@
-import styles from './Drawer.module.css';
+import exampleStyles from './Example.module.css';
 import { Backdrop } from '@src/stories/overlays/backdrop';
 import { Drawer } from './Drawer';
 import { Meta, StoryObj } from '@storybook/react';
@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof Drawer> = {
   args: {
     direction: 'top',
-    open: false,
+    open: true,
     children: <>a</>,
   },
   argTypes: {
@@ -45,57 +45,61 @@ export const Default: Story = {
     (Story, context) => {
       const { args } = context;
       return (
-        <div className={styles.body}>
+        <div className={exampleStyles.body}>
+          <div className={exampleStyles.header}>Header</div>
           <div
-            style={{ width: '100%', height: '100px', background: 'red' }}
-          ></div>
-          <div className={styles.container}>
+            className={
+              args.open
+                ? `${exampleStyles.container} ${exampleStyles.open}`
+                : exampleStyles.container
+            }
+          >
             {args.direction !== 'right' && args.direction !== 'bottom' ? (
               <Story />
             ) : null}
 
-            <div className={styles.grid}>
-              <div className={styles.box}>
+            <div className={exampleStyles.grid}>
+              <div className={exampleStyles.box}>
                 <img
                   src="images/Beach.jpg"
                   alt="Beach"
-                  className={styles.image}
+                  className={exampleStyles.image}
                 />
               </div>
-              <div className={styles.box}>
+              <div className={exampleStyles.box}>
                 <img
                   src="images/Desert-view.jpg"
                   alt="Desert-view"
-                  className={styles.image}
+                  className={exampleStyles.image}
                 />
               </div>
-              <div className={styles.box}>
+              <div className={exampleStyles.box}>
                 <img
                   src="images/Desert.jpg"
                   alt="Desert"
-                  className={styles.image}
+                  className={exampleStyles.image}
                 />
               </div>
 
-              <div className={styles.box}>
+              <div className={exampleStyles.box}>
                 <img
                   src="images/Beach.jpg"
                   alt="Beach"
-                  className={styles.image}
+                  className={exampleStyles.image}
                 />
               </div>
-              <div className={styles.box}>
+              <div className={exampleStyles.box}>
                 <img
                   src="images/Desert-view.jpg"
                   alt="Desert-view"
-                  className={styles.image}
+                  className={exampleStyles.image}
                 />
               </div>
-              <div className={styles.box}>
+              <div className={exampleStyles.box}>
                 <img
                   src="images/Desert.jpg"
                   alt="Desert"
-                  className={styles.image}
+                  className={exampleStyles.image}
                 />
               </div>
             </div>
