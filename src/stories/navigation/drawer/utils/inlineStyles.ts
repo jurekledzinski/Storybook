@@ -1,6 +1,6 @@
 export const getDrawerInlineStyles = ({
-  gap = 8,
-  width = 300,
+  gap = 0,
+  width = 250,
   top = 0,
 }: {
   gap?: number;
