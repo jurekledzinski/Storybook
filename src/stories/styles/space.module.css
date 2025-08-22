@@ -219,7 +219,7 @@
 
 /* Padding Left */
 
-.g-initial {
+.pl-initial {
   padding-left: var(--space-initial);
 }
 .pl-xxs {
