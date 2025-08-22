@@ -219,7 +219,7 @@
 
 /* Padding Left */
 
-.pl-initial {
+.g-initial {
   padding-left: var(--space-initial);
 }
 .pl-xxs {
@@ -235,5 +235,27 @@
   padding-left: var(--space-md);
 }
 .pl-lg {
+  padding-left: var(--space-lg);
+}
+
+/* Gap */
+
+.g-xxs {
+  padding-left: var(--space-xxs);
+}
+
+.g-xs {
+  padding-left: var(--space-xs);
+}
+
+.g-sm {
+  padding-left: var(--space-sm);
+}
+
+.g-md {
+  padding-left: var(--space-md);
+}
+
+.g-lg {
   padding-left: var(--space-lg);
 }
