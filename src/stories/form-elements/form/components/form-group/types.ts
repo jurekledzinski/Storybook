@@ -1,6 +1,7 @@
-import { Orientation } from '@src/stories/types';
+import { GapToken, Orientation } from '@src/stories/types';
+import { HTMLAttributes } from 'react';
 
-export type FormGroupProps = {
-  children?: React.ReactNode;
+export interface FormGroupProps extends HTMLAttributes<HTMLDivElement> {
+  gap?: GapToken;
   orientation?: Orientation;
-};
+}

@@ -1,8 +1,34 @@
 import styles from '../Form.module.css';
-import { classNames } from '@src/stories/helpers';
-import { Orientation } from '@src/stories/types';
+import stylesSpace from '@src/stories/styles/space.module.css';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { ClassNamesForm, ClassNamesFormGroup } from './types';
 
-export const getClassForm = (orientation?: Orientation) => ({
-  form: classNames(styles.form, orientation ? styles[orientation] : ''),
-  formGroup: classNames(styles['form-group']),
-});
+export const getClassNamesForm: ClassNamesForm = (params) => {
+  const { className, gap = 'g-xs', orientation } = params;
+
+  const mergedStyles = { ...styles, ...stylesSpace };
+
+  return classNames(
+    generateClassNames(mergedStyles, {
+      form: true,
+      [`${gap}`]: Boolean(gap),
+      [`${orientation}`]: Boolean(orientation),
+    }),
+    className ?? ''
+  );
+};
+
+export const getClassNamesFormGroup: ClassNamesFormGroup = (params) => {
+  const { className, gap = 'g-xs', orientation } = params;
+
+  const mergedStyles = { ...styles, ...stylesSpace };
+
+  return classNames(
+    generateClassNames(mergedStyles, {
+      ['form-group']: true,
+      [`${gap}`]: Boolean(gap),
+      [`${orientation}`]: Boolean(orientation),
+    }),
+    className ?? ''
+  );
+};

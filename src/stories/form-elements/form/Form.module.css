@@ -6,12 +6,7 @@
 }
 
 .form {
-  gap: 0.25rem;
   padding: 0.5rem;
-}
-
-.form .form-group {
-  gap: 0.25rem;
 }
 
 .form[data-group='true'] {

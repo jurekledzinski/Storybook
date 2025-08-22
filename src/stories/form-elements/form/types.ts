@@ -1,7 +1,7 @@
 import { FormHTMLAttributes } from 'react';
-import { Orientation } from '@src/stories/types';
+import { GapToken, Orientation } from '@src/stories/types';
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
-  children?: React.ReactNode;
+  gap?: GapToken;
   orientation?: Orientation;
 }

@@ -1,11 +1,17 @@
 import { FormProps } from './types';
-import { getClassForm } from './utils';
+import { getClassNamesForm } from './utils';
 
-export const Form = ({ children, ...props }: FormProps) => {
-  const classes = getClassForm(props.orientation);
+export const Form = ({
+  className,
+  children,
+  gap,
+  orientation,
+  ...props
+}: FormProps) => {
+  const classes = getClassNamesForm({ className, gap, orientation });
 
   return (
-    <form className={classes.form} {...props}>
+    <form className={classes} {...props}>
       {children}
     </form>
   );
