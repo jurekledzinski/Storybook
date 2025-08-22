@@ -241,21 +241,21 @@
 /* Gap */
 
 .g-xxs {
-  padding-left: var(--space-xxs);
+  gap: var(--space-xxs);
 }
 
 .g-xs {
-  padding-left: var(--space-xs);
+  gap: var(--space-xs);
 }
 
 .g-sm {
-  padding-left: var(--space-sm);
+  gap: var(--space-sm);
 }
 
 .g-md {
-  padding-left: var(--space-md);
+  gap: var(--space-md);
 }
 
 .g-lg {
-  padding-left: var(--space-lg);
+  gap: var(--space-lg);
 }
