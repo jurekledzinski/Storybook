@@ -33,7 +33,7 @@ export const CardFilePreview = ({
               />
             ) : (
               <Image
-                src={objectUrl}
+                src={typeof file === 'string' ? file : objectUrl!}
                 onLoad={() => setTimeout(() => onLoad && onLoad(), 1000)}
                 onError={onError}
                 alt="image"
@@ -42,7 +42,7 @@ export const CardFilePreview = ({
           </>
         )}
       </ImageContainer>
-      <p className={classes.title}>{file.name}</p>
+      {typeof file !== 'string' && <p className={classes.title}>{file.name}</p>}
       <IconButton
         icon={[faXmark]}
         style={{ position: 'absolute', top: 0, right: 0 }}
