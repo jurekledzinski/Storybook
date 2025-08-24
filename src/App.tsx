@@ -1,13 +1,10 @@
-import { Container, Header } from './app-ui';
-import { MenuNested } from './examples';
-
 import './stories/main.css';
+import { Container, Header } from './app-ui';
 
 const App = () => {
   return (
     <Container padding="padding-xs">
       <Header />
-      <MenuNested />
     </Container>
   );
 };
