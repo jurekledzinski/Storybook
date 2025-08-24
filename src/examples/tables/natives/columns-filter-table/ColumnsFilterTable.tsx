@@ -30,7 +30,7 @@ type Person = {
 };
 
 const defaultData = Array.from<Person>({ length: 50 }).map((_, index) => ({
-  firstName: `Bob-${index}`,
+  firstName: `Bob Hello hello hello hello hello hello-${index}`,
   lastName: `Lee-${index}`,
   age: 24 + index,
   visits: 10 + index,
