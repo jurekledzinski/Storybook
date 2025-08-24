@@ -27,6 +27,9 @@
   padding: 0.5rem;
   text-align: left;
   font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .table tr:nth-child(even) {
@@ -42,9 +45,12 @@
   background-color: var(--color-primary-700);
   color: var(--color-text-white);
 }
-
+.tbody {
+  position: relative;
+}
 .tbody tr {
   background-color: var(--color-surface-10);
+  vertical-align: bottom;
 }
 
 .tbody:before {
