@@ -1,4 +1,4 @@
-import './stories/main.css';
+import './stories/styles/main.css';
 import { Container, Header } from './app-ui';
 
 const App = () => {
