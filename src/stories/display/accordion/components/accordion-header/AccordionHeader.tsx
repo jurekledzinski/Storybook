@@ -32,13 +32,16 @@ export const AccordionHeader = ({
       >
         {title}
       </Checkbox>
-      <Checkbox
-        id={`delete-${id}`}
-        name="delete"
-        color="negative"
-        variant="filled"
-        onChange={onChangeDelete}
-      />
+
+      {onChangeDelete ? (
+        <Checkbox
+          id={`delete-${id}`}
+          name="delete"
+          color="negative"
+          variant="filled"
+          onChange={onChangeDelete}
+        />
+      ) : null}
     </header>
   );
 };
