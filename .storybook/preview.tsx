@@ -4,7 +4,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { Renderer } from 'storybook/internal/types';
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
-import '../src/stories/main.css';
+import '../src/stories/styles/main.css';
 import type { Preview } from '@storybook/react';
 
 initialize(
