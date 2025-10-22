@@ -1,47 +1,37 @@
 import styles from '../ButtonGroup.module.css';
 import stylesSpace from '@src/stories/styles/space.module.css';
-import { classNames, generateClassNames } from '@src/stories/helpers';
-import { GetClassButtonGroup } from './types';
+import { ButtonGroupClassNames } from './types';
+import {
+  classNames,
+  generateClassNames,
+  spacingClasses,
+} from '@src/stories/helpers';
 
-export const getClassButtonGroup: GetClassButtonGroup = (params) => {
+export const buttonGroupClassNames: ButtonGroupClassNames = (params) => {
   const {
     aligment,
+    className,
     justify,
     fullWidth,
     orientation,
     spacing,
-    m,
-    mb,
-    ml,
-    mr,
-    mt,
-    p,
-    pb,
-    pl,
-    pr,
-    pt,
+    ...rest
   } = params;
+
+  const spaceClasses = spacingClasses(rest);
 
   const mergeStyles = { ...styles, ...stylesSpace };
 
   return classNames(
-    styles['button-group'],
     generateClassNames(mergeStyles, {
+      'button-group': true,
       [`${aligment}`]: Boolean(aligment),
       [`full-width`]: Boolean(fullWidth),
       [`${justify}`]: Boolean(justify),
       [`${orientation}`]: Boolean(orientation),
       [`${spacing}`]: Boolean(spacing),
-      [`${m}`]: Boolean(m),
-      [`${mb}`]: Boolean(mb),
-      [`${ml}`]: Boolean(ml),
-      [`${mr}`]: Boolean(mr),
-      [`${mt}`]: Boolean(mt),
-      [`${p}`]: Boolean(p),
-      [`${pb}`]: Boolean(pb),
-      [`${pl}`]: Boolean(pl),
-      [`${pr}`]: Boolean(pr),
-      [`${pt}`]: Boolean(pt),
-    })
+      ...spaceClasses,
+    }),
+    className ?? ''
   );
 };
