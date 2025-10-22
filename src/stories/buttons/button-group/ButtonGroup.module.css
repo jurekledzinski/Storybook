@@ -24,7 +24,6 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right-color: transparent;
-  /* border-right-width: 0px; */
 }
 
 .button-group.row.none > button:last-child,
@@ -32,7 +31,6 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left-color: transparent;
-  /* border-left-width: 0px; */
 }
 
 .button-group.column.none > button:first-child,
@@ -40,7 +38,6 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-color: transparent;
-  /* border-bottom-width: 0px; */
 }
 
 .button-group.column.none > button:last-child,
@@ -48,7 +45,6 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top-color: transparent;
-  /* border-top-width: 0px; */
 }
 
 .button-group.row:not(.none) > button:first-child,
