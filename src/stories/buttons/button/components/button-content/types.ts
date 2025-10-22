@@ -1,9 +1,5 @@
-import { Icons, Size } from '@src/stories/types/ui';
+import { BaseButtonProps } from '../../types';
 
-export type ButtonContentProps = {
-  isLoading?: boolean;
-  iconStart?: Icons;
-  iconEnd?: Icons;
-  size?: Size;
-  label: string;
-};
+type PickKeys = 'isLoading' | 'iconEnd' | 'iconStart' | 'label' | 'size';
+
+export type ButtonContentProps = Pick<BaseButtonProps, PickKeys>;
