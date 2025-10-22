@@ -13,14 +13,14 @@ export const Button = ({
   ...props
 }: ButtonProps | LinkButtonProps) => {
   const { button, rest } = formatProps(props);
-  const classElement = buttonClassNames(button);
+  const classNames = buttonClassNames(button);
 
   if ('href' in rest) {
     return (
       <a
         aria-label="Link button"
         role="link"
-        className={classElement}
+        className={classNames}
         {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
         {...rest}
       >
@@ -38,7 +38,7 @@ export const Button = ({
   return (
     <button
       aria-label="Button"
-      className={classElement}
+      className={classNames}
       disabled={button.disabled || button.isLoading}
       {...rest}
     >
