@@ -34,58 +34,50 @@
   color: var(--color-warning-900);
 }
 
-/* Outline text color icon */
+/* Variant minimal */
 
-/* .outlined.primary svg,
-.text.primary svg {
-  fill: var(--color-primary-700);
+a.minimal {
+  background-color: transparent;
+  border: none;
+  padding: initial;
+  min-width: initial;
+  color: var(--icon-color-default);
+  transition: 300ms linear;
 }
 
-.outlined.secondary svg,
-.text.secondary svg {
-  fill: var(--color-secondary-400);
+a.minimal:hover {
+  color: var(--icon-color-hover);
 }
 
-.outlined.success svg,
-.text.success svg {
-  fill: var(--color-success-400);
+a.minimal.primary {
+  background-color: transparent;
 }
-
-.outlined.negative svg,
-.text.negative svg {
-  fill: var(--color-negative-500);
-}
-
-.outlined.warning svg,
-.text.warning svg {
-  fill: var(--color-warning-900);
-} */
 
 /* --- Hover outline variant --- */
 
 .outlined.primary:hover,
 .text.primary:hover {
-  background-color: var(--color-primary-50);
+  background-color: var(--color-primary-alpha-10);
 }
 
 .outlined.secondary:hover,
 .text.secondary:hover {
-  background-color: var(--color-secondary-50);
+  background-color: var(--color-secondary-alpha-10);
 }
 
 .outlined.success:hover,
 .text.success:hover {
-  background-color: var(--color-success-50);
+  background-color: var(--color-success-alpha-10);
 }
 
 .outlined.negative:hover,
 .text.negative:hover {
-  background-color: var(--color-negative-50);
+  background-color: var(--color-negative-alpha-10);
 }
 
 .outlined.warning:hover,
 .text.warning:hover {
-  background-color: var(--color-warning-50);
+  background-color: var(--color-warning-alpha-10);
 }
 
 .text.primary,
