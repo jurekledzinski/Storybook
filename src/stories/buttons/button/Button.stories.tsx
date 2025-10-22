@@ -1,9 +1,11 @@
 import { Button } from './Button';
 import { faCheck, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { fn } from '@storybook/test';
-import { Meta, StoryObj } from '@storybook/react';
+import { fn } from 'storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
-const meta: Meta<typeof Button> = {
+type ButtonProps = React.ComponentProps<typeof Button> & { href?: string };
+
+const meta: Meta<ButtonProps> = {
   component: Button,
   title: 'Components/Buttons/Button',
   args: {
@@ -20,7 +22,7 @@ const meta: Meta<typeof Button> = {
   },
   argTypes: {
     border: {
-      control: { type: 'select' },
+      control: 'select',
       options: [
         'border-xs',
         'border-sm',
@@ -30,14 +32,14 @@ const meta: Meta<typeof Button> = {
       ],
     },
     color: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['primary', 'secondary', 'success', 'warning', 'negative'],
     },
     disabled: {
-      control: { type: 'boolean' },
+      control: 'boolean',
     },
     iconStart: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['none', 'faXmark', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
@@ -47,7 +49,7 @@ const meta: Meta<typeof Button> = {
       },
     },
     iconEnd: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['none', 'faXmark', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
@@ -57,8 +59,9 @@ const meta: Meta<typeof Button> = {
       },
     },
     radius: {
-      control: { type: 'select' },
+      control: 'select',
       options: [
+        'default',
         'radius-xs',
         'radius-sm',
         'radius-md',
@@ -67,23 +70,39 @@ const meta: Meta<typeof Button> = {
       ],
     },
     size: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     variant: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['contained', 'outlined', 'text'],
     },
   },
 };
+
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Playground: Story = {};
+
+export const Default: Story = {
+  args: { label: 'Default Button' },
+  parameters: {
+    controls: {
+      include: [],
+    },
+  },
+};
 
 export const Link: Story = {
   args: {
     href: 'http://localhost:6006/?path=/story/components-buttons-button--link',
+    label: 'Link Button',
+  },
+  parameters: {
+    controls: {
+      include: [],
+    },
   },
 };
