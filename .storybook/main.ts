@@ -5,16 +5,14 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
   addons: [
-    '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/test-runner',
     'msw-storybook-addon',
-    '@storybook/addon-viewport',
     '@storybook/addon-coverage',
-    '@storybook/preview-api',
+    'storybook/preview-api',
     '@storybook/addon-themes',
+    '@storybook/addon-docs'
   ],
   features: {
     // this flag ensure that all updates related to a test are processed and applied before making assertions, like a11y checks in react

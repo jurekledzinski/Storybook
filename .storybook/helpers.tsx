@@ -6,7 +6,7 @@ import {
   Primary,
   Controls,
   Stories,
-} from '@storybook/blocks';
+} from '@storybook/addon-docs/blocks';
 
 type SectionName =
   | 'Title'

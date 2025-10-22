@@ -1,11 +1,11 @@
 import { customViewports } from './custom-viewports';
 import { handlers } from '../src/mocks/handlers';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { Renderer } from 'storybook/internal/types';
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import '../src/stories/styles/main.css';
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 
 initialize(
   {
@@ -40,7 +40,7 @@ const preview: Preview = {
     // },
     // pageLayout added here and read in decorator funkcji przykład section story check
     // pageLayout: 'page',
-    viewport: { viewports: { ...INITIAL_VIEWPORTS, ...customViewports } },
+    viewport: { options: { ...INITIAL_VIEWPORTS, ...customViewports } },
   },
   //   tags: ['autodocs'],
   //   decorators: [
