@@ -1,4 +1,4 @@
-import { ButtonProps, LinkButtonProps } from '../types';
+import { ButtonParams, LinkButtonParams } from './types';
 
 export const formatProps = ({
   border,
@@ -10,9 +10,7 @@ export const formatProps = ({
   size,
   variant,
   ...rest
-}:
-  | Omit<ButtonProps, 'iconEnd' | 'iconStart' | 'label'>
-  | Omit<LinkButtonProps, 'iconEnd' | 'iconStart' | 'label'>) => {
+}: ButtonParams | LinkButtonParams) => {
   const button = {
     border,
     color,
