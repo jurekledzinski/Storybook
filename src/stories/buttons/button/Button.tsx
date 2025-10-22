@@ -2,7 +2,7 @@ import { ButtonProps, LinkButtonProps } from './types';
 
 import {
   ButtonContent,
-  getClassButton,
+  buttonClassNames,
   formatProps,
 } from '@src/stories/buttons/button';
 
@@ -13,7 +13,7 @@ export const Button = ({
   ...props
 }: ButtonProps | LinkButtonProps) => {
   const { button, rest } = formatProps(props);
-  const classElement = getClassButton(button);
+  const classElement = buttonClassNames(button);
 
   if ('href' in rest) {
     return (
