@@ -8,16 +8,16 @@ import {
 } from '@src/stories/types';
 
 export type IconBaseButtonProps = {
+  icon: Icons;
   border?: Border;
   className?: string;
+  color?: Color;
   contrast?: boolean;
-  icon: Icons;
-  isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  isLoading?: boolean;
   radius?: Radius;
   size?: Size | 'size-xxs';
-  color?: Color;
   variant?: Variant;
 };
 

@@ -1,14 +1,4 @@
-import {
-  IconBaseButtonProps,
-  IconButtonProps,
-  IconLinkButtonProps,
-} from '../types';
-
-type Color = IconBaseButtonProps['color'];
-
-export const getBackgroundConstrast = (color: Color) => {
-  return `${color}-contrast`;
-};
+import { IconButtonParams, IconLinkButtonParams } from './types';
 
 export const formatProps = ({
   border,
@@ -22,7 +12,7 @@ export const formatProps = ({
   variant,
   contrast,
   ...rest
-}: Omit<IconButtonProps, 'icon'> | Omit<IconLinkButtonProps, 'icon'>) => {
+}: IconButtonParams | IconLinkButtonParams) => {
   const button = {
     border,
     className,

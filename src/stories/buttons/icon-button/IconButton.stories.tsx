@@ -1,7 +1,7 @@
-import { faCheck, faXmark, faSun } from '@fortawesome/free-solid-svg-icons';
-import { fn } from '@storybook/test';
+import { faCheck, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { fn } from 'storybook/test';
 import { IconButton } from './IconButton';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof IconButton> = {
   component: IconButton,
@@ -76,10 +76,25 @@ export default meta;
 
 type Story = StoryObj<typeof IconButton>;
 
-export const Default: Story = {};
+export const Playground: Story = {};
+
+export const Default: Story = {
+  args: { icon: [faSun] },
+  parameters: {
+    controls: {
+      include: [],
+    },
+  },
+};
 
 export const Link: Story = {
   args: {
-    href: 'http://localhost:6006/?path=/story/components-buttons-iconbutton--default',
+    href: 'http://localhost:6006/?path=/story/components-buttons-iconbutton--link',
+    icon: [faSun],
+  },
+  parameters: {
+    controls: {
+      include: [],
+    },
   },
 };

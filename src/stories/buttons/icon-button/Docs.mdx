@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 
 import * as IconButtonStories from './IconButton.stories.tsx';
 
@@ -15,13 +15,15 @@ Here’s a list of the base props for the `IconButton` or `LinkIconButton` compo
 ```js
 {
   border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
+  className?: string;
+  color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
+  contrast?: boolean;
   icon: React.ElementType | IconDefinition;
   isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
   radius?: 'radius-xs' | 'radius-sm' | 'radius-md' | 'radius-lg' | 'radius-xl';
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
-  color: 'primary' | 'secondary' | 'success' | 'negative' | 'warning';
   variant: 'contained' | 'outlined' | 'text';
 }
 ```

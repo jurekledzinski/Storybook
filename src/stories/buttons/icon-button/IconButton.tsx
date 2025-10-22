@@ -1,5 +1,5 @@
 import { formatProps } from './utils/helpers';
-import { getClassIconButton } from '@src/stories/buttons/icon-button';
+import { iconButtonClassNames } from '@src/stories/buttons/icon-button';
 import { IconButtonContent } from './components';
 import { IconButtonProps, IconLinkButtonProps } from './types';
 
@@ -8,14 +8,14 @@ export const IconButton = ({
   ...props
 }: IconButtonProps | IconLinkButtonProps) => {
   const { button, rest } = formatProps(props);
-  const classes = getClassIconButton(button);
+  const classNames = iconButtonClassNames(button);
 
   if ('href' in rest) {
     return (
       <a
         aria-label="Icon link button"
         role="link"
-        className={classes}
+        className={classNames}
         {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
         {...rest}
       >
@@ -31,7 +31,7 @@ export const IconButton = ({
   return (
     <button
       aria-label="Icon button"
-      className={classes}
+      className={classNames}
       disabled={button.disabled || button.isLoading}
       {...rest}
     >

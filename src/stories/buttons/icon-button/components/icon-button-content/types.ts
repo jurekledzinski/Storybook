@@ -1,7 +1,5 @@
-import { Icons, Size } from '@src/stories/types';
+import { IconBaseButtonProps } from '../../types';
 
-export type IconButtonContentProps = {
-  icon: Icons;
-  isLoading?: boolean;
-  size?: Size | 'size-xxs';
-};
+type PickKeys = 'icon' | 'isLoading' | 'size';
+
+export type IconButtonContentProps = Pick<IconBaseButtonProps, PickKeys>;

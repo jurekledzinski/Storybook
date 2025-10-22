@@ -1,28 +1,31 @@
 import styles from '../IconButton.module.css';
-import { classNames } from '@src/stories/helpers';
-import { getBackgroundConstrast } from './helpers';
-import { IconBaseButtonProps } from '../types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { IconButtonClassNames } from './types';
 
-export const getClassIconButton = ({
+export const iconButtonClassNames: IconButtonClassNames = ({
   border = 'border-xs',
   className,
+  contrast,
   color = 'primary',
+  disabled,
+  fullWidth,
+  isLoading,
+  radius,
   size = 'size-md',
   variant = 'contained',
-  ...params
-}: Omit<IconBaseButtonProps, 'icon'>) => {
-  const defaultValues = { border, color, size, variant };
-  const stylesValues = Object.values({
-    ...params,
-    ...defaultValues,
-  });
-
+}) => {
   return classNames(
-    styles.iconButton,
-    ...stylesValues.map((key) => styles[key as keyof typeof styles]),
-    params.contrast ? styles[getBackgroundConstrast(color)] : '',
-    params.disabled || params.isLoading ? styles.disabled : '',
-    params.fullWidth ? styles.fullWidth : '',
+    generateClassNames(styles, {
+      iconButton: true,
+      [border]: Boolean(border),
+      [color]: Boolean(color),
+      [size]: Boolean(size),
+      [variant]: Boolean(variant),
+      [`${color}-contrast`]: Boolean(contrast),
+      [`${radius}`]: Boolean(radius),
+      disabled: Boolean(disabled || isLoading),
+      fullWidth: Boolean(fullWidth),
+    }),
     className ?? ''
   );
 };
