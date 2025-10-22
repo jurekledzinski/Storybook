@@ -1,35 +1,17 @@
 import {
   Aligment,
   Justify,
-  MarginBottomToken,
-  MarginLeftToken,
-  MarginRightToken,
-  MarginToken,
-  MarginTopToken,
   Orientation,
-  PaddingBottomToken,
-  PaddingLeftToken,
-  PaddingRightToken,
-  PaddingToken,
-  PaddingTopToken,
   Spacing,
+  SpacingToken,
 } from '@src/stories/types';
 
-export type ButtonGroupProps = {
+export interface ButtonGroupProps extends SpacingToken {
   children: React.ReactNode;
   aligment?: Aligment;
+  className?: string;
   fullWidth?: boolean;
   justify?: Justify;
   orientation?: Orientation;
   spacing?: Spacing;
-  mt?: MarginTopToken;
-  mb?: MarginBottomToken;
-  mr?: MarginRightToken;
-  ml?: MarginLeftToken;
-  m?: MarginToken;
-  p?: PaddingToken;
-  pt?: PaddingTopToken;
-  pb?: PaddingBottomToken;
-  pr?: PaddingRightToken;
-  pl?: PaddingLeftToken;
-};
+}
