@@ -18,7 +18,7 @@ export type IconBaseButtonProps = {
   isLoading?: boolean;
   radius?: Radius;
   size?: Size | 'size-xxs';
-  variant?: Variant;
+  variant?: Variant | 'minimal';
 };
 
 export interface IconButtonProps

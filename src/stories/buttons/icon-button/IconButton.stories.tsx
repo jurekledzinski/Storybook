@@ -72,6 +72,7 @@ const meta: Meta<typeof IconButton> = {
     },
   },
 };
+
 export default meta;
 
 type Story = StoryObj<typeof IconButton>;
