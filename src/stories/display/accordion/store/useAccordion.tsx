@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AccordionContext } from './contextAccordion';
+import { AccordionContext } from './context';
 
 export const useAccordion = () => {
   const context = useContext(AccordionContext);

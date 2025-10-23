@@ -1,47 +1,23 @@
 import { AccordionHeaderProps } from './types';
-import { Checkbox } from '@src/stories/form-elements/checkbox';
-import { getClassNamesAccordionHeader } from '../../utils';
+import { accordionHeaderClassNames } from '../../utils';
 import { useAccordion } from '../../store';
 
 export const AccordionHeader = ({
-  checked,
-  id,
-  title,
-  onChange,
-  onChangeDelete,
-  onClick,
-  p,
-  size,
+  children,
+  ...props
 }: AccordionHeaderProps) => {
-  const context = useAccordion();
-  const classes = getClassNamesAccordionHeader({ ...context, p });
+  const { color, id, onClick, variant } = useAccordion();
+  const classes = accordionHeaderClassNames({ color, variant, ...props });
 
   return (
-    <header className={classes.header}>
-      <Checkbox
-        className={classes.checkbox}
-        defaultChecked={checked}
-        color={context.color}
-        size={size}
-        id={id}
-        name={'option'}
-        onChange={onChange}
-        onClick={onClick}
-        type="checkbox"
-        value={id}
-      >
-        {title}
-      </Checkbox>
-
-      {onChangeDelete ? (
-        <Checkbox
-          id={`delete-${id}`}
-          name="delete"
-          color="negative"
-          variant="filled"
-          onChange={onChangeDelete}
-        />
-      ) : null}
-    </header>
+    <div
+      className={classes}
+      id={id}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+    >
+      {children}
+    </div>
   );
 };

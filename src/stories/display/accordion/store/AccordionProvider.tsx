@@ -1,4 +1,4 @@
-import { AccordionContext } from './contextAccordion';
+import { AccordionContext } from './context';
 import { AccordionProviderProps } from './types';
 
 const AccordionProvider = ({ children, value }: AccordionProviderProps) => {

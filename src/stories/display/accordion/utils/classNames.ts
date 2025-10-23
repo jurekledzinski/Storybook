@@ -1,40 +1,49 @@
 import styles from '../Accordion.module.css';
 import stylesSpace from '@src/stories/styles/space.module.css';
-import { ClassesAccordionContent, ClassesAccordionHeader } from './types';
-import { generateClassNames } from '@src/stories/helpers';
+import { AccordionContentClassNames, AccordionHeaderClassNames } from './types';
+import {
+  classNames,
+  generateClassNames,
+  spacingClasses,
+} from '@src/stories/helpers';
 
-export const getClassNamesAccordionHeader: ClassesAccordionHeader = (
+export const accordionHeaderClassNames: AccordionHeaderClassNames = (
   params
 ) => {
-  const { color, p, showCheckbox = false, variant } = params;
+  const { color, size, variant, ...rest } = params;
 
-  return {
-    header: generateClassNames(styles, {
-      header: true,
-      [`${color}`]: Boolean(color),
-      [`${p}`]: Boolean(p),
-      [`${variant}`]: Boolean(variant),
-    }),
-    ...(!showCheckbox ? { checkbox: styles.hidden } : {}),
-  };
+  const spacing = spacingClasses(rest);
+  const mergedStyles = { ...styles, ...stylesSpace };
+
+  return generateClassNames(mergedStyles, {
+    header: true,
+    [`${color}`]: Boolean(color),
+    [`${size}`]: Boolean(size),
+    [`${variant}`]: Boolean(variant),
+    ...spacing,
+  });
 };
 
-export const getClassNamesContent: ClassesAccordionContent = (params) => {
-  const { p, pb, pt, pl, pr, size } = params;
+export const accordionContentClassNames: AccordionContentClassNames = (
+  params
+) => {
+  const { className, open, size, variant, ...rest } = params;
 
+  const spacing = spacingClasses(rest);
   const mergedStyles = { ...styles, ...stylesSpace };
 
   return {
-    content: generateClassNames(styles, {
-      content: true,
-      [`${size}`]: Boolean(size),
-    }),
+    content: classNames(
+      generateClassNames(styles, {
+        content: true,
+        open: open,
+        [`${size}`]: Boolean(size),
+        [`${variant}`]: Boolean(variant),
+      }),
+      className ?? ''
+    ),
     inner: generateClassNames(mergedStyles, {
-      [`${p}`]: Boolean(p),
-      [`${pb}`]: Boolean(pb),
-      [`${pt}`]: Boolean(pt),
-      [`${pl}`]: Boolean(pl),
-      [`${pr}`]: Boolean(pr),
+      ...spacing,
     }),
   };
 };

@@ -1,31 +1,59 @@
-.content {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
   width: 100%;
-  transition: 0.3s ease;
+  color: var(--color-text-white);
+}
+
+.content {
+  transition: max-height 0.3s ease;
+  background-color: var(--color-surface-0);
+  width: 100%;
   overflow: hidden;
   color: var(--color-text-primary);
   font-size: 14px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  width: 100%;
+.content:not(.text) {
+  border-right: 1px solid var(--color-surface-30);
+  border-left: 1px solid var(--color-surface-30);
 }
 
-.radioButton {
+.content:not(.text).open {
+  border-bottom: 1px solid var(--color-surface-30);
+}
+
+.icon {
   display: block;
-  margin: 0 0.5rem 0 0;
+  justify-self: flex-end;
+  margin-right: 0.5rem;
 }
 
-.header > label:first-child {
-  width: 100%;
-  color: var(--color-text-primary);
+.icon svg {
+  color: var(--color-text-white);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  text-align: left;
+  word-break: break-word;
+}
+
+.subTitle {
+  font-size: 12px;
+  text-align: left;
 }
 
 /* Colors */
 
 .primary {
-  --color: var(--color-primary-700);
+  --color: var(--color-primary-400);
 }
 
 .secondary {
@@ -51,8 +79,8 @@
 .header.text.success,
 .header.text.negative,
 .header.text.warning {
+  border-bottom: 1px solid var(--color);
   background-color: transparent;
-  border: none;
   color: var(--color);
 }
 
@@ -61,8 +89,8 @@
 .header.outlined.success,
 .header.outlined.negative,
 .header.outlined.warning {
-  background-color: transparent;
   border: 1px solid var(--color);
+  background-color: transparent;
   color: var(--color);
 }
 
@@ -79,9 +107,9 @@
 .header.contained.success,
 .header.contained.negative,
 .header.contained.warning {
-  border: 1px solid var(--color);
   background-color: var(--color);
   color: var(--color-text-white);
+  /* border: 1px solid var(--color); */
 }
 
 .header.contained.primary > label:first-child,
@@ -90,38 +118,6 @@
 .header.contained.negative > label:first-child,
 .header.contained.warning > label:first-child {
   color: var(--color-text-white);
-}
-
-/* Header padding checkbox label */
-
-.header.p-initial > label {
-  padding: var(--space-initial);
-}
-
-.header.p-xxs > label {
-  padding: var(--space-xxs);
-}
-
-.header.p-xs > label {
-  padding: var(--space-xs);
-}
-
-.header.p-sm > label {
-  padding: var(--space-sm);
-}
-
-.header.p-md > label {
-  padding: var(--space-md);
-}
-
-.header.p-lg > label {
-  padding: var(--space-lg);
-}
-
-/* Hide icon checkbox */
-
-.header div.hidden {
-  display: none;
 }
 
 /* Size content */

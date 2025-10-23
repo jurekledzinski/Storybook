@@ -1,32 +1,20 @@
-import { AccordionContentProps } from '../components';
+import { AccordionContentProps, AccordionHeaderProps } from '../components';
 import { AccordionProps } from '../types';
-import {
-  PaddingBottomToken,
-  PaddingLeftToken,
-  PaddingRightToken,
-  PaddingToken,
-  PaddingTopToken,
-} from '@src/stories/types';
 
-interface ParamsAccordionHeader extends Omit<AccordionProps, 'children'> {
-  p?: PaddingToken;
-}
+type OmitHeaderKeys = 'children' | 'onClick';
+type CleanHeaderProps = Omit<AccordionHeaderProps, OmitHeaderKeys>;
 
-interface ParamsAccordionContent
-  extends Omit<AccordionContentProps, 'active' | 'children' | 'className'> {
-  p?: PaddingToken;
-  pt?: PaddingTopToken;
-  pb?: PaddingBottomToken;
-  pl?: PaddingLeftToken;
-  pr?: PaddingRightToken;
-}
+type OmitAccordionKeys = 'children' | 'id' | 'open';
 
-export type ClassesAccordionHeader = (params: ParamsAccordionHeader) => {
-  checkbox?: string;
-  header: string;
+type HeaderParams = Omit<AccordionProps, OmitAccordionKeys> & CleanHeaderProps;
+type ContentParams = Omit<AccordionContentProps, 'children'> & {
+  open: boolean;
+  variant: AccordionProps['variant'];
 };
 
-export type ClassesAccordionContent = (params: ParamsAccordionContent) => {
+export type AccordionHeaderClassNames = (params: HeaderParams) => string;
+
+export type AccordionContentClassNames = (params: ContentParams) => {
   content: string;
   inner: string;
 };
