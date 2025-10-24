@@ -4,7 +4,7 @@ type PickUnions = 'color' | 'onClick' | 'radius' | 'size' | 'variant';
 
 type Params = Pick<ChipProps, PickUnions>;
 
-export type GetChipClassNamesFn = (params: Params) => {
+export type ChipClassNames = (params: Params) => {
   chipWrapper: string;
   delete: string;
   label: string;

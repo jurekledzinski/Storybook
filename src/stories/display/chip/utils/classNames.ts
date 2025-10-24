@@ -1,8 +1,8 @@
-import { generateClassNames } from '@src/stories/helpers';
 import styles from '../Chip.module.css';
-import { GetChipClassNamesFn } from './types';
+import { generateClassNames } from '@src/stories/helpers';
+import { ChipClassNames } from './types';
 
-export const getClassNamesChip: GetChipClassNamesFn = (params) => {
+export const chipClassNames: ChipClassNames = (params) => {
   const { color, onClick, radius, size, variant } = params;
 
   return {
