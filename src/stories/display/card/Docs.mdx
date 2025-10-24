@@ -1,0 +1,25 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as CardStories from './Card.stories.tsx';
+
+<Meta of={CardStories} />
+
+### Card Component
+
+The `Card` component is used to display content.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Card` component:
+
+```js
+{
+  children: React.ReactNode;
+  className?: string,
+  ...props: HTMLAttributes<HTMLDivElement>
+}
+```
+
+#### Example Usage `Card`
+
+<Story of={CardStories.Default} />
