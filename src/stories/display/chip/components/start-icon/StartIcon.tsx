@@ -1,6 +1,6 @@
-import { StartIconProps } from './types';
 import styles from '../../Chip.module.css';
 import { Icon } from '@src/stories/graphics/icon';
+import { StartIconProps } from './types';
 
 export const StartIcon = ({ startIcon, startIconSrc }: StartIconProps) => {
   if (startIcon) {
