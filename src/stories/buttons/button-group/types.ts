@@ -1,12 +1,6 @@
-import {
-  Aligment,
-  Justify,
-  Orientation,
-  Spacing,
-  SpacingToken,
-} from '@src/stories/types';
+import { Aligment, Justify, Orientation, Spacing } from '@src/stories/types';
 
-export interface ButtonGroupProps extends SpacingToken {
+export type ButtonGroupProps = {
   children: React.ReactNode;
   aligment?: Aligment;
   className?: string;
@@ -14,4 +8,4 @@ export interface ButtonGroupProps extends SpacingToken {
   justify?: Justify;
   orientation?: Orientation;
   spacing?: Spacing;
-}
+};
