@@ -1,6 +1,5 @@
 import { ChipWrapperProps } from './types';
 import { DeleteButton } from '../delete-button';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { getClassNamesChip } from '../../utils';
 import { Icon } from '@src/stories/graphics/icon';
 import { StartIcon } from '../start-icon';
@@ -8,7 +7,7 @@ import { StartIcon } from '../start-icon';
 export const ChipWrapper = ({
   children,
   onDelete,
-  deleteIcon = faXmark,
+  deleteIcon,
   startIcon,
   startIconSrc,
   ...props
@@ -21,7 +20,7 @@ export const ChipWrapper = ({
 
       {children && <span className={classes.label}>{children}</span>}
 
-      {onDelete ? (
+      {onDelete && deleteIcon ? (
         <DeleteButton
           className={classes.delete}
           id={props.id}
