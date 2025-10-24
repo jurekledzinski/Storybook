@@ -1,0 +1,32 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as ChipStories from './Chip.stories.tsx';
+
+<Meta of={ChipStories} />
+
+### Chip Component
+
+A small component used to display tags, labels, or categories.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Chip` component:
+
+```js
+{
+  color?:  "primary" | "secondary" | "success" | "negative" | "warning";
+  deleteIcon?: React.ElementType | IconDefinition;
+  label?: React.ReactNode;
+  radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
+  size?: "size-xs" | "size-sm" | "size-md" | "size-lg";
+  startIcon?: React.ElementType | IconDefinition;
+  startIconSrc?: string;
+  variant?: "contained" | "outlined";
+  onDelete?: MouseEventHandler<HTMLButtonElement>;
+  ...props: HTMLAttributes<HTMLDivElement>
+}
+```
+
+#### Example Usage `Chip`
+
+<Story of={ChipStories.Default} />
