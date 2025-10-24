@@ -1,5 +1,5 @@
 import { ChangeEventHandler } from 'react';
-import { Size } from '@/types';
+import { Size } from '@src/stories/types';
 
 export type AccordionSelectProps = {
   onSelect?: ChangeEventHandler<HTMLInputElement>;

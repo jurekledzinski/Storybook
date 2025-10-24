@@ -14,7 +14,4 @@ type ContentParams = Omit<AccordionContentProps, 'children'> & {
 
 export type AccordionHeaderClassNames = (params: HeaderParams) => string;
 
-export type AccordionContentClassNames = (params: ContentParams) => {
-  content: string;
-  inner: string;
-};
+export type AccordionContentClassNames = (params: ContentParams) => string;

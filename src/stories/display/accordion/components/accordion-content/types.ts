@@ -1,7 +1,7 @@
-import { Size, SpacingToken } from '@src/stories/types';
+import { Size } from '@src/stories/types';
 
-export interface AccordionContentProps extends SpacingToken {
+export type AccordionContentProps = {
   children?: React.ReactNode;
   className?: string;
   size?: Size;
-}
+};

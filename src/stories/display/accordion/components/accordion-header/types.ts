@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
-import { Size, SpacingToken } from '@src/stories/types';
+import { Size } from '@src/stories/types';
 
-export interface AccordionHeaderProps extends SpacingToken {
+export type AccordionHeaderProps = {
+  className?: string;
   children?: ReactNode;
   size?: Size;
-}
+};

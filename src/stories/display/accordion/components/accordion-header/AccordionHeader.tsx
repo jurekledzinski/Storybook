@@ -1,5 +1,5 @@
-import { AccordionHeaderProps } from './types';
 import { accordionHeaderClassNames } from '../../utils';
+import { AccordionHeaderProps } from './types';
 import { useAccordion } from '../../store';
 
 export const AccordionHeader = ({
@@ -7,11 +7,11 @@ export const AccordionHeader = ({
   ...props
 }: AccordionHeaderProps) => {
   const { color, id, onClick, variant } = useAccordion();
-  const classes = accordionHeaderClassNames({ color, variant, ...props });
+  const classNames = accordionHeaderClassNames({ color, variant, ...props });
 
   return (
     <div
-      className={classes}
+      className={classNames}
       id={id}
       onClick={onClick}
       role="button"

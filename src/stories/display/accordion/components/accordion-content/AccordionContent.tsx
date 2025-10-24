@@ -10,13 +10,13 @@ export const AccordionContent = ({
   const ref = useRef<HTMLDivElement | null>(null);
   const { open, variant } = useAccordion();
 
-  const classes = accordionContentClassNames({ open, variant, ...props });
+  const classNames = accordionContentClassNames({ open, variant, ...props });
 
   const maxHeight = open ? `${ref.current?.scrollHeight}px` : '0px';
 
   return (
-    <div className={classes.content} ref={ref} style={{ maxHeight }}>
-      <div className={classes.inner}>{children}</div>
+    <div className={classNames} ref={ref} style={{ maxHeight }}>
+      <div>{children}</div>
     </div>
   );
 };
