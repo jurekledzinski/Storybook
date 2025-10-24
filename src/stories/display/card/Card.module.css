@@ -13,7 +13,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--color-surface-10);
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
   color: var(--color-text-primary);
 }
 
