@@ -51,14 +51,14 @@ export const Playground: Story = {
             onClick: () => setOpen((prev) => !prev),
             children: (
               <>
-                <AccordionHeader p="p-sm">
+                <AccordionHeader className="p-sm">
                   <AccordionInfo
                     title="Example title"
                     text={new Date().toLocaleString()}
                   />
                   <AccordionIcon />
                 </AccordionHeader>
-                <AccordionContent p="p-sm">
+                <AccordionContent className="p-sm">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
                   sit labore, quidem beatae necessitatibus excepturi, fugit
                   distinctio quis dolores quos numquam animi obcaecati odio
@@ -132,7 +132,7 @@ export const DeleteOne: Story = {
 
       return (
         <>
-          <ButtonGroup mb="mb-sm" spacing="tight">
+          <ButtonGroup className="mb-sm" spacing="tight">
             <IconButton
               color="success"
               icon={[faRefresh]}
@@ -153,12 +153,14 @@ export const DeleteOne: Story = {
                   onClick: handleOpen,
                   children: (
                     <>
-                      <AccordionHeader p="p-sm">
+                      <AccordionHeader className="p-sm">
                         <AccordionInfo title={title} text={date} />
                         <AccordionIcon />
                         <AccordionActions onDelete={onDelete} />
                       </AccordionHeader>
-                      <AccordionContent p="p-sm">{content}</AccordionContent>
+                      <AccordionContent className="p-sm">
+                        {content}
+                      </AccordionContent>
                     </>
                   ),
                 }}
@@ -216,7 +218,7 @@ export const DeleteMany: Story = {
 
       return (
         <>
-          <ButtonGroup mb="mb-sm" spacing="tight">
+          <ButtonGroup className="mb-sm" spacing="tight">
             <Button
               color="negative"
               label="Delete"
@@ -243,12 +245,14 @@ export const DeleteMany: Story = {
                   onClick: handleOpen,
                   children: (
                     <>
-                      <AccordionHeader p="p-sm">
+                      <AccordionHeader className="p-sm">
                         <AccordionInfo title={title} text={date} />
                         <AccordionIcon />
                         <AccordionSelect onSelect={handleDelete} />
                       </AccordionHeader>
-                      <AccordionContent p="p-sm">{content}</AccordionContent>
+                      <AccordionContent className="p-sm">
+                        {content}
+                      </AccordionContent>
                     </>
                   ),
                 }}
