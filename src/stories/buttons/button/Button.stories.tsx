@@ -2,6 +2,7 @@ import { Button } from './Button';
 import { faCheck, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { fn } from 'storybook/test';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Stack } from '@src/app-ui';
 
 type ButtonProps = React.ComponentProps<typeof Button> & { href?: string };
 
@@ -87,7 +88,17 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {};
 
 export const Default: Story = {
-  args: { label: 'Default Button' },
+  args: { label: 'Button' },
+  render: (args) => (
+    <Stack spacing="normal" wrap="wrap">
+      <Button {...args} />
+      <Button {...args} color="secondary" />
+      <Button {...args} color="info" />
+      <Button {...args} color="negative" />
+      <Button {...args} color="success" />
+      <Button {...args} color="warning" />
+    </Stack>
+  ),
   parameters: {
     controls: {
       include: [],
