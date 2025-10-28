@@ -111,6 +111,11 @@ export const Default: Story = {
       );
     },
   ],
+  parameters: {
+    controls: {
+      include: [],
+    },
+  },
 };
 
 export const DeleteOne: Story = {
