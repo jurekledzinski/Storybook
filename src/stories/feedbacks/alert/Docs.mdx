@@ -1,0 +1,31 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as AlertStories from './Alert.stories.tsx';
+
+<Meta of={AlertStories} />
+
+### Alert Component
+
+The `Alert` component is used to display brief, important messages to the user.
+It provides contextual feedback such as success, error, warning, or informational messages.
+
+Use alerts to communicate status updates, confirmations, or critical issues that require the user’s attention.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Alert` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string;
+  color?: "info" | "primary" | "secondary" | "success" | "negative" | "warning" | "white";
+  fullWidth?: boolean;
+  radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
+  variant?: 'contained' | 'filled' | 'light' | 'outlined';
+}
+```
+
+#### Example Usage `Alert`
+
+<Story of={AlertStories.Default} />
