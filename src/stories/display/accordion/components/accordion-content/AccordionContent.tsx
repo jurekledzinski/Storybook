@@ -15,8 +15,8 @@ export const AccordionContent = ({
   const maxHeight = open ? `${ref.current?.scrollHeight}px` : '0px';
 
   return (
-    <div className={classNames} ref={ref} style={{ maxHeight }}>
-      <div>{children}</div>
+    <div className={classNames.content} ref={ref} style={{ maxHeight }}>
+      <div className={classNames.inner}>{children}</div>
     </div>
   );
 };
