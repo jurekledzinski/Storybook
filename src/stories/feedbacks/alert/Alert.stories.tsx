@@ -1,7 +1,12 @@
 import { Alert } from './Alert';
 import { AlertButton, AlertIcon, AlertMessage } from './components';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Stack } from '@src/app-ui';
+import {
+  faCircleCheck,
+  faCircleInfo,
+  faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof Alert> = {
   component: Alert,
@@ -64,18 +69,37 @@ export const Playground: Story = {
 export const Default: Story = {
   render: (args) => {
     return (
-      <Alert {...args}>
-        <AlertIcon icon={faCircleInfo} color={args.color} />
-        <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-        <AlertButton
-          color={
-            args.variant === 'light' || args.variant === 'outlined'
-              ? args.color
-              : 'white'
-          }
-          variant="text"
-        />
-      </Alert>
+      <Stack orientation="column" spacing="normal">
+        <Alert {...args}>
+          <AlertIcon icon={faCircleInfo} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color={'white'} variant="text" />
+        </Alert>
+
+        <Alert {...args} color="secondary">
+          <AlertIcon icon={faCircleInfo} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color={'white'} variant="text" />
+        </Alert>
+
+        <Alert {...args} color="negative">
+          <AlertIcon icon={faTriangleExclamation} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color={'white'} variant="text" />
+        </Alert>
+
+        <Alert {...args} color="success">
+          <AlertIcon icon={faCircleCheck} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color={'white'} variant="text" />
+        </Alert>
+
+        <Alert {...args} color="warning">
+          <AlertIcon icon={faTriangleExclamation} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color={'white'} variant="text" />
+        </Alert>
+      </Stack>
     );
   },
   parameters: {
