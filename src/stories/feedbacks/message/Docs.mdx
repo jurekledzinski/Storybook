@@ -1,0 +1,24 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as MessageStories from './Message.stories.tsx';
+
+<Meta of={MessageStories} />
+
+### Message Component
+
+The `Message` component displays feedback or notifications to users, such as success, error, warning, or informational messages.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Message` component:
+
+```js
+{
+  children: React.ReactNode;
+  variant?: 'info' | 'secondary' | 'success' | 'error' | 'warning';
+}
+```
+
+#### Example Usage `Message`
+
+<Story of={MessageStories.Default} />
