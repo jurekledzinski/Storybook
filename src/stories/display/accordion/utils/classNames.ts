@@ -23,13 +23,13 @@ export const accordionContentClassNames: AccordionContentClassNames = (
 ) => {
   const { className, open, size, variant } = params;
 
-  return classNames(
-    generateClassNames(styles, {
+  return {
+    content: generateClassNames(styles, {
       content: true,
       open: open,
       [`${size}`]: Boolean(size),
       [`${variant}`]: Boolean(variant),
     }),
-    className ?? ''
-  );
+    inner: classNames(className ?? ''),
+  };
 };
