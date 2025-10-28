@@ -1,38 +1,32 @@
 import { getCssVariable } from '@src/stories/helpers';
 import { Loader } from './Loader';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Loader> = {
   component: Loader,
   title: 'Components/Feedbacks/Loader',
+  args: {
+    border: 'border-xs',
+    colorSpin: getCssVariable('--color-primary-700'),
+    colorTrack: getCssVariable('--loader-track-color'),
+    size: 'size-sm',
+  },
 };
 export default meta;
 
 type Story = StoryObj<typeof Loader>;
 
-export const Default: Story = {
-  args: {
-    border: 'border-xs',
-    colorSpin: getCssVariable('--color-primary-700'),
-    colorTrack: getCssVariable('--loader-track-color'),
-  },
+export const Playground: Story = {
   argTypes: {
-    colorSpin: { control: { type: 'color' } },
-    colorTrack: { control: { type: 'color' } },
-    size: {
-      control: { type: 'select' },
-      options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
-    },
+    colorSpin: { control: 'color' },
+    colorTrack: { control: 'color' },
+    size: { control: 'number' },
     position: {
       control: { type: 'select' },
-      options: ['default', 'center'],
-      mapping: {
-        default: undefined,
-        center: 'center',
-      },
+      options: ['default', 'element', 'viewport'],
     },
     border: {
-      control: { type: 'select' },
+      control: 'select',
       options: [
         'border-xs',
         'border-sm',
@@ -42,9 +36,17 @@ export const Default: Story = {
       ],
     },
   },
+  render: (args) => (
+    <div style={{ position: 'relative' }}>
+      <Loader {...args} />
+    </div>
+  ),
+};
+
+export const Default: Story = {
   parameters: {
     controls: {
-      include: ['position', 'size', 'border', 'colorSpin', 'colorTrack'],
+      include: [],
     },
   },
 };

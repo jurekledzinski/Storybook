@@ -1,18 +1,17 @@
 import styles from '../Loader.module.css';
-import { classNames } from '@src/stories/helpers';
-import { LoaderProps } from '../types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { LoaderClassNames } from './types';
 
-interface Params extends Pick<LoaderProps, 'border' | 'position' | 'size'> {
-  className?: string;
-}
-
-export const loaderClassNames = (params: Params) => {
+export const loaderClassNames: LoaderClassNames = (params) => {
   const { border, className, position, size } = params;
+
   return classNames(
-    styles.loader,
-    styles[size ?? ''],
-    styles[position ?? ''],
-    styles[border ?? ''],
+    generateClassNames(styles, {
+      loader: true,
+      [`${border}`]: Boolean(border),
+      [`${position}`]: Boolean(position),
+      [`${size}`]: Boolean(size),
+    }),
     className ?? ''
   );
 };

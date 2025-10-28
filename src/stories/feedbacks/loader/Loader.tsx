@@ -1,5 +1,5 @@
+import { loaderClassNames, loaderInlineStyles } from './utils';
 import { LoaderProps } from './types';
-import { loaderClassNames } from './utils';
 
 export const Loader = ({
   border,
@@ -10,20 +10,8 @@ export const Loader = ({
   size,
   style,
 }: LoaderProps) => {
-  const classes = loaderClassNames({ border, className, position, size });
+  const classNames = loaderClassNames({ border, className, position, size });
+  const styles = loaderInlineStyles({ colorSpin, colorTrack, size, style });
 
-  return (
-    <span
-      className={classes}
-      style={
-        {
-          ...style,
-          ...(typeof size === 'number' ? { width: size, height: size } : {}),
-          ...(colorTrack ? { borderColor: colorTrack } : {}),
-          ...(colorSpin ? { borderTopColor: colorSpin } : {}),
-          ...(size ? { '--size': `${size}px` } : {}),
-        } as React.CSSProperties
-      }
-    ></span>
-  );
+  return <span className={classNames} style={styles}></span>;
 };

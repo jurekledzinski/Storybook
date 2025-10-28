@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 
 import * as LoaderStories from './Loader.stories.tsx';
 
@@ -18,8 +18,9 @@ Here’s a list of the props for the `Loader` component:
   colorTrack?: string;
   colorSpin?: string;
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg' | number
-  position?: 'center';
+  position?: 'element' | 'viewport;
   border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
+  ...HTMLAttributes<HTMLSpanElement>
 }
 ```
 
