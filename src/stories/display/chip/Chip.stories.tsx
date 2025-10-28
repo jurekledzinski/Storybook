@@ -1,6 +1,7 @@
 import { Chip } from './Chip';
 import { fn } from 'storybook/test';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Stack } from '@src/app-ui';
 import {
   faHome,
   faTrash,
@@ -91,6 +92,16 @@ export const Playground: Story = {
 };
 
 export const Default: Story = {
+  render: (args) => (
+    <Stack spacing="normal" wrap="wrap">
+      <Chip {...args} />
+      <Chip {...args} color="secondary" />
+      <Chip {...args} color="info" />
+      <Chip {...args} color="negative" />
+      <Chip {...args} color="success" />
+      <Chip {...args} color="warning" />
+    </Stack>
+  ),
   parameters: { controls: { include: [] } },
 };
 
