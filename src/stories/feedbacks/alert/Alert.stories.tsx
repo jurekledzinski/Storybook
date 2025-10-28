@@ -8,6 +8,7 @@ const meta: Meta<typeof Alert> = {
   title: 'Components/Feedbacks/Alert',
   args: {
     color: 'info',
+    variant: 'contained',
   },
   argTypes: {
     color: {
@@ -42,11 +43,44 @@ export default meta;
 type Story = StoryObj<typeof Alert>;
 
 export const Playground: Story = {
-  render: (args) => (
-    <Alert {...args}>
-      <AlertIcon icon={faCircleInfo} color={args.color} />
-      <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-      <AlertButton color="white" variant="text" />
-    </Alert>
-  ),
+  render: (args) => {
+    return (
+      <Alert {...args}>
+        <AlertIcon icon={faCircleInfo} color={args.color} />
+        <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+        <AlertButton
+          color={
+            args.variant === 'light' || args.variant === 'outlined'
+              ? args.color
+              : 'white'
+          }
+          variant="text"
+        />
+      </Alert>
+    );
+  },
+};
+
+export const Default: Story = {
+  render: (args) => {
+    return (
+      <Alert {...args}>
+        <AlertIcon icon={faCircleInfo} color={args.color} />
+        <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+        <AlertButton
+          color={
+            args.variant === 'light' || args.variant === 'outlined'
+              ? args.color
+              : 'white'
+          }
+          variant="text"
+        />
+      </Alert>
+    );
+  },
+  parameters: {
+    controls: {
+      include: [],
+    },
+  },
 };
