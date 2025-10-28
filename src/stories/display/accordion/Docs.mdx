@@ -1,0 +1,30 @@
+import { Description, Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as AccoridonStories from './Accordion.stories.tsx';
+
+<Meta of={AccoridonStories} />
+
+### Accordion Component
+
+The `Accordion` component allows users to expand and collapse sections of
+related content. It helps organize information in a compact layout and
+improves readability by showing only what’s relevant at a time.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Accordion` component:
+
+```js
+{
+  children: React.ReactNode;
+  open: boolean;
+  color?: "primary" | "secondary" | "success" | "negative" | "warning";
+  id?: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  variant?: "contained" | "outlined" | "text";
+}
+```
+
+#### Example Usage `Accordion`
+
+<Story of={AccoridonStories.Default} />
