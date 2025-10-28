@@ -2,6 +2,7 @@ import { faCheck, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { fn } from 'storybook/test';
 import { IconButton } from './IconButton';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Stack } from '@src/app-ui';
 
 const meta: Meta<typeof IconButton> = {
   component: IconButton,
@@ -81,6 +82,16 @@ export const Playground: Story = {};
 
 export const Default: Story = {
   args: { icon: [faSun] },
+  render: (args) => (
+    <Stack spacing="normal" wrap="wrap">
+      <IconButton {...args} />
+      <IconButton {...args} color="secondary" />
+      <IconButton {...args} color="info" />
+      <IconButton {...args} color="negative" />
+      <IconButton {...args} color="success" />
+      <IconButton {...args} color="warning" />
+    </Stack>
+  ),
   parameters: {
     controls: {
       include: [],
