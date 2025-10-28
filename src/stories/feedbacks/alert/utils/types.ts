@@ -1,9 +1,14 @@
 import { AlertProps } from '../types';
+import { Size } from '@src/stories/types';
 
-type Params = Omit<AlertProps, 'icon' | 'message'>;
+type AlertSize = { size?: Omit<Size, 'size-md' | 'size-lg'> };
 
-export type GetClassNamesAlert = (props: Params) => {
-  alert: string;
-  icon: string;
-  message: string;
-};
+type AlertIconParams = Pick<AlertProps, 'color'> & AlertSize;
+type AlertParams = Omit<AlertProps, 'icon' | 'isClosable' | 'message'>;
+type AlertMessageParams = AlertSize;
+
+export type AlertClassNames = (params: AlertParams) => string;
+
+export type AlertMessageClassNames = (params: AlertMessageParams) => string;
+
+export type AlertIconClassNames = (params: AlertIconParams) => string;

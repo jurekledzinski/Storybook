@@ -1,11 +1,10 @@
-import { Color, Icon, Radius, Size } from '@src/stories/types';
+import { Color, Radius } from '@src/stories/types';
 
 export type AlertProps = {
-  color: Exclude<Color, 'primary'> | 'info';
-  icon: Icon;
-  message: string;
+  children?: React.ReactNode;
+  className?: string;
+  color?: Color | 'info';
   fullWidth?: boolean;
   radius?: Radius;
-  size?: Size;
-  variant?: 'contained' | 'outlined';
+  variant?: 'contained' | 'filled' | 'light' | 'outlined';
 };

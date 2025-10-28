@@ -1,17 +1,10 @@
+import { alertClassNames } from './utils';
 import { AlertProps } from './types';
-import { getClassNamesAlert } from './utils';
-import { Icon } from '@src/stories/graphics/icon';
+import { useAlert } from './hooks';
 
-export const Alert = ({ ...props }: AlertProps) => {
-  const { icon, message } = props;
-  const classes = getClassNamesAlert({ ...props });
+export const Alert = ({ children, ...props }: AlertProps) => {
+  const classNames = alertClassNames(props);
+  const childs = useAlert({ children });
 
-  return (
-    <div className={classes.alert}>
-      <span className={classes.icon}>
-        <Icon icon={icon} />
-      </span>
-      <p className={classes.message}>{message}</p>
-    </div>
-  );
+  return <div className={classNames}>{childs}</div>;
 };
