@@ -1,5 +1,12 @@
 /* --- Colors --- */
 
+.info {
+  background-color: var(--color-info-700);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-info-700);
+  --color-focus: var(--color-focus-info);
+}
+
 .primary {
   background-color: var(--color-primary-700);
   color: var(--color-text-white);
@@ -35,7 +42,19 @@
   --color-focus: var(--color-focus-warning);
 }
 
+.white {
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-white);
+  --color-focus: var(--color-white);
+}
+
 /* --- Hover color --- */
+
+.info:hover {
+  background-color: var(--color-info-800);
+  border-color: var(--color-info-800);
+}
 
 .primary:hover {
   background-color: var(--color-primary-800);
@@ -62,7 +81,17 @@
   border-color: var(--color-warning-1000);
 }
 
+.white:hover {
+  background-color: var(--color-secondary-50);
+  border-color: var(--color-secondary-50);
+}
+
 /* Contrast colors */
+
+.info-contrast {
+  background-color: var(--color-info-700);
+  border-color: var(--color-info-700);
+}
 
 .negative-contrast {
   background-color: var(--color-negative-700);
@@ -87,4 +116,9 @@
 .warning-contrast {
   background-color: var(--color-warning-1100);
   border-color: var(--color-warning-1100);
+}
+
+.white-contrast {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
 }

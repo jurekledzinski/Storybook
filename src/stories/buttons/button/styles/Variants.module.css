@@ -1,12 +1,19 @@
 /* --- variants --- */
 
+.outlined.info,
 .outlined.primary,
 .outlined.secondary,
 .outlined.success,
 .outlined.negative,
-.outlined.warning {
+.outlined.warning,
+.outlined.white {
   background: initial;
   background-color: transparent;
+}
+
+.outlined.info,
+.text.info {
+  color: var(--color-info-700);
 }
 
 .outlined.primary,
@@ -34,6 +41,11 @@
   color: var(--color-warning-900);
 }
 
+.outlined.white,
+.text.white {
+  color: var(--color-white);
+}
+
 /* Variant minimal */
 
 a.minimal {
@@ -54,6 +66,11 @@ a.minimal.primary {
 }
 
 /* --- Hover outline variant --- */
+
+.outlined.info:hover,
+.text.info:hover {
+  background-color: var(--color-info-alpha-10);
+}
 
 .outlined.primary:hover,
 .text.primary:hover {
@@ -80,11 +97,18 @@ a.minimal.primary {
   background-color: var(--color-warning-alpha-10);
 }
 
+.outlined.white:hover,
+.text.white:hover {
+  background-color: var(--color-white-alpha-10);
+}
+
+.text.info,
 .text.primary,
 .text.secondary,
 .text.success,
 .text.negative,
-.text.warning {
+.text.warning,
+.text.white {
   background: initial;
   background-color: transparent;
   border-color: transparent;
