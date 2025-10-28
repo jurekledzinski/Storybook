@@ -87,6 +87,14 @@
   color: var(--color-text-white);
 }
 
+.iconButton.minimal.info svg {
+  color: var(--color-info-700);
+}
+
+.iconButton.minimal.info:hover svg {
+  color: var(--color-info-800);
+}
+
 .iconButton.minimal.primary svg {
   color: var(--color-primary-700);
 }
@@ -126,12 +134,3 @@
 .iconButton.minimal.warning:hover svg {
   color: var(--color-warning-1000);
 }
-
-/* .outlined.white {
-  background-color: transparent;
-  border: 1px solid var(--color-text-white);
-}
-
-.outlined.white svg {
-  color: var(--color-text-white);
-} */

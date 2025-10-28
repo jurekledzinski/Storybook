@@ -11,7 +11,7 @@ export type IconBaseButtonProps = {
   icon: Icons;
   border?: Border;
   className?: string;
-  color?: Color | 'white';
+  color?: Color;
   contrast?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
