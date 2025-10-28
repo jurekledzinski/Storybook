@@ -1,10 +1,12 @@
 import { Accordion } from './Accordion';
 import { Button } from '@src/stories/buttons/button';
 import { ButtonGroup } from '@src/stories/buttons/button-group';
-import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
+import { exampleData, textContent, useAlertStory } from './story';
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { IconButton } from '@src/stories/buttons/icon-button';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Stack } from '@src/app-ui';
+import { useState } from 'react';
 import {
   AccordionActions,
   AccordionContent,
@@ -59,10 +61,7 @@ export const Playground: Story = {
                   <AccordionIcon />
                 </AccordionHeader>
                 <AccordionContent className="p-sm">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-                  sit labore, quidem beatae necessitatibus excepturi, fugit
-                  distinctio quis dolores quos numquam animi obcaecati odio
-                  sequi quasi natus.
+                  {textContent}
                 </AccordionContent>
               </>
             ),
@@ -78,57 +77,48 @@ export const Playground: Story = {
   },
 };
 
-const exampleData = [
-  {
-    id: 1,
-    title: 'Title 1',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    date: new Date().toLocaleString(),
-  },
-  {
-    id: 2,
-    title: 'Title 2',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    date: new Date().toLocaleString(),
-  },
-  {
-    id: 3,
-    title: 'Title 3',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    date: new Date().toLocaleString(),
-  },
-];
+export const Default: Story = {
+  decorators: [
+    (Accordion, context) => {
+      const { onToggle, openIds } = useAlertStory({ exampleData });
+
+      return (
+        <Stack orientation="column" spacing="normal">
+          {exampleData.map(({ color, content, date, id, title }) => (
+            <Accordion
+              key={id}
+              args={{
+                ...context.args,
+                id,
+                color,
+                open: openIds.includes(id),
+                onClick: onToggle,
+                children: (
+                  <>
+                    <AccordionHeader className="p-sm">
+                      <AccordionInfo title={title} text={date} />
+                      <AccordionIcon />
+                    </AccordionHeader>
+                    <AccordionContent className="p-sm">
+                      {content}
+                    </AccordionContent>
+                  </>
+                ),
+              }}
+            />
+          ))}
+        </Stack>
+      );
+    },
+  ],
+};
 
 export const DeleteOne: Story = {
   decorators: [
     (Accordion, context) => {
-      const [data, setData] = useState(exampleData);
-      const [key, setKey] = useState(0);
-      const [openIds, setOpenIds] = useState<string[]>([]);
-
-      useEffect(() => setData(exampleData), [key]);
-
-      const selectAccordion = (prev: string[], id: string) => {
-        if (prev.includes(id)) return [...prev].filter((i) => i !== id);
-        return [...prev, id];
-      };
-
-      const handleOpen = (e: MouseEvent<HTMLDivElement>) => {
-        const id = (e.currentTarget as HTMLDivElement).id;
-        setOpenIds((prev) => selectAccordion(prev, id));
-      };
-
-      const onDelete = (e: MouseEvent<HTMLButtonElement>) => {
-        const id = (e.currentTarget as HTMLInputElement).dataset.id;
-        setData((prev) =>
-          [...prev].filter((item) => item.id.toString() !== id)
-        );
-      };
-
-      const onRefresh = () => {
-        setKey((prev) => prev + 1);
-        setOpenIds([]);
-      };
+      const { data, onRefresh, onDelete, handleOpen, openIds } = useAlertStory({
+        exampleData,
+      });
 
       return (
         <>
@@ -140,16 +130,14 @@ export const DeleteOne: Story = {
             />
           </ButtonGroup>
 
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
-          >
+          <Stack orientation="column" spacing="normal">
             {data.map(({ content, date, id, title }) => (
               <Accordion
                 key={id}
                 args={{
                   ...context.args,
-                  id: id.toString(),
-                  open: openIds.includes(id.toString()),
+                  id,
+                  open: openIds.includes(id),
                   onClick: handleOpen,
                   children: (
                     <>
@@ -166,7 +154,7 @@ export const DeleteOne: Story = {
                 }}
               />
             ))}
-          </div>
+          </Stack>
         </>
       );
     },
@@ -181,40 +169,16 @@ export const DeleteOne: Story = {
 export const DeleteMany: Story = {
   decorators: [
     (Accordion, context) => {
-      const [data, setData] = useState(exampleData);
-      const [key, setKey] = useState(0);
-      const [openIds, setOpenIds] = useState<string[]>([]);
-      const [deleteIds, setDeleteIds] = useState<string[]>([]);
-
-      useEffect(() => setData(exampleData), [key]);
-
-      const selectAccordion = (prev: string[], id: string) => {
-        if (prev.includes(id)) return [...prev].filter((i) => i !== id);
-        return [...prev, id];
-      };
-
-      const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
-        const id = (e.target as HTMLInputElement).dataset.id;
-        if (!id) return;
-        setDeleteIds((prev) => selectAccordion(prev, id));
-      };
-
-      const handleOpen = (e: MouseEvent<HTMLDivElement>) => {
-        const id = (e.currentTarget as HTMLDivElement).id;
-        setOpenIds((prev) => selectAccordion(prev, id));
-      };
-
-      const onDelete = () => {
-        setData((prev) =>
-          [...prev].filter((i) => !deleteIds.includes(i.id.toString()))
-        );
-      };
-
-      const onRefresh = () => {
-        setKey((prev) => prev + 1);
-        setDeleteIds([]);
-        setOpenIds([]);
-      };
+      const {
+        data,
+        handleOpen,
+        openIds,
+        onDeleteMany,
+        onRefreshMany,
+        onSelectMany,
+      } = useAlertStory({
+        exampleData,
+      });
 
       return (
         <>
@@ -223,32 +187,30 @@ export const DeleteMany: Story = {
               color="negative"
               label="Delete"
               variant="outlined"
-              onClick={onDelete}
+              onClick={onDeleteMany}
             />
             <IconButton
               color="success"
               icon={[faRefresh]}
-              onClick={onRefresh}
+              onClick={onRefreshMany}
             />
           </ButtonGroup>
 
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
-          >
+          <Stack orientation="column" spacing="normal">
             {data.map(({ content, date, id, title }) => (
               <Accordion
                 key={id}
                 args={{
                   ...context.args,
-                  id: id.toString(),
-                  open: openIds.includes(id.toString()),
+                  id,
+                  open: openIds.includes(id),
                   onClick: handleOpen,
                   children: (
                     <>
                       <AccordionHeader className="p-sm">
                         <AccordionInfo title={title} text={date} />
                         <AccordionIcon />
-                        <AccordionSelect onSelect={handleDelete} />
+                        <AccordionSelect onSelect={onSelectMany} />
                       </AccordionHeader>
                       <AccordionContent className="p-sm">
                         {content}
@@ -258,7 +220,7 @@ export const DeleteMany: Story = {
                 }}
               />
             ))}
-          </div>
+          </Stack>
         </>
       );
     },
