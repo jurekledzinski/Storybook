@@ -111,11 +111,7 @@ export const Default: Story = {
       );
     },
   ],
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };
 
 export const DeleteOne: Story = {
@@ -164,11 +160,7 @@ export const DeleteOne: Story = {
       );
     },
   ],
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };
 
 export const DeleteMany: Story = {
@@ -230,9 +222,5 @@ export const DeleteMany: Story = {
       );
     },
   ],
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };

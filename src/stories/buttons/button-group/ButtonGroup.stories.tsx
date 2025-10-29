@@ -88,11 +88,7 @@ export const Default: Story = {
       />
     ),
   ],
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };
 
 export const Vertical: Story = {
@@ -113,11 +109,7 @@ export const Vertical: Story = {
       />
     ),
   ],
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };
 
 export const Justified: Story = {
@@ -140,9 +132,5 @@ export const Justified: Story = {
       />
     ),
   ],
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };

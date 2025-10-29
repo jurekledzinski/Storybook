@@ -44,9 +44,5 @@ export const Playground: Story = {
 };
 
 export const Default: Story = {
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };

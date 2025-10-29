@@ -102,9 +102,5 @@ export const Default: Story = {
       </Stack>
     );
   },
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };

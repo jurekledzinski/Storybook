@@ -92,11 +92,7 @@ export const Default: Story = {
       <IconButton {...args} color="warning" />
     </Stack>
   ),
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };
 
 export const Link: Story = {
@@ -104,9 +100,5 @@ export const Link: Story = {
     href: 'http://localhost:6006/?path=/story/components-buttons-iconbutton--link',
     icon: [faSun],
   },
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };

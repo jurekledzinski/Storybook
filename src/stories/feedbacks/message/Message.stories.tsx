@@ -31,9 +31,5 @@ export const Default: Story = {
       <Message {...args} color="warning" />
     </Stack>
   ),
-  parameters: {
-    controls: {
-      include: [],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };

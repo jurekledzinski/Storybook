@@ -102,21 +102,21 @@ export const Default: Story = {
       <Chip {...args} color="warning" />
     </Stack>
   ),
-  parameters: { controls: { include: [] } },
+  parameters: { controls: { disable: true } },
 };
 
 export const WithIcon: Story = {
   args: {
     startIcon: faHome,
   },
-  parameters: { controls: { include: [] } },
+  parameters: { controls: { disable: true } },
 };
 
 export const WithImage: Story = {
   args: {
     startIconSrc: '/images/Desert.jpg',
   },
-  parameters: { controls: { include: [] } },
+  parameters: { controls: { disable: true } },
 };
 
 export const Delete: Story = {
@@ -124,5 +124,5 @@ export const Delete: Story = {
     deleteIcon: faTrashCan,
     onDelete: fn(),
   },
-  parameters: { controls: { include: [] } },
+  parameters: { controls: { disable: true } },
 };
