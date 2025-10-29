@@ -3,12 +3,12 @@
   font-size: 12px;
 }
 
-.error {
-  color: var(--color-negative-700);
-}
-
 .info {
   color: var(--color-primary-700);
+}
+
+.negative {
+  color: var(--color-negative-700);
 }
 
 .secondary {

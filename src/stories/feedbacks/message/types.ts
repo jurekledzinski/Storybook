@@ -1,4 +1,6 @@
+import { Color } from '@src/stories/types';
+
 export type MessageProps = {
   children: React.ReactNode;
-  variant?: 'info' | 'secondary' | 'success' | 'error' | 'warning';
+  color?: Omit<Color, 'primary' | 'white'>;
 };

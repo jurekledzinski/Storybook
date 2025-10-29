@@ -14,9 +14,9 @@ type Story = StoryObj<typeof Message>;
 
 export const Playground: Story = {
   argTypes: {
-    variant: {
+    color: {
       control: 'select',
-      options: ['error', 'info', 'secondary', 'success', 'warning'],
+      options: ['info', 'negative', 'secondary', 'success', 'warning'],
     },
   },
 };
@@ -24,11 +24,11 @@ export const Playground: Story = {
 export const Default: Story = {
   render: (args) => (
     <Stack orientation="column" spacing="normal">
-      <Message {...args} variant="error" />
-      <Message {...args} variant="info" />
-      <Message {...args} variant="secondary" />
-      <Message {...args} variant="success" />
-      <Message {...args} variant="warning" />
+      <Message {...args} color="error" />
+      <Message {...args} color="info" />
+      <Message {...args} color="secondary" />
+      <Message {...args} color="success" />
+      <Message {...args} color="warning" />
     </Stack>
   ),
   parameters: {

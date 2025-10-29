@@ -1,9 +1,10 @@
 import styles from '../Message.module.css';
-import { classNames } from '@src/stories/helpers';
+import { generateClassNames } from '@src/stories/helpers';
 import { MessageProps } from '../types';
 
-type Variant = MessageProps['variant'];
-
-export const messageClassNames = (variant: Variant = 'error') => ({
-  message: classNames(styles.message, styles[variant]),
-});
+export const messageClassNames = (color: MessageProps['color']) => {
+  return generateClassNames(styles, {
+    message: true,
+    [`${color}`]: Boolean(color),
+  });
+};
