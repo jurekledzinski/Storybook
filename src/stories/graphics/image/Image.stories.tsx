@@ -61,8 +61,13 @@ export const LoaderImage: Story = {
           <>
             {simulatedLoading && <Loader position="element" />}
             {simulatedError && !simulatedLoading ? (
-              <Alert color="negative" fullWidth orientation="column">
-                <AlertIcon icon={faTriangleExclamation} />
+              <Alert
+                color="negative"
+                fullWidth
+                orientation="column"
+                variant="light"
+              >
+                <AlertIcon icon={faTriangleExclamation} size="size-sm" />
                 <AlertMessage message="Failed to load image" />
               </Alert>
             ) : (
@@ -108,8 +113,13 @@ export const SkeletonLoadImage: Story = {
         return (
           <>
             {simulatedError && !simulatedLoading ? (
-              <Alert color="negative" fullWidth orientation="column">
-                <AlertIcon icon={faTriangleExclamation} />
+              <Alert
+                color="negative"
+                fullWidth
+                orientation="column"
+                variant="light"
+              >
+                <AlertIcon icon={faTriangleExclamation} size="size-sm" />
                 <AlertMessage message="Failed to load image" />
               </Alert>
             ) : (
