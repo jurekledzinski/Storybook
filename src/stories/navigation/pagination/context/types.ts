@@ -7,7 +7,7 @@ export interface PaginationContextValue extends UiPagination {
   infoStart: number;
   onClick: (actionType: ActionType, value?: number) => void;
   paginationItems: number[];
-  totalPages: number;
+  totalPages: number; //totalItems
   onSetPerPage?: (value: number) => void;
 }
 
