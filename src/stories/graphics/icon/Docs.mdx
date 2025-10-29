@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import * as IconStories from './Icon.stories.ts';
@@ -15,13 +15,13 @@ Here’s a list of the props for the `Icon` component:
 
 ```js
 {
-  className?: string;
-  icon: IconProp[];
+  icon: IconProp;
   alt?: string;
-  color?: 'info' | 'negative' | 'primary' | 'secondary' | 'success' | 'warning';
+  className?: string;
+  color?: 'info' | 'negative' | 'primary' | 'secondary' | 'success' |'warning';
+  mirrored?: boolean;
   size?: string | number;
   weight?: IconWeight;
-  mirrored?: boolean;
 }
 ```
 

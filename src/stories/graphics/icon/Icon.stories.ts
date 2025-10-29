@@ -1,5 +1,5 @@
 import { Icon } from './Icon';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import {
   faCheckCircle,
   faExclamationCircle,
@@ -30,10 +30,6 @@ export const Default: Story = {
         'warning',
         'negative',
       ],
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['xs', 'sm', 'lg', 'xl'],
     },
     icon: {
       control: { type: 'select' },

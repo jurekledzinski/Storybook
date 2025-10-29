@@ -1,7 +1,15 @@
 import styles from '../Icon.module.css';
-import { classNames } from '@src/stories/helpers';
-import { Color } from '@src/stories/types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { IconClassNames } from './types';
 
-export const getClassIcon = (className?: string, color?: Color | 'info') => {
-  return classNames(styles.icon, styles[color ?? ''], className ?? '');
+export const iconClassNames: IconClassNames = (params) => {
+  const { className, color } = params;
+
+  return classNames(
+    generateClassNames(styles, {
+      icon: true,
+      [`${color}`]: Boolean(color),
+    }),
+    className ?? ''
+  );
 };
