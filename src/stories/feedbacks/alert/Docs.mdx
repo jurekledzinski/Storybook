@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as AlertStories from './Alert.stories.tsx';
+import * as AlertStories from './Alert.stories';
 
 <Meta of={AlertStories} />
 
@@ -21,6 +21,7 @@ Here’s a list of the props for the `Alert` component:
   className?: string;
   color?: "info" | "primary" | "secondary" | "success" | "negative" | "warning" | "white";
   fullWidth?: boolean;
+  orientation?: 'row' | 'column';
   radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
   variant?: 'contained' | 'filled' | 'light' | 'outlined';
 }
