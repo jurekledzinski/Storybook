@@ -24,10 +24,6 @@
   color: inherit;
 }
 
-.column .icon svg {
-  font-size: 50px;
-}
-
 .iconClose {
   display: flex;
   align-items: center;
