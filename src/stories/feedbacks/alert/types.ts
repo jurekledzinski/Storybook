@@ -1,4 +1,4 @@
-import { Color, Radius } from '@src/stories/types';
+import { Color, Radius, Orientation } from '@src/stories/types';
 
 export type AlertProps = {
   children?: React.ReactNode;
@@ -6,5 +6,6 @@ export type AlertProps = {
   color?: Color;
   fullWidth?: boolean;
   radius?: Radius;
+  orientation?: Orientation;
   variant?: 'contained' | 'filled' | 'light' | 'outlined';
 };

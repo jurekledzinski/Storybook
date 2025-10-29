@@ -7,13 +7,21 @@ import {
 } from './types';
 
 export const alertClassNames: AlertClassNames = (params) => {
-  const { className, color, fullWidth, radius, variant = 'contained' } = params;
+  const {
+    className,
+    color,
+    fullWidth,
+    radius,
+    orientation,
+    variant = 'contained',
+  } = params;
 
   return classNames(
     generateClassNames(styles, {
       alert: true,
       fullWidth: Boolean(fullWidth),
       [`${color}`]: Boolean(color),
+      [`${orientation}`]: Boolean(orientation),
       [`${radius}`]: Boolean(radius),
       [`${variant}`]: Boolean(variant),
     }),
