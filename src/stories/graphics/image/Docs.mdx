@@ -1,0 +1,43 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
+import * as ImageStories from './Image.stories';
+
+<Meta of={ImageStories} />
+
+### Image Component
+
+The `Image` component renders an optimized and responsive image element.  
+It supports lazy loading, fallback behavior, and customizable styling.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Image` component:
+
+```js
+{
+ src:string;
+ alt?: string;
+ className?: string;
+ loading?: 'lazy' | 'eager';
+ height?: number;
+ width?: number;
+ onError?: () => void;
+}
+```
+
+#### Example usage `Image`
+
+```tsx
+<Image
+  src="/assets/example.jpg"
+  alt="Example Image"
+  width={400}
+  height={300}
+  loading="lazy"
+/>
+```
+
+#### Preview `Image`
+
+<Story of={ImageStories.Default} />
