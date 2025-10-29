@@ -14,6 +14,8 @@ export const MenuPanel = ({ children, ...props }: MenuPanelProps) => {
     onSetPosition,
   } = useMenuPanelController(props);
 
+  console.log('arrowProps', arrowProps);
+
   if (positionProps.type === 'floating') {
     return (
       <PopOver
