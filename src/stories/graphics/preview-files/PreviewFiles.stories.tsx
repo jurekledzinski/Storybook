@@ -1,5 +1,5 @@
 import { FileInput } from '@src/stories/form-elements/file-input';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { PreviewFiles } from './PreviewFiles';
 import { useState } from 'react';
 import { Form } from '@src/stories/form-elements/form';

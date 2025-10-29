@@ -3,8 +3,8 @@ import {
   faExclamationCircle,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
-import { fn } from '@storybook/test';
-import { Meta, StoryObj } from '@storybook/react';
+import { fn } from 'storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { TextInput } from './TextInput';
 
 const meta: Meta<typeof TextInput> = {

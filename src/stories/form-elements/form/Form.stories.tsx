@@ -4,7 +4,7 @@ import { Input } from '../input';
 import { Label } from '../label';
 import { FormGroup } from './components';
 import { Form } from './Form';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Form> = {
   component: Form,

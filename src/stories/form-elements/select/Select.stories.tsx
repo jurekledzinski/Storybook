@@ -1,5 +1,5 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Select } from './Select';
 import {
   SelectOption,

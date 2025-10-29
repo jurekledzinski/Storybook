@@ -1,5 +1,5 @@
 import { Color, Size } from '@src/stories/types';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio, VariantRadio } from './components';
 import { RadioGroup, RadioGroupProps } from './';
 

@@ -1,7 +1,7 @@
 import exampleStyles from './Example.module.css';
 import { Backdrop } from '@src/stories/overlays/backdrop';
 import { Drawer } from './Drawer';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Drawer> = {
   args: {

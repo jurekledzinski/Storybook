@@ -1,7 +1,7 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { DropZone } from './DropZone';
-import { fn } from '@storybook/test';
-import { Meta, StoryObj } from '@storybook/react';
+import { fn } from 'storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof DropZone> = {
   title: 'Components/Form elements/DropZone',

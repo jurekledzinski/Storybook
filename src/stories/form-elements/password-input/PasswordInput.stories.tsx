@@ -1,5 +1,5 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { PasswordInput } from './PasswordInput';
 
 const meta: Meta<typeof PasswordInput> = {

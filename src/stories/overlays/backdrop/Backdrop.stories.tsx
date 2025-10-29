@@ -1,6 +1,6 @@
 import { Backdrop } from './Backdrop';
-import { fn } from '@storybook/test';
-import { Meta, StoryObj } from '@storybook/react';
+import { fn } from 'storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 const meta: Meta<typeof Backdrop> = {

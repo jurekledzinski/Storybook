@@ -2,7 +2,7 @@ import { Field } from './Field';
 import { Input } from '../input/Input';
 import { Label } from '../label/Label';
 import { Message } from '@src/stories/feedbacks/message';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Field> = {
   title: 'Components/Form elements/Field',
