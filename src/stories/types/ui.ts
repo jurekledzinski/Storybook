@@ -14,14 +14,16 @@ export type Radius =
   | 'radius-lg'
   | 'radius-xl';
 
-export type Size = 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
+export type Size = 'size-xxs' | 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
 
 export type Color =
+  | 'info'
   | 'primary'
   | 'secondary'
   | 'success'
   | 'negative'
-  | 'warning';
+  | 'warning'
+  | 'white';
 
 export type Variant = 'contained' | 'outlined' | 'text';
 export type InputVariant = 'basic' | 'contained' | 'outlined' | 'underline';
