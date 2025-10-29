@@ -1,6 +1,8 @@
-import styles from './Image.module.css';
+import { imageClassNames } from './utils';
 import { ImageProps } from './types';
 
-export const Image = ({ ...props }: ImageProps) => {
-  return <img {...props} className={styles.image} />;
+export const Image = ({ className, ...props }: ImageProps) => {
+  const classNames = imageClassNames(className);
+
+  return <img {...props} className={classNames} />;
 };

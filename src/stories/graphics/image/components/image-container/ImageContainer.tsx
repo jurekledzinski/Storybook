@@ -1,7 +1,6 @@
-import { classNames } from '@src/stories/helpers';
-import { getClassNamesImage } from '../utils';
+import { imageContainerClassNames } from '../../utils';
 import { ImageContainerProps } from './types';
-import { useState } from 'react';
+import { useImageContainer } from '../../hooks';
 
 export const ImageContainer = ({
   children,
@@ -9,21 +8,11 @@ export const ImageContainer = ({
   loader,
   ...props
 }: ImageContainerProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const classes = getClassNamesImage(isLoading, loader);
-
-  const onLoad = () => {
-    setIsLoading(false);
-  };
-
-  const onError = () => {
-    setIsError(true);
-    setIsLoading(false);
-  };
+  const { isError, isLoading, onError, onLoad } = useImageContainer();
+  const classNames = imageContainerClassNames({ className, isLoading, loader });
 
   return (
-    <div {...props} className={classNames(className, classes)}>
+    <div {...props} className={classNames}>
       {children && typeof children === 'function'
         ? children({ isError, isLoading, onLoad, onError })
         : null}
