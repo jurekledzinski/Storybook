@@ -1,15 +1,11 @@
 import styles from '../Field.module.css';
-import stylesSpace from '@src/stories/styles/space.module.css';
-import { ClassNamesField } from './types';
-import { generateClassNames, classNames } from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { FieldClassNames } from './types';
 
-export const getClassNamesField: ClassNamesField = ({ className, gap }) => {
-  const mergeStyles = { ...styles, ...stylesSpace };
-
+export const fieldClassNames: FieldClassNames = ({ className }) => {
   return classNames(
-    generateClassNames(mergeStyles, {
+    generateClassNames(styles, {
       field: true,
-      [`${gap}`]: Boolean(gap),
     }),
     className ?? ''
   );

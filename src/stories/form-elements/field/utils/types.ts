@@ -1,5 +1,3 @@
-import { GapToken } from '@src/stories/types';
+type Params = { className?: string };
 
-type Params = { className?: string; gap?: GapToken };
-
-export type ClassNamesField = (params: Params) => string;
+export type FieldClassNames = (params: Params) => string;

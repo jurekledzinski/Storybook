@@ -1,0 +1,24 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as FieldStories from './Field.stories';
+
+<Meta of={FieldStories} />
+
+### Field Component
+
+A `Field` component is used to wrap other form elements like label ,input and message.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Field` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string;
+}
+```
+
+#### Example Usage `Field`
+
+<Story of={FieldStories.Default} />
