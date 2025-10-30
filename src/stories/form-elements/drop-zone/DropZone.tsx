@@ -21,7 +21,7 @@ export const DropZone = forwardRef<HTMLDivElement, DropZoneProps>(
 
     return (
       <div
-        className={classNames.zone}
+        className={classNames}
         onDragOver={onDragOver}
         onDragEnter={onDragEnter}
         onDragLeave={onDragLeave}

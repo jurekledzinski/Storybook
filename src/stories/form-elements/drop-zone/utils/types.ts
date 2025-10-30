@@ -3,7 +3,4 @@ type Params = {
   className?: string;
 };
 
-export type DropZoneClassNames = (params: Params) => {
-  title: string;
-  zone: string;
-};
+export type DropZoneClassNames = (params: Params) => string;

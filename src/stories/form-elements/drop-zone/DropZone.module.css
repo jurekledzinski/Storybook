@@ -17,7 +17,3 @@
 .dropZone.enter {
   background-color: var(--color-surface-0);
 }
-
-.title {
-  text-transform: uppercase;
-}
