@@ -1,0 +1,27 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as CheckboxGroupStories from './CheckboxGroup.stories';
+
+<Meta of={CheckboxGroupStories} />
+
+### CheckboxGroup Component
+
+A small, accessible `CheckboxGroup` component with a label. Use it to allow users to select or deselect an option in forms or settings.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `CheckboxGroup` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string;
+  fullWidth?: boolean;
+  orientation?: Orientation;
+  spacing?: Spacing;
+}
+```
+
+#### Example Usage `CheckboxGroup`
+
+<Story of={CheckboxGroupStories.Default} />

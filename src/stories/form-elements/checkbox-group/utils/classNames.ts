@@ -1,16 +1,22 @@
 import styles from '../CheckboxGroup.module.css';
-import { classNames } from '@src/stories/helpers';
-import { Orientation, Spacing } from '@src/stories/types';
+import { CheckboxGroupClassNames } from './types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
 
-export const getClassCheckboxGroup = (
-  orientation?: Orientation,
-  spacing?: Spacing,
-  fullWidth?: boolean
-) => {
+export const checkboxGroupClassNames: CheckboxGroupClassNames = (params) => {
+  const {
+    className,
+    fullWidth,
+    orientation = 'column',
+    spacing = 'normal',
+  } = params;
+
   return classNames(
-    styles.checkboxGroup,
-    styles[orientation ?? ''],
-    styles[spacing ?? ''],
-    fullWidth ? styles.fullWidth : ''
+    generateClassNames(styles, {
+      checkboxGroup: true,
+      fullWidth: Boolean(fullWidth),
+      [`${orientation}`]: Boolean(orientation),
+      [`${spacing}`]: Boolean(spacing),
+    }),
+    className ?? ''
   );
 };

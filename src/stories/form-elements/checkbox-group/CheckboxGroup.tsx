@@ -1,19 +1,8 @@
+import { checkboxGroupClassNames } from './utils';
 import { CheckboxGroupProps } from './types';
-import { getClassCheckboxGroup } from './utils';
 
-export const CheckboxGroup = ({
-  children,
-  fullWidth,
-  marginBottom,
-  marginTop,
-  orientation = 'column',
-  spacing = 'normal',
-}: CheckboxGroupProps) => {
-  const classes = getClassCheckboxGroup(orientation, spacing, fullWidth);
+export const CheckboxGroup = ({ children, ...props }: CheckboxGroupProps) => {
+  const classNames = checkboxGroupClassNames(props);
 
-  return (
-    <div className={classes} style={{ marginTop, marginBottom }}>
-      {children}
-    </div>
-  );
+  return <div className={classNames}>{children}</div>;
 };

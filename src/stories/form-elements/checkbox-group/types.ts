@@ -1,10 +1,9 @@
-import { Margin, Orientation, Spacing } from '@src/stories/types';
+import { Orientation, Spacing } from '@src/stories/types';
 
 export type CheckboxGroupProps = {
   children?: React.ReactNode;
+  className?: string;
   fullWidth?: boolean;
-  marginTop?: Margin;
-  marginBottom?: Margin;
   orientation?: Orientation;
   spacing?: Spacing;
 };
