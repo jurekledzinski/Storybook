@@ -90,6 +90,18 @@ export const Default: Story = {
       <IconButton {...args} color="negative" />
       <IconButton {...args} color="success" />
       <IconButton {...args} color="warning" />
+      <IconButton {...args} variant="outlined" />
+      <IconButton {...args} color="secondary" variant="outlined" />
+      <IconButton {...args} color="info" variant="outlined" />
+      <IconButton {...args} color="negative" variant="outlined" />
+      <IconButton {...args} color="success" variant="outlined" />
+      <IconButton {...args} color="warning" variant="outlined" />
+      <IconButton {...args} variant="text" />
+      <IconButton {...args} color="secondary" variant="text" />
+      <IconButton {...args} color="info" variant="text" />
+      <IconButton {...args} color="negative" variant="text" />
+      <IconButton {...args} color="success" variant="text" />
+      <IconButton {...args} color="warning" variant="text" />
     </Stack>
   ),
   parameters: { controls: { disable: true } },

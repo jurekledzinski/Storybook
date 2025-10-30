@@ -100,6 +100,12 @@ export const Default: Story = {
       <Chip {...args} color="negative" />
       <Chip {...args} color="success" />
       <Chip {...args} color="warning" />
+      <Chip {...args} variant="outlined" />
+      <Chip {...args} color="secondary" variant="outlined" />
+      <Chip {...args} color="info" variant="outlined" />
+      <Chip {...args} color="negative" variant="outlined" />
+      <Chip {...args} color="success" variant="outlined" />
+      <Chip {...args} color="warning" variant="outlined" />
     </Stack>
   ),
   parameters: { controls: { disable: true } },

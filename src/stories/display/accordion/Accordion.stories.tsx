@@ -84,7 +84,7 @@ export const Default: Story = {
 
       return (
         <Stack orientation="column" spacing="normal">
-          {exampleData.map(({ color, content, date, id, title }) => (
+          {exampleData.map(({ color, content, date, id, title, variant }) => (
             <Accordion
               key={id}
               args={{
@@ -93,6 +93,7 @@ export const Default: Story = {
                 color,
                 open: openIds.includes(id),
                 onClick: onToggle,
+                variant,
                 children: (
                   <>
                     <AccordionHeader className="p-sm">
