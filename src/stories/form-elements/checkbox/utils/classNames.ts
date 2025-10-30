@@ -1,26 +1,37 @@
-import { classNames } from '@src/stories/helpers';
-import { Color, Size } from '@src/stories/types';
 import styles from '../Checkbox.module.css';
-import { VariantCheckbox } from '../types';
+import { CheckboxClassNames, CheckboxLabelClassNames } from './types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
 
-export const getClassCheckbox = (
-  color?: Color,
-  disabled?: boolean,
-  readOnly?: boolean,
-  size?: Size,
-  variant?: VariantCheckbox
-) => ({
-  label: classNames(
-    styles.label,
-    styles[size ?? ''],
-    disabled ? styles['disabled'] : '',
-    readOnly ? styles['read-only'] : ''
-  ),
-  checkbox: classNames(
-    styles.checkbox,
-    styles[color ?? ''],
-    styles[size ?? ''],
-    styles[variant ?? ''],
-    readOnly ? styles['read-only'] : ''
-  ),
-});
+export const checkboxLabelClassNames: CheckboxLabelClassNames = ({
+  classNameLabel,
+  disabled,
+  readOnly,
+  size,
+}) =>
+  classNames(
+    generateClassNames(styles, {
+      label: true,
+      disabled: Boolean(disabled),
+      readOnly: Boolean(readOnly),
+      [`${size}`]: Boolean(size),
+    }),
+    classNameLabel ?? ''
+  );
+
+export const checkboxClassNames: CheckboxClassNames = ({
+  className,
+  color,
+  readOnly,
+  size,
+  variant,
+}) =>
+  classNames(
+    generateClassNames(styles, {
+      checkbox: true,
+      readOnly: Boolean(readOnly),
+      [`${color}`]: Boolean(color),
+      [`${size}`]: Boolean(size),
+      [`${variant}`]: Boolean(variant),
+    }),
+    className ?? ''
+  );

@@ -1,21 +1,27 @@
+import { checkboxClassNames } from '../../utils';
 import { CheckboxProps } from '../../types';
 import { forwardRef, Ref } from 'react';
-import { getClassCheckbox } from '../../utils';
 import { Icon } from '../icon';
-import { classNames } from '@src/stories/helpers';
 
 export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     { className, color, disabled, readOnly, size, variant, ...props },
     ref: Ref<HTMLInputElement>
   ) => {
-    const classes = getClassCheckbox(color, disabled, readOnly, size, variant);
+    const classNames = checkboxClassNames({
+      className,
+      color,
+      disabled,
+      readOnly,
+      size,
+      variant,
+    });
 
     return (
       <>
         <input
           ref={ref}
-          className={classes.checkbox}
+          className={classNames}
           disabled={disabled}
           id={props.id}
           readOnly={readOnly}
@@ -23,7 +29,7 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxProps>(
           {...props}
           onKeyDown={(e) => readOnly && e.preventDefault()}
         />
-        <Icon className={classNames(classes.checkbox, className)} />
+        <Icon className={classNames} />
       </>
     );
   }

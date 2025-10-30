@@ -1,16 +1,20 @@
-import { forwardRef } from 'react';
 import { CheckboxInput } from './components';
+import { checkboxLabelClassNames } from './utils';
 import { CheckboxProps } from './types';
-import { getClassCheckbox } from './utils';
+import { forwardRef } from 'react';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ children, ...props }, ref) => {
-    const { color, disabled, readOnly, size, variant } = props;
-    const classes = getClassCheckbox(color, disabled, readOnly, size, variant);
+  ({ children, classNameLabel, disabled, readOnly, size, ...props }, ref) => {
+    const classNames = checkboxLabelClassNames({
+      classNameLabel,
+      disabled,
+      readOnly,
+      size,
+    });
 
     return (
-      <label className={classes.label} htmlFor={props.id}>
-        <CheckboxInput {...props} ref={ref} />
+      <label className={classNames} htmlFor={props.id}>
+        <CheckboxInput {...{ ...props, disabled, readOnly, size }} ref={ref} />
         {children}
       </label>
     );

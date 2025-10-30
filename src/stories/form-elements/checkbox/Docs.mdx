@@ -1,0 +1,28 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+### Checkbox Component
+
+A small, accessible `checkbox` component with a label. Use it to allow users to select or deselect an option in forms or settings.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Checkbox` component:
+
+```js
+{
+  chilren?: React.ReactNode;
+  classNameLabel?: string;
+  color?: "primary" | "secondary" | "success" | "warning" | "negative" | "info";
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  variant?: 'filled' | 'unfilled';
+  ...props: HTMLAttributes<HTMLInputElement>
+}
+```
+
+#### Example Usage `Checkbox`
+
+<Story of={CheckboxStories.Default} />

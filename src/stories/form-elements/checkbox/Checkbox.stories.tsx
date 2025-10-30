@@ -1,20 +1,11 @@
 import { Checkbox } from './Checkbox';
+import { CheckboxGroup } from '../checkbox-group';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Form elements/Checkbox',
   component: Checkbox,
-  parameters: {
-    layout: 'centered',
-  },
-};
-
-export default meta;
-
-type Story = StoryObj<typeof Checkbox>;
-
-export const Default: Story = {
   args: {
     disabled: false,
     readOnly: false,
@@ -33,10 +24,19 @@ export const Default: Story = {
       options: ['filled', 'unfilled'],
     },
   },
+  parameters: {
+    layout: 'centered',
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Checkbox>;
+
+export const Playground: Story = {
   decorators: [
     (Story, context) => {
       const [checked, setChecked] = useState(false);
-
       return (
         <Story
           args={{
@@ -56,4 +56,49 @@ export const Default: Story = {
       include: ['disabled', 'color', 'readOnly', 'size', 'variant'],
     },
   },
+};
+
+export const Default: Story = {
+  render: () => (
+    <CheckboxGroup fullWidth spacing="normal">
+      <Checkbox color="primary" defaultChecked>
+        Apple
+      </Checkbox>
+      <Checkbox color="secondary" defaultChecked>
+        Banana
+      </Checkbox>
+      <Checkbox color="negative" defaultChecked>
+        Carrot
+      </Checkbox>
+      <Checkbox color="success" defaultChecked>
+        Orange
+      </Checkbox>
+      <Checkbox color="warning" defaultChecked>
+        Mango
+      </Checkbox>
+      <Checkbox color="info" defaultChecked>
+        Pineapple
+      </Checkbox>
+
+      <Checkbox color="primary" variant="unfilled" defaultChecked>
+        Strawberry
+      </Checkbox>
+      <Checkbox color="secondary" variant="unfilled" defaultChecked>
+        Watermelon
+      </Checkbox>
+      <Checkbox color="negative" variant="unfilled" defaultChecked>
+        Papaya
+      </Checkbox>
+      <Checkbox color="success" variant="unfilled" defaultChecked>
+        Kiwi
+      </Checkbox>
+      <Checkbox color="warning" variant="unfilled" defaultChecked>
+        Lemon
+      </Checkbox>
+      <Checkbox color="info" variant="unfilled" defaultChecked>
+        Avocado
+      </Checkbox>
+    </CheckboxGroup>
+  ),
+  parameters: { controls: { disable: true } },
 };
