@@ -88,7 +88,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {};
 
 export const Default: Story = {
-  args: { label: 'Button' },
+  args: { label: 'Button example' },
   render: (args) => (
     <Stack spacing="normal" wrap="wrap">
       <Button {...args} />
@@ -97,6 +97,18 @@ export const Default: Story = {
       <Button {...args} color="negative" />
       <Button {...args} color="success" />
       <Button {...args} color="warning" />
+      <Button {...args} variant="outlined" />
+      <Button {...args} color="secondary" variant="outlined" />
+      <Button {...args} color="info" variant="outlined" />
+      <Button {...args} color="negative" variant="outlined" />
+      <Button {...args} color="success" variant="outlined" />
+      <Button {...args} color="warning" variant="outlined" />
+      <Button {...args} variant="text" />
+      <Button {...args} color="secondary" variant="text" />
+      <Button {...args} color="info" variant="text" />
+      <Button {...args} color="negative" variant="text" />
+      <Button {...args} color="success" variant="text" />
+      <Button {...args} color="warning" variant="text" />
     </Stack>
   ),
   parameters: { controls: { disable: true } },
