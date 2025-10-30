@@ -9,4 +9,14 @@ export const imagesData = [
     name: 'Desert',
     url: '/images/Desert.jpg',
   },
+  {
+    fileId: '3',
+    name: 'Palms',
+    url: '/images/Palms.jpg',
+  },
+  {
+    fileId: '4',
+    name: 'Sydney',
+    url: '/images/Sydney.jpg',
+  },
 ];
