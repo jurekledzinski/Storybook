@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: StorybookConfig = {
+  //   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
   addons: [
@@ -12,7 +13,7 @@ const config: StorybookConfig = {
     '@storybook/addon-coverage',
     'storybook/preview-api',
     '@storybook/addon-themes',
-    '@storybook/addon-docs'
+    '@storybook/addon-docs',
   ],
   features: {
     // this flag ensure that all updates related to a test are processed and applied before making assertions, like a11y checks in react
