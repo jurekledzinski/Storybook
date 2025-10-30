@@ -1,11 +1,10 @@
-import { classNames } from '@src/stories/helpers';
 import { dropZoneClassNames } from './utils/classNames';
 import { DropZoneProps } from './types';
 import { forwardRef, useImperativeHandle } from 'react';
-import { useControlDrop, useDropZone } from './hooks';
+import { useControlDrop, useDropZone, useSelectFiles } from './hooks';
 
 export const DropZone = forwardRef<HTMLDivElement, DropZoneProps>(
-  ({ children, className, title, onDrop }, ref) => {
+  ({ accept, children, className, multiple, onDrop, onSelectFiles }, ref) => {
     const { isEnter, refZone, onEnter, onLeave } = useDropZone();
     const { onDragEnter, onDragOver, onDragLeave } = useControlDrop({
       isEnter,
@@ -14,21 +13,23 @@ export const DropZone = forwardRef<HTMLDivElement, DropZoneProps>(
       refZone,
     });
 
+    const onClick = useSelectFiles({ accept, multiple, onSelectFiles });
+
     useImperativeHandle(ref, () => refZone.current!);
 
-    const classes = dropZoneClassNames(isEnter);
+    const classNames = dropZoneClassNames({ className, isEnter });
 
     return (
       <div
-        className={classNames(classes.zone, className)}
+        className={classNames.zone}
         onDragOver={onDragOver}
         onDragEnter={onDragEnter}
         onDragLeave={onDragLeave}
         onDrop={onDrop}
         onDropCapture={() => onLeave()}
         ref={refZone}
+        onClick={onClick}
       >
-        <h4 className={classes.title}>{title}</h4>
         {children}
       </div>
     );

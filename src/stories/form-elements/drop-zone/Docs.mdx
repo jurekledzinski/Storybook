@@ -1,0 +1,32 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as DropZoneStories from './DropZone.stories';
+
+<Meta of={DropZoneStories} />
+
+### DropZone Component
+
+A file upload area where users can drag and drop files. 
+Ideal for forms and applications that require file input, 
+supporting multiple files and providing a clear visual area for user interaction.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `DropZone` component:
+
+`accept` is required to enable choose files on click
+
+```js
+{
+  accept?: string;
+  children?: React.ReactNode;
+  className?: string;
+  multiple?: boolean;
+  onDrop?: React.DragEventHandler<HTMLDivElement>;
+  onSelectFiles?: (files: FileList) => void;
+}
+```
+
+#### Example Usage `DropZone`
+
+<Story of={DropZoneStories.Default} />

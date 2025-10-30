@@ -1,7 +1,15 @@
 import styles from '../DropZone.module.css';
-import { classNames } from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { DropZoneClassNames } from './types';
 
-export const dropZoneClassNames = (isEnter: boolean) => ({
-  zone: classNames(styles.dropZone, (isEnter && styles['enter']) || ''),
-  title: styles.title,
-});
+export const dropZoneClassNames: DropZoneClassNames = (params) => {
+  const { isEnter, className } = params;
+
+  return {
+    zone: classNames(
+      generateClassNames(styles, { dropZone: true, enter: isEnter }),
+      className ?? ''
+    ),
+    title: styles.title,
+  };
+};
