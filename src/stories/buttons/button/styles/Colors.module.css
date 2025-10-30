@@ -1,9 +1,9 @@
 /* --- Colors --- */
 
 .info {
-  background-color: var(--color-info-700);
+  background-color: var(--color-info-500);
   color: var(--color-text-white);
-  border: 1px solid var(--color-info-700);
+  border: 1px solid var(--color-info-500);
   --color-focus: var(--color-focus-info);
 }
 
@@ -52,8 +52,8 @@
 /* --- Hover color --- */
 
 .info:hover {
-  background-color: var(--color-info-800);
-  border-color: var(--color-info-800);
+  background-color: var(--color-info-600);
+  border-color: var(--color-info-600);
 }
 
 .primary:hover {
