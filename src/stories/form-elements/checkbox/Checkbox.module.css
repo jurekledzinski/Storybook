@@ -36,7 +36,7 @@
   stroke-dasharray: 22px;
   stroke-dashoffset: 22px;
   transform: translateX(1px);
-  transition: stroke-dashoffset 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
 .label input:checked + .checkbox {
