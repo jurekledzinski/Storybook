@@ -59,6 +59,14 @@
 
 /* --- Colors --- */
 
+.info {
+  background-color: var(--color-info-500);
+  border-color: var(--color-info-500);
+  color: var(--color-text-white);
+  --color-focus: var(--color-focus-info);
+  --color-text: var(--color-info-500);
+}
+
 .primary {
   background-color: var(--color-primary-700);
   border-color: var(--color-primary-700);
@@ -100,6 +108,11 @@
 }
 
 /* --- Hover color --- */
+
+.info:hover {
+  background-color: var(--color-info-600);
+  border-color: var(--color-info-600);
+}
 
 .primary:hover {
   background-color: var(--color-primary-800);
@@ -147,6 +160,7 @@
   color: var(--color-focus);
 }
 
+.info:focus-visible,
 .primary:focus-visible,
 .secondary:focus-visible,
 .success:focus-visible,
