@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef } from 'react';
+import { FileData } from '../types';
 
-export const useObjectUrl = (file: File | string) => {
+export const useObjectUrl = (file: File | FileData) => {
   const previousUrlRef = useRef<string | null>(null);
 
   const objectUrl = useMemo(() => {
-    return typeof file === 'string' ? null : URL.createObjectURL(file);
+    if (file && file instanceof File) return URL.createObjectURL(file);
+    return file.url;
   }, [file]);
 
   useEffect(() => {

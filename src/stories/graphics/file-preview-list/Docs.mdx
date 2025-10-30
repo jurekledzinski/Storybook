@@ -1,0 +1,26 @@
+import { Description, Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as FilePreviewListStories from './FilePreviewList.stories';
+
+<Meta of={FilePreviewListStories} />
+
+### FilePreviewList Component
+
+`FilePreviewList` is a component that displays a list of file previews (such as images). It accepts an array of files or array of data and renders each file using a customizable renderItem function. If no files are available, it displays the fallback content provided as children.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `FilePreviewList` component:
+
+```js
+{ 
+  children?: React.ReactNode;
+  images: File | {fileId: string; name: string; url: string; isOriginal?: boolean;} [];
+  render: (file: FilesData, index: number, placement: 'column' | 'grid' | 'row' ) => React.ReactNode;
+  placement?: 'column' | 'grid' | 'row';
+}
+```
+
+#### Example Usage `FilePreviewList`
+
+<Story of={FilePreviewListStories.Default} />
