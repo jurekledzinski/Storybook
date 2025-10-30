@@ -1,4 +1,3 @@
-import styles from './ButtonGroup.module.css';
 import { Button } from '@src/stories/buttons/button';
 import { ButtonGroup } from './ButtonGroup';
 import { Meta, StoryObj } from '@storybook/react-vite';
@@ -68,26 +67,17 @@ export const Playground: Story = {
       );
     },
   ],
+  parameters: { controls: { exclude: ['className'] } },
 };
 
 export const Default: Story = {
-  decorators: [
-    (Story, context) => (
-      <Story
-        args={{
-          ...context.args,
-          className: styles.backgroundColor,
-          children: (
-            <>
-              <Button label="Button 1" radius="radius-md" />
-              <Button label="Button 2" />
-              <Button label="Button 3" radius="radius-md" />
-            </>
-          ),
-        }}
-      />
-    ),
-  ],
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button label="Button 1" radius="radius-md" />
+      <Button label="Button 2" />
+      <Button label="Button 3" radius="radius-md" />
+    </ButtonGroup>
+  ),
   parameters: { controls: { disable: true } },
 };
 
