@@ -11,4 +11,5 @@ export type ExampleData = {
   date: string;
   id: string;
   title: string;
+  variant: 'contained' | 'outlined' | 'text';
 };
