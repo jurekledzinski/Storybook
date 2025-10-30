@@ -14,11 +14,7 @@ const meta: Meta<typeof DropZone> = {
       <h4 style={{ textTransform: 'uppercase' }}>Click or Drag and Drop</h4>
     ),
   },
-  parameters: {
-    controls: {
-      include: ['title'],
-    },
-  },
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;
@@ -71,5 +67,4 @@ export const Default: Store = {
       selectFiles(files, (fileDetails) => action('onClick')(fileDetails));
     },
   },
-  parameters: { controls: { disable: true } },
 };
