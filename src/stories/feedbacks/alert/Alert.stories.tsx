@@ -73,31 +73,121 @@ export const Default: Story = {
         <Alert {...args}>
           <AlertIcon icon={faCircleInfo} color={args.color} />
           <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-          <AlertButton color={'white'} variant="text" />
+          <AlertButton color="white" variant="text" />
         </Alert>
 
         <Alert {...args} color="secondary">
           <AlertIcon icon={faCircleInfo} color={args.color} />
           <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-          <AlertButton color={'white'} variant="text" />
+          <AlertButton color="white" variant="text" />
         </Alert>
 
         <Alert {...args} color="negative">
           <AlertIcon icon={faTriangleExclamation} color={args.color} />
           <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-          <AlertButton color={'white'} variant="text" />
+          <AlertButton color="white" variant="text" />
         </Alert>
 
         <Alert {...args} color="success">
           <AlertIcon icon={faCircleCheck} color={args.color} />
           <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-          <AlertButton color={'white'} variant="text" />
+          <AlertButton color="white" variant="text" />
         </Alert>
 
         <Alert {...args} color="warning">
           <AlertIcon icon={faTriangleExclamation} color={args.color} />
           <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-          <AlertButton color={'white'} variant="text" />
+          <AlertButton color="white" variant="text" />
+        </Alert>
+
+        <Alert {...args} variant="filled">
+          <AlertIcon icon={faCircleInfo} color="info" />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="white" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="secondary" variant="filled">
+          <AlertIcon icon={faCircleInfo} color="secondary" />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="white" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="negative" variant="filled">
+          <AlertIcon icon={faTriangleExclamation} color="negative" />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="white" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="success" variant="filled">
+          <AlertIcon icon={faCircleCheck} color="success" />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="white" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="warning" variant="filled">
+          <AlertIcon icon={faTriangleExclamation} color="warning" />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="white" variant="text" />
+        </Alert>
+
+        <Alert {...args} variant="light">
+          <AlertIcon icon={faCircleInfo} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="info" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="secondary" variant="light">
+          <AlertIcon icon={faCircleInfo} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="secondary" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="negative" variant="light">
+          <AlertIcon icon={faTriangleExclamation} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="negative" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="success" variant="light">
+          <AlertIcon icon={faCircleCheck} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="success" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="warning" variant="light">
+          <AlertIcon icon={faTriangleExclamation} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="warning" variant="text" />
+        </Alert>
+
+        <Alert {...args} variant="outlined">
+          <AlertIcon icon={faCircleInfo} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="info" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="secondary" variant="outlined">
+          <AlertIcon icon={faCircleInfo} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="secondary" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="negative" variant="outlined">
+          <AlertIcon icon={faTriangleExclamation} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="negative" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="success" variant="outlined">
+          <AlertIcon icon={faCircleCheck} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="success" variant="text" />
+        </Alert>
+
+        <Alert {...args} color="warning" variant="outlined">
+          <AlertIcon icon={faTriangleExclamation} color={args.color} />
+          <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+          <AlertButton color="warning" variant="text" />
         </Alert>
       </Stack>
     );
