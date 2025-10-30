@@ -5,17 +5,9 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 const meta: Meta<typeof CheckboxGroup> = {
   title: 'Components/Form elements/CheckboxGroup',
   component: CheckboxGroup,
-  parameters: {
-    layout: 'centered',
-  },
-};
-
-export default meta;
-
-type Story = StoryObj<typeof CheckboxGroup>;
-
-export const Default: Story = {
   args: {
+    orientation: 'row',
+    spacing: 'normal',
     children: (
       <>
         <Checkbox id="wiosna" name="sezon" value="wiosna">
@@ -32,8 +24,6 @@ export const Default: Story = {
         </Checkbox>
       </>
     ),
-    orientation: 'row',
-    spacing: 'none',
   },
   argTypes: {
     orientation: {
@@ -46,8 +36,22 @@ export const Default: Story = {
     },
   },
   parameters: {
+    layout: 'centered',
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof CheckboxGroup>;
+
+export const Playground: Story = {
+  parameters: {
     controls: {
       include: ['orientation', 'spacing'],
     },
   },
+};
+
+export const Default: Story = {
+  parameters: { controls: { disable: true } },
 };
