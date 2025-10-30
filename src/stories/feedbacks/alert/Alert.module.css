@@ -108,7 +108,7 @@
 /* --- Colors icon --- */
 
 .filled .icon.info {
-  background-color: var(--color-info-800);
+  background-color: var(--color-info-500);
 }
 
 .filled .icon.secondary {
@@ -157,7 +157,7 @@
 /* Variant filled */
 
 .filled.info {
-  background-color: var(--color-info-700);
+  background-color: var(--color-info-600);
 }
 
 .filled.secondary {
@@ -181,7 +181,7 @@
 .light.info,
 .outlined.info {
   background-color: var(--color-info-alpha-10);
-  color: var(--color-info-800);
+  color: var(--color-info-600);
 }
 
 .light.secondary,
