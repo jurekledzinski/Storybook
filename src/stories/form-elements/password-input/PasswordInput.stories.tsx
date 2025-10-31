@@ -11,7 +11,7 @@ const meta: Meta<typeof PasswordInput> = {
     label: 'Password',
     isError: undefined,
     isPending: false,
-    startIcon: [faEye],
+    startIcon: undefined,
     endIcon: [faEye, faEyeSlash],
     size: 'size-md',
     variant: 'basic',
