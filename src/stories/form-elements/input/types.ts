@@ -12,14 +12,14 @@ export type BaseInputProps = {
 
 export type InputProps = {
   as?: 'input';
-} & InputHTMLAttributes<HTMLInputElement> &
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
   BaseInputProps;
 
 export type TextareaProps = {
   as?: 'textarea';
   cols?: number;
   rows?: number;
-} & TextareaHTMLAttributes<HTMLTextAreaElement> &
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
   BaseInputProps;
 
 export type UnionInputs = HTMLTextAreaElement | HTMLInputElement;
