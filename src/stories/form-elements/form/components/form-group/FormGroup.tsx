@@ -1,13 +1,12 @@
+import { formGroupClassNames } from '../../utils';
 import { FormGroupProps } from './types';
-import { getClassNamesFormGroup } from '../../utils';
 
 export const FormGroup = ({
   className,
   children,
-  gap,
   orientation,
 }: FormGroupProps) => {
-  const classes = getClassNamesFormGroup({ className, gap, orientation });
+  const classNames = formGroupClassNames({ className, orientation });
 
-  return <div className={classes}>{children}</div>;
+  return <div className={classNames}>{children}</div>;
 };

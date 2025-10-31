@@ -1,17 +1,16 @@
+import { formClassNames } from './utils';
 import { FormProps } from './types';
-import { getClassNamesForm } from './utils';
 
 export const Form = ({
   className,
   children,
-  gap,
   orientation,
   ...props
 }: FormProps) => {
-  const classes = getClassNamesForm({ className, gap, orientation });
+  const classNames = formClassNames({ className, orientation });
 
   return (
-    <form className={classes} {...props}>
+    <form className={classNames} {...props}>
       {children}
     </form>
   );

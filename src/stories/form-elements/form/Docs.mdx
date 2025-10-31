@@ -1,0 +1,26 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as FormStories from './Form.stories';
+
+<Meta of={FormStories} />
+
+### Form Component
+
+The `Form` component serves as a wrapper for `FormGroup` and `Field` components, providing structure and submission handling for form elements. It ensures consistent layout across all form groups.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Form` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string;
+  orientation: 'row' | 'column';
+  ...FormHTMLAttributes<HTMLFormElement>
+}
+```
+
+#### Example Usage `Form`
+
+<Story of={FormStories.Default} />

@@ -1,10 +1,9 @@
-import { GapToken, Orientation } from '@src/stories/types';
+import { Orientation } from '@src/stories/types';
 
 type Params = {
   className?: string;
-  gap?: GapToken;
   orientation?: Orientation;
 };
 
-export type ClassNamesForm = (params: Params) => string;
-export type ClassNamesFormGroup = (params: Params) => string;
+export type FormClassNames = (params: Params) => string;
+export type FormGroupClassNames = (params: Params) => string;
