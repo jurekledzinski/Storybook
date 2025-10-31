@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as PasswordInputStories from './PasswordInput.stories';
+
+<Meta of={PasswordInputStories} />
+
+### PasswordInput Component
+
+The `PasswordInput` component is a specialized input field designed for securely capturing user passwords.  
+It behaves like a standard text input but obscures the entered characters by default and often includes a toggle button to show or hide the password for user convenience.
+
+#### Props (typescript)
+
+Here’s a list of the shared props for the `PasswordInput` component:
+
+```js
+{
+  disabled?: boolean;
+  endIcon?: IconProp[];
+  isError?: boolean;
+  isPending?: boolean;
+  label?: string;
+  readOnly?: boolean;
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  startIcon?: IconProp[];
+  variant?: "underline" | "basic" | "contained" | "outlined";
+}
+```
+
+#### Example Usage `PasswordInput`
+
+```tsx
+<PasswordInput variant="basic" />
+```
+
+#### Preview `PasswordInput`
+
+<Story of={PasswordInputStories.Default} />
