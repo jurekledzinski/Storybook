@@ -1,0 +1,54 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as RadioGroupStories from './RadioGroup.stories';
+
+<Meta of={RadioGroupStories} />
+
+### RadioGroup Component
+
+The `RadioGroup` component allows users to select one option from a set of mutually exclusive choices. It manages the selection state for multiple `Radio` buttons and ensures only one option can be active at a time. Typically used in forms and settings where a single selection is required.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `RadioGroup` component:
+
+```js
+{  
+  children?: React.ReactNode;
+  fullWidth?: boolean;
+  spacing: "none" | "tight" | "normal" | "loose" | "extra-loose";
+  orientation?: "row" | "column";
+}
+```
+Here’s a list of the props for the `Radio` component:
+
+```js
+{  
+  chilren?: React.ReactNode;
+  color?: "primary" | "secondary" | "success" | "negative" | "warning";
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  variant?: "filled" | "outlined";
+  ...InputHTMLAttributes<HTMLInputElement>;
+}
+```
+
+#### Example Usage `RadioGroup`
+
+```tsx
+<RadioGroup spacing="normal">
+  <Radio
+        id="spring"
+        name="season"
+        value="spring"
+        color="primary"
+        size="size-sm"
+        variant="filled"
+      >
+        Spring
+      </Radio>
+</RadioGroup>
+```
+
+#### Preview `RadioGroup`
+
+<Story of={RadioGroupStories.Default} />

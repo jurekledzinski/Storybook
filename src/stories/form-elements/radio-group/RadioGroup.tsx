@@ -1,20 +1,10 @@
+import { radioGroupClassNames } from './utils';
 import { RadioGroupProps } from './types';
-import { getClassRadioGroup } from './utils';
 
-export const RadioGroup = ({
-  children,
-  fullWidth,
-  marginBottom,
-  marginTop,
-  spacing,
-  orientation,
-}: RadioGroupProps) => {
-  const classes = getClassRadioGroup(orientation, spacing, fullWidth);
-  return (
-    <div className={classes} style={{ marginTop, marginBottom }}>
-      {children}
-    </div>
-  );
+export const RadioGroup = ({ children, ...props }: RadioGroupProps) => {
+  const classNames = radioGroupClassNames(props);
+
+  return <div className={classNames}>{children}</div>;
 };
 
 RadioGroup.displayName = 'RadioGroup';

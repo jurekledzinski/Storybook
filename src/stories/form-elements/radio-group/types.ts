@@ -1,10 +1,8 @@
-import { Margin, Orientation, Spacing } from '@src/stories/types';
+import { Orientation, Spacing } from '@src/stories/types';
 
 export type RadioGroupProps = {
+  spacing: Spacing;
   children?: React.ReactNode;
   fullWidth?: boolean;
-  marginTop?: Margin;
-  marginBottom?: Margin;
   orientation?: Orientation;
-  spacing: Spacing;
 };

@@ -1,4 +1,5 @@
 import { Color, Size } from '@src/stories/types';
+import { getRadioData } from './story';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio, VariantRadio } from './components';
 import { RadioGroup, RadioGroupProps } from './';
@@ -12,8 +13,9 @@ interface RadioGroupExtendRadioProps extends RadioGroupProps {
 const meta: Meta<RadioGroupExtendRadioProps> = {
   title: 'Components/Form elements/RadioGroup',
   component: RadioGroup,
-  parameters: {
-    layout: 'centered',
+  args: {
+    orientation: 'column',
+    spacing: 'normal',
   },
   argTypes: {
     orientation: {
@@ -25,7 +27,7 @@ const meta: Meta<RadioGroupExtendRadioProps> = {
       options: ['none', 'tight', 'normal', 'loose', 'extra-loose'],
     },
     color: {
-      control: { type: 'select' },
+      control: 'select',
       options: [
         'primary',
         'secondary',
@@ -50,58 +52,61 @@ export default meta;
 
 type Story = StoryObj<RadioGroupExtendRadioProps>;
 
-export const Default: Story = {
-  args: {
-    orientation: 'column',
-    spacing: 'normal',
-  },
+export const Playground: Story = {
+  render: (args) => (
+    <RadioGroup spacing={args.spacing} orientation={args.orientation}>
+      {getRadioData('filled').map((data) => (
+        <Radio
+          key={data.id}
+          id={data.id}
+          name={data.name}
+          value={data.name}
+          color={args.color}
+          size={args.size}
+          variant={args.variant}
+        >
+          {data.id.charAt(0).toUpperCase() + data.id.substring(1)}
+        </Radio>
+      ))}
+    </RadioGroup>
+  ),
   parameters: {
     controls: {
       include: ['color', 'orientation', 'spacing', 'size', 'variant'],
     },
   },
+};
+
+export const Default: Story = {
   render: (args) => (
-    <RadioGroup orientation={args.orientation} spacing={args.spacing}>
-      <Radio
-        id="wiosna"
-        name="sezon"
-        value="wiosna"
-        color={args.color}
-        size={args.size}
-        variant={args.variant}
-      >
-        Wiosna
-      </Radio>
-      <Radio
-        id="lato"
-        name="sezon"
-        value="lato"
-        color={args.color}
-        size={args.size}
-        variant={args.variant}
-      >
-        Lato
-      </Radio>
-      <Radio
-        id="jesień"
-        name="sezon"
-        value="jesień"
-        color={args.color}
-        size={args.size}
-        variant={args.variant}
-      >
-        Jesień
-      </Radio>
-      <Radio
-        id="zima"
-        name="sezon"
-        value="zima"
-        color={args.color}
-        size={args.size}
-        variant={args.variant}
-      >
-        Zima
-      </Radio>
+    <RadioGroup {...args}>
+      {getRadioData('filled').map((data) => (
+        <Radio
+          key={data.id}
+          id={data.id}
+          name={data.name}
+          value={data.name}
+          color={data.color}
+          size={args.size}
+          variant={data.variant}
+        >
+          {data.id.charAt(0).toUpperCase() + data.id.substring(1)}
+        </Radio>
+      ))}
+      {getRadioData('outlined').map((data, index) => (
+        <Radio
+          key={data.id + index}
+          id={data.id + index}
+          name={data.name}
+          value={data.name}
+          color={data.color}
+          size={args.size}
+          variant={data.variant}
+        >
+          {data.id.charAt(0).toUpperCase() + data.id.substring(1)}
+        </Radio>
+      ))}
     </RadioGroup>
   ),
+  parameters: { controls: { disable: true } },
 };

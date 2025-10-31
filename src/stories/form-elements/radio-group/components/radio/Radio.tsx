@@ -1,5 +1,5 @@
 import { forwardRef, Ref } from 'react';
-import { getClassRadio } from '../../utils';
+import { radioClassNames } from '../../utils';
 import { RadioProps } from './types';
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
@@ -7,13 +7,19 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
     { children, color, disabled, readOnly, size, variant, ...props },
     ref: Ref<HTMLInputElement>
   ) => {
-    const classes = getClassRadio(color, disabled, readOnly, size, variant);
+    const classNames = radioClassNames({
+      color,
+      disabled,
+      readOnly,
+      size,
+      variant,
+    });
 
     return (
-      <label className={classes.label} htmlFor={props.id}>
+      <label className={classNames.label} htmlFor={props.id}>
         <input
           ref={ref}
-          className={classes.input}
+          className={classNames.input}
           disabled={disabled}
           id={props.id}
           readOnly={readOnly}
@@ -21,7 +27,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           {...props}
           onKeyDown={(e) => readOnly && e.preventDefault()}
         />
-        <span className={classes.radioCustom}></span>
+        <span className={classNames.radio}></span>
         {children}
       </label>
     );

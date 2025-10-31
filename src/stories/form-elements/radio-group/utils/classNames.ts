@@ -1,40 +1,35 @@
 import styles from '../RadioGroup.module.css';
-import { classNames } from '@src/stories/helpers';
-import { Color, Orientation, Size, Spacing } from '@src/stories/types';
-import { VariantRadio } from '../components';
+import { generateClassNames } from '@src/stories/helpers';
+import { RadioClassNames, RadioGroupClassNames } from './types';
 
-export const getClassRadio = (
-  color?: Color,
-  disabled?: boolean,
-  readOnly?: boolean,
-  size?: Size,
-  variant?: VariantRadio
-) => ({
-  label: classNames(
-    styles.label,
-    styles[size ?? ''],
-    disabled ? styles['disabled'] : '',
-    readOnly ? styles['read-only'] : ''
-  ),
-  input: classNames(styles.input),
-  radioCustom: classNames(
-    styles.radioCustom,
-    styles[color ?? ''],
-    styles[size ?? ''],
-    styles[variant ?? ''],
-    readOnly ? styles['read-only'] : ''
-  ),
-});
+export const radioClassNames: RadioClassNames = (params) => {
+  const { color, disabled, readOnly, size, variant } = params;
 
-export const getClassRadioGroup = (
-  orientation?: Orientation,
-  spacing?: Spacing,
-  fullWidth?: boolean
-) => {
-  return classNames(
-    styles.radioGroup,
-    styles[orientation ?? ''],
-    styles[spacing ?? ''],
-    fullWidth ? styles.fullWidth : ''
-  );
+  return {
+    label: generateClassNames(styles, {
+      label: true,
+      disabled: Boolean(disabled),
+      readOnly: Boolean(readOnly),
+      [`${size}`]: Boolean(size),
+    }),
+    input: styles.input,
+    radio: generateClassNames(styles, {
+      radioCustom: true,
+      readOnly: Boolean(readOnly),
+      [`${color}`]: Boolean(color),
+      [`${size}`]: Boolean(size),
+      [`${variant}`]: Boolean(variant),
+    }),
+  };
+};
+
+export const radioGroupClassNames: RadioGroupClassNames = (params) => {
+  const { spacing, fullWidth, orientation } = params;
+
+  return generateClassNames(styles, {
+    radioGroup: true,
+    fullWidth: Boolean(fullWidth),
+    [`${orientation}`]: Boolean(orientation),
+    [`${spacing}`]: Boolean(spacing),
+  });
 };
