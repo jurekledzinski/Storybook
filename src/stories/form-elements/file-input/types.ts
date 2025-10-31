@@ -1,9 +1,9 @@
 import { BaseButtonProps } from '@src/stories/buttons/button';
 import { InputHTMLAttributes } from 'react';
 
-type OmittedProps = 'onError' | 'size' | 'onClick' | 'color';
+type OmitKeys = 'onError' | 'size' | 'onClick' | 'color';
 
-type InputFile = Omit<InputHTMLAttributes<HTMLInputElement>, OmittedProps>;
+type InputFile = Omit<InputHTMLAttributes<HTMLInputElement>, OmitKeys>;
 
 type Type = 'amount' | 'size' | 'type';
 

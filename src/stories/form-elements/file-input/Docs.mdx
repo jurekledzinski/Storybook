@@ -1,0 +1,35 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as FileInputStories from './FileInput.stories';
+
+<Meta of={FileInputStories} />
+
+### FileInput Component
+
+The `FileInput` component allows users to upload one or more files from their device. It provides a styled interface for selecting files and can display the chosen file names, upload states.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `FileInput` component:
+
+```js
+{
+    accept?: string;
+    label: string;
+    border?: "border-xs" | "border-sm" | "border-md" | "border-lg" | "border-xl";
+    color?: "info" | "primary" | "secondary" | "success" | "negative" | "warning";
+    disabled?: boolean;
+    fullWidth?: boolean;
+    iconEnd?: Icons;
+    iconStart?: Icons;
+    isLoading?: boolean;
+    multiple?:boolean;
+    radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
+    size?: "size-xs" | "size-sm" | "size-md" | "size-lg" | "size-xxs";
+    variant?: "contained" | "outlined" | "text";
+}
+```
+
+#### Example Usage `FileInput`
+
+<Story of={FileInputStories.Default} />
