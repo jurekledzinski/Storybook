@@ -1,0 +1,29 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as LabelStories from './Label.stories';
+
+<Meta of={LabelStories} />
+
+### Label Component
+
+The `Label` component used to display text that identifies or describes another UI element, such as form fields.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Label` component:
+
+```js
+{
+  ...LabelHTMLAttributes<HTMLLabelElement>;
+}
+```
+
+#### Example Usage `Label
+
+```tsx
+<Label>Label example</Label>
+```
+
+#### Preview `Label`
+
+<Story of={LabelStories.Default} />
