@@ -155,7 +155,9 @@ export const withInfo: Story = {
           />
           <div>
             {files.map((file) => (
-              <p key={file.size}>{file.name}</p>
+              <p key={file.size} style={{ fontSize: 12 }}>
+                {file.name}
+              </p>
             ))}
           </div>
         </FileInputContainer>
