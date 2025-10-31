@@ -71,9 +71,9 @@ type Story = StoryObj<typeof Input>;
 
 export const Playground: Story = {
   render: (args) => (
-    <div style={{ minWidth: '400px' }}>
+    <Stack style={{ minWidth: '400px' }}>
       <Input {...args} />
-    </div>
+    </Stack>
   ),
   parameters: {
     controls: {
