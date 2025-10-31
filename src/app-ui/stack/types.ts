@@ -1,6 +1,7 @@
 import { Aligment, Justify, Orientation, Spacing } from '@src/stories/types';
+import { HTMLAttributes } from 'react';
 
-export type StackProps = {
+export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   aligment?: Aligment;
   className?: string;
@@ -9,4 +10,4 @@ export type StackProps = {
   orientation?: Orientation;
   spacing?: Spacing;
   wrap?: 'wrap';
-};
+}
