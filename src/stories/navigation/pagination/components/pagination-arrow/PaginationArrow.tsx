@@ -1,10 +1,10 @@
+import { Icon } from '@src/stories/graphics/icon';
+import { PaginationArrowProps } from './types';
+import { usePaginationContext } from '../../store';
 import {
   getClassNamesPaginationItems,
   getPaginationArrowProps,
 } from '../../utils';
-import { Icon } from '@src/stories/graphics/icon';
-import { PaginationArrowProps } from './types';
-import { usePaginationContext } from '../../context';
 
 export const PaginationArrow = ({
   id,
