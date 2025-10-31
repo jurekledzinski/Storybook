@@ -8,7 +8,16 @@ import {
 } from './types';
 
 export const inputWrapperClassNames: InputWrapperClassNames = (params) => {
-  const { as, className, disabled, isError, variant } = params;
+  const {
+    as,
+    className,
+    disabled,
+    isError,
+    isEndIcon,
+    isStartIcon,
+    isPending,
+    variant,
+  } = params;
 
   return classNames(
     generateClassNames(stylesInput, {
@@ -18,8 +27,8 @@ export const inputWrapperClassNames: InputWrapperClassNames = (params) => {
       'wrapper-disabled': Boolean(disabled),
       'wrapper-inValid': isError === true,
       'wrapper-valid': isError === false,
-      'wrapper-startIcon': true,
-      'wrapper-endIcon': true,
+      'wrapper-startIcon': Boolean(isStartIcon),
+      'wrapper-endIcon': Boolean(isEndIcon) || Boolean(isPending),
 
       // 'wrapper-startIcon': Boolean(startIcon),
       // 'wrapper-endIcon': Boolean(endIcon) || Boolean(isPending),
