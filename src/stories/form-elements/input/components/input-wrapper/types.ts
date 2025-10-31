@@ -1,19 +1,12 @@
-import { Icon, InputVariant, Size } from '@src/stories/types';
+import { InputVariant, Size } from '@src/stories/types';
 
 export interface InputWrapperProps {
+  children?: React.ReactNode;
   as?: 'input' | 'textarea';
-  dividerStart?: boolean;
-  dividerEnd?: boolean;
   disabled?: boolean;
-  children: React.ReactNode;
-  endIcon?: Icon | string;
   isError?: boolean;
   isPending?: boolean;
-  statusVisible?: boolean;
-  onClickEndIcon?: React.MouseEventHandler<HTMLButtonElement>;
-  onClickStartIcon?: React.MouseEventHandler<HTMLButtonElement>;
-  size?: Size;
-  startIcon?: Icon;
   readOnly?: boolean;
+  size?: Size;
   variant?: InputVariant;
 }

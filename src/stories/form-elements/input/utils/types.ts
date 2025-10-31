@@ -1,25 +1,27 @@
 import { InputWrapperProps } from '@src/stories/form-elements/input';
 
-type OmitUnion =
-  | 'children'
-  | 'statusVisible'
-  | 'onClickEndIcon'
-  | 'onClickStartIcon';
+type PickKeys = 'isError' | 'size' | 'variant' | 'disabled';
 
-type PickUnion = 'isError' | 'size' | 'variant' | 'disabled';
-
-export interface BaseParmas extends Omit<InputWrapperProps, OmitUnion> {
+export interface BaseParmas extends Omit<InputWrapperProps, 'children'> {
   className?: string;
 }
 
-export type GetClassNamesInputWrapper = (params: BaseParmas) => {
-  inputWrapper: string;
-  startIcon: string;
-  endIcon: string;
-  statusIcon: string;
-};
+// export type InputWrapperClassNames = (params: BaseParmas) => {
+//   inputWrapper: string;
+//   startIcon: string;
+//   endIcon: string;
+//   statusIcon: string;
+// };
 
-export type GetClassNamesInput = (params: Pick<BaseParmas, PickUnion>) => {
+export type InputWrapperClassNames = (params: BaseParmas) => string;
+
+export type IconInputWrapperClassNames = (
+  params: BaseParmas & { type: 'startIcon' | 'endIcon' }
+) => string;
+
+export type IconStatusClassNames = (params: BaseParmas) => string;
+
+export type InputClassNames = (params: Pick<BaseParmas, PickKeys>) => {
   fieldset: string;
   input: string;
   legend: string;

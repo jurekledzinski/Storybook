@@ -1,29 +1,27 @@
-import React from 'react';
+import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import { InputVariant, Size } from '@src/stories/types';
 
-export type BaseInputProps<T> = {
-  disabled?: boolean;
+export type BaseInputProps = {
   isError?: boolean;
+  label?: string;
   name?: string;
-  ref?: React.LegacyRef<T>;
   placeholder?: string;
-  readOnly?: boolean;
   size?: Size;
   variant?: InputVariant;
-  label?: string;
 };
 
-export interface InputProps extends BaseInputProps<HTMLInputElement> {
+export type InputProps = {
   as?: 'input';
-  type?: 'email' | 'number' | 'password' | 'text';
-}
+} & InputHTMLAttributes<HTMLInputElement> &
+  BaseInputProps;
 
-export interface TextareaProps extends BaseInputProps<HTMLTextAreaElement> {
+export type TextareaProps = {
   as?: 'textarea';
   cols?: number;
   rows?: number;
-}
+} & TextareaHTMLAttributes<HTMLTextAreaElement> &
+  BaseInputProps;
 
-export type UnionElements = HTMLTextAreaElement | HTMLInputElement;
+export type UnionInputs = HTMLTextAreaElement | HTMLInputElement;
 
-export type MergeProps = InputProps | TextareaProps;
+export type MergeInputsProps = InputProps | TextareaProps;

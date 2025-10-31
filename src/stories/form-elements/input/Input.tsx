@@ -1,64 +1,68 @@
-import { forwardRef, Ref } from 'react';
-import { getClassNamesInput } from './utils';
-import { MergeProps, UnionElements } from './types';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { inputClassNames } from './utils';
+import { MergeInputsProps, UnionInputs } from './types';
 
-export const Input = forwardRef<UnionElements, MergeProps>(
+export const Input = forwardRef<UnionInputs, MergeInputsProps>(
   (
     {
       as = 'input',
       disabled,
       isError,
-      size = 'size-md',
-      variant = 'basic',
+      size,
+      variant,
       placeholder = '',
       ...props
     },
-    ref: Ref<UnionElements>
+    ref
   ) => {
-    const classes = getClassNamesInput({ variant, size, isError, disabled });
+    const inputRef = useRef<HTMLInputElement>(null);
+    const txtRef = useRef<HTMLTextAreaElement>(null);
 
-    if (as === 'textarea') {
+    useImperativeHandle(ref, () => inputRef.current || txtRef.current!, []);
+
+    const classNames = inputClassNames({ variant, size, isError, disabled });
+
+    if (as === 'textarea' && 'cols' in props) {
       return (
-        <fieldset className={classes.fieldset}>
+        <fieldset className={classNames.fieldset}>
           <textarea
             {...props}
-            ref={ref as Ref<HTMLTextAreaElement>}
+            ref={txtRef}
             aria-label={props.label}
-            className={classes.textarea}
+            className={classNames.textarea}
             disabled={disabled}
             placeholder={placeholder}
             required
           />
 
           {variant !== 'basic' && (
-            <legend className={classes.legend}>{props.label}</legend>
+            <legend className={classNames.legend}>{props.label}</legend>
           )}
         </fieldset>
       );
     }
 
-    const inputProps = {
-      type: 'text',
-      ...props,
-    };
+    if (as === 'input' && 'type' in props) {
+      return (
+        <fieldset className={classNames.fieldset}>
+          <input
+            {...props}
+            ref={inputRef}
+            aria-label={props.label}
+            className={classNames.input}
+            disabled={disabled}
+            placeholder={placeholder}
+            required
+          />
 
-    return (
-      <fieldset className={classes.fieldset}>
-        <input
-          {...inputProps}
-          ref={ref as Ref<HTMLInputElement>}
-          aria-label={props.label}
-          className={classes.input}
-          disabled={disabled}
-          placeholder={placeholder}
-          required
-        />
+          {variant !== 'basic' && (
+            <legend className={classNames.legend}>{props.label}</legend>
+          )}
+        </fieldset>
+      );
+    }
 
-        {variant !== 'basic' && (
-          <legend className={classes.legend}>{props.label}</legend>
-        )}
-      </fieldset>
-    );
+    return null;
   }
 );
 

@@ -1,79 +1,18 @@
-import { ButtonIcon } from '../button-icon/ButtonIcon';
 import { forwardRef, Ref } from 'react';
-import { getClassNamesInputWrapper } from '../../utils';
+import { inputWrapperClassNames } from '../../utils';
 import { InputWrapperProps } from './types';
-import { Loader } from '@src/stories/feedbacks/loader';
-import { StatusIcon } from '../status-icon/StatusIcon';
-import {
-  faCheckCircle,
-  faExclamationCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { InputWrapperProvider } from '../../store';
 
 export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
-  (
-    {
-      children,
-      size = 'size-sm',
-      variant = 'basic',
-      statusVisible = true,
-      ...props
-    },
-    ref: Ref<HTMLDivElement>
-  ) => {
-    const classes = getClassNamesInputWrapper({ ...props, size, variant });
-
-    const {
-      as,
-      isError,
-      isPending,
-      startIcon,
-      dividerStart,
-      dividerEnd,
-      endIcon,
-      onClickStartIcon,
-      onClickEndIcon,
-      ...rest
-    } = props;
+  ({ children, ...props }, ref: Ref<HTMLDivElement>) => {
+    const classNames = inputWrapperClassNames(props);
 
     return (
-      <div {...rest} className={classes.inputWrapper} ref={ref}>
-        {(as === 'input' && startIcon) ||
-        (as === 'input' && dividerStart && startIcon) ? (
-          <ButtonIcon
-            className={classes.startIcon}
-            icon={startIcon}
-            onClick={onClickStartIcon}
-          />
-        ) : null}
-
-        {children}
-
-        {isError !== undefined && !isPending && statusVisible ? (
-          isError ? (
-            <StatusIcon
-              className={classes.statusIcon}
-              icon={faExclamationCircle}
-            />
-          ) : (
-            <StatusIcon className={classes.statusIcon} icon={faCheckCircle} />
-          )
-        ) : null}
-
-        {isPending ? (
-          <div className={classes.endIcon}>
-            <Loader size={size} />
-          </div>
-        ) : (endIcon && isError === undefined) || (dividerEnd && endIcon) ? (
-          <ButtonIcon
-            className={classes.endIcon}
-            icon={endIcon}
-            onClick={(e) => {
-              e.preventDefault();
-              if (onClickEndIcon) onClickEndIcon(e);
-            }}
-          />
-        ) : null}
-      </div>
+      <InputWrapperProvider value={props}>
+        <div {...props} className={classNames} ref={ref}>
+          {children}
+        </div>
+      </InputWrapperProvider>
     );
   }
 );
