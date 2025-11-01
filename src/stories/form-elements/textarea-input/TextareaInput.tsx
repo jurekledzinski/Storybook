@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
-import { InputWrapper } from '@src/stories/form-elements/input';
+import { IconEnd, IconStatus, InputLoader, InputWrapper } from '../input';
 import { Textarea } from '../textarea';
 import { TextareaProps } from './types';
 
 export const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ endIcon, isPending, startIcon, ...props }, ref) => {
+  ({ endIcon, isPending, startIcon, onClick, ...props }, ref) => {
     return (
       <InputWrapper
         {...props}
@@ -14,6 +14,9 @@ export const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaProps>(
         isStartIcon={!!startIcon}
       >
         <Textarea {...props} ref={ref} />
+        <InputLoader />
+        <IconStatus />
+        {endIcon ? <IconEnd icon={endIcon[0]} onClick={onClick} /> : null}
       </InputWrapper>
     );
   }
