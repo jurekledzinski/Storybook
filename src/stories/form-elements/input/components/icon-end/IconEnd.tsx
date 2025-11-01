@@ -1,6 +1,6 @@
 import { Icon } from '@src/stories/graphics/icon';
 import { IconEndProps } from './types';
-import { iconInputWrapperClassNames } from '../..';
+import { iconInputWrapperClassNames } from '../../utils';
 import { useInputWrapper } from '../../store/useInputWrapper';
 
 export const IconEnd = ({ icon, ...props }: IconEndProps) => {

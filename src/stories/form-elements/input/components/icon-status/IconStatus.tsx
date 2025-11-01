@@ -1,5 +1,5 @@
 import { Icon } from '@src/stories/graphics/icon';
-import { iconStatusClassNames } from '../..';
+import { iconInputWrapperClassNames } from '../../utils';
 import { IconStatusProps } from './types';
 import { useInputWrapper } from '../../store/useInputWrapper';
 import {
@@ -11,7 +11,7 @@ export const IconStatus = ({
   icons = [faExclamationCircle, faCheckCircle],
 }: IconStatusProps) => {
   const ctx = useInputWrapper();
-  const classNames = iconStatusClassNames(ctx);
+  const classNames = iconInputWrapperClassNames({ type: 'endIcon', ...ctx });
 
   if (ctx.isPending || ctx.isError === undefined) return null;
 

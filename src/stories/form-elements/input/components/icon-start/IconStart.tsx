@@ -1,5 +1,5 @@
 import { Icon } from '@src/stories/graphics/icon';
-import { iconInputWrapperClassNames } from '../..';
+import { iconInputWrapperClassNames } from '../../utils';
 import { IconStartProps } from './types';
 import { useInputWrapper } from '../../store/useInputWrapper';
 
