@@ -2,28 +2,27 @@ import { InputWrapperProps } from '@src/stories/form-elements/input';
 
 type PickKeys = 'isError' | 'size' | 'variant' | 'disabled';
 
-export interface BaseParmas extends Omit<InputWrapperProps, 'children'> {
-  className?: string;
-}
+export type BaseParmas = Omit<InputWrapperProps, 'children'>;
 
-// export type InputWrapperClassNames = (params: BaseParmas) => {
-//   inputWrapper: string;
-//   startIcon: string;
-//   endIcon: string;
-//   statusIcon: string;
-// };
+type InputWrapperParams = BaseParmas & { type: 'startIcon' | 'endIcon' };
+
+type CommonParams = Pick<BaseParmas, PickKeys>;
+
+type CommonTypeParams = Pick<BaseParmas, PickKeys> & {
+  type: 'input' | 'legend' | 'textarea';
+};
 
 export type InputWrapperClassNames = (params: BaseParmas) => string;
 
-export type IconInputWrapperClassNames = (
-  params: BaseParmas & { type: 'startIcon' | 'endIcon' }
-) => string;
+export type IconInputWrapperClassNames = (params: InputWrapperParams) => string;
 
-export type IconStatusClassNames = (params: BaseParmas) => string;
-
-export type InputClassNames = (params: Pick<BaseParmas, PickKeys>) => {
+export type InputBaseClassNames = (params: CommonParams) => {
   fieldset: string;
-  input: string;
   legend: string;
-  textarea: string;
 };
+
+export type InputClassNames = (params: CommonParams) => string;
+
+export type TextareaClassNames = (params: CommonParams) => string;
+
+export type CommonInputClassNames = (params: CommonTypeParams) => string;
