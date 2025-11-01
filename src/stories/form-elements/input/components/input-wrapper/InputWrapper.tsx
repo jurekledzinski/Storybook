@@ -9,7 +9,7 @@ export const InputWrapper = forwardRef<HTMLDivElement, InputWrapperProps>(
 
     return (
       <InputWrapperProvider value={props}>
-        <div {...props} className={classNames} ref={ref}>
+        <div className={classNames} ref={ref}>
           {children}
         </div>
       </InputWrapperProvider>
