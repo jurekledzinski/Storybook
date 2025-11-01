@@ -1,4 +1,4 @@
-import { iconInputWrapperClassNames } from '../..';
+import { iconInputWrapperClassNames } from '../../utils';
 import { Loader } from '@src/stories/feedbacks/loader';
 import { useInputWrapper } from '../../store/useInputWrapper';
 
