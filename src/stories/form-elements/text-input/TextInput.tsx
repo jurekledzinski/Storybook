@@ -1,49 +1,19 @@
-import styles from './TextInput.module.css';
 import { forwardRef } from 'react';
-import { getInputProps } from './utils';
 import { Input, InputWrapper } from '@src/stories/form-elements/input';
-import { TextInputProps } from './types';
+import { InputProps } from './types';
 
-export const TextInput = forwardRef<
-  HTMLTextAreaElement | HTMLInputElement,
-  TextInputProps
->(
-  (
-    {
-      as = 'input',
-      endIcon,
-      isError,
-      isPending,
-      startIcon,
-      type = 'text',
-      onClickEndIcon,
-      onClickStartIcon,
-      size,
-      variant = 'basic',
-      ...props
-    },
-    ref
-  ) => {
-    const inputProps = getInputProps({ as, type, isError, size, variant });
-
+export const TextInput = forwardRef<HTMLInputElement, InputProps>(
+  ({ endIcon, isPending, startIcon, ...props }, ref) => {
     return (
-      <div className={styles.textInput}>
-        <InputWrapper
-          as={as}
-          isError={isError}
-          isPending={isPending}
-          onClickEndIcon={onClickEndIcon}
-          onClickStartIcon={onClickStartIcon}
-          disabled={props.disabled}
-          readOnly={props.readOnly}
-          size={size}
-          variant={variant}
-          {...(endIcon && { endIcon: endIcon[0] })}
-          {...(startIcon && { startIcon: startIcon[0] })}
-        >
-          <Input ref={ref} {...inputProps} {...props} />
-        </InputWrapper>
-      </div>
+      <InputWrapper
+        {...props}
+        as="input"
+        isPending={isPending}
+        isEndIcon={!!endIcon && Boolean(props.value)}
+        isStartIcon={!!startIcon}
+      >
+        <Input {...props} ref={ref} />
+      </InputWrapper>
     );
   }
 );

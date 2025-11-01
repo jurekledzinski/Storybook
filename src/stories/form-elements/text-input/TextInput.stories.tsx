@@ -1,44 +1,26 @@
+import { Meta, StoryObj } from '@storybook/react-vite';
+import { Stack } from '@src/app-ui';
+import { TextInput } from './TextInput';
 import {
   faCheckCircle,
   faExclamationCircle,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
-import { fn } from 'storybook/test';
-import { Meta, StoryObj } from '@storybook/react-vite';
-import { TextInput } from './TextInput';
 
 const meta: Meta<typeof TextInput> = {
   title: 'Components/Form elements/TextInput',
   component: TextInput,
-  parameters: {
-    layout: 'centered',
-  },
-};
-
-export default meta;
-
-type Story = StoryObj<typeof TextInput>;
-
-export const Default: Story = {
   args: {
-    as: 'input',
     variant: 'basic',
     size: 'size-sm',
     label: 'Name',
     isPending: false,
     type: 'text',
     isError: undefined,
-    onClickEndIcon: fn(),
-    onClickStartIcon: fn(),
     disabled: false,
     readOnly: false,
-    placeholder: 'Hello placeholder',
   },
   argTypes: {
-    as: {
-      control: { type: 'select' },
-      options: ['input', 'textarea'],
-    },
     endIcon: {
       control: 'select',
       options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
@@ -50,7 +32,7 @@ export const Default: Story = {
       },
     },
     size: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     startIcon: {
@@ -73,26 +55,29 @@ export const Default: Story = {
       },
     },
     type: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['email', 'number', 'text'],
-      if: { arg: 'as', eq: 'input' },
     },
     variant: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['basic', 'contained', 'outlined', 'underline'],
     },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ minWidth: '400px' }}>
-        <Story />
-      </div>
-    ),
-  ],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof TextInput>;
+
+export const Playground: Story = {
+  render: (args) => (
+    <Stack style={{ minWidth: '400px' }}>
+      <TextInput {...args} />
+    </Stack>
+  ),
   parameters: {
     controls: {
       include: [
-        'as',
         'disabled',
         'endIcon',
         'isError',
@@ -106,4 +91,13 @@ export const Default: Story = {
       ],
     },
   },
+};
+
+export const Default: Story = {
+  render: (args) => (
+    <Stack style={{ minWidth: '400px' }}>
+      <TextInput {...args} />
+    </Stack>
+  ),
+  parameters: { controls: { disable: true } },
 };
