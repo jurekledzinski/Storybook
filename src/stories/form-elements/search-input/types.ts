@@ -1,21 +1,19 @@
-import { Icons, InputVariant, Size } from '@src/stories/types';
-import { InputHTMLAttributes } from 'react';
+import { Icon, InputVariant, Size } from '@src/stories/types';
+import { InputHTMLAttributes, MouseEventHandler } from 'react';
 
 type BasedProps = {
-  endIcon?: Icons | string;
+  endIcon?: Icon;
   isError?: boolean;
   isPending?: boolean;
-  size?: Size;
-  startIcon?: Icons;
-  onClickEndIcon?: React.MouseEventHandler<HTMLSpanElement>;
-  onClickStartIcon?: React.MouseEventHandler<HTMLSpanElement>;
-  variant?: InputVariant;
   label?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  size?: Size;
+  startIcon?: Icon;
+  variant?: InputVariant;
 };
 
 interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  as?: 'input';
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onClick'> {
   type: 'email' | 'number' | 'text';
 }
 

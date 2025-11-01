@@ -1,21 +1,32 @@
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { forwardRef } from 'react';
-import { Input } from '../input/Input';
-import { InputWrapper } from '../input/components';
+import { IconEnd, IconStart, InputWrapper } from '../input/components';
+import { Input } from '../input';
 import { SearchInputProps } from './types';
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ endIcon, startIcon, isPending, ...props }, ref) => {
+  (
+    {
+      endIcon = faXmark,
+      label,
+      startIcon = faMagnifyingGlass,
+      isPending,
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <InputWrapper
         as="input"
-        dividerStart={true}
-        dividerEnd={true}
         isPending={isPending}
-        {...(endIcon && { endIcon: endIcon[0] })}
-        {...(startIcon && { startIcon: startIcon[0] })}
+        isEndIcon={!!endIcon && Boolean(props.value)}
+        isStartIcon={!!startIcon}
         {...props}
       >
-        <Input ref={ref} {...props} />
+        <IconStart icon={startIcon} />
+        <Input label={label} {...props} ref={ref} />
+        {props.value ? <IconEnd icon={endIcon} onClick={onClick} /> : null}
       </InputWrapper>
     );
   }

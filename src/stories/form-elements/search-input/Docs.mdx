@@ -1,0 +1,36 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as SearchInputStories from './SearchInput.stories';
+
+<Meta of={SearchInputStories} />
+
+### SearchInput Component
+
+`SearchInput` is a controlled input component designed for searching. It supports typing queries, triggering search actions, and optionally displaying a clear button. Ideal for filtering lists or searching data within your application.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `SearchInput` component:
+
+```js
+{
+  endIcon?: Icon;
+  isError?: boolean;
+  isPending?: boolean;
+  label?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  startIcon?: Icon;
+  variant?: "underline" | "basic" | "contained" | "outlined";
+}
+```
+
+#### Example Usage `SearchInput`
+
+```tsx
+<SearchInput variant="basic" />
+```
+
+#### Preview `SearchInput`
+
+<Story of={SearchInputStories.Default} />
