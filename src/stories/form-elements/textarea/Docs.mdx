@@ -1,0 +1,35 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+### Textarea Component
+
+`Textarea` is a multi-line input component that allows users to enter longer text content. It supports resizing, placeholder text, and controlled input handling, making it suitable for comments, descriptions, or any extended text input.
+
+#### Props (typescript)
+
+Here’s a list of the shared props for the `Textarea` component:
+
+```js
+{
+  isError?: boolean;
+  label?: string;
+  name?: string;
+  placeholder?: string;
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  variant?: "basic" | "contained" | "outlined" | "underline";
+  ...TextareaHTMLAttributes<HTMLTextAreaElement>
+}
+```
+
+#### Example Usage `Textarea`
+
+```tsx
+<Textarea />
+```
+
+#### Preview `Textarea`
+
+<Story of={TextareaStories.Default} />
