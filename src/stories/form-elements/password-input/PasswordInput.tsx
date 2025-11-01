@@ -17,6 +17,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     return (
       <InputWrapper
         {...props}
+        as="input"
         isPending={isPending}
         isEndIcon={!!endIcon}
         isStartIcon={!!startIcon}
