@@ -5,33 +5,14 @@ import { Stack } from '@src/app-ui';
 const meta: Meta<typeof Input> = {
   title: 'Components/Form elements/Input',
   component: Input,
-  beforeEach: (props) => {
-    if (props.args.as === 'textarea' && !props.args.cols && !props.args.rows) {
-      props.args.cols = 4;
-      props.args.rows = 4;
-    }
-  },
   args: {
     label: 'Name',
     variant: 'basic',
     type: 'text',
-    as: 'input',
     disabled: false,
     readOnly: false,
   },
   argTypes: {
-    as: {
-      control: 'select',
-      options: ['input', 'textarea'],
-    },
-    cols: {
-      control: 'select',
-      options: [3, 4],
-      table: {
-        category: 'Specific',
-      },
-      if: { arg: 'as', eq: 'textarea' },
-    },
     isError: {
       control: 'select',
       options: ['none', 'true', 'false'],
@@ -40,14 +21,6 @@ const meta: Meta<typeof Input> = {
         true: true,
         false: false,
       },
-    },
-    rows: {
-      control: 'select',
-      options: [1, 4, 8, 12],
-      table: {
-        category: 'Specific',
-      },
-      if: { arg: 'as', eq: 'textarea' },
     },
     size: {
       control: 'select',

@@ -10,18 +10,11 @@ export type BaseInputProps = {
   variant?: InputVariant;
 };
 
-export type InputProps = {
-  as?: 'input';
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
+export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
   BaseInputProps;
 
-export type TextareaProps = {
-  as?: 'textarea';
-  cols?: number;
-  rows?: number;
-} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
+export type TextareaProps = Omit<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  'size'
+> &
   BaseInputProps;
-
-export type UnionInputs = HTMLTextAreaElement | HTMLInputElement;
-
-export type MergeInputsProps = InputProps | TextareaProps;

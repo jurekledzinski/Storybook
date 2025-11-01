@@ -14,47 +14,23 @@ Here’s a list of the shared props for the `Input` component:
 
 ```js
 {
-  as?: 'input' | 'textarea';
   isError?: boolean;
   label?: string;
   name?: string;
   placeholder?: string;
   size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
   variant?: "basic" | "contained" | "outlined" | "underline";
-  ...props: InputHTMLAttributes<HTMLInputElement>
+  ...InputHTMLAttributes<HTMLInputElement>
 }
 ```
-
-Here’s a list of props for the `Input` component as input:
-
-```js
-{
-  as?: 'input';;
-  ...props: InputHTMLAttributes<HTMLInputElement>
-}
-```
-
-Here’s a list of props for the `Input` component as input:
-
-```js
-{
-  as?: 'textarea';
-  ...props: InputHTMLAttributes<HTMLInputElement>
-}
-```
-
-#### Example Usage `Input` as input
+#### Example Usage `Input`
 
 ```tsx
-<Input as="input" type="text" variant="basic" />
+<Input />
 ```
-
-#### Example Usage `Input` as textarea
-
-```tsx
-<Input as="textarea" variant="basic" />
-```
-
 #### Preview `Input`
 
 <Story of={InputStories.Default} />
+
+
+
