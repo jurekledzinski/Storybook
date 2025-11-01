@@ -26,25 +26,6 @@
 
 /* --- Styled elements inside --- */
 
-.wrapper-divider-start > button.startIcon::after,
-.wrapper-divider-end > button.endIcon::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  width: 1px;
-  background-color: var(--color-black-500);
-}
-
-.wrapper-divider-start > button.startIcon::after {
-  right: 0;
-}
-
-.wrapper-divider-end > button.endIcon::before {
-  left: 0;
-}
-
 .wrapper > .endIcon,
 .wrapper > .startIcon {
   position: relative;
@@ -70,13 +51,13 @@
   outline: none;
 }
 
-.wrapper-startIcon:not(.wrapper-divider-start) .input {
+.wrapper-startIcon .input {
   padding-left: 0;
 }
 
 .wrapper-inValid .input,
 .wrapper-valid .input,
-.wrapper-endIcon:not(.wrapper-divider-end) .input {
+.wrapper-endIcon .input {
   padding-right: 0;
 }
 
@@ -221,7 +202,7 @@
   .textarea:not(:placeholder-shown)
   + .legend,
 .wrapper-startIcon.wrapper-underline .textarea:focus + .legend {
-  left: -32px;
+  left: -38px;
 }
 
 /* --- Variant contained and underline --- */
@@ -245,7 +226,7 @@
 }
 
 .wrapper-startIcon.wrapper-contained .legend {
-  left: -1.5rem;
+  left: -1.6rem;
 }
 
 /* --- Legend --- */
@@ -282,6 +263,12 @@
   pointer-events: none;
 }
 
+.wrapper-disabled .startIcon svg,
+.wrapper-disabled .endIcon svg {
+  color: var(--color-disabled-200);
+  cursor: not-allowed;
+}
+
 .wrapper-disabled.wrapper-contained .startIcon,
 .wrapper-disabled.wrapper-contained .endIcon,
 .wrapper-disabled.wrapper-underline .startIcon,
@@ -298,11 +285,6 @@
 
 .wrapper-disabled .legend {
   color: var(--color-disabled-200);
-}
-
-.wrapper-disabled.wrapper-divider-end button.endIcon::before,
-.wrapper-disabled.wrapper-divider-start button.startIcon::after {
-  background-color: var(--color-disabled-100);
 }
 
 .wrapper-disabled.wrapper-contained {
