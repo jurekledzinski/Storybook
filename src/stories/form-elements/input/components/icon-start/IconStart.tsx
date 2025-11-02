@@ -3,9 +3,9 @@ import { iconInputWrapperClassNames } from '../../utils';
 import { IconStartProps } from './types';
 import { useInputWrapper } from '../../store/useInputWrapper';
 
-export const IconStart = ({ icon, ...props }: IconStartProps) => {
+export const IconStart = ({ className, icon, ...props }: IconStartProps) => {
   const ctx = useInputWrapper();
-  const classNames = iconInputWrapperClassNames({ type: 'startIcon', ...ctx });
+  const classNames = iconInputWrapperClassNames({ ...ctx, type: 'startIcon', className });
 
   return (
     <button {...props} className={classNames}>
