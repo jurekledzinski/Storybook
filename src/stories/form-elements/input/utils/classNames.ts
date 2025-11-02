@@ -10,16 +10,7 @@ import {
 } from './types';
 
 export const inputWrapperClassNames: InputWrapperClassNames = (params) => {
-  const {
-    as,
-    className,
-    disabled,
-    isError,
-    isEndIcon,
-    isStartIcon,
-    isPending,
-    variant,
-  } = params;
+  const { as, className, disabled, isError, isEndIcon, isStartIcon, isPending, variant } = params;
 
   return classNames(
     generateClassNames(stylesInput, {
@@ -37,16 +28,17 @@ export const inputWrapperClassNames: InputWrapperClassNames = (params) => {
   );
 };
 
-export const iconInputWrapperClassNames: IconInputWrapperClassNames = (
-  params
-) => {
-  const { size, type, variant } = params;
+export const iconInputWrapperClassNames: IconInputWrapperClassNames = (params) => {
+  const { className, size, type, variant } = params;
 
-  return generateClassNames(stylesInput, {
-    [`${type}`]: true,
-    [`${type}-${size}`]: Boolean(size),
-    [`${type}-${variant}`]: Boolean(variant),
-  });
+  return classNames(
+    generateClassNames(stylesInput, {
+      [`${type}`]: true,
+      [`${type}-${size}`]: Boolean(size),
+      [`${type}-${variant}`]: Boolean(variant),
+    }),
+    className ?? ''
+  );
 };
 
 const commonClassNames: CommonInputClassNames = (params) => {
