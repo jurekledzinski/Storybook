@@ -10,8 +10,7 @@ const meta: Meta<typeof Textarea> = {
     variant: 'basic',
     disabled: false,
     readOnly: false,
-    cols: 4,
-    rows: 4,
+    rows: 10,
   },
   argTypes: {
     isError: {
@@ -53,11 +52,7 @@ export const Playground: Story = {
 
 export const Default: Story = {
   render: (args) => (
-    <Stack
-      orientation="column"
-      spacing="extra-loose"
-      style={{ minWidth: '400px' }}
-    >
+    <Stack orientation="column" spacing="extra-loose" style={{ minWidth: '400px' }}>
       <Textarea {...args} variant="basic" />
       <Textarea {...args} variant="outlined" />
       <Textarea {...args} variant="contained" />
