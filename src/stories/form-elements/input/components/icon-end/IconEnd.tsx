@@ -3,9 +3,9 @@ import { IconEndProps } from './types';
 import { iconInputWrapperClassNames } from '../../utils';
 import { useInputWrapper } from '../../store/useInputWrapper';
 
-export const IconEnd = ({ icon, ...props }: IconEndProps) => {
+export const IconEnd = ({ className, icon, ...props }: IconEndProps) => {
   const ctx = useInputWrapper();
-  const classNames = iconInputWrapperClassNames({ type: 'endIcon', ...ctx });
+  const classNames = iconInputWrapperClassNames({ ...ctx, type: 'endIcon', className });
 
   if (ctx.isPending || ctx.isError !== undefined) return null;
 
