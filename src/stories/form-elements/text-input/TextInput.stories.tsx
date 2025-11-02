@@ -1,11 +1,7 @@
+import { faEnvelope, faEnvelopesBulk, faMessage } from '@fortawesome/free-solid-svg-icons';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Stack } from '@src/app-ui';
 import { TextInput } from './TextInput';
-import {
-  faCheckCircle,
-  faExclamationCircle,
-  faCheck,
-} from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof TextInput> = {
   title: 'Components/Form elements/TextInput',
@@ -23,12 +19,12 @@ const meta: Meta<typeof TextInput> = {
   argTypes: {
     endIcon: {
       control: 'select',
-      options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
+      options: ['none', 'faMessage', 'faEnvelope', 'faEnvelopesBulk'],
       mapping: {
         none: undefined,
-        faCheckCircle: [faCheckCircle],
-        faExclamationCircle: [faExclamationCircle],
-        faCheck: [faCheck],
+        faMessage,
+        faEnvelope,
+        faEnvelopesBulk,
       },
     },
     size: {
@@ -37,12 +33,12 @@ const meta: Meta<typeof TextInput> = {
     },
     startIcon: {
       control: 'select',
-      options: ['none', 'faCheckCircle', 'faExclamationCircle', 'faCheck'],
+      options: ['none', 'faMessage', 'faEnvelope', 'faEnvelopesBulk'],
       mapping: {
         none: undefined,
-        faCheckCircle: [faCheckCircle],
-        faExclamationCircle: [faExclamationCircle],
-        faCheck: [faCheck],
+        faMessage,
+        faEnvelope,
+        faEnvelopesBulk,
       },
     },
     isError: {
