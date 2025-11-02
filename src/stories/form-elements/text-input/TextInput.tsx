@@ -1,13 +1,6 @@
 import { forwardRef } from 'react';
 import { InputProps } from './types';
-import {
-  IconEnd,
-  IconStart,
-  IconStatus,
-  Input,
-  InputLoader,
-  InputWrapper,
-} from '../input';
+import { IconEnd, IconStart, IconStatus, Input, InputLoader, InputWrapper } from '../input';
 
 export const TextInput = forwardRef<HTMLInputElement, InputProps>(
   ({ endIcon, isPending, startIcon, onClick, ...props }, ref) => {
@@ -16,14 +9,14 @@ export const TextInput = forwardRef<HTMLInputElement, InputProps>(
         {...props}
         as="input"
         isPending={isPending}
-        isEndIcon={!!endIcon && Boolean(props.value)}
+        isEndIcon={!!endIcon || props.isError !== undefined}
         isStartIcon={!!startIcon}
       >
-        {startIcon ? <IconStart icon={startIcon[0]} /> : null}
+        {startIcon ? <IconStart icon={startIcon} /> : null}
         <Input {...props} ref={ref} />
         <InputLoader />
         <IconStatus />
-        {endIcon ? <IconEnd icon={endIcon[0]} onClick={onClick} /> : null}
+        {endIcon ? <IconEnd icon={endIcon} onClick={onClick} /> : null}
       </InputWrapper>
     );
   }
