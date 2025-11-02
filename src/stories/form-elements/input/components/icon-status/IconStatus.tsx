@@ -2,16 +2,11 @@ import { Icon } from '@src/stories/graphics/icon';
 import { iconInputWrapperClassNames } from '../../utils';
 import { IconStatusProps } from './types';
 import { useInputWrapper } from '../../store/useInputWrapper';
-import {
-  faCheckCircle,
-  faExclamationCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
-export const IconStatus = ({
-  icons = [faExclamationCircle, faCheckCircle],
-}: IconStatusProps) => {
+export const IconStatus = ({ icons = [faExclamationCircle, faCheckCircle] }: IconStatusProps) => {
   const ctx = useInputWrapper();
-  const classNames = iconInputWrapperClassNames({ type: 'endIcon', ...ctx });
+  const classNames = iconInputWrapperClassNames({ ...ctx, type: 'endIcon' });
 
   if (ctx.isPending || ctx.isError === undefined) return null;
 
