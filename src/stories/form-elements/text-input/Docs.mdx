@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as TextInputStories from './TextInput.stories';
+
+<Meta of={TextInputStories} />
+
+### TextInput Component
+
+The `TextInput` component provides a single-line text field with optional icons, loader indicators, and visual status feedback.  
+It supports both controlled and uncontrolled input behavior.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `TextInput` component:
+
+```js
+{
+  endIcon?: IconProp;
+  isError?: boolean;
+  isPending?: boolean;
+  label?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  startIcon?: IconProp;
+  variant?:  "basic" | "contained" | "outlined" | "underline";
+  ...InputHTMLAttributes<HTMLInputElement>
+}
+```
+
+#### Example Usage `TextInput`
+
+```tsx
+<TextInput />
+```
+
+#### Preview `TextInput`
+
+<Story of={TextInputStories.Default} />
