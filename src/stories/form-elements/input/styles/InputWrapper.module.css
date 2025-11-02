@@ -102,11 +102,11 @@
   border-color: var(--color-focus-success);
 }
 
-.wrapper-inValid span.endIcon {
+.wrapper-inValid span.endIcon svg {
   color: var(--color-focus-negative);
 }
 
-.wrapper-valid span.endIcon {
+.wrapper-valid span.endIcon svg {
   color: var(--color-focus-success);
 }
 
@@ -129,7 +129,13 @@
   box-shadow: none;
 }
 
-/* --- Variant contained --- */
+/* --- Variant basic --- */
+
+.wrapper-basic {
+  background-color: var(--color-surface-elevated-0);
+}
+
+/* --- Variant contained and underline--- */
 
 .wrapper-contained,
 .wrapper-underline {
@@ -198,9 +204,7 @@
 
 .wrapper-startIcon.wrapper-underline .input:not(:placeholder-shown) + .legend,
 .wrapper-startIcon.wrapper-underline .input:focus + .legend,
-.wrapper-startIcon.wrapper-underline
-  .textarea:not(:placeholder-shown)
-  + .legend,
+.wrapper-startIcon.wrapper-underline .textarea:not(:placeholder-shown) + .legend,
 .wrapper-startIcon.wrapper-underline .textarea:focus + .legend {
   left: -38px;
 }
@@ -253,9 +257,9 @@
 .wrapper-disabled .startIcon,
 .wrapper-disabled .endIcon,
 .wrapper-disabled.wrapper-inValid .startIcon,
-.wrapper-disabled.wrapper-inValid .endIcon,
+.wrapper-disabled.wrapper-inValid .endIcon svg,
 .wrapper-disabled.wrapper-valid .startIcon,
-.wrapper-disabled.wrapper-valid .endIcon,
+.wrapper-disabled.wrapper-valid .endIcon svg,
 .wrapper-disabled .startIcon:focus-visible,
 .wrapper-disabled .endIcon:focus-visible {
   color: var(--color-disabled-200);
