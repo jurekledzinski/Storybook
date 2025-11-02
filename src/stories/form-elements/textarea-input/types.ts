@@ -1,14 +1,14 @@
-import { Icons, InputVariant, Size } from '@src/stories/types';
-import { InputHTMLAttributes, MouseEventHandler } from 'react';
+import { Icon, InputVariant, Size } from '@src/stories/types';
+import { MouseEventHandler, TextareaHTMLAttributes } from 'react';
 
 export interface TextareaProps
-  extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size' | 'onClick'> {
-  endIcon?: Icons;
+  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size' | 'onClick'> {
+  endIcon?: Icon;
   isError?: boolean;
   isPending?: boolean;
   label?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   size?: Size;
-  startIcon?: Icons;
+  startIcon?: Icon;
   variant?: InputVariant;
 }

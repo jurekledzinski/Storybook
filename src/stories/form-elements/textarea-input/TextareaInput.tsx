@@ -10,13 +10,13 @@ export const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {...props}
         as="textarea"
         isPending={isPending}
-        isEndIcon={!!endIcon && Boolean(props.value)}
+        isEndIcon={!!endIcon}
         isStartIcon={!!startIcon}
       >
         <Textarea {...props} ref={ref} />
         <InputLoader />
         <IconStatus />
-        {endIcon ? <IconEnd icon={endIcon[0]} onClick={onClick} /> : null}
+        {endIcon ? <IconEnd icon={endIcon} onClick={onClick} /> : null}
       </InputWrapper>
     );
   }
