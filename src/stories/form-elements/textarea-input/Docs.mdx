@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as TextareaInputStories from './TextareaInput.stories';
+
+<Meta of={TextareaInputStories} />
+
+### TextareaInput Component
+
+The `TextareaInput` component provides a resizable multi-line input area with optional icons and status indicators.  
+It’s ideal for comments, descriptions, or longer text content.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `TextareaInput` component:
+
+```js
+{
+  endIcon?: IconProp;
+  isError?: boolean;
+  isPending?: boolean;
+  label?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  startIcon?: IconProp;
+  variant?:  "basic" | "contained" | "outlined" | "underline";
+  ...TextareaHTMLAttributes<HTMLTextAreaElement>
+}
+```
+
+#### Example Usage `TextareaInput`
+
+```tsx
+<TextareaInput />
+```
+
+#### Preview `TextareaInput`
+
+<Story of={TextareaInputStories.Default} />
