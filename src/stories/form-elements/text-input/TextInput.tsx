@@ -1,23 +1,25 @@
+import { ControlLayout, IconEnd, IconLoader, IconStart, IconStatus } from '@src/stories/layout';
 import { forwardRef } from 'react';
+import { Input } from '../input';
 import { InputProps } from './types';
-import { IconEnd, IconStart, IconStatus, Input, InputLoader, InputWrapper } from '../input';
 
 export const TextInput = forwardRef<HTMLInputElement, InputProps>(
   ({ endIcon, isPending, startIcon, onClick, ...props }, ref) => {
     return (
-      <InputWrapper
+      <ControlLayout
         {...props}
         as="input"
         isPending={isPending}
         isEndIcon={!!endIcon || props.isError !== undefined}
         isStartIcon={!!startIcon}
+        isStatus={true}
       >
         {startIcon ? <IconStart icon={startIcon} /> : null}
         <Input {...props} ref={ref} />
-        <InputLoader />
+        <IconLoader />
         <IconStatus />
         {endIcon ? <IconEnd icon={endIcon} onClick={onClick} /> : null}
-      </InputWrapper>
+      </ControlLayout>
     );
   }
 );
