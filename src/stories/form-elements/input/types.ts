@@ -10,11 +10,7 @@ export type BaseInputProps = {
   variant?: InputVariant;
 };
 
-export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
-  BaseInputProps;
+export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & BaseInputProps;
 
-export type TextareaProps = Omit<
-  TextareaHTMLAttributes<HTMLTextAreaElement>,
-  'size'
-> &
+export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
   BaseInputProps;
