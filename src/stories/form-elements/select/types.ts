@@ -1,15 +1,6 @@
-import { Size, Variant } from '../../types/ui';
-
-export type Option = { key: string; value: string };
-type PopOverVariant = Exclude<Variant, 'text'> | 'basic' | 'underline';
-
 export type SelectProps = {
   children?: React.ReactNode;
-  gap?: number;
-  isError?: boolean;
-  label?: string;
-  size?: Size;
-  variant?: PopOverVariant;
-  value?: string;
+  multiple?: boolean;
   onChange?: (value: string) => void;
+  value?: string | string[];
 };
