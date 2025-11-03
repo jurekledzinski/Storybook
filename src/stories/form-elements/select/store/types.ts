@@ -1,11 +1,9 @@
-import { OnKeyArrow, OnKeyPress } from '@src/stories/hooks';
 import { SelectProps } from '../types';
 
-export interface ContextSelect extends SelectProps {
-  onKeyArrow?: OnKeyArrow;
-  onKeyPress?: OnKeyPress;
-  ref?: React.ForwardedRef<HTMLInputElement>;
-}
+export type ContextSelect = SelectProps & {
+  innerValue?: string | string[];
+  onSetValue?: (newValue: string) => void;
+};
 
 export type SelectProviderProps = {
   children: React.ReactNode;
