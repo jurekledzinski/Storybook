@@ -1,17 +1,7 @@
+import { buttonClassNames, ButtonContent, formatProps } from '@src/stories/buttons/button';
 import { ButtonProps, LinkButtonProps } from './types';
 
-import {
-  ButtonContent,
-  buttonClassNames,
-  formatProps,
-} from '@src/stories/buttons/button';
-
-export const Button = ({
-  iconStart,
-  iconEnd,
-  label,
-  ...props
-}: ButtonProps | LinkButtonProps) => {
+export const Button = ({ iconStart, iconEnd, label, ...props }: ButtonProps | LinkButtonProps) => {
   const { button, rest } = formatProps(props);
   const classNames = buttonClassNames(button);
 

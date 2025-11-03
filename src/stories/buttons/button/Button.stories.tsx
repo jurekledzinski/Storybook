@@ -1,5 +1,5 @@
 import { Button } from './Button';
-import { faCheck, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faChevronDown, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { fn } from 'storybook/test';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Stack } from '@src/app-ui';
@@ -24,13 +24,7 @@ const meta: Meta<ButtonProps> = {
   argTypes: {
     border: {
       control: 'select',
-      options: [
-        'border-xs',
-        'border-sm',
-        'border-md',
-        'border-lg',
-        'border-xl',
-      ],
+      options: ['border-xs', 'border-sm', 'border-md', 'border-lg', 'border-xl'],
     },
     color: {
       control: 'select',
@@ -51,24 +45,17 @@ const meta: Meta<ButtonProps> = {
     },
     iconEnd: {
       control: 'select',
-      options: ['none', 'faXmark', 'faCheck', 'faSun'],
+      options: ['none', 'faChevronDown', 'faCheck', 'faSun'],
       mapping: {
         none: undefined,
-        faXmark: [faXmark],
+        faChevronDown: [faChevronDown],
         faCheck: [faCheck],
         faSun: [faSun],
       },
     },
     radius: {
       control: 'select',
-      options: [
-        'default',
-        'radius-xs',
-        'radius-sm',
-        'radius-md',
-        'radius-lg',
-        'radius-xl',
-      ],
+      options: ['default', 'radius-xs', 'radius-sm', 'radius-md', 'radius-lg', 'radius-xl'],
     },
     size: {
       control: 'select',
