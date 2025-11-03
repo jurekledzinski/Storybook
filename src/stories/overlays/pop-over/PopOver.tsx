@@ -6,15 +6,7 @@ import { PopOverProps } from './types';
 
 export const PopOver = forwardRef<HTMLDivElement, PopOverProps>(
   ({ children, open, ...props }, ref) => {
-    const {
-      onEnter,
-      onEntered,
-      onEntering,
-      onExit,
-      onExited,
-      onExiting,
-      ...rest
-    } = props;
+    const { onEnter, onEntered, onEntering, onExit, onExited, onExiting, ...rest } = props;
 
     const nodeRef = useRef<HTMLDivElement>(null);
     useImperativeHandle(ref, () => nodeRef.current as HTMLDivElement);

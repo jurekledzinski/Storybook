@@ -28,9 +28,7 @@ const PopOverProvider = ({ children }: PopOverProviderProps) => {
     [controlPopOver, mapRefs, registerTriggers]
   );
 
-  return (
-    <PopOverContext.Provider value={values}>{children}</PopOverContext.Provider>
-  );
+  return <PopOverContext.Provider value={values}>{children}</PopOverContext.Provider>;
 };
 
 export default PopOverProvider;
