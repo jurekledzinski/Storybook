@@ -1,23 +1,24 @@
+import { ControlLayout, IconEnd, IconLoader, IconStatus } from '@src/stories/layout';
 import { forwardRef } from 'react';
-import { IconEnd, IconStatus, InputLoader, InputWrapper } from '../input';
 import { Textarea } from '../textarea';
 import { TextareaProps } from './types';
 
 export const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ endIcon, isPending, startIcon, onClick, ...props }, ref) => {
     return (
-      <InputWrapper
+      <ControlLayout
         {...props}
         as="textarea"
         isPending={isPending}
         isEndIcon={!!endIcon}
         isStartIcon={!!startIcon}
+        isStatus={true}
       >
         <Textarea {...props} ref={ref} />
-        <InputLoader />
+        <IconLoader />
         <IconStatus />
         {endIcon ? <IconEnd icon={endIcon} onClick={onClick} /> : null}
-      </InputWrapper>
+      </ControlLayout>
     );
   }
 );
