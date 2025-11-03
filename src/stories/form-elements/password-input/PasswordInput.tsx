@@ -1,14 +1,9 @@
+import { ControlLayout, IconEnd, IconLoader, IconStart } from '@src/stories/layout';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { forwardRef, MouseEvent } from 'react';
 import { Input } from '../input/Input';
 import { PasswordInputProps } from './types';
 import { useState } from 'react';
-import {
-  InputWrapper,
-  IconEnd,
-  InputLoader,
-  IconStart,
-} from '../input/components';
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   ({ endIcon = [faEye, faEyeSlash], isPending, startIcon, ...props }, ref) => {
@@ -20,21 +15,19 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     };
 
     return (
-      <InputWrapper
+      <ControlLayout
         {...props}
         as="input"
         isPending={isPending}
         isEndIcon={!!endIcon}
         isStartIcon={!!startIcon}
+        isStatus={false}
       >
         {startIcon ? <IconStart icon={startIcon[0]} /> : null}
         <Input {...props} ref={ref} type={show ? 'text' : 'password'} />
-        <InputLoader />
-        <IconEnd
-          icon={show ? endIcon[0] : endIcon[1]}
-          onClick={handleShowPassword}
-        />
-      </InputWrapper>
+        <IconLoader />
+        <IconEnd icon={show ? endIcon[0] : endIcon[1]} onClick={handleShowPassword} />
+      </ControlLayout>
     );
   }
 );
