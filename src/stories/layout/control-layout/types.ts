@@ -1,7 +1,7 @@
 import { InputVariant, Size } from '@src/stories/types';
 
 export interface ControlLayoutProps {
-  as?: 'input' | 'textarea'; //to nie będzie mogło być musi być uniwersalne albo unions select jeszcze 'input' | 'textarea' | 'select'
+  as?: 'input' | 'textarea';
   children?: React.ReactNode;
   className?: string;
   disabled?: boolean;
@@ -10,6 +10,7 @@ export interface ControlLayoutProps {
   isPending?: boolean;
   isStartIcon?: boolean;
   isStatus?: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
   readOnly?: boolean;
   size?: Size;
   variant?: InputVariant;

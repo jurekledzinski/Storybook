@@ -4,12 +4,12 @@ import { ControlLayoutProps } from './types';
 import { ControlLayoutProvider } from './store';
 
 export const ControlLayout = forwardRef<HTMLDivElement, ControlLayoutProps>(
-  ({ children, ...props }, ref: Ref<HTMLDivElement>) => {
+  ({ children, onClick, ...props }, ref: Ref<HTMLDivElement>) => {
     const classNames = controlLayoutClassNames(props);
 
     return (
       <ControlLayoutProvider value={props}>
-        <div className={classNames} ref={ref}>
+        <div className={classNames} ref={ref} onClick={onClick}>
           {children}
         </div>
       </ControlLayoutProvider>
