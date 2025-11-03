@@ -12,6 +12,10 @@
   transition: 0.3s linear;
 }
 
+.chip svg {
+  color: inherit;
+}
+
 .clickable {
   cursor: pointer;
 }
