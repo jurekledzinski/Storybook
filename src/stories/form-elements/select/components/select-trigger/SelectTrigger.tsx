@@ -1,55 +1,41 @@
-import { capitalizeFirstLetter } from '@src/stories/helpers';
+import { ControlLayout, IconEnd, IconLoader, IconStart } from '@src/stories/layout';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { forwardRef } from 'react';
+import { SelectButton } from '../select-button';
 import { SelectTriggerProps } from './types';
-import { useAriaAttributes } from '@src/stories/hooks';
-import { useCallback } from 'react';
-import { usePopOver } from '@src/stories/overlays/pop-over';
-import { useSelect } from '../../store';
-import { useTriggerEvents } from './hooks/trigger-events';
-import {
-  getClassNamesInput,
-  InputWrapper,
-} from '@src/stories/form-elements/input';
+import { SelectValue } from '../select-value';
+import { useSelectTrigger } from '../../hooks';
 
-export const SelectTrigger = ({ endIcon, ...props }: SelectTriggerProps) => {
-  const { onToggle, open, setTrigger } = usePopOver();
-  const { isError, label, size, value, variant } = useSelect();
-  const { onClick, onKeyDown } = useTriggerEvents({ onToggle });
+export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
+  ({ endIcon = [faChevronDown, faChevronUp], isPending, startIcon, ...props }, ref) => {
+    const { isOpen, handleClick, handleDelete, handleRef, value } = useSelectTrigger('root');
 
-  const isOpen = open['root'];
-  const a11y = useAriaAttributes().selectTriggerA11y(isOpen, label);
-  const classes = getClassNamesInput({ variant, size, isError });
+    return (
+      <ControlLayout
+        {...props}
+        as="input"
+        isPending={isPending}
+        isEndIcon={!!endIcon || props.isError !== undefined}
+        isStartIcon={!!startIcon}
+        ref={handleRef}
+        onClick={handleClick}
+      >
+        {startIcon ? <IconStart icon={startIcon} /> : null}
 
-  const setTriggerRef = useCallback(
-    (node: HTMLDivElement) => node && setTrigger(node, 'root'),
-    [setTrigger]
-  );
+        <SelectButton {...props} ref={ref}>
+          <SelectValue
+            placeholder={props.label ?? 'Select option'}
+            value={value}
+            onDelete={handleDelete}
+          />
+        </SelectButton>
 
-  return (
-    <InputWrapper
-      disabled={props.disabled}
-      dividerEnd={true}
-      endIcon={isOpen ? endIcon[0] : endIcon[1]}
-      isError={isError}
-      onClickEndIcon={onClick}
-      ref={setTriggerRef}
-      size={size}
-      variant={variant}
-      {...(isOpen && { className: 'focused' })}
-      {...a11y}
-    >
-      <fieldset className={classes.fieldset} onClick={onClick}>
-        <input
-          {...props}
-          className={classes.input}
-          readOnly
-          value={capitalizeFirstLetter(value)}
-          onKeyDown={onKeyDown}
-          tabIndex={-1}
-        />
-        {variant !== 'basic' && (
-          <legend className={classes.legend}>{label}</legend>
-        )}
-      </fieldset>
-    </InputWrapper>
-  );
-};
+        <IconLoader />
+
+        {isOpen ? <IconEnd icon={endIcon[1]} /> : <IconEnd icon={endIcon[0]} />}
+      </ControlLayout>
+    );
+  }
+);
+
+SelectTrigger.displayName = 'SelectTrigger';
