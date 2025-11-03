@@ -50,28 +50,14 @@ export const Playground: Story = {
   ),
   parameters: {
     controls: {
-      include: [
-        'as',
-        'cols',
-        'disabled',
-        'isError',
-        'readOnly',
-        'rows',
-        'size',
-        'type',
-        'variant',
-      ],
+      include: ['as', 'cols', 'disabled', 'isError', 'readOnly', 'rows', 'size', 'type', 'variant'],
     },
   },
 };
 
 export const Default: Story = {
   render: (args) => (
-    <Stack
-      orientation="column"
-      spacing="extra-loose"
-      style={{ minWidth: '400px' }}
-    >
+    <Stack orientation="column" spacing="extra-loose" style={{ minWidth: '400px' }}>
       <Input {...args} variant="basic" />
       <Input {...args} variant="outlined" />
       <Input {...args} variant="contained" />
