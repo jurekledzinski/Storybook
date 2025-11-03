@@ -1,0 +1,60 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as ControlLayoutStories from './ControlLayout.stories';
+
+<Meta of={ControlLayoutStories} />
+
+### ControlLayout Component
+
+`ControlLayout` is fundamentally about structural alignment, spacing, icons, loader, status and the visual composition with Input, Textarea, Select, Button component.
+
+### ControlLayout SubComponents
+
+`IconEnd` shows icon end.
+`IconStart` shows icon start.
+`IconStatus` shows icon status - valid or invalid.
+`IconLoader` shows icon loader.
+
+#### Props (typescript)
+
+Here’s a list of the shared props for the `ControlLayout` component:
+
+```js
+{
+  as?: 'input' | 'textarea';
+  children?: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+  isEndIcon?: boolean;
+  isError?: boolean;
+  isPending?: boolean;
+  isStartIcon?: boolean;
+  isStatus?: boolean;
+  readOnly?: boolean;
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  variant?: "basic" | "contained" | "outlined" | "underline";
+}
+```
+
+#### Example Usage `ControlLayout`
+
+```tsx
+<ControlLayout
+  {...props}
+  as="input"
+  isPending={isPending}
+  isEndIcon={!!endIcon || props.isError !== undefined}
+  isStartIcon={!!startIcon}
+  isStatus={true}
+>
+  {startIcon ? <IconStart icon={startIcon} /> : null}
+  <Input {...props} ref={ref} />
+  <IconLoader />
+  <IconStatus />
+  {endIcon ? <IconEnd icon={endIcon} onClick={onClick} /> : null}
+</ControlLayout>
+```
+
+#### Preview `ControlLayout`
+
+<Story of={ControlLayoutStories.Default} />
