@@ -1,23 +1,13 @@
 import { selectOptionClassNames } from '../../utils';
 import { SelectOptionProps } from './types';
-import { useAriaAttributes } from '@src/stories/hooks';
 import { useSelect } from '../../store';
 
-export const SelectOption = ({ children, id }: SelectOptionProps) => {
-  const { onChange, size, value } = useSelect();
-  const a11y = useAriaAttributes().selectOptionA11y(id, value === id);
-
-  const classes = selectOptionClassNames(id, value, size);
+export const SelectOption = ({ children, value: optionValue }: SelectOptionProps) => {
+  const { innerValue, multiple, value, onSetValue } = useSelect();
+  const classNames = selectOptionClassNames({ multiple, optionValue, value: value ?? innerValue });
 
   return (
-    <li
-      data-id={id}
-      data-type="item"
-      className={classes.selectOption}
-      onClick={() => onChange && onChange(id)}
-      tabIndex={0}
-      {...a11y}
-    >
+    <li className={classNames} onClick={() => onSetValue && onSetValue(optionValue)}>
       {children}
     </li>
   );
