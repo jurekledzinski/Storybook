@@ -1,6 +1,5 @@
-import { ButtonHTMLAttributes, MouseEventHandler } from 'react';
+import { HTMLAttributes, MouseEventHandler } from 'react';
 
-export interface DeleteButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  onDelete?: MouseEventHandler<HTMLButtonElement>;
+export interface DeleteButtonProps extends HTMLAttributes<HTMLSpanElement> {
+  onDelete?: MouseEventHandler<HTMLSpanElement>;
 }

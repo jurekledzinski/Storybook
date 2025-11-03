@@ -5,7 +5,7 @@ export interface ChipProps extends HTMLAttributes<HTMLDivElement> {
   color?: Color;
   deleteIcon?: Icon;
   label?: React.ReactNode;
-  onDelete?: MouseEventHandler<HTMLButtonElement>;
+  onDelete?: MouseEventHandler<HTMLSpanElement>;
   radius?: Radius;
   size?: Size;
   startIcon?: Icon;
