@@ -4,8 +4,15 @@ import { SelectButtonProps } from './types';
 import { selectTriggerClassNames } from '../../utils';
 
 export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(
-  ({ children, disabled, isError, label, size, variant, ...props }, ref) => {
-    const classNames = selectTriggerClassNames({ ...props, disabled });
+  ({ children, disabled, isError, label, placeholder, size, variant, value, ...props }, ref) => {
+    const classNames = selectTriggerClassNames({
+      isError,
+      disabled,
+      placeholder,
+      size,
+      value,
+      variant,
+    });
 
     return (
       <InputBase disabled={disabled} isError={isError} label={label} size={size} variant={variant}>
