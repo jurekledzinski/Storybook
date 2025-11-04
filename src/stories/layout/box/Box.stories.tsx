@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Box> = {
   component: Box,
-  title: 'Components/Form elements/Box',
+  title: 'Components/Layout/Box',
   args: {
     children: 'Box example',
   },
