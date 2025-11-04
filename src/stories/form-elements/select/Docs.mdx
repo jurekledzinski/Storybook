@@ -1,0 +1,50 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+### Select Component
+
+The `Select` component allows users to choose one or multiple options from a list. It can be customized for single or multiple selection modes.
+When multiple options are selected, each selected item is displayed as a chip within the select trigger, making it easy to visualize and manage selections.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Select` component:
+
+```js
+{
+  children?: React.ReactNode;
+  multiple?: boolean;
+  onChange?: (value: string) => void;
+  value?: string | string[];
+}
+```
+
+#### Example Usage `Select`
+
+```tsx
+const [animals, setAnimals] = useState<string[]>([]);
+
+const handleSelect = (value: string) => {
+  setAnimals((prev) => {
+    if (prev.includes(value)) return prev.filter((i) => i !== value);
+    else return [...prev, value];
+  });
+};
+
+<Select multiple value={animals} onChange={handleSelect}>
+  <SelectTrigger size="size-xs" variant="basic" />
+  <SelectList>
+    <SelectOption value="dog">Dog</SelectOption>
+    <SelectOption value="cat">Cat</SelectOption>
+    <SelectOption value="monkey">Monkey</SelectOption>
+    <SelectOption value="horse">Horse</SelectOption>
+  </SelectList>
+</Select>;
+```
+
+#### Preview `Select`
+
+<Story of={SelectStories.Default} />
