@@ -1,0 +1,70 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as ValidationChecklistStories from './ValidationChecklist.stories';
+
+<Meta of={ValidationChecklistStories} />
+
+### ValidationChecklist Component
+
+The `ValidationChecklist` component displays a list validation rules. Can be used to validate passwords, emails, phone numbers etc.
+Each rule is represented by a ValidationItem, which visually indicates whether the specific validation requirement has been met.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `ValidationChecklist` component:
+
+```js
+{
+   icons?: IconProp[];
+}
+```
+
+Here’s a list of the props for the `ValidationItem` component:
+
+```js
+{
+   isValid: boolean;
+   icons?: IconProp[];
+}
+```
+
+#### Example Usage `ValidationChecklist`
+
+```tsx
+export const RegisterValidation = <T extends FieldValues>({
+  passwordRules,
+}: RegisterValidationProps<T>) => {
+  const { ruleConfirm, rulePassword } = passwordRules;
+
+  return (
+    <ValidationChecklist style={{ marginTop: 8 }}>
+      <ValidationItem id="min" isValid={rulePassword['minLength']}>
+        Password must be at least 8 characters
+      </ValidationItem>
+      <ValidationItem id="uppecase" isValid={rulePassword['hasUppercase']}>
+        Must include at least one uppercase letter
+      </ValidationItem>
+      <ValidationItem id="lowercase" isValid={rulePassword['hasLowercase']}>
+        Must include at least one lowercase letter
+      </ValidationItem>
+      <ValidationItem id="number" isValid={rulePassword['hasNumber']}>
+        Must include at least one number
+      </ValidationItem>
+      <ValidationItem id="special" isValid={rulePassword['hasSpecial']}>
+        Must include at least one special character: @#!
+      </ValidationItem>
+      <ValidationItem id="space" isValid={rulePassword['hasNoSpace']}>
+        Must not contain spaces
+      </ValidationItem>
+      <ValidationItem id="sameValues" isValid={ruleConfirm['sameValues']}>
+        Passwords do not match
+      </ValidationItem>
+    </ValidationChecklist>
+  );
+};
+
+```
+
+#### Preview `ValidationChecklist`
+
+<Story of={ValidationChecklistStories.Default} />
