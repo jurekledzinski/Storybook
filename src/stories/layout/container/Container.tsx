@@ -1,23 +1,12 @@
+import { containerClassNames } from './utils';
 import { ContainerProps } from './types';
-import { getClassesContainer } from './utils/classNames';
-import {
-  filterProps,
-  spacingInlineStyles,
-  spacingValues,
-} from '@src/stories/helpers';
 
-export const Container = ({
-  as = 'div',
-  children,
-  ...props
-}: ContainerProps) => {
+export const Container = ({ as = 'div', children, ...props }: ContainerProps) => {
   const Tag = `${as}` as keyof JSX.IntrinsicElements;
-  const classes = getClassesContainer(props);
-  const spacingProps = filterProps(props, spacingValues, true);
-  const inline = spacingInlineStyles(spacingProps);
+  const classNames = containerClassNames(props);
 
   return (
-    <Tag className={classes} style={inline}>
+    <Tag {...props} className={classNames}>
       {children}
     </Tag>
   );

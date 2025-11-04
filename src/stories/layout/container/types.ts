@@ -1,7 +1,5 @@
-import { SpacingToken } from '@src/stories/types';
-
-export interface ContainerProps extends SpacingToken {
+export type ContainerProps = {
   as?: 'div' | 'main' | 'section';
-  className?: string;
   children?: React.ReactNode;
-}
+  className?: string;
+};

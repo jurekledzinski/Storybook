@@ -1,49 +1,9 @@
 import styles from '../Container.module.css';
-import stylesSpace from '@src/stories/styles/space.module.css';
-import { ClassesContainer } from './types';
-import {
-  classNames,
-  generateClassNames,
-  spacingClasses,
-} from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { ContainerClassNames } from './types';
 
-export const getClassesContainer: ClassesContainer = (params) => {
-  const {
-    className,
-    m,
-    mb,
-    ml,
-    mr,
-    mt,
-    maxWidth = 'mw-md',
-    p,
-    pb,
-    pl,
-    pr,
-    pt,
-  } = params;
+export const containerClassNames: ContainerClassNames = (params) => {
+  const { className } = params;
 
-  const spacing = spacingClasses({
-    m,
-    mb,
-    ml,
-    mr,
-    mt,
-    p,
-    pb,
-    pl,
-    pr,
-    pt,
-    maxWidth,
-  });
-
-  const mergedClasses = { ...styles, ...stylesSpace };
-
-  return classNames(
-    generateClassNames(mergedClasses, {
-      container: true,
-      ...spacing,
-    }),
-    className ?? ''
-  );
+  return classNames(generateClassNames(styles, { container: true }), className ?? '');
 };
