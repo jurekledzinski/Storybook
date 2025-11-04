@@ -149,6 +149,10 @@
   background-color: var(--color-surface-10);
 }
 
+.wrapper.contained fieldset::before {
+  background-color: transparent;
+}
+
 .contained:focus-within,
 .underline:focus-within,
 .contained.focused,
