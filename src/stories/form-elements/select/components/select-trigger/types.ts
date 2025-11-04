@@ -6,6 +6,7 @@ export interface SelectTriggerProps extends Omit<ButtonHTMLAttributes<HTMLButton
   isError?: boolean;
   isPending?: boolean;
   label?: string;
+  placeholder?: string;
   size?: Size;
   startIcon?: Icon;
   variant?: InputVariant;

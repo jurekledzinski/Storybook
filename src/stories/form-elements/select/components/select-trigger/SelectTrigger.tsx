@@ -7,7 +7,16 @@ import { SelectValue } from '../select-value';
 import { useSelectTrigger } from '../../hooks';
 
 export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
-  ({ endIcon = [faChevronDown, faChevronUp], isPending, startIcon, ...props }, ref) => {
+  (
+    {
+      endIcon = [faChevronDown, faChevronUp],
+      isPending,
+      startIcon,
+      placeholder = 'Select option',
+      ...props
+    },
+    ref
+  ) => {
     const { isOpen, handleClick, handleDelete, handleRef, value } = useSelectTrigger('root');
 
     return (
@@ -20,19 +29,19 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
         ref={handleRef}
         onClick={handleClick}
       >
-        {startIcon ? <IconStart icon={startIcon} /> : null}
+        {startIcon ? <IconStart icon={startIcon} tabIndex={-1} /> : null}
 
-        <SelectButton {...props} ref={ref}>
-          <SelectValue
-            placeholder={props.label ?? 'Select option'}
-            value={value}
-            onDelete={handleDelete}
-          />
+        <SelectButton {...props} placeholder={placeholder} value={value} ref={ref}>
+          <SelectValue placeholder={placeholder} value={value} onDelete={handleDelete} />
         </SelectButton>
 
         <IconLoader />
 
-        {isOpen ? <IconEnd icon={endIcon[1]} /> : <IconEnd icon={endIcon[0]} />}
+        {isOpen ? (
+          <IconEnd icon={endIcon[1]} tabIndex={-1} />
+        ) : (
+          <IconEnd icon={endIcon[0]} tabIndex={-1} />
+        )}
       </ControlLayout>
     );
   }
