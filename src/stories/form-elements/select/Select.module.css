@@ -7,10 +7,10 @@
   padding: var(--trigger-padding, 6px 6px);
   font-size: var(--trigger-font-size, 15px);
   color: var(--color-text-primary);
-  background-color: var(--color-surface-elevated-0);
+  background-color: transparent;
   border: none;
   border-radius: none;
-  transition: all 0.25s ease;
+  transition: box-shadow 300ms linear;
 }
 
 /* --- Sizes --- */
@@ -46,20 +46,10 @@
 
 /* --- Focus --- */
 .trigger:focus {
-  outline: 1px solid var(--color-focus-primary);
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
-  border-color: var(--color-focus-primary);
+  outline: none;
+  box-shadow: none;
 }
 
-.trigger:focus + legend {
-  top: -1px;
-  z-index: 1;
-  background-color: var(--color-surface);
-  color: var(--color-focus-primary);
-  font-size: 12px;
-}
-
-/* Adjust legend size by trigger size */
 .size-md:focus + legend {
   font-size: 13px;
 }
@@ -67,79 +57,30 @@
   font-size: 14px;
 }
 
-/* --- Status (valid/invalid) --- */
-.valid {
-  border-color: var(--color-focus-success);
-}
-.inValid {
-  border-color: var(--color-focus-negative);
+legend {
+  color: var(--color-focus-primary);
 }
 
-.valid:focus {
-  outline-color: var(--color-focus-success);
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
-}
-.inValid:focus {
-  outline-color: var(--color-focus-negative);
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+.trigger.active.outlined + legend,
+.trigger.outlined:focus + legend {
+  background-color: var(--color-surface);
 }
 
-.valid:focus + legend {
-  color: var(--color-focus-success);
-}
-.inValid:focus + legend {
-  color: var(--color-focus-negative);
+.active.contained + legend,
+.active.outlined + legend,
+.active.underline + legend,
+.outlined:focus + legend {
+  top: 0px;
+  z-index: 1;
 }
 
-/* --- Variants --- */
-.contained,
-.outlined,
-.underline {
-  background-color: transparent;
-  border-top: none;
-  border-right: none;
-  border-left: none;
+.active.contained + legend {
+  top: 4px;
+}
+
+.trigger.underline {
   padding-left: 0;
   padding-right: 0;
-}
-
-/* Contained specific */
-.contained:focus {
-  box-shadow: inset 0 -1px 0 0 var(--color-focus-primary);
-  outline: none;
-}
-.contained.valid:focus {
-  box-shadow: inset 0 -1px 0 0 var(--color-focus-success);
-}
-.contained.inValid:focus {
-  box-shadow: inset 0 -1px 0 0 var(--color-focus-negative);
-}
-.contained:focus + legend {
-  top: 4px;
-  background-color: transparent;
-}
-
-/* Underline specific */
-.underline:focus {
-  outline: none;
-  box-shadow: inset 0 -1px 0 0 var(--color-focus-primary);
-}
-.underline.valid:focus {
-  box-shadow: inset 0 -1px 0 0 var(--color-focus-success);
-}
-.underline.inValid:focus {
-  box-shadow: inset 0 -1px 0 0 var(--color-focus-negative);
-}
-.underline:focus + legend,
-.underline:focus + .legend {
-  top: -4px;
-}
-
-.underline:disabled {
-  background-color: transparent;
-}
-.underline:disabled:focus {
-  box-shadow: inset 0 -1px 0 0 var(--color-disabled-100);
 }
 
 .list {
