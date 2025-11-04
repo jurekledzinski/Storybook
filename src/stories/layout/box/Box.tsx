@@ -1,18 +1,11 @@
+import { boxClassNames } from './utils';
 import { BoxProps } from './types';
-import { getClassNamesBox } from './utils';
-import {
-  filterProps,
-  spacingInlineStyles,
-  spacingValues,
-} from '@src/stories/helpers';
 
-export const Box = ({ children, style, ...props }: BoxProps) => {
-  const classes = getClassNamesBox(props);
-  const spacingProps = filterProps(props, spacingValues, true);
-  const inline = spacingInlineStyles(spacingProps);
+export const Box = ({ children, ...props }: BoxProps) => {
+  const classNames = boxClassNames(props);
 
   return (
-    <div {...props} className={classes} style={{ ...style, ...inline }}>
+    <div {...props} className={classNames}>
       {children}
     </div>
   );

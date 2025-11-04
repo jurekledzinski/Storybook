@@ -1,0 +1,31 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as BoxStories from './Box.stories';
+
+<Meta of={BoxStories} />
+
+### Box Component
+
+The `Box` component is a styling utility that serves as a flexible container for arranging and styling elements.
+It acts as a wrapper around content, allowing you to easily apply spacing paddings, margins without needing to create custom CSS every time.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Box` component:
+
+```js
+{
+  classNames?: "m-sm etc...";
+  ...HTMLAttributes<HTMLDivElement>
+}
+```
+
+#### Example Usage `Box`
+
+```tsx
+<Box>Box example</Box>
+```
+
+#### Preview `Box`
+
+<Story of={BoxStories.Default} />

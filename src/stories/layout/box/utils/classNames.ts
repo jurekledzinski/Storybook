@@ -1,15 +1,8 @@
-import stylesSpace from '@src/stories/styles/space.module.css';
-import { ClassesBox } from './types';
-import {
-  classNames,
-  generateClassNames,
-  spacingClasses,
-} from '@src/stories/helpers';
+import { BoxClassNames } from './types';
+import { classNames } from '@src/stories/helpers';
 
-export const getClassNamesBox: ClassesBox = (params) => {
-  const { className, m, mb, mt, ml, mr, p, pb, pl, pr, pt } = params;
+export const boxClassNames: BoxClassNames = (params) => {
+  const { className } = params;
 
-  const spacing = spacingClasses({ m, mb, ml, mr, mt, p, pb, pl, pr, pt });
-
-  return classNames(generateClassNames(stylesSpace, spacing), className ?? '');
+  return classNames(className ?? '');
 };
