@@ -4,8 +4,11 @@ import { SelectValueProps } from './types';
 export const SelectValue = ({ placeholder, value, onDelete }: SelectValueProps) => {
   if (!value || !value.length) return placeholder;
 
-  if (Array.isArray(value))
+  if (Array.isArray(value)) {
     return value.map((item) => (
-      <Chip key={item} id={item} label={item} color="success" onDelete={onDelete} />
+      <Chip key={item} id={item} label={item} color="primary" onDelete={onDelete} />
     ));
+  }
+
+  return value;
 };
