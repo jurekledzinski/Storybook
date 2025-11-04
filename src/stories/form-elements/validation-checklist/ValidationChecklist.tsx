@@ -12,9 +12,7 @@ export const ValidationChecklist = ({
 }: ValidationChecklistProps) => {
   const updatedChildren = React.Children.map(
     children,
-    (child) =>
-      React.isValidElement<{ icons: Icons }>(child) &&
-      React.cloneElement(child, { icons })
+    (child) => React.isValidElement<{ icons: Icons }>(child) && React.cloneElement(child, { icons })
   );
 
   return (
