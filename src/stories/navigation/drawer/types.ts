@@ -1,9 +1,11 @@
 export type DrawerProps = {
   children: React.ReactNode;
-  gap?: number;
+  className?: string;
   direction?: 'top' | 'right' | 'bottom' | 'left';
+  gap?: number;
   open?: boolean;
-  width?: number;
   top?: number;
   variant?: 'overlay' | 'push' | 'pinned';
+  width?: number;
+  zIndex?: number;
 };

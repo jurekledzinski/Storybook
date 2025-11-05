@@ -1,21 +1,22 @@
-import { generateClassNames } from '@src/stories/helpers';
 import styles from '../Drawer.module.css';
-import { DrawerProps } from '../types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { DrawerClassNames } from './types';
 
-type Params = Omit<DrawerProps, 'children'>;
-
-export const getClassNamesDrawer = (params: Params) => {
-  const { direction = 'right', open, variant } = params;
+export const drawerClassNames: DrawerClassNames = (params) => {
+  const { className, direction = 'right', open, variant } = params;
 
   return {
-    drawer: generateClassNames(styles, {
-      drawer: true,
-      ['open']: Boolean(open),
-      [direction]: Boolean(direction),
-      ['horizontal']: direction === 'bottom' || direction === 'top',
-      ['vertical']: direction === 'left' || direction === 'right',
-      [`${variant}`]: Boolean(variant),
-    }),
+    drawer: classNames(
+      generateClassNames(styles, {
+        drawer: true,
+        [direction]: Boolean(direction),
+        [`${variant}`]: Boolean(variant),
+        open: Boolean(open),
+        horizontal: direction === 'bottom' || direction === 'top',
+        vertical: direction === 'left' || direction === 'right',
+      }),
+      className ?? ''
+    ),
     inner: styles.inner,
   };
 };

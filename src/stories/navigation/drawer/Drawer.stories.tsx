@@ -1,13 +1,13 @@
-import exampleStyles from './Example.module.css';
 import { Backdrop } from '@src/stories/overlays/backdrop';
 import { Drawer } from './Drawer';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { storyClassNames } from './story';
 
 const meta: Meta<typeof Drawer> = {
   args: {
     direction: 'top',
     open: true,
-    children: <>a</>,
+    children: <>Drawer content</>,
   },
   argTypes: {
     direction: {
@@ -40,75 +40,43 @@ export default meta;
 
 type Story = StoryObj<typeof Drawer>;
 
-export const Default: Story = {
+export const Playground: Story = {
   decorators: [
     (Story, context) => {
       const { args } = context;
+      const classNames = storyClassNames(args);
+
       return (
-        <div className={exampleStyles.body}>
-          <div className={exampleStyles.header}>Header</div>
-          <div
-            className={
-              args.open
-                ? `${exampleStyles.container} ${exampleStyles.open}`
-                : exampleStyles.container
-            }
-          >
-            {args.direction !== 'right' && args.direction !== 'bottom' ? (
-              <Story />
-            ) : null}
+        <div className={classNames.body}>
+          <div className={classNames.header}>Header</div>
+          <div className={classNames.container}>
+            {args.direction !== 'right' && args.direction !== 'bottom' ? <Story /> : null}
 
-            <div className={exampleStyles.grid}>
-              <div className={exampleStyles.box}>
-                <img
-                  src="images/Beach.jpg"
-                  alt="Beach"
-                  className={exampleStyles.image}
-                />
+            <div className={classNames.grid}>
+              <div className={classNames.box}>
+                <img src="images/Beach.jpg" alt="Beach" className={classNames.image} />
               </div>
-              <div className={exampleStyles.box}>
-                <img
-                  src="images/Desert-view.jpg"
-                  alt="Desert-view"
-                  className={exampleStyles.image}
-                />
+              <div className={classNames.box}>
+                <img src="images/Desert-view.jpg" alt="Desert-view" className={classNames.image} />
               </div>
-              <div className={exampleStyles.box}>
-                <img
-                  src="images/Desert.jpg"
-                  alt="Desert"
-                  className={exampleStyles.image}
-                />
+              <div className={classNames.box}>
+                <img src="images/Desert.jpg" alt="Desert" className={classNames.image} />
               </div>
 
-              <div className={exampleStyles.box}>
-                <img
-                  src="images/Beach.jpg"
-                  alt="Beach"
-                  className={exampleStyles.image}
-                />
+              <div className={classNames.box}>
+                <img src="images/Beach.jpg" alt="Beach" className={classNames.image} />
               </div>
-              <div className={exampleStyles.box}>
-                <img
-                  src="images/Desert-view.jpg"
-                  alt="Desert-view"
-                  className={exampleStyles.image}
-                />
+              <div className={classNames.box}>
+                <img src="images/Desert-view.jpg" alt="Desert-view" className={classNames.image} />
               </div>
-              <div className={exampleStyles.box}>
-                <img
-                  src="images/Desert.jpg"
-                  alt="Desert"
-                  className={exampleStyles.image}
-                />
+              <div className={classNames.box}>
+                <img src="images/Desert.jpg" alt="Desert" className={classNames.image} />
               </div>
             </div>
 
             <Backdrop open={Boolean(context.args.open)} />
 
-            {args.direction !== 'left' && args.direction !== 'top' ? (
-              <Story />
-            ) : null}
+            {args.direction !== 'left' && args.direction !== 'top' ? <Story /> : null}
           </div>
         </div>
       );

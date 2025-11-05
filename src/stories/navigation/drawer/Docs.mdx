@@ -1,0 +1,27 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as DrawerStories from './Drawer.stories';
+
+<Meta of={DrawerStories} />
+
+### Drawer Component
+
+The `Drawer` component provides a flexible panel that slides into view from any screen edge.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Drawer` component:
+
+```js
+{
+  children: React.ReactNode;
+  className?: string;
+  direction?: 'top' | 'right' | 'bottom' | 'left';
+  gap?: number;
+  open?: boolean;
+  top?: number;
+  variant?: 'overlay' | 'push' | 'pinned';
+  width?: number;
+  zIndex?: number;
+}
+```

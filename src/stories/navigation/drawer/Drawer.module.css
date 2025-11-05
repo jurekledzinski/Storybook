@@ -4,20 +4,15 @@
   --drawer-top: 0px;
 }
 
-/* To będzie dynamiczne top ile  */
 .inner {
   position: sticky;
   top: var(--drawer-top);
   align-self: flex-start;
   min-height: inherit;
+  height: 100%;
 }
 
-.horizontal,
-.vertical {
-  position: fixed;
-  background-color: var(--color-surface);
-  z-index: var(--z-drawer);
-}
+/* Orientation */
 
 .horizontal {
   width: 100%;
@@ -27,6 +22,13 @@
   width: min(var(--drawer-width), 100%);
   min-height: inherit;
   flex-shrink: 0;
+}
+
+.horizontal,
+.vertical {
+  position: fixed;
+  background-color: var(--color-surface);
+  z-index: var(--z-drawer);
 }
 
 /* --- Directions --- */
@@ -106,76 +108,90 @@
 /* --- Variants --- */
 
 @media (min-width: 575px) {
-  .horizontal.top.push,
-  .horizontal.top.pinned,
-  .vertical.left.push,
-  .vertical.left.pinned,
-  .vertical.right.push,
-  .vertical.right.pinned {
+  .top.push,
+  .top.pinned,
+  .left.push,
+  .left.pinned,
+  .right.push,
+  .right.pinned {
     right: unset;
     bottom: unset;
     transform: unset;
-
     position: sticky;
-    /* top: 0; */
-    /* align-self: flex-start; */
   }
 
-  .horizontal.bottom.push,
-  .horizontal.bottom.pinned {
-    right: unset;
-    top: unset;
-    transform: unset;
+  /* 
+  .left.pinned,
+  .left.push,
+  .right.pinned,
+  .right.push {
+    align-self: flex-start;
+  } */
 
+  .bottom.push,
+  .bottom.pinned {
     position: sticky;
     bottom: 0;
     align-self: flex-end;
+    right: unset;
+    top: unset;
+    transform: unset;
   }
 
   /* --- Pinned --- */
 
-  .horizontal.top.pinned,
-  .horizontal.bottom.pinned {
+  .top.pinned,
+  .bottom.pinned {
     max-height: 100px;
   }
 
-  .vertical.right.pinned,
-  .vertical.left.pinned {
+  .right.pinned,
+  .left.pinned {
     width: var(--drawer-width);
   }
 
   /* --- Push --- */
 
-  .horizontal.top.push,
-  .horizontal.bottom.push {
-    width: 100%;
+  .top.push,
+  .bottom.push {
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.4s ease;
   }
 
-  .horizontal.top.push.open,
-  .horizontal.bottom.push.open {
+  .top.push.open,
+  .bottom.push.open {
     max-height: 100px;
   }
 
   /* gap trzeba dodać jako zmienna --drawer-gap: 8px*/
-  .vertical.right.push {
+  .right.push {
     position: relative;
     margin-right: calc((var(--drawer-width) + var(--drawer-gap)) * -1);
   }
 
-  .vertical.right.push.open {
+  /* .right.push {
+    position: sticky;
+    margin-right: calc((var(--drawer-width) + var(--drawer-gap)) * -1);
+  } */
+
+  .right.push.open {
     margin-right: 0;
   }
 
   /* gap trzeba dodać jako zmienna --drawer-gap: 8px*/
-  .vertical.left.push {
+
+  .left.push {
     position: relative;
     margin-left: calc((var(--drawer-width) + var(--drawer-gap)) * -1);
   }
 
-  .vertical.left.push.open {
+  /* .left.push {
+    position: sticky;
+    margin-left: calc((var(--drawer-width) + var(--drawer-gap)) * -1);
+  } */
+
+  .left.push.open {
     margin-left: 0;
   }
 }

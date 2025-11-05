@@ -14,21 +14,10 @@
 .container {
   position: relative;
   display: flex;
-  /* Jeśli top lub bottom tu manualnie flex-direction:column */
-  /* Jeśli left lub right tu manualnie flex-direction:row */
   flex-direction: row;
-  gap: 0.5rem;
   min-height: calc(100% - 60px);
   margin: 0 auto;
   color: var(--color-text-white);
-
-  /* jeśli pinned jest powyżej 575px:
-    - musi być open = false na drawer ustawione i potem sprawdzać czy poniżej 575px wybrać dynamiczne open czyli open={windowSize > 575 ? false : open} 
-    - albo overflow visible .container musi być @media powyżej 575px a poniżej overflow: hidden domyślnie;
-     < 575pz fixed domyślnie ustawione style na drawer na mobile:
-    - musi być dynamiczny open na .container i  overflow:hidden domyślnie na .container,
-    - podobne zmiany gdy direction drawer top bottom jeśli chcesz sticky wewnątrz 
-  */
 
   overflow: hidden;
   will-change: overflow;
@@ -38,26 +27,18 @@
   animation: unHide 300ms forwards 300ms;
 }
 
+.container.horizontal {
+  flex-direction: column;
+}
+
 @keyframes unHide {
   from {
     overflow: hidden;
   }
 
   to {
-    overflow: initial;
+    overflow: visible;
   }
-}
-
-/* Gdy push od top i bottom to container musi być flex direction column */
-/* Jeśli potrzeba dynamicznej zmiany w appce to potrzeba zmienić klase */
-/* To jest rozwiązanie dla nowych przeglądarek */
-/* To jest dla push elementu z góry lub dołu */
-/* Tu z klasami module tu nie zadziała ponieważ nie ten sam plik co drawer */
-/* Trzeba na .container jeśli top lub bottom tu manualnie flex-direction:column */
-.container:has(.horizontal, .bottom, .push):not(:has(.vertical)),
-.container:has(.horizontal, .bottom, .push):not(:has(.vertical)) {
-  flex-direction: column;
-  gap: 0;
 }
 
 .grid {
@@ -79,3 +60,14 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Above clip 575px to partially fix sticky inner but below overflow and fixed drawer*/
+
+/* @media (min-width: 575px) {
+  .container {
+    animation: none;
+    transition: clip-path 300ms linear;
+    clip-path: inset(0 0 0 0);
+    overflow: initial;
+  }
+} */
