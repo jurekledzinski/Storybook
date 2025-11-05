@@ -1,0 +1,25 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as AppBarStories from './AppBar.stories';
+
+<Meta of={AppBarStories} />
+
+### AppBar Component
+
+A basic top app bar providing a simple layout for titles or navigation elements.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `AppBar` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string,
+  ...props: HTMLAttributes<HTMLElement>
+}
+```
+
+#### Example Usage `AppBar`
+
+<Story of={AppBarStories.Default} />

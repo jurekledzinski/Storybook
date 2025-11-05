@@ -1,6 +1,4 @@
-import styles from './AppBar.module.css';
 import { AppBar } from './AppBar';
-import { classNames } from '@src/stories/helpers';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof AppBar> = {
@@ -8,101 +6,13 @@ const meta: Meta<typeof AppBar> = {
     children: 'App bar',
   },
   component: AppBar,
-  title: 'Components/Navigation/App bar',
+  title: 'Components/Navigation/AppBar',
 };
 
 export default meta;
 
 type Story = StoryObj<typeof AppBar>;
 
-export const Top: Story = {
-  args: {
-    children: 'Top',
-    className: styles.headerHorizontal,
-  },
-  decorators: [
-    (Story) => (
-      <div
-        className={classNames(
-          styles.container,
-          styles.decoratorVerticalContainer
-        )}
-      >
-        <Story />
-        <div className={styles.decoratorContent}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-          placeat rerum quam dolorum est explicabo provident tempora et maiores
-        </div>
-      </div>
-    ),
-  ],
-};
-
-export const Right: Story = {
-  args: {
-    children: 'Right',
-    className: classNames(styles.headerVertical, styles.headerRight),
-  },
-  decorators: [
-    (Story) => (
-      <div
-        className={classNames(
-          styles.container,
-          styles.decoratorHorizontalContainer
-        )}
-      >
-        <Story />
-        <div className={styles.decoratorContent}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
-          minus cum obcaecati eligendi laborum ipsam at harum alias error
-        </div>
-      </div>
-    ),
-  ],
-};
-
-export const Bottom: Story = {
-  args: {
-    children: 'Bottom',
-    className: classNames(styles.headerHorizontal, styles.headerBottom),
-  },
-  decorators: [
-    (Story) => (
-      <div
-        className={classNames(
-          styles.container,
-          styles.decoratorVerticalContainer
-        )}
-      >
-        <Story />
-        <div className={styles.decoratorContent}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime
-          labore earum tempora porro corrupti molestias alias consequuntur
-        </div>
-      </div>
-    ),
-  ],
-};
-
-export const Left: Story = {
-  args: {
-    children: 'Left',
-    className: styles.headerVertical,
-  },
-  decorators: [
-    (Story) => (
-      <div
-        className={classNames(
-          styles.container,
-          styles.decoratorHorizontalContainer
-        )}
-      >
-        <Story />
-        <div className={classNames(styles.container, styles.decoratorContent)}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-          blanditiis ipsa perspiciatis mollitia ducimus fugiat facere a
-        </div>
-      </div>
-    ),
-  ],
+export const Default: Story = {
+  render: (args) => <AppBar {...args} />,
 };
