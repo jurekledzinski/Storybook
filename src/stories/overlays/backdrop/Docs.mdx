@@ -1,0 +1,25 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as BackdropStories from './Backdrop.stories';
+
+<Meta of={BackdropStories} />
+
+### Backdrop Component
+
+The `Backdrop` component provides a semi-transparent overlay, typically used to obscure content behind modals, drawers, or popups.
+It can be opened or closed by clicking on it, supports a customizable z-index, and can optionally render inside a portal for better layering control.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Backdrop` component:
+
+```js
+{
+  open: boolean;
+  duration?: number; must be same value as timeout
+  portal?: boolean;
+  timeout?: number; must be same value as duration
+  zIndex?: number;
+  ...props: HTMLAttributes<HTMLDivElement>
+}
+```

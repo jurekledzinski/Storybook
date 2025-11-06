@@ -4,8 +4,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: var(--z-backdrop);
+  width: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  --animation-duration: 300ms;
 }
 
 .enter {
@@ -16,7 +19,7 @@
 .enterActive {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: 0.3s linear;
+  transition: var(--animation-duration) linear;
 }
 
 .exit {
@@ -27,5 +30,5 @@
 .exitActive {
   opacity: 0;
   background-color: rgba(0, 0, 0, 0);
-  transition: 0.3s linear;
+  transition: var(--animation-duration) linear;
 }
