@@ -2,6 +2,7 @@
   position: absolute;
   width: 0;
   height: 0;
+  --arrow-color: #555555;
   --arrow-size-xs: 4px;
   --arrow-size-sm: 6px;
   --arrow-size-md: 8px;
@@ -11,7 +12,7 @@
 /* ---- Placement ---- */
 
 .bottom {
-  bottom: calc(-1 * var(--arrow-size));
+  bottom: calc((-1 * var(--arrow-gap)) * var(--arrow-size));
   left: calc(50% - var(--arrow-size));
   border-top: var(--arrow-size) solid var(--arrow-color);
   border-right: var(--arrow-size) solid transparent;
@@ -19,17 +20,17 @@
 }
 
 .bottom-start {
-  bottom: calc(-1 * var(--arrow-size));
+  bottom: calc((-1 * var(--arrow-gap)) * var(--arrow-size));
   left: 0;
 }
 
 .bottom-end {
-  bottom: calc(-1 * var(--arrow-size));
+  bottom: calc((-1 * var(--arrow-gap)) * var(--arrow-size));
   left: calc(100% - var(--arrow-size) * 2);
 }
 
 .top {
-  top: calc(-1 * var(--arrow-size));
+  top: calc((-1 * var(--arrow-gap)) * var(--arrow-size));
   left: calc(50% - var(--arrow-size));
   border-bottom: var(--arrow-size) solid var(--arrow-color);
   border-right: var(--arrow-size) solid transparent;
@@ -37,12 +38,12 @@
 }
 
 .top-start {
-  top: calc(-1 * var(--arrow-size));
+  top: calc((-1 * var(--arrow-gap)) * var(--arrow-size));
   left: 0;
 }
 
 .top-end {
-  top: calc(-1 * var(--arrow-size));
+  top: calc((-1 * var(--arrow-gap)) * var(--arrow-size));
   left: calc(100% - var(--arrow-size) * 2);
 }
 
@@ -103,10 +104,6 @@
 }
 
 /* ---- Colors ---- */
-
-.default {
-  --arrow-color: #555555;
-}
 
 .primary {
   --arrow-color: var(--color-primary-700);

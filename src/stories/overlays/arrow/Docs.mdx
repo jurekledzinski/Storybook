@@ -1,0 +1,26 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as ArrowStories from './Arrow.stories';
+
+<Meta of={ArrowStories} />
+
+### Arrow Component
+
+The `Arrow` component is a small directional indicator commonly used in elements like tooltips, popovers, or menus to visually connect the element to its trigger or target. It supports flexible positioning, sizing, and color customization
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Arrow` component:
+
+```js
+{
+  color?: "primary" | "secondary" | "success" | "negative" | "warning" | "info";
+  gap?: number | 1.1 | 1.2 | 1.3 | 1.4 etc;
+  placement?: 'top' | 'right' | 'bottom' | 'right' | "top start" | "top end" | "bottom start" | "bottom end" | "left start" | "left end" | "right start" | "right end";
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+}
+```
+
+#### Example Usage `Arrow`
+
+<Story of={ArrowStories.Default} />

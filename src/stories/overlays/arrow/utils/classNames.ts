@@ -1,9 +1,9 @@
 import styles from '../Arrow.module.css';
+import { ArrowClassNames } from './types';
 import { generateClassNames } from '@src/stories/helpers';
-import { GetClassNamesArrow } from '../types';
 
-export const getClassNamesArrow: GetClassNamesArrow = (params) => {
-  const { color, placement, size } = params;
+export const arrowClassNames: ArrowClassNames = (params) => {
+  const { color = 'default', placement = 'top', size = 'size-xs' } = params;
 
   return generateClassNames(styles, {
     arrow: true,

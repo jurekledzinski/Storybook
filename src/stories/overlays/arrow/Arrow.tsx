@@ -1,18 +1,8 @@
+import { arrowClassNames } from './utils';
 import { ArrowProps } from './types';
-import { getClassNamesArrow } from './utils';
 
-export const Arrow = ({
-  color = 'default',
-  gap = 1,
-  placement = 'top',
-  size = 'size-xs',
-}: ArrowProps) => {
-  const classNames = getClassNamesArrow({ color, placement, size });
+export const Arrow = ({ gap = 1, ...props }: ArrowProps) => {
+  const classNames = arrowClassNames(props);
 
-  return (
-    <span
-      className={classNames}
-      style={{ '--arrow-gap': gap } as React.CSSProperties}
-    ></span>
-  );
+  return <span className={classNames} style={{ '--arrow-gap': gap } as React.CSSProperties}></span>;
 };
