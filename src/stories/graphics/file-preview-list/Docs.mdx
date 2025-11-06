@@ -23,4 +23,20 @@ Here’s a list of the props for the `FilePreviewList` component:
 
 #### Example Usage `FilePreviewList`
 
+```tsx
+<PreviewList images={[]}>
+    {(file, index, placement) => (
+        <FilePreviewCard placement="column">
+            <FilePreviewImage file={file} />
+            <FilePreviewTitle file={file} />
+            <FilePreviewCloseButton
+                onClick={() => { setFiles((prev) => prev.filter((_, i) => i !== index))}}
+            />
+        </FilePreviewCard>
+    )}
+<PreviewList/>
+```
+
+#### Preview `FilePreviewList`
+
 <Story of={FilePreviewListStories.Default} />
