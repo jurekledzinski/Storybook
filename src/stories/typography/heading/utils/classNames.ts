@@ -1,24 +1,14 @@
 import styles from '../Heading.module.css';
-import stylesSpace from '@src/stories/styles/space.module.css';
-import { ClassesHeading } from './types';
-import {
-  classNames,
-  generateClassNames,
-  spacingClasses,
-} from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
+import { HeadingClassNames } from './types';
 
-export const getClassNamesHeading: ClassesHeading = (params) => {
-  const { className, fw, level, m, mb, mt, ml, mr, p, pb, pl, pr, pt } = params;
-
-  const mergedClasses = { ...styles, ...stylesSpace };
-
-  const spacing = spacingClasses({ m, mb, ml, mr, mt, p, pb, pl, pr, pt });
+export const headingClassNames: HeadingClassNames = (params) => {
+  const { className, fw, level } = params;
 
   return classNames(
-    generateClassNames(mergedClasses, {
+    generateClassNames(styles, {
       [`${fw}`]: Boolean(fw),
       [`h${level}`]: Boolean(level),
-      ...spacing,
     }),
     className ?? ''
   );

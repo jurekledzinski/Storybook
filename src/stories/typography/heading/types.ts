@@ -1,9 +1,8 @@
-import { FontWeightClass, SpacingToken } from '@src/stories/types';
-import { HTMLAttributes } from 'react';
+import { FontWeightClass } from '@src/stories/types';
 
-export interface HeadingProps
-  extends HTMLAttributes<HTMLHeadingElement>,
-    SpacingToken {
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
+export type HeadingProps = {
+  children?: React.ReactNode;
+  className?: string;
   fw?: FontWeightClass;
-}
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+};

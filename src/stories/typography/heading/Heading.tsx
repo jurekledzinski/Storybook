@@ -1,21 +1,9 @@
-import { getClassNamesHeading } from './utils';
+import { headingClassNames } from './utils';
 import { HeadingProps } from './types';
-import {
-  filterProps,
-  spacingInlineStyles,
-  spacingValues,
-} from '@src/stories/helpers';
 
 export const Heading = ({ children, level = 1, ...props }: HeadingProps) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const classes = headingClassNames({ level, ...props });
 
-  const classes = getClassNamesHeading({ level, ...props });
-  const spacingProps = filterProps(props, spacingValues, true);
-  const inline = spacingInlineStyles(spacingProps);
-
-  return (
-    <Tag className={classes} style={inline}>
-      {children}
-    </Tag>
-  );
+  return <Tag className={classes}>{children}</Tag>;
 };
