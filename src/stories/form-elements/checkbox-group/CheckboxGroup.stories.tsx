@@ -10,17 +10,17 @@ const meta: Meta<typeof CheckboxGroup> = {
     spacing: 'normal',
     children: (
       <>
-        <Checkbox id="wiosna" name="sezon" value="wiosna">
-          Wiosna
+        <Checkbox id="apple" name="fruits" value="apple">
+          Apple
         </Checkbox>
-        <Checkbox id="lato" name="sezon" value="lato">
-          Lato
+        <Checkbox id="mango" name="fruits" value="mango">
+          Mango
         </Checkbox>
-        <Checkbox id="jesień" name="sezon" value="Jesień">
-          Jesień
+        <Checkbox id="kiwi" name="fruits" value="kiwi">
+          Kiwi
         </Checkbox>
-        <Checkbox id="zima" name="sezon" value="zima">
-          Zima
+        <Checkbox id="banan" name="fruits" value="banan">
+          Banan
         </Checkbox>
       </>
     ),
