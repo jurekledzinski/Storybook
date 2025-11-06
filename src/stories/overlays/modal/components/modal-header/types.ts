@@ -1,9 +1,9 @@
-import { IconBaseButtonProps } from '@src/stories/buttons/icon-button';
+import { Color } from '@src/stories/types';
 import { MouseEventHandler } from 'react';
-export type Variant = IconBaseButtonProps['color'];
 
 export type ModalHeaderProps = {
   title: string;
-  variant?: Variant;
+  color?: Color;
   onClose?: MouseEventHandler<HTMLButtonElement>;
+  variant?: 'contained' | 'outlined';
 };

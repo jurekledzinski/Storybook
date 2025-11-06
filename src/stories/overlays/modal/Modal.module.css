@@ -1,12 +1,12 @@
 .modalElement {
-  position: absolute;
+  position: fixed;
   width: min(calc(100% - 2rem), 500px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: center;
-  z-index: 2;
-  background-color: var(--color-surface-elevated-0);
+  z-index: var(--z-modal);
+  background-color: var(--color-surface-elevated-1);
   will-change: opacity, transform;
 }
 

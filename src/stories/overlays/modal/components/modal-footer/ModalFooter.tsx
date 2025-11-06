@@ -1,19 +1,18 @@
+import styles from './ModalFooter.module.css';
 import { Button } from '@src/stories/buttons/button';
-import { modalFooterClassNames } from '../../utils/classNames';
 import { ModalFooterProps } from './types';
 
 export const ModalFooter = ({
-  cancelText,
-  confirmText,
+  cancelText = 'Cancel',
+  confirmText = 'Confirm',
+  isPending,
   onCancel,
   onConfirm,
-  type,
-  variant,
+  type = 'button',
+  color,
 }: ModalFooterProps) => {
-  const classes = modalFooterClassNames();
-
   return (
-    <footer className={classes.footer}>
+    <footer className={styles.footer}>
       <Button
         label={cancelText!}
         variant="outlined"
@@ -25,10 +24,11 @@ export const ModalFooter = ({
       <Button
         label={confirmText}
         variant="contained"
-        color={variant}
+        color={color}
         onClick={onConfirm}
         type={type}
         size="size-xs"
+        isLoading={isPending}
       />
     </footer>
   );

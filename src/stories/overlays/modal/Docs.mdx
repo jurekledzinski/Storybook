@@ -1,0 +1,57 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as ModalStories from './Modal.stories';
+
+<Meta of={ModalStories} />
+
+### Modal Component
+
+The `Modal` component is a dialog overlay used to display content on top of the main page.
+
+### ModalLayout Component
+
+The `ModalLayout` component for modal that supports customizable header, footer and body content.
+
+#### Props (typescript)
+
+To control modal open state use useControlModal which also is extended with another hook useModalEffectStatus
+to handle side effects like onSuccess or onFailed form submit or add className to document.body for example to prevent scroll content when is open.
+
+Here’s a list of the props for the `Modal` component:
+
+```js
+{
+  children: React.ReactNode;
+  open: boolean;
+  portal?: boolean;
+}
+```
+
+Here’s a list of the props for the `ModalLayout` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string;
+  confirmText?: string;
+  cancelText?: string;
+  color?:  "info" | "primary" | "secondary" | "success" | "negative" | "warning";
+  isPending?: boolean;
+  onCancel?: MouseEventHandler<HTMLButtonElement>;
+  onConfirm?: MouseEventHandler<HTMLButtonElement>;
+  type?: 'button' | 'submit' | 'reset';
+  title: string;
+  onClose?: MouseEventHandler<HTMLButtonElement>;
+  variant?:'contained' | 'outlined';
+}
+```
+
+#### Example Usage `Modal`
+
+```tsx
+  <Modal open={false} portal={true}>
+      <ModalLayout title="Delete product" variant="outlined">
+        Are you sure you want delete this product?
+      </ModalLayout>
+  </Modal>
+```

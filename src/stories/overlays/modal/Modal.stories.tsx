@@ -1,70 +1,46 @@
-import { action } from 'storybook/actions';
-import { fn } from 'storybook/test';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Modal } from './Modal';
-import { useControlModal } from './hooks/useControlModal';
+import { ModalLayout } from './components';
+import { ModalProps } from './types';
 
-const meta: Meta<typeof Modal> = {
+type ModalPropsType = ModalProps & { variant: 'contained' | 'outlined' };
+
+const meta: Meta<ModalPropsType> = {
   component: Modal,
   title: 'Components/Overlays/Modal',
-};
-export default meta;
-
-type Story = StoryObj<typeof Modal>;
-
-export const Default: Story = {
   args: {
-    confirmText: 'Confirm',
-    isOpen: false,
-    isPending: false,
-    isSuccess: false,
-    title: 'Delete account',
-    variant: 'negative',
+    open: false,
+    variant: 'contained',
   },
   argTypes: {
     variant: {
-      control: { type: 'select' },
-      options: ['negative', 'primary', 'secondary', 'success', 'warning'],
+      control: 'select',
+      options: ['contained', 'outlined'],
     },
   },
-  decorators: [
-    (Story, context) => {
-      const { args } = context;
-      const { onClose, onOpen, isOpen } = useControlModal();
+};
+export default meta;
 
-      return (
-        <div>
-          <button onClick={onOpen}>Show Modal</button>
-          <Story
-            args={{
-              children: <div>Are you sure you want confirm it?</div>,
-              isOpen: isOpen,
-              isPending: args.isPending,
-              isSuccess: args.isSuccess,
-              title: args.title,
-              onClose,
-              confirmText: args.confirmText,
-              onCancel: onClose,
-              variant: args.variant,
-              onSuccess: fn(() => {
-                action('onSuccess')('Submit form with success');
-              }),
-            }}
-          />
-        </div>
-      );
-    },
-  ],
-  parameters: {
-    controls: {
-      include: [
-        'confirmText',
-        'isOpen',
-        'isPending',
-        'isSuccess',
-        'title',
-        'variant',
-      ],
-    },
-  },
+type Story = StoryObj<ModalPropsType>;
+
+export const Playground: Story = {
+  render: (args) => (
+    <Modal {...args}>
+      <ModalLayout color="negative" title="Delete product" variant={args.variant}>
+        Are you sure you want delete this product?
+      </ModalLayout>
+    </Modal>
+  ),
+  parameters: { controls: { include: ['open', 'variant'] } },
+};
+
+export const Default: Story = {
+  render: () => (
+    <Modal open={true}>
+      <ModalLayout title="Delete product" color="negative" variant="contained">
+        Are you sure you want delete this product?
+      </ModalLayout>
+    </Modal>
+  ),
+  parameters: { controls: { disable: true } },
 };

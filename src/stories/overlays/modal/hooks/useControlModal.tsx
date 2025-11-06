@@ -1,7 +1,11 @@
+import { UseControlModalProps } from './types';
 import { useMemo, useState } from 'react';
+import { useModalEffectStatus } from './useModalEffectStatus';
 
-export const useControlModal = () => {
+export const useControlModal = ({ ...props }: UseControlModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useModalEffectStatus(props);
 
   return useMemo(
     () => ({

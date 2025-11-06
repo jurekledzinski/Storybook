@@ -1,11 +1,12 @@
+import { Color } from '@src/stories/types';
 import { MouseEventHandler } from 'react';
-import { Variant } from '../modal-header/types';
 
 export type ModalFooterProps = {
+  confirmText?: string;
   cancelText?: string;
-  confirmText: string;
+  color?: Color;
+  isPending?: boolean;
   onCancel?: MouseEventHandler<HTMLButtonElement>;
   onConfirm?: MouseEventHandler<HTMLButtonElement>;
   type?: 'button' | 'submit' | 'reset';
-  variant?: Variant;
 };
