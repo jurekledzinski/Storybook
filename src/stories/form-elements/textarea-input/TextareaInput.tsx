@@ -1,9 +1,9 @@
 import { ControlLayout, IconEnd, IconLoader, IconStatus } from '@src/stories/layout';
 import { forwardRef } from 'react';
 import { Textarea } from '../textarea';
-import { TextareaProps } from './types';
+import { TextareaInputProps } from './types';
 
-export const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaInputProps>(
   ({ endIcon, isPending, startIcon, onClick, ...props }, ref) => {
     return (
       <ControlLayout

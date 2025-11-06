@@ -1,7 +1,7 @@
 import { Icon, InputVariant, Size } from '@src/stories/types';
 import { MouseEventHandler, TextareaHTMLAttributes } from 'react';
 
-export interface TextareaProps
+export interface TextareaInputProps
   extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size' | 'onClick'> {
   endIcon?: Icon;
   isError?: boolean;
