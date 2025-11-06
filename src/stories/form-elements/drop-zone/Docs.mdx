@@ -27,10 +27,12 @@ Here’s a list of the props for the `DropZone` component:
 }
 ```
 
-#### Example Usage `LinkButton`
+#### Example Usage `DropZone`
 
 ```tsx
-<DropZone onDrop={()=> {}} onSelectFiles={()=> {}} />
+<DropZone onDrop={()=> {}} onSelectFiles={()=> {}} >
+    <Message variant="info">No images</Message>
+</DropZone>
 ```
 
 #### Preview `DropZone`
