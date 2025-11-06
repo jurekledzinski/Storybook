@@ -26,4 +26,45 @@ Here’s a list of the props for the `Pagination` component:
 
 #### Example Usage `Pagination`
 
+```tsx
+<Pagination
+      size="size-sm"
+      spacing="tight"
+      totalPages={10}
+      variant="outlined"
+>
+    <PaginationArrow
+        id="first"
+        label={faAnglesLeft}
+        onClick={() => {}}
+        disabled={false}
+    />
+    <PaginationArrow
+        id="prev"
+        label={faChevronLeft}
+        onClick={() => {}}
+        disabled={false}
+    />
+    <PaginationInfo
+        indexStart={1}
+        indexEnd={10}
+        totalAmount={100}
+    />
+    <PaginationArrow
+        id="next"
+        label={faChevronRight}
+        onClick={() => {}}
+        disabled={false}
+    />
+    <PaginationArrow
+        id="last"
+        label={faAnglesRight}
+        onClick={() => {}}
+        disabled={false}
+    />
+</Pagination>
+```
+
+#### Preview `Pagination`
+
 <Story of={PaginationStories.Default} />
