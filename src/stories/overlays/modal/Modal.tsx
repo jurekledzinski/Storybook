@@ -1,13 +1,12 @@
 import { Backdrop } from '../backdrop';
 import { createPortal } from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
 import { modalClassNames } from './utils';
 import { ModalProps } from './types';
+import { PopOver } from '../pop-over';
 import { useCheckMount } from '@src/stories/hooks';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 export const Modal = ({ children, open = false, portal }: ModalProps) => {
-  const nodeRef = useRef(null);
   const [showBackdrop, setShowBackdrop] = useState(false);
 
   const mounted = useCheckMount();
@@ -15,19 +14,17 @@ export const Modal = ({ children, open = false, portal }: ModalProps) => {
   const classNames = modalClassNames();
 
   const modalElement = (
-    <CSSTransition
-      in={open}
-      nodeRef={nodeRef}
+    <PopOver
+      open={open}
       timeout={300}
+      className={classNames.modalElement}
       classNames={classNames.modal}
       unmountOnExit
       onEnter={() => setShowBackdrop(true)}
       onExited={() => setShowBackdrop(false)}
     >
-      <div className={classNames.modalElement} ref={nodeRef}>
-        {children}
-      </div>
-    </CSSTransition>
+      {children}
+    </PopOver>
   );
 
   if (!mounted) return null;
