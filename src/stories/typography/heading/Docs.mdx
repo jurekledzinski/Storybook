@@ -1,0 +1,33 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as HeadingStories from './Heading.stories';
+
+<Meta of={HeadingStories} />
+
+### Heading Component
+
+The `Heading` component renders semantic HTML heading elements (`h1`–`h6`) with consistent typography.  
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Heading` component:
+
+```js
+{
+  children?: React.ReactNode;
+  className?: string;
+  fw?: FontWeightClass;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+}
+```
+
+
+#### Example Usage `Heading`
+
+```tsx
+<Heading level={1}>Heading example</Heading>
+```
+
+#### Preview `Heading`
+
+<Story of={HeadingStories.Default} />
