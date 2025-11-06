@@ -1,9 +1,9 @@
 import { ControlLayout, IconEnd, IconLoader, IconStart, IconStatus } from '@src/stories/layout';
 import { forwardRef } from 'react';
 import { Input } from '../input';
-import { InputProps } from './types';
+import { TextInputProps } from './types';
 
-export const TextInput = forwardRef<HTMLInputElement, InputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ endIcon, isPending, startIcon, onClick, ...props }, ref) => {
     return (
       <ControlLayout
