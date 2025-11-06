@@ -1,13 +1,10 @@
-import { formatProps } from './utils/helpers';
+import { formatIconButtonProps } from './utils/helpers';
 import { iconButtonClassNames } from '@src/stories/buttons/icon-button';
 import { IconButtonContent } from './components';
 import { IconButtonProps, IconLinkButtonProps } from './types';
 
-export const IconButton = ({
-  icon,
-  ...props
-}: IconButtonProps | IconLinkButtonProps) => {
-  const { button, rest } = formatProps(props);
+export const IconButton = ({ icon, ...props }: IconButtonProps | IconLinkButtonProps) => {
+  const { button, rest } = formatIconButtonProps(props);
   const classNames = iconButtonClassNames(button);
 
   if ('href' in rest) {
@@ -19,11 +16,7 @@ export const IconButton = ({
         {...(button.disabled || button.isLoading ? {} : { href: rest.href })}
         {...rest}
       >
-        <IconButtonContent
-          icon={icon}
-          isLoading={button.isLoading}
-          size={button.size}
-        />
+        <IconButtonContent icon={icon} isLoading={button.isLoading} size={button.size} />
       </a>
     );
   }
@@ -35,11 +28,7 @@ export const IconButton = ({
       disabled={button.disabled || button.isLoading}
       {...rest}
     >
-      <IconButtonContent
-        icon={icon}
-        isLoading={button.isLoading}
-        size={button.size}
-      />
+      <IconButtonContent icon={icon} isLoading={button.isLoading} size={button.size} />
     </button>
   );
 };

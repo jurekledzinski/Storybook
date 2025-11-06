@@ -1,6 +1,6 @@
 import { IconButtonParams, IconLinkButtonParams } from './types';
 
-export const formatProps = ({
+export const formatIconButtonProps = ({
   border,
   className,
   color,
