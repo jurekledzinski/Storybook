@@ -4,6 +4,7 @@ import { ButtonGroup } from '@src/stories/buttons/button-group';
 import { Card } from './Card';
 import { CardContent, CardFooter, CardHeader } from './components';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Heading } from '@src/stories/typography';
 
 const meta: Meta<typeof Card> = {
   component: Card,
@@ -28,11 +29,12 @@ export const Default: Story = {
               <>
                 <CardHeader className={`${styles.header} p-sm`}></CardHeader>
                 <CardContent className={`${styles.content} p-sm`}>
-                  <h3 className="mb-xs">Title</h3>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-                  sit labore, quidem beatae necessitatibus excepturi, fugit
-                  distinctio quis dolores quos numquam animi obcaecati odio
-                  sequi quasi natus.
+                  <Heading level={5} className="mb-xs">
+                    Title
+                  </Heading>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero sit labore, quidem
+                  beatae necessitatibus excepturi, fugit distinctio quis dolores quos numquam animi
+                  obcaecati odio sequi quasi natus.
                 </CardContent>
                 <CardFooter className={`${styles.footer} p-sm`}>
                   <ButtonGroup fullWidth justify="justify-end">
