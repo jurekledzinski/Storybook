@@ -19,7 +19,7 @@ export const PopOver = forwardRef<HTMLDivElement, PopOverProps>(
       onExited,
       onExiting,
       timeout = 300,
-      unmountOnExit,
+      unmountOnExit = true,
       ...props
     },
     ref
