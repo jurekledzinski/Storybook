@@ -19,7 +19,6 @@ export const Modal = ({ children, open = false, portal }: ModalProps) => {
       timeout={300}
       className={classNames.modalElement}
       classNames={classNames.modal}
-      unmountOnExit
       onEnter={() => setShowBackdrop(true)}
       onExited={() => setShowBackdrop(false)}
     >
