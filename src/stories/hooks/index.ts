@@ -1,6 +1,7 @@
 export * from './aria-attributes';
 export * from './arrow-navigation';
 export * from './arrow-nested-navigation';
+export * from './check-mount';
 export * from './clear-timeout';
 export * from './click-outside';
 export * from './key-map';
