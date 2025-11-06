@@ -1,20 +1,11 @@
-import { getClassNamesPaginationItems } from '../../../utils';
+import { paginationCommonClassNames } from '../../../utils';
 import { PaginationItemProps } from './types';
 
-export const PaginationItem = ({
-  page,
-  onClick,
-  ...props
-}: PaginationItemProps) => {
-  const classes = getClassNamesPaginationItems(props);
+export const PaginationItem = ({ page, onClick, ...props }: PaginationItemProps) => {
+  const classNames = paginationCommonClassNames({ className: 'button', ...props });
 
   return (
-    <button
-      {...props}
-      key={page}
-      className={classes.paginationItem}
-      onClick={() => onClick('page', page)}
-    >
+    <button {...props} key={page} className={classNames} onClick={() => onClick('page', page)}>
       {page + 1}
     </button>
   );

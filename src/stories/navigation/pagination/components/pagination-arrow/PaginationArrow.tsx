@@ -1,26 +1,18 @@
+import { getPaginationProps, paginationCommonClassNames } from '../../utils';
 import { Icon } from '@src/stories/graphics/icon';
 import { PaginationArrowProps } from './types';
 import { usePaginationContext } from '../../store';
-import {
-  getClassNamesPaginationItems,
-  getPaginationArrowProps,
-} from '../../utils';
 
-export const PaginationArrow = ({
-  id,
-  label,
-  onClick,
-  ...props
-}: PaginationArrowProps) => {
+export const PaginationArrow = ({ id, label, onClick, ...props }: PaginationArrowProps) => {
   const { onClick: onChange, ...rest } = usePaginationContext();
-  const uiPaginationProps = getPaginationArrowProps(rest);
+  const { uiPaginationProps } = getPaginationProps(rest);
 
-  const classes = getClassNamesPaginationItems(uiPaginationProps);
+  const classNames = paginationCommonClassNames({ className: 'button', ...uiPaginationProps });
 
   return (
     <button
       {...props}
-      className={classes.paginationArrow}
+      className={classNames}
       onClick={(e) => {
         onChange(id!);
         if (onClick) return onClick(e);

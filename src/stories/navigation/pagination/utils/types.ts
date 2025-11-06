@@ -1,24 +1,11 @@
+import { Spacing } from '@src/stories/types';
 import { UiPagination } from '../types';
 
 export interface PaginationItemParams extends UiPagination {
+  className: string;
   isActive?: boolean;
 }
 
-type PaginationParams = Pick<PaginationItemParams, 'spacing'>;
+export type PaginationCommonClassNames = (params: PaginationItemParams) => string;
 
-type CommonClassesParams = {
-  styles: Record<string, string>;
-  className: string;
-  paginationParams: PaginationItemParams;
-};
-
-export type GetClassNamesPaginationItems = (params: PaginationItemParams) => {
-  paginationArrow: string;
-  paginationItem: string;
-};
-
-export type GetClassNamesPagination = (params: PaginationParams) => string;
-
-export type GetClassNamesPaginationInfo = (params: UiPagination) => string;
-
-export type GenerateCommonClasses = (params: CommonClassesParams) => string;
+export type PaginationClassNames = (params: { spacing?: Spacing }) => string;

@@ -1,15 +1,9 @@
 import styles from '../styles/Styles.module.css';
 import stylesPagination from '../Pagination.module.css';
 import { generateClassNames } from '@src/stories/helpers';
+import { PaginationClassNames, PaginationCommonClassNames } from './types';
 
-import {
-  GenerateCommonClasses,
-  GetClassNamesPagination,
-  GetClassNamesPaginationInfo,
-  GetClassNamesPaginationItems,
-} from './types';
-
-export const getClassNamesPagination: GetClassNamesPagination = (params) => {
+export const paginationClassNames: PaginationClassNames = (params) => {
   const { spacing } = params;
 
   return generateClassNames(stylesPagination, {
@@ -18,10 +12,8 @@ export const getClassNamesPagination: GetClassNamesPagination = (params) => {
   });
 };
 
-const generateCommonClasses: GenerateCommonClasses = (params) => {
-  const { className, paginationParams, styles } = params;
-  const { border, color, isActive, radius, size, spacing, variant } =
-    paginationParams;
+export const paginationCommonClassNames: PaginationCommonClassNames = (params) => {
+  const { border, className, color, isActive, radius, size, spacing, variant } = params;
 
   return generateClassNames(styles, {
     [className]: true,
@@ -32,32 +24,5 @@ const generateCommonClasses: GenerateCommonClasses = (params) => {
     [`${size}`]: Boolean(size),
     [`${spacing}`]: Boolean(spacing),
     [`${variant}`]: Boolean(variant),
-  });
-};
-
-export const getClassNamesPaginationItems: GetClassNamesPaginationItems = (
-  params
-) => {
-  return {
-    paginationArrow: generateCommonClasses({
-      className: 'button',
-      paginationParams: params,
-      styles,
-    }),
-    paginationItem: generateCommonClasses({
-      className: 'button',
-      paginationParams: params,
-      styles,
-    }),
-  };
-};
-
-export const getClassNamesPaginationInfo: GetClassNamesPaginationInfo = (
-  params
-) => {
-  return generateCommonClasses({
-    className: 'info',
-    paginationParams: params,
-    styles,
   });
 };

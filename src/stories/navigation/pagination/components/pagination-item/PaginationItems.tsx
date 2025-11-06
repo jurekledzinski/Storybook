@@ -1,13 +1,11 @@
+import { getPaginationProps } from '../../utils';
 import { PaginationItem } from './components';
 import { PaginationItemsProps } from './types';
 import { usePaginationContext } from '../../store';
-import { getPaginationItemsProps } from '../../utils';
 
 export const PaginationItems = ({ ...props }: PaginationItemsProps) => {
-  const { currentPage, onClick, paginationItems, ...rest } =
-    usePaginationContext();
-
-  const uiPaginationProps = getPaginationItemsProps(rest);
+  const { currentPage, onClick, paginationItems, ...rest } = usePaginationContext();
+  const { uiPaginationProps } = getPaginationProps(rest);
 
   return (
     <>

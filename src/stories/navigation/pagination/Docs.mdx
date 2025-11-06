@@ -1,0 +1,29 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as PaginationStories from './Pagination.stories';
+
+<Meta of={PaginationStories} />
+
+### Pagination Component
+
+The `Pagination` component allows users to navigate between pages of content.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Pagination` component:
+
+```js
+{
+  children?: React.ReactNode;
+  border?: "border-xs" | "border-sm" | "border-md" | "border-lg" | "border-xl";
+  color?: 'primary' | 'secondary';
+  radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
+  size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
+  spacing?: "none" | "tight" | "normal" | "loose" | "extra-loose";
+  variant?: "contained" | "outlined" | "text";
+}
+```
+
+#### Example Usage `Pagination`
+
+<Story of={PaginationStories.Default} />

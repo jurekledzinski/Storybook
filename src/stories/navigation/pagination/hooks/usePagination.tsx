@@ -25,10 +25,7 @@ export const usePagination = ({
 
   const onSetPage = useCallback((page: number) => setCurrentPage(page), []);
 
-  const onSetPerPage = useCallback(
-    (value: number) => setItemsPerPage(value),
-    []
-  );
+  const onSetPerPage = useCallback((value: number) => setItemsPerPage(value), []);
 
   const onClick = useCallback(
     (actionType: ActionType, value?: number) => {
@@ -60,10 +57,7 @@ export const usePagination = ({
 
   const rangeLength = endValue - startValue;
 
-  const paginationItems = Array.from(
-    { length: rangeLength },
-    (_, i) => i + startValue
-  );
+  const paginationItems = Array.from({ length: rangeLength }, (_, i) => i + startValue);
 
   return {
     currentPage,

@@ -1,4 +1,4 @@
-import { getClassNamesPaginationInfo } from '../../utils';
+import { paginationCommonClassNames } from '../../utils';
 import { PaginationInfoProps } from './types';
 import { usePaginationContext } from '../../store';
 
@@ -9,11 +9,10 @@ export const PaginationInfo = ({
   ...props
 }: PaginationInfoProps) => {
   const { infoEnd, infoStart, totalPages, ...rest } = usePaginationContext();
-  const classes = getClassNamesPaginationInfo(rest);
-  //totalPages to raczej powinno być totalRows tutaj cała ilość rows tzn. objektów w tablicy danych
+  const classNames = paginationCommonClassNames({ className: 'info', ...rest });
 
   return (
-    <div {...props} className={classes}>
+    <div {...props} className={classNames}>
       <span>{indexStart ?? infoStart}</span>
       <span>-</span>
       <span>{indexEnd ?? infoEnd}</span>

@@ -34,14 +34,7 @@ const meta: Meta<typeof Pagination> = {
   argTypes: {
     border: {
       control: { type: 'select' },
-      options: [
-        'undefined',
-        'border-xs',
-        'border-sm',
-        'border-md',
-        'border-lg',
-        'border-xl',
-      ],
+      options: ['undefined', 'border-xs', 'border-sm', 'border-md', 'border-lg', 'border-xl'],
     },
     children: {
       control: { type: 'select' },
@@ -73,25 +66,11 @@ const meta: Meta<typeof Pagination> = {
     },
     radius: {
       control: { type: 'select' },
-      options: [
-        undefined,
-        'radius-xs',
-        'radius-sm',
-        'radius-md',
-        'radius-lg',
-        'radius-xl',
-      ],
+      options: [undefined, 'radius-xs', 'radius-sm', 'radius-md', 'radius-lg', 'radius-xl'],
     },
     size: {
       control: 'select',
-      options: [
-        undefined,
-        'size-xxs',
-        'size-xs',
-        'size-sm',
-        'size-md',
-        'size-lg',
-      ],
+      options: [undefined, 'size-xxs', 'size-xs', 'size-sm', 'size-md', 'size-lg'],
     },
     spacing: {
       control: 'select',
@@ -108,18 +87,16 @@ export default meta;
 
 type Story = StoryObj<typeof Pagination>;
 
-export const Default: Story = {
+export const Playground: Story = {
   parameters: {
     controls: {
-      include: [
-        'border',
-        'children',
-        'color',
-        'radius',
-        'spacing',
-        'size',
-        'variant',
-      ],
+      include: ['border', 'children', 'color', 'radius', 'spacing', 'size', 'variant'],
     },
+  },
+};
+
+export const Default: Story = {
+  parameters: {
+    controls: { disable: true },
   },
 };

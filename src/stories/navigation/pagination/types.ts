@@ -1,20 +1,10 @@
-import {
-  Border,
-  Color,
-  Radius,
-  Size,
-  Spacing,
-  Variant,
-} from '@src/stories/types';
-
-type PaginationColor = Extract<Color, 'primary' | 'secondary'>;
-type PaginationSize = Size | 'size-xxs';
+import { Border, Radius, Size, Spacing, Variant } from '@src/stories/types';
 
 export type UiPagination = {
   border?: Border;
-  color?: PaginationColor;
+  color?: 'primary' | 'secondary';
   radius?: Radius;
-  size?: PaginationSize;
+  size?: Size | 'size-xxs';
   spacing?: Spacing;
   variant?: Variant;
 };
