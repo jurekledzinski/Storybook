@@ -2,7 +2,7 @@
   position: absolute;
   padding: 0.25rem;
   border: 1px solid var(--color-surface-30);
-  z-index: 10000;
+  z-index: var(--z-popover);
   background-color: var(--color-surface-elevated-1);
   will-change: opacity;
 }

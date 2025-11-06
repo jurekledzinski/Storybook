@@ -5,27 +5,44 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { PopOverProps } from './types';
 
 export const PopOver = forwardRef<HTMLDivElement, PopOverProps>(
-  ({ children, open, ...props }, ref) => {
-    const { onEnter, onEntered, onEntering, onExit, onExited, onExiting, ...rest } = props;
-
+  (
+    {
+      children,
+      className,
+      classNames,
+      open,
+      mountOnEnter,
+      onEnter,
+      onEntered,
+      onEntering,
+      onExit,
+      onExited,
+      onExiting,
+      timeout = 300,
+      unmountOnExit,
+      ...props
+    },
+    ref
+  ) => {
     const nodeRef = useRef<HTMLDivElement>(null);
-    useImperativeHandle(ref, () => nodeRef.current as HTMLDivElement);
+    useImperativeHandle(ref, () => nodeRef.current!);
 
     return createPortal(
       <CSSTransition
         in={open}
         nodeRef={nodeRef}
-        timeout={300}
-        classNames={styles}
-        unmountOnExit
+        timeout={timeout}
+        classNames={classNames ?? styles}
+        unmountOnExit={unmountOnExit}
         onEnter={onEnter}
         onEntered={onEntered}
         onEntering={onEntering}
         onExit={onExit}
         onExited={onExited}
         onExiting={onExiting}
+        mountOnEnter={mountOnEnter}
       >
-        <div {...rest} className={styles.popOver} ref={nodeRef}>
+        <div {...props} className={className ?? styles.popOver} ref={nodeRef}>
           {children}
         </div>
       </CSSTransition>,

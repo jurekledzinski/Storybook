@@ -1,0 +1,56 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import * as PopOverStories from './PopOver.stories';
+
+<Meta of={PopOverStories} />
+
+### PopOver Component
+
+`PopOver` is a lightweight container component that renders its content in a portal and smoothly animates its appearance and disappearance using react-transition-group.
+It’s ideal for tooltips, dropdowns, or contextual overlays that need to mount outside the normal DOM hierarchy while preserving transition control.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `PopOver` component:
+
+```js
+{
+  children: React.ReactNode;
+  className?: string; for div element inside popover
+  classNames: string | CSSModuleClasses | CSSTransitionClassNames; for popover animation styles
+  open?: boolean;
+  mountOnEnter?: boolean;
+  unmountOnExit?: boolean;
+  onEnter: (isAppearing: boolean) => void;
+  onEntering: (isAppearing: boolean) => void;
+  onEntered: (isAppearing: boolean) => void;
+  onExit: () => void;
+  onExiting: () => void;
+  onExited: () => void;
+  timeout: number | {
+    appear?: number | undefined;
+    enter?: number | undefined;
+    exit?: number | undefined;
+ };
+  ...props: HTMLAttributes<HTMLDivElement>
+}
+```
+
+#### Example Usage `PopOver`
+
+```tsx
+<PopOver
+      open={open}
+      timeout={300}
+      className={classNames.modalElement}
+      classNames={classNames.modal}
+      unmountOnExit
+      onEnter={() => setShowBackdrop(true)}
+      onExited={() => setShowBackdrop(false)}
+    >
+      {children}
+</PopOver>
+```
+
+
+
