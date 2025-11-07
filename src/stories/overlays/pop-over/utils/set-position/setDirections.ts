@@ -11,7 +11,7 @@ export const setTop: SetTop = ({
   const triggerWidth = triggerPosition.width;
 
   const top = {
-    x: triggerPosition.x - panelWidth / 2 + triggerWidth / 2,
+    x: autoWidth ? triggerPosition.x : triggerPosition.x - panelWidth / 2 + triggerWidth / 2,
     y: triggerPosition.y + window.scrollY - panelHeight,
     w: autoWidth ? triggerWidth : panelWidth,
   };
@@ -21,23 +21,21 @@ export const setTop: SetTop = ({
   }
 
   if (alignment === 'end') {
-    top.x = triggerPosition.x - panelWidth + triggerWidth;
+    top.x = autoWidth ? triggerPosition.x : triggerPosition.x - panelWidth + triggerWidth;
   }
 
   return top;
 };
 
-export const setBottom: SetBottom = ({
-  alignment,
-  autoWidth,
-  triggerPosition,
-  panelWidth,
-}) => {
+export const setBottom: SetBottom = ({ alignment, autoWidth, triggerPosition, panelWidth }) => {
   const triggerWidth = triggerPosition.width;
   const triggerHeight = triggerPosition.height;
 
+  console.log('setBottom panelWidth', panelWidth);
+  console.log('setBottom triggerWidth', triggerWidth);
+
   const bottom = {
-    x: triggerPosition.x - panelWidth / 2 + triggerWidth / 2,
+    x: autoWidth ? triggerPosition.x : triggerPosition.x - panelWidth / 2 + triggerWidth / 2,
     y: triggerPosition.y + triggerHeight + window.scrollY,
     w: autoWidth ? triggerWidth : panelWidth,
   };
@@ -47,7 +45,7 @@ export const setBottom: SetBottom = ({
   }
 
   if (alignment === 'end') {
-    bottom.x = triggerPosition.x - panelWidth + triggerWidth;
+    bottom.x = autoWidth ? triggerPosition.x : triggerPosition.x - panelWidth + triggerWidth;
   }
 
   return bottom;

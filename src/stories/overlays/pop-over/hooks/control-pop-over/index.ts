@@ -1,1 +1,1 @@
-export * from './useControlPopOver';
+export * from './useControlPopover';

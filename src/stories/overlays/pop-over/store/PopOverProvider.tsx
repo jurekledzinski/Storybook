@@ -1,16 +1,16 @@
-import { PopOverContext } from './context';
-import { PopOverProviderProps } from './types';
+import { PopoverContext } from './context';
+import { PopoverProviderProps } from './types';
 import { useClickOutside, useKeyMap } from '@src/stories/hooks';
-import { useControlPopOver, useTriggerRefs } from '../hooks';
+import { useControlPopover, useTriggerRefs } from '../hooks';
 import { useMemo } from 'react';
 
-const PopOverProvider = ({ children }: PopOverProviderProps) => {
+const PopoverProvider = ({ children }: PopoverProviderProps) => {
   const { mapKeys: mapRefs } = useKeyMap<HTMLElement>();
   const registerTriggers = useTriggerRefs();
-  const controlPopOver = useControlPopOver();
+  const controlPopover = useControlPopover();
 
   useClickOutside({
-    onClick: () => controlPopOver.onCloseAll(),
+    onClick: () => controlPopover.onCloseAll(),
     onLoadRefs: () => [
       ...Object.entries(registerTriggers.triggers.current)
         .filter(([key]) => key.includes('root'))
@@ -23,12 +23,12 @@ const PopOverProvider = ({ children }: PopOverProviderProps) => {
     () => ({
       mapRefs,
       ...registerTriggers,
-      ...controlPopOver,
+      ...controlPopover,
     }),
-    [controlPopOver, mapRefs, registerTriggers]
+    [controlPopover, mapRefs, registerTriggers]
   );
 
-  return <PopOverContext.Provider value={values}>{children}</PopOverContext.Provider>;
+  return <PopoverContext.Provider value={values}>{children}</PopoverContext.Provider>;
 };
 
-export default PopOverProvider;
+export default PopoverProvider;

@@ -1,4 +1,4 @@
-export type ContextPopOver = {
+export type ContextPopover = {
   getTriggerRect: (id: string) => DOMRect;
   mapRefs: React.RefObject<Map<string, HTMLElement>>;
   onClose: (id: string) => void;
@@ -10,6 +10,6 @@ export type ContextPopOver = {
   updateTriggerRect: (id: string) => void;
 };
 
-export type PopOverProviderProps = {
+export type PopoverProviderProps = {
   children: React.ReactNode;
 };

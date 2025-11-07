@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useControlPopOver = () => {
+export const useControlPopover = () => {
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   const onToggle = (id: string) => {
@@ -17,9 +17,7 @@ export const useControlPopOver = () => {
       const index = Object.keys(prev).indexOf(id);
       if (index < 0) return { ...copy, [id]: !copy[id] };
 
-      const updatedState = Object.fromEntries(
-        Object.entries(copy).filter((_, i) => i < index)
-      );
+      const updatedState = Object.fromEntries(Object.entries(copy).filter((_, i) => i < index));
 
       return updatedState;
     });

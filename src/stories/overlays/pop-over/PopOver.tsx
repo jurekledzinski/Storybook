@@ -1,10 +1,10 @@
-import styles from './PopOver.module.css';
+import styles from './Popover.module.css';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { PopOverProps } from './types';
+import { PopoverProps } from './types';
 
-export const PopOver = forwardRef<HTMLDivElement, PopOverProps>(
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (
     {
       children,
@@ -42,7 +42,7 @@ export const PopOver = forwardRef<HTMLDivElement, PopOverProps>(
         onExiting={onExiting}
         mountOnEnter={mountOnEnter}
       >
-        <div {...props} className={className ?? styles.popOver} ref={nodeRef}>
+        <div {...props} className={className ?? styles.popover} ref={nodeRef}>
           {children}
         </div>
       </CSSTransition>,
@@ -51,4 +51,4 @@ export const PopOver = forwardRef<HTMLDivElement, PopOverProps>(
   }
 );
 
-PopOver.displayName = 'PopOver';
+Popover.displayName = 'Popover';

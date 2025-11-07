@@ -1,4 +1,4 @@
-export * from './usePopOver';
+export * from './usePopover';
 export * from './context';
 export * from './types';
-export { default } from './PopOverProvider';
+export { default } from './PopoverProvider';

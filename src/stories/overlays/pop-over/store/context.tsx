@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { ContextPopOver } from './types';
+import { ContextPopover } from './types';
 
-export const PopOverContext = createContext<ContextPopOver | undefined>(undefined);
+export const PopoverContext = createContext<ContextPopover | undefined>(undefined);

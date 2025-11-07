@@ -1,9 +1,9 @@
-import { usePopOver, usePosition } from '@src/stories/overlays/pop-over';
+import { usePopover, usePosition } from '@src/stories/overlays/pop-over';
 import { useRef } from 'react';
 
 export const useSelectList = () => {
   const panelRef = useRef<HTMLDivElement>(null);
-  const { open, getTriggerRect, updateTriggerRect } = usePopOver();
+  const { open, getTriggerRect, updateTriggerRect } = usePopover();
 
   const { onSetPosition } = usePosition({
     autoWidth: true,

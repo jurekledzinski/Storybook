@@ -2,7 +2,7 @@ import { Backdrop } from '../backdrop';
 import { createPortal } from 'react-dom';
 import { modalClassNames } from './utils';
 import { ModalProps } from './types';
-import { PopOver } from '../pop-over';
+import { Popover } from '../pop-over';
 import { useCheckMount } from '@src/stories/hooks';
 import { useState } from 'react';
 
@@ -14,7 +14,7 @@ export const Modal = ({ children, open = false, portal }: ModalProps) => {
   const classNames = modalClassNames();
 
   const modalElement = (
-    <PopOver
+    <Popover
       open={open}
       timeout={300}
       className={classNames.modalElement}
@@ -23,7 +23,7 @@ export const Modal = ({ children, open = false, portal }: ModalProps) => {
       onExited={() => setShowBackdrop(false)}
     >
       {children}
-    </PopOver>
+    </Popover>
   );
 
   if (!mounted) return null;

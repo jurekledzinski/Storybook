@@ -1,17 +1,17 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as PopOverStories from './PopOver.stories';
+import * as PopoverStories from './Popover.stories';
 
-<Meta of={PopOverStories} />
+<Meta of={PopoverStories} />
 
-### PopOver Component
+### Popover Component
 
-`PopOver` is a lightweight container component that renders its content in a portal and smoothly animates its appearance and disappearance using react-transition-group.
+`Popover` is a lightweight container component that renders its content in a portal and smoothly animates its appearance and disappearance using react-transition-group.
 It’s ideal for tooltips, dropdowns, or contextual overlays that need to mount outside the normal DOM hierarchy while preserving transition control.
 
 #### Props (typescript)
 
-Here’s a list of the props for the `PopOver` component:
+Here’s a list of the props for the `Popover` component:
 
 ```js
 {
@@ -36,21 +36,18 @@ Here’s a list of the props for the `PopOver` component:
 }
 ```
 
-#### Example Usage `PopOver`
+#### Example Usage `Popover`
 
 ```tsx
-<PopOver
-      open={open}
-      timeout={300}
-      className={classNames.modalElement}
-      classNames={classNames.modal}
-      unmountOnExit
-      onEnter={() => setShowBackdrop(true)}
-      onExited={() => setShowBackdrop(false)}
-    >
-      {children}
-</PopOver>
+<Popover
+  open={open}
+  timeout={300}
+  className={classNames.modalElement}
+  classNames={classNames.modal}
+  unmountOnExit
+  onEnter={() => setShowBackdrop(true)}
+  onExited={() => setShowBackdrop(false)}
+>
+  {children}
+</Popover>
 ```
-
-
-
