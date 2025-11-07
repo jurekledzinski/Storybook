@@ -13,14 +13,12 @@ export const useMenuTrigger = ({ children, id = 'root' }: useMenuTriggerProps) =
 
   useEffect(() => setTrigger(triggerRef.current, 'root'), [setTrigger]);
 
-  console.log('triggers', triggers);
-
   const { onSetPosition } = usePosition({
     autoWidth: true,
     id,
     open,
     panelRef,
-    placement: 'bottom end',
+    placement: 'bottom',
     getTriggerRect,
     updateTriggerRect,
   });
