@@ -1,35 +1,30 @@
 import { useCallback, useRef } from 'react';
 
 export const useTriggerRefs = () => {
-  const triggers = useRef<Record<string, HTMLElement | null>>({});
-  const triggerRects = useRef<Record<string, DOMRect>>({});
+  const trigger = useRef<HTMLElement | null>(null);
+  const triggerRects = useRef<DOMRect>();
 
-  const setTrigger = useCallback((node: HTMLElement | null, id: string) => {
-    if (!id) return;
-
+  const setTrigger = useCallback((node: HTMLElement | null) => {
     if (node) {
-      triggers.current[id] = node;
-      triggerRects.current[id] = node.getBoundingClientRect();
+      trigger.current = node;
+      triggerRects.current = node.getBoundingClientRect();
     } else {
-      delete triggers.current[id];
+      trigger.current = null;
     }
   }, []);
 
-  const getTriggerRect = (id: string) => {
-    return triggerRects.current[id];
-  };
+  const getTriggerRect = () => triggerRects.current;
 
-  const updateTriggerRect = (id: string) => {
-    if (!triggers.current || !triggers.current[id]) return;
+  const updateTriggerRect = () => {
+    if (!trigger.current) return;
 
-    const rect = triggers.current[id].getBoundingClientRect();
-    triggerRects.current[id] = rect;
+    triggerRects.current = trigger.current.getBoundingClientRect();
   };
 
   return {
     getTriggerRect,
     updateTriggerRect,
     setTrigger,
-    triggers,
+    trigger,
   };
 };
