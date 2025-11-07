@@ -3,5 +3,4 @@
 @import './Contained.module.css';
 @import './Outlined.module.css';
 @import './Underline.module.css';
-@import './InputWrapper.module.css';
 /* Important! Files have to be in this order to load styles properly */
