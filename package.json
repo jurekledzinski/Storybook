@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook --verbose --coverage"
+    "test-storybook": "test-storybook --verbose --coverage",
+    "host": "npm run dev -- --host"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
