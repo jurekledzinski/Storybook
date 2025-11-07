@@ -1,133 +1,97 @@
-import { arrowFlip } from './helpers';
-import { Placement, setPosition } from '@src/stories/overlays/pop-over';
-import { SizeWindow, UsePositionProps } from './types';
-import { useCallback, useRef, useState } from 'react';
-import { usePanelSize } from '../panel-size';
+import { Placement } from '../../types';
+import { useCallback } from 'react';
+import { UsePositionProps, ViewportSize } from './types';
 import { useWindowResize, useWindowScroll } from '@src/stories/hooks';
 import {
   checkHorizontalSpace,
   checkVerticalSpace,
-  getCheckSpace,
-  getPanelDirection,
-  getPanelRect,
+  getAvailablePlacements,
+  parsePlacement,
   setNewPosition,
-  updateSizeWindow,
-} from './helpers';
+  resolvePosition,
+} from '../../utils';
 
 export const usePosition = ({
   autoWidth = false,
   gap = 8,
-  id,
   panelRef,
   placement = 'bottom',
   open,
-  type = 'floating',
   getTriggerRect,
   updateTriggerRect,
 }: UsePositionProps) => {
-  const sizeWindow = useRef({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  const [arrowPlacement, setArrowPlacement] = useState<Placement>(placement);
-
-  const { heightPanel, widthPanel } = usePanelSize(panelRef, open);
-
-  const onFlip = useCallback((value: Placement) => {
-    const flip = arrowFlip(value);
-    setArrowPlacement((prev) => (prev !== flip ? flip : prev));
-  }, []);
-
   const onSetPosition = useCallback(
-    (dynamic?: Placement, el?: SizeWindow, triggerPosition?: DOMRect) => {
-      if (type !== 'floating' || !panelRef.current || !triggerPosition) return;
+    (dynamic?: Placement, windowSize?: ViewportSize, triggerRect?: DOMRect) => {
+      if (!panelRef.current || !triggerRect) return;
 
-      const size = updateSizeWindow(el, sizeWindow);
+      const viewportSize = {
+        width: windowSize?.width ?? window.innerWidth,
+        height: windowSize?.height ?? window.innerHeight,
+      };
 
-      const panelDirection = getPanelDirection(placement, dynamic);
+      const panelDirection = parsePlacement(placement, dynamic);
+      const panelStyle = window.getComputedStyle(panelRef.current);
+      const panelRect = panelRef.current.getBoundingClientRect();
 
-      const panelRect = getPanelRect(panelRef.current, widthPanel, heightPanel);
-
-      const canPlace = getCheckSpace({
-        triggerPosition,
-        panelWidth: panelRect.panelWidth,
-        panelHeight: panelRect.panelHeight,
+      const canPlace = getAvailablePlacements({
+        autoWidth,
+        panelRect,
+        triggerRect,
         gap,
-        width: size.width,
-        height: size.height,
+        viewportSize,
       });
 
-      const updatedPosition = setPosition({
-        currentPlacement: panelDirection.currentPlacement,
-        panelPosition: panelRect.panelPosition,
-        triggerPosition,
-        size,
-        panelWidth: panelRect.panelWidth,
-        panelHeight: panelRect.panelHeight,
-        panelStyle: panelRect.panelStyle,
+      const updatedPosition = resolvePosition({
         autoWidth,
+        panelRect,
+        panelStyle,
+        triggerRect,
+        ...panelDirection,
       });
 
       const horiontalFlip = checkHorizontalSpace({
-        canPlaceRight: canPlace.canPlaceRight,
-        canPlaceLeft: canPlace.canPlaceLeft,
-        mainDirection: panelDirection.mainDirection,
-        currentPlacement: panelDirection.currentPlacement,
         mainDefault: placement,
-        alignment: panelDirection.alignment,
+        ...canPlace,
+        ...panelDirection,
       });
 
-      if (horiontalFlip) {
-        onFlip(horiontalFlip);
-        return onSetPosition(horiontalFlip, el, triggerPosition);
-      }
+      if (horiontalFlip) return onSetPosition(horiontalFlip, viewportSize, triggerRect);
 
       const verticalFlip = checkVerticalSpace({
-        canPlaceTop: canPlace.canPlaceTop,
-        canPlaceBottom: canPlace.canPlaceBottom,
-        mainDirection: panelDirection.mainDirection,
-        currentPlacement: panelDirection.currentPlacement,
         mainDefault: placement,
-        alignment: panelDirection.alignment,
+        ...canPlace,
+        ...panelDirection,
       });
 
-      if (verticalFlip) {
-        onFlip(verticalFlip);
-        return onSetPosition(verticalFlip, el, triggerPosition);
-      }
+      if (verticalFlip) return onSetPosition(verticalFlip, viewportSize, triggerRect);
 
       setNewPosition({
         autoWidth,
         gap,
-        mainDirection: panelDirection.mainDirection,
         panelRef,
         updatedPosition,
+        ...panelDirection,
       });
-      onFlip(panelDirection.currentPlacement);
     },
-    [autoWidth, gap, panelRef, placement, widthPanel, heightPanel, type, onFlip]
+    [autoWidth, gap, panelRef, placement]
   );
 
   useWindowResize({
     onResize: useCallback(() => {
       if (open) {
-        //tu aktualizuje pozycje trigger
-        updateTriggerRect(id);
-        // tu pobieram aktualną pozycje trigger
-        const rect = getTriggerRect(id);
-        const size = { h: window.innerHeight, w: window.innerWidth };
+        updateTriggerRect();
+        const rect = getTriggerRect();
+        const size = { height: window.innerHeight, width: window.innerWidth };
         onSetPosition(placement, size, rect);
       } else {
-        updateTriggerRect(id);
+        updateTriggerRect();
       }
-    }, [getTriggerRect, id, open, onSetPosition, placement, updateTriggerRect]),
+    }, [getTriggerRect, open, onSetPosition, placement, updateTriggerRect]),
   });
 
-  // na skrol aktualizuje pozycje trigger ref dynamicznie ponieważ id będzie albo statyczne root jeden panel albo dynamiczne
   useWindowScroll({
-    onScroll: () => updateTriggerRect(id),
+    onScroll: () => updateTriggerRect(),
   });
 
-  return { arrowPlacement, onSetPosition };
+  return { onSetPosition };
 };
