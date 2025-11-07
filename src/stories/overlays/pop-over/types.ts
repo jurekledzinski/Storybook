@@ -20,7 +20,6 @@ export type BasePlacement = 'top' | 'bottom' | 'left' | 'right';
 
 export type Placement = `${BasePlacement} ${Alignment}` | BasePlacement;
 
-export type PopoverProps = HTMLAttributes<HTMLDivElement> &
-  TransitionProps & {
-    open: boolean;
-  };
+export interface PopoverProps extends HTMLAttributes<HTMLDivElement>, TransitionProps {
+  open: boolean;
+}
