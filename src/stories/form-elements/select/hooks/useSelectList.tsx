@@ -7,15 +7,14 @@ export const useSelectList = () => {
 
   const { onSetPosition } = usePosition({
     autoWidth: true,
-    id: 'root',
-    open: open.root,
+    open,
     panelRef,
     placement: 'bottom start',
     getTriggerRect,
     updateTriggerRect,
   });
 
-  const onEntering = () => onSetPosition(undefined, undefined, getTriggerRect('root'));
+  const onEntering = () => onSetPosition(undefined, undefined, getTriggerRect());
 
-  return { panelRef, open: open.root, onEntering };
+  return { panelRef, open, onEntering };
 };

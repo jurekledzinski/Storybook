@@ -2,17 +2,16 @@ import { MouseEvent } from 'react';
 import { usePopover } from '@src/stories/overlays/pop-over';
 import { useSelect } from '../store';
 
-export const useSelectTrigger = (id: string = 'root') => {
+export const useSelectTrigger = () => {
   const { open, onToggle, setTrigger } = usePopover();
   const { onSetValue, value } = useSelect();
 
-  const handleClick = () => onToggle(id);
+  const handleClick = () => onToggle();
   const handleDelete = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (onSetValue) onSetValue(e.currentTarget.id);
   };
-  const handleRef = (node: HTMLElement | null) => setTrigger(node, id);
-  const isOpen = open[id] || false;
+  const handleRef = (node: HTMLElement | null) => setTrigger(node);
 
-  return { isOpen, handleClick, handleDelete, handleRef, value };
+  return { isOpen: open, handleClick, handleDelete, handleRef, value };
 };

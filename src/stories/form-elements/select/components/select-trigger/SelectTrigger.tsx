@@ -17,7 +17,7 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
     },
     ref
   ) => {
-    const { isOpen, handleClick, handleDelete, handleRef, value } = useSelectTrigger('root');
+    const { isOpen, handleClick, handleDelete, handleRef, value } = useSelectTrigger();
 
     return (
       <ControlLayout
