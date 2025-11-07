@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Popover, useClickOutside, usePosition, useTriggerRefs } from '@src/stories';
 import { useMenuTriggerProps } from './types';
 
-export const useMenuTrigger = ({ children }: useMenuTriggerProps) => {
+export const useMenuTrigger = ({ autoWidth = true, children }: useMenuTriggerProps) => {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ export const useMenuTrigger = ({ children }: useMenuTriggerProps) => {
   useEffect(() => setTrigger(triggerRef.current), [setTrigger]);
 
   const { onSetPosition } = usePosition({
-    autoWidth: true,
+    autoWidth,
     open,
     panelRef,
     placement: 'bottom',
