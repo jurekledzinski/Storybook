@@ -37,13 +37,6 @@ const meta: Meta<typeof Pagination> = {
   },
   argTypes: {
     children: {
-      className: {
-        control: 'select',
-        options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
-        mapping: {
-          none: undefined,
-        },
-      },
       control: 'select',
       options: ['pagination info', 'pagination without info'],
       mapping: {
@@ -65,6 +58,13 @@ const meta: Meta<typeof Pagination> = {
             <PaginationArrow id="last" label={faAnglesRight} />
           </>
         ),
+      },
+    },
+    className: {
+      control: 'select',
+      options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+      mapping: {
+        none: undefined,
       },
     },
     color: {
