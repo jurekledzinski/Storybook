@@ -15,6 +15,10 @@ Use alerts to communicate status updates, confirmations, or critical issues that
 
 Here’s a list of the props for the `Alert` component:
 
+By `className` can add:
+
+- radius: 'r-xs' | 'r-sm' | 'r-md' | 'r-lg' | 'r-xl';
+
 ```js
 {
   children?: React.ReactNode;
@@ -22,7 +26,6 @@ Here’s a list of the props for the `Alert` component:
   color?: "info" | "primary" | "secondary" | "success" | "negative" | "warning" | "white";
   fullWidth?: boolean;
   orientation?: 'row' | 'column';
-  radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
   variant?: 'contained' | 'filled' | 'light' | 'outlined';
 }
 ```
@@ -30,10 +33,10 @@ Here’s a list of the props for the `Alert` component:
 #### Example Usage `Alert`
 
 ```tsx
-<Alert color="info" variant="contained"> 
-    <AlertIcon icon={faCircleInfo} />
-    <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-    <AlertButton color="white" variant="text" />
+<Alert color="info" variant="contained">
+  <AlertIcon icon={faCircleInfo} />
+  <AlertMessage message="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+  <AlertButton color="white" variant="text" />
 </Alert>
 ```
 

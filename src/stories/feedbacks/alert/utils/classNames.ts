@@ -1,20 +1,9 @@
 import styles from '../Alert.module.css';
+import { AlertClassNames, AlertIconClassNames, AlertMessageClassNames } from './types';
 import { classNames, generateClassNames } from '@src/stories/helpers';
-import {
-  AlertClassNames,
-  AlertIconClassNames,
-  AlertMessageClassNames,
-} from './types';
 
 export const alertClassNames: AlertClassNames = (params) => {
-  const {
-    className,
-    color,
-    fullWidth,
-    radius,
-    orientation,
-    variant = 'contained',
-  } = params;
+  const { className, color, fullWidth, orientation, variant = 'contained' } = params;
 
   return classNames(
     generateClassNames(styles, {
@@ -22,7 +11,6 @@ export const alertClassNames: AlertClassNames = (params) => {
       fullWidth: Boolean(fullWidth),
       [`${color}`]: Boolean(color),
       [`${orientation}`]: Boolean(orientation),
-      [`${radius}`]: Boolean(radius),
       [`${variant}`]: Boolean(variant),
     }),
     className ?? ''
