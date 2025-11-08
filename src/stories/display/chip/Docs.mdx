@@ -12,12 +12,15 @@ A small component used to display tags, labels, or categories.
 
 Here’s a list of the props for the `Chip` component:
 
+By `className` can add:
+
+- radius: 'r-xs' | 'r-sm' | 'r-md' | 'r-lg' | 'r-xl';
+
 ```js
 {
   color?: "info" | "primary" | "secondary" | "success" | "negative" | "warning";
   deleteIcon?: React.ElementType | IconDefinition;
   label?: React.ReactNode;
-  radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
   size?: "size-xs" | "size-sm" | "size-md" | "size-lg";
   startIcon?: React.ElementType | IconDefinition;
   startIconSrc?: string;
