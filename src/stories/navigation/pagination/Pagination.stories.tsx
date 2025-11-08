@@ -17,6 +17,10 @@ const meta: Meta<typeof Pagination> = {
     layout: 'centered',
   },
   args: {
+    color: 'secondary',
+    size: 'size-md',
+    spacing: 'normal',
+    variant: 'outlined',
     totalPages: 1000,
     onChangePage: fn((page, pageSize) => {
       action('onChangePage')({ page, pageSize });
@@ -61,11 +65,11 @@ const meta: Meta<typeof Pagination> = {
       },
     },
     color: {
-      control: { type: 'select' },
+      control: 'select',
       options: [undefined, 'primary', 'secondary'],
     },
     radius: {
-      control: { type: 'select' },
+      control: 'select',
       options: [undefined, 'radius-xs', 'radius-sm', 'radius-md', 'radius-lg', 'radius-xl'],
     },
     size: {
