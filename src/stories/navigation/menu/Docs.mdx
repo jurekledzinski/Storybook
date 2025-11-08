@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import MenuMeta, * as MenuStories from './Menu.stories';
+
+<Meta of={MenuMeta} />
+
+### Menu Component
+
+The **Menu** component displays a list of actions or options in a dropdown or popover format.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `MenuTrigger` component:
+
+```js
+{
+  children: React.ReactNode;
+  autoWidth?: boolean;
+}
+```
+
+#### Example Usage `Menu`
+
+```tsx
+<MenuTrigger>
+  <Button label="Menu" />
+  <Menu>
+    <MenuItem id="home">Home</MenuItem>
+    <MenuItem id="about">About</MenuItem>
+    <MenuItem id="services">Services</MenuItem>
+    <MenuItem id="contact">Contact</MenuItem>
+  </Menu>
+</MenuTrigger>
+```
+
+#### Preview `Menu`
+
+<Story of={MenuStories.Default} />
