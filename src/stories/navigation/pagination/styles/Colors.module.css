@@ -59,14 +59,14 @@
 .text:not(.info).primary:hover,
 .outlined:not(.info).primary.active,
 .text:not(.info).primary.active {
-  background-color: var(--color-primary-50);
+  background-color: var(--color-primary-alpha-10);
 }
 
 .outlined:not(.info).secondary:hover,
 .text:not(.info).secondary:hover,
 .outlined:not(.info).secondary.active,
 .text:not(.info).secondary.active {
-  background-color: var(--color-secondary-100);
+  background-color: var(--color-secondary-alpha-10);
 }
 
 .info.primary,

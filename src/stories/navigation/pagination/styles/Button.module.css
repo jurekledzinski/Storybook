@@ -55,11 +55,11 @@
 /* --- When color set only --- */
 
 .active.primary:not(:disabled) {
-  background-color: var(--color-primary-800);
+  background-color: var(--color-primary-alpha-10);
 }
 
 .active.secondary:not(:disabled) {
-  background-color: var(--color-secondary-800);
+  background-color: var(--color-secondary-alpha-10);
 }
 
 .button:not(:disabled):not(.primary):not(.secondary):hover {
@@ -77,10 +77,8 @@
   border-right: 0;
 }
 
-.button:not(:disabled)
-  + .button:not(:disabled, .tight, .normal, .loose, .extra-loose, .text),
-.button:not(:disabled)
-  + button.button:disabled:not(.tight, .normal, .loose, .extra-loose, .text),
+.button:not(:disabled) + .button:not(:disabled, .tight, .normal, .loose, .extra-loose, .text),
+.button:not(:disabled) + button.button:disabled:not(.tight, .normal, .loose, .extra-loose, .text),
 .button:not(:disabled, .tight, .normal, .loose, .extra-loose, .text) + .info {
   border-left: 0;
 }
