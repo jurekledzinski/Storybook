@@ -77,7 +77,9 @@ export default meta;
 
 type Story = StoryObj<ExtendedFileInputProps>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: { controls: { exclude: ['onChange'] } },
+};
 
 export const Default: Story = {
   render: () => (
