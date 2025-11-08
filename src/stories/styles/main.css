@@ -3,6 +3,7 @@
 @import './scroll.css';
 @import './elements.css';
 @import './space.css';
+@import './border.css';
 
 * {
   box-sizing: border-box;
@@ -175,6 +176,19 @@
   --z-popover: 100;
   --z-modal: 1000;
   --z-toast: 1100;
+
+  /* Border */
+  --border-xs: 1px;
+  --border-sm: 2px;
+  --border-md: 3px;
+  --border-lg: 4px;
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 100vh;
 
   /* Specific colors */
 
