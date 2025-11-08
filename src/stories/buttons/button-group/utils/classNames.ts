@@ -3,8 +3,7 @@ import { ButtonGroupClassNames } from './types';
 import { classNames, generateClassNames } from '@src/stories/helpers';
 
 export const buttonGroupClassNames: ButtonGroupClassNames = (params) => {
-  const { aligment, className, justify, fullWidth, orientation, spacing } =
-    params;
+  const { aligment, className, justify, fullWidth, orientation, spacing } = params;
 
   return classNames(
     generateClassNames(styles, {

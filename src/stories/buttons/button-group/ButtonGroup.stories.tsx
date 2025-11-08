@@ -13,13 +13,7 @@ const meta: Meta<typeof ButtonGroup> = {
   argTypes: {
     aligment: {
       control: 'select',
-      options: [
-        'none',
-        'aligment-start',
-        'aligment-end',
-        'aligment-center',
-        'stretch',
-      ],
+      options: ['none', 'aligment-start', 'aligment-end', 'aligment-center', 'stretch'],
     },
     justify: {
       control: 'select',
@@ -57,9 +51,9 @@ export const Playground: Story = {
             ...context.args,
             children: (
               <>
-                <Button label="Button 1" radius="radius-md" />
+                <Button label="Button 1" className="r-md" />
                 <Button label="Button 2" />
-                <Button label="Button 3" radius="radius-md" />
+                <Button label="Button 3" className="r-md" />
               </>
             ),
           }}
@@ -73,9 +67,9 @@ export const Playground: Story = {
 export const Default: Story = {
   render: (args) => (
     <ButtonGroup {...args}>
-      <Button label="Button 1" radius="radius-md" />
+      <Button label="Button 1" className="r-md" />
       <Button label="Button 2" />
-      <Button label="Button 3" radius="radius-md" />
+      <Button label="Button 3" className="r-md" />
     </ButtonGroup>
   ),
   parameters: { controls: { disable: true } },
@@ -90,9 +84,9 @@ export const Vertical: Story = {
           spacing: 'tight',
           children: (
             <>
-              <Button label="Button 1" radius="radius-md" />
+              <Button label="Button 1" className="r-md" />
               <Button label="Button 2" />
-              <Button label="Button 3" radius="radius-md" />
+              <Button label="Button 3" className="r-md" />
             </>
           ),
         }}
@@ -113,9 +107,9 @@ export const Justified: Story = {
           orientation: 'row',
           children: (
             <>
-              <Button label="Button 1" radius="radius-md" />
+              <Button label="Button 1" className="r-md" />
               <Button label="Button 2" />
-              <Button label="Button 3" radius="radius-md" />
+              <Button label="Button 3" className="r-md" />
             </>
           ),
         }}
