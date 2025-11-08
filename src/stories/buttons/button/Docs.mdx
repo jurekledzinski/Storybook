@@ -12,15 +12,18 @@ The `Button` component is used for triggering actions or submitting forms. It ca
 
 Here’s a list of the base props for the `Button` or `LinkButton` component:
 
+By `className` can add:
+
+- border: 'b-xs' | 'b-sm' | 'b-md' | 'b-lg';
+- radius: 'r-xs' | 'r-sm' | 'r-md' | 'r-lg' | 'r-xl';
+
 ```js
 {
-  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
   iconStart?: React.ElementType | IconDefinition;
   iconEnd?: React.ElementType | IconDefinition;
   isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  radius?: 'radius-xs' | 'radius-sm' | 'radius-md' | 'radius-lg' | 'radius-xl';
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   color?: 'info' |'primary' | 'secondary' | 'success' | 'negative' | 'warning' | 'white';
   variant?: 'contained' | 'outlined' | 'text';
@@ -40,9 +43,7 @@ Prop necessery to switch to `LinkButton`:
 
 ```js
 {
-  border: 'border-xs',
   color: 'primary',
-  radius: 'radius-none',
   size: 'medium',
   variant:'contained',
 }

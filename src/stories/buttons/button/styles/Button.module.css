@@ -2,7 +2,6 @@
 @import './Variants.module.css';
 @import './Sizes.module.css';
 @import './Disabled.module.css';
-@import './Border.module.css';
 
 .button {
   display: flex;
@@ -17,6 +16,7 @@
   line-height: normal;
   user-select: none;
   text-decoration: none;
+  border-width: 1px;
 }
 
 .label {
@@ -24,6 +24,7 @@
 }
 
 .iconStart {
+  position: relative;
   display: inherit;
   width: 1.2em;
   min-width: 1.2em;
@@ -33,10 +34,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .iconEnd {
+  position: relative;
   display: inherit;
   margin-right: -4px;
   margin-left: 4px;

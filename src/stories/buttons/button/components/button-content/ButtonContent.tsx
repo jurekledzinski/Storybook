@@ -14,7 +14,7 @@ export const ButtonContent = ({
     <>
       {isLoading && iconStart && !iconEnd ? (
         <span className={styles.iconStart}>
-          <Loader size={size} />
+          <Loader size={size} position="element" />
         </span>
       ) : (
         iconStart && (
@@ -37,7 +37,7 @@ export const ButtonContent = ({
 
       {isLoading && iconEnd ? (
         <span className={styles.iconEnd}>
-          <Loader size={size} />
+          <Loader size={size} position="element" />
         </span>
       ) : (
         iconEnd && (
