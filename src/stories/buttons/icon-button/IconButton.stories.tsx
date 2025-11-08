@@ -15,31 +15,20 @@ const meta: Meta<typeof IconButton> = {
     isLoading: false,
     onClick: fn(),
     disabled: false,
-    border: 'border-xs',
     fullWidth: false,
     icon: [faSun],
   },
   argTypes: {
-    border: {
-      control: { type: 'select' },
-      options: [
-        'border-xs',
-        'border-sm',
-        'border-md',
-        'border-lg',
-        'border-xl',
-      ],
+    className: {
+      control: 'select',
+      options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+      mapping: {
+        none: undefined,
+      },
     },
     color: {
       control: { type: 'select' },
-      options: [
-        'primary',
-        'secondary',
-        'success',
-        'warning',
-        'negative',
-        'default',
-      ],
+      options: ['primary', 'secondary', 'success', 'warning', 'negative', 'default'],
     },
     disabled: {
       control: { type: 'boolean' },
@@ -52,16 +41,6 @@ const meta: Meta<typeof IconButton> = {
         faXmark: [faXmark],
         faSun: [faSun],
       },
-    },
-    radius: {
-      control: { type: 'select' },
-      options: [
-        'radius-xs',
-        'radius-sm',
-        'radius-md',
-        'radius-lg',
-        'radius-xl',
-      ],
     },
     size: {
       control: { type: 'select' },
@@ -78,7 +57,9 @@ export default meta;
 
 type Story = StoryObj<typeof IconButton>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: { controls: { exclude: ['href', 'onClick'] } },
+};
 
 export const Default: Story = {
   args: { icon: [faSun] },

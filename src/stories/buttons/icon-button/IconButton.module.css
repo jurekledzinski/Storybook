@@ -1,7 +1,6 @@
 @import '../button/styles/Colors.module.css';
 @import '../button/styles/Variants.module.css';
 @import '../button/styles/Disabled.module.css';
-@import '../button/styles/Border.module.css';
 
 .iconButton {
   position: relative;
@@ -13,17 +12,11 @@
   user-select: none;
   transition: 0.3s linear;
   text-decoration: none;
+  border-width: 1px;
 }
 
 .iconButton svg {
   color: inherit;
-}
-
-.iconCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /* 20px */
@@ -64,8 +57,6 @@
 .fullWidth {
   width: 100%;
 }
-
-/* Variant minimal only for icon button */
 
 .iconButton.minimal {
   background-color: transparent;

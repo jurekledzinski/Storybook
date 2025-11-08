@@ -12,9 +12,13 @@ The `IconButton` component is used for triggering actions. It can be customized 
 
 Here’s a list of the base props for the `IconButton` or `LinkIconButton` component:
 
+By `className` can add:
+
+- border: 'b-xs' | 'b-sm' | 'b-md' | 'b-lg';
+- radius: 'r-xs' | 'r-sm' | 'r-md' | 'r-lg' | 'r-xl';
+
 ```js
 {
-  border?: 'border-xs' | 'border-sm' | 'border-md' | 'border-lg' | 'border-xl';
   className?: string;
   color?: 'info' |'primary' | 'secondary' | 'success' | 'negative' | 'warning' | 'white';
   contrast?: boolean;
@@ -22,7 +26,6 @@ Here’s a list of the base props for the `IconButton` or `LinkIconButton` compo
   isLoading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  radius?: 'radius-xs' | 'radius-sm' | 'radius-md' | 'radius-lg' | 'radius-xl';
   size?: 'size-xs' | 'size-sm' | 'size-md' | 'size-lg';
   variant: 'contained' | 'outlined' | 'text';
 }
