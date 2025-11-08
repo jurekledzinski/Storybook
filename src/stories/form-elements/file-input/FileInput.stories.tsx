@@ -1,4 +1,5 @@
 import { action } from 'storybook/actions';
+import { faFile, faFileArchive, faFileAudio } from '@fortawesome/free-solid-svg-icons';
 import { FileInput } from './FileInput';
 import { FileInputContainer, Placement } from './components';
 import { FileInputProps } from './types';
@@ -6,11 +7,6 @@ import { fn } from 'storybook/test';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Stack } from '@src/app-ui';
 import { useState } from 'react';
-import {
-  faFile,
-  faFileAudio,
-  faFileArchive,
-} from '@fortawesome/free-solid-svg-icons';
 
 type ExtendedFileInputProps = FileInputProps & { placement: Placement };
 
@@ -34,15 +30,12 @@ const meta: Meta<ExtendedFileInputProps> = {
     }),
   },
   argTypes: {
-    border: {
+    className: {
       control: 'select',
-      options: [
-        'border-xs',
-        'border-sm',
-        'border-md',
-        'border-lg',
-        'border-xl',
-      ],
+      options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+      mapping: {
+        none: undefined,
+      },
     },
     color: {
       control: 'select',
@@ -68,17 +61,6 @@ const meta: Meta<ExtendedFileInputProps> = {
         faFileAudio: [faFileAudio],
         faFileArchive: [faFileArchive],
       },
-    },
-    radius: {
-      control: 'select',
-      options: [
-        'radius-none',
-        'radius-xs',
-        'radius-sm',
-        'radius-md',
-        'radius-lg',
-        'radius-xl',
-      ],
     },
     size: {
       control: 'select',

@@ -1,39 +1,32 @@
 import { FileInputProps } from '../types';
 
-type OmittedProps =
-  | 'allowTypes'
-  | 'disabled'
-  | 'maxAmount'
-  | 'maxSize'
-  | 'onError';
+type OmittedProps = 'allowTypes' | 'disabled' | 'maxAmount' | 'maxSize' | 'onError';
 
 type CustomProps = Omit<FileInputProps, OmittedProps>;
 
 export const getFileInputProps = (props: CustomProps) => {
   const {
+    className,
     size = 'size-sm',
     variant = 'contained',
     label,
-    border,
     iconStart,
     iconEnd,
     isLoading,
     fullWidth,
-    radius,
     color = 'primary',
     ...inputProps
   } = props;
 
   const buttonProps = {
+    className,
     size,
     variant,
     label,
-    border,
     iconStart,
     iconEnd,
     isLoading,
     fullWidth,
-    radius,
     color,
   };
 

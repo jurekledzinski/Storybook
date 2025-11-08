@@ -12,11 +12,15 @@ The `FileInput` component allows users to upload one or more files from their de
 
 Here’s a list of the props for the `FileInput` component:
 
+By `className` can add:
+
+- border: 'b-xs' | 'b-sm' | 'b-md' | 'b-lg';
+- radius: 'r-xs' | 'r-sm' | 'r-md' | 'r-lg' | 'r-xl';
+
 ```js
 {
     accept?: string;
     label: string;
-    border?: "border-xs" | "border-sm" | "border-md" | "border-lg" | "border-xl";
     color?: "info" | "primary" | "secondary" | "success" | "negative" | "warning";
     disabled?: boolean;
     fullWidth?: boolean;
@@ -24,7 +28,6 @@ Here’s a list of the props for the `FileInput` component:
     iconStart?: Icons;
     isLoading?: boolean;
     multiple?:boolean;
-    radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
     size?: "size-xs" | "size-sm" | "size-md" | "size-lg" | "size-xxs";
     variant?: "contained" | "outlined" | "text";
 }
