@@ -22,9 +22,12 @@ const meta: Meta<ButtonProps> = {
     disabled: false,
   },
   argTypes: {
-    border: {
+    className: {
       control: 'select',
-      options: ['border-xs', 'border-sm', 'border-md', 'border-lg', 'border-xl'],
+      options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+      mapping: {
+        none: undefined,
+      },
     },
     color: {
       control: 'select',
@@ -53,10 +56,6 @@ const meta: Meta<ButtonProps> = {
         faSun: [faSun],
       },
     },
-    radius: {
-      control: 'select',
-      options: ['default', 'radius-xs', 'radius-sm', 'radius-md', 'radius-lg', 'radius-xl'],
-    },
     size: {
       control: 'select',
       options: ['size-xs', 'size-sm', 'size-md', 'size-lg'],
@@ -72,7 +71,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: { controls: { exclude: ['href', 'onClick'] } },
+};
 
 export const Default: Story = {
   args: { label: 'Button example' },
