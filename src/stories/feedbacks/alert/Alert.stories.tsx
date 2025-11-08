@@ -14,6 +14,7 @@ const meta: Meta<typeof Alert> = {
   args: {
     color: 'info',
     variant: 'contained',
+    fullWidth: false,
   },
   argTypes: {
     className: {
@@ -32,11 +33,7 @@ const meta: Meta<typeof Alert> = {
       options: ['contained', 'filled', 'light', 'outlined'],
     },
   },
-  parameters: {
-    controls: {
-      exclude: ['className'],
-    },
-  },
+  parameters: { controls: { exclude: ['orientation'] } },
 };
 
 export default meta;
