@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as FormStories from './Form.stories';
+import FormMeta, * as FormStories from './Form.stories';
 
-<Meta of={FormStories} />
+<Meta of={FormMeta} />
 
 ### Form Component
 
@@ -20,24 +20,25 @@ Here’s a list of the props for the `Form` component:
   ...FormHTMLAttributes<HTMLFormElement>
 }
 ```
+
 #### Example Usage `Form`
 
 ```tsx
 <Form className="g-sm">
-    <FormGroup>
-        <Field>
-          <Label>Name</Label>
-          <Input />
-          <Message color="negative">Name is required</Message>
-        </Field>
-    </FormGroup>
-    <FormGroup>
-        <Field>
-          <Label>Surname</Label>
-          <Input />
-          <Message color="negative">Surname is required</Message>
-        </Field>
-    </FormGroup>
+  <FormGroup>
+    <Field>
+      <Label>Name</Label>
+      <Input />
+      <Message color="negative">Name is required</Message>
+    </Field>
+  </FormGroup>
+  <FormGroup>
+    <Field>
+      <Label>Surname</Label>
+      <Input />
+      <Message color="negative">Surname is required</Message>
+    </Field>
+  </FormGroup>
 </Form>
 ```
 

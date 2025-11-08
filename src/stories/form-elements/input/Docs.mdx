@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as InputStories from './Input.stories';
+import InputMeta, * as InputStories from './Input.stories';
 
-<Meta of={InputStories} />
+<Meta of={InputMeta} />
 
 ### Input Component
 
@@ -23,14 +23,13 @@ Here’s a list of the shared props for the `Input` component:
   ...InputHTMLAttributes<HTMLInputElement>
 }
 ```
+
 #### Example Usage `Input`
 
 ```tsx
 <Input />
 ```
+
 #### Preview `Input`
 
 <Story of={InputStories.Default} />
-
-
-

@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as ValidationChecklistStories from './ValidationChecklist.stories';
+import ValidationChecklistMeta, * as ValidationChecklistStories from './ValidationChecklist.stories';
 
-<Meta of={ValidationChecklistStories} />
+<Meta of={ValidationChecklistMeta} />
 
 ### ValidationChecklist Component
 
@@ -62,7 +62,6 @@ export const RegisterValidation = <T extends FieldValues>({
     </ValidationChecklist>
   );
 };
-
 ```
 
 #### Preview `ValidationChecklist`

@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as RadioGroupStories from './RadioGroup.stories';
+import RadioGroupMeta, * as RadioGroupStories from './RadioGroup.stories';
 
-<Meta of={RadioGroupStories} />
+<Meta of={RadioGroupMeta} />
 
 ### RadioGroup Component
 
@@ -13,17 +13,18 @@ The `RadioGroup` component allows users to select one option from a set of mutua
 Here’s a list of the props for the `RadioGroup` component:
 
 ```js
-{  
+{
   children?: React.ReactNode;
   fullWidth?: boolean;
   spacing: "none" | "tight" | "normal" | "loose" | "extra-loose";
   orientation?: "row" | "column";
 }
 ```
+
 Here’s a list of the props for the `Radio` component:
 
 ```js
-{  
+{
   chilren?: React.ReactNode;
   color?: "primary" | "secondary" | "success" | "negative" | "warning";
   size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
@@ -36,16 +37,9 @@ Here’s a list of the props for the `Radio` component:
 
 ```tsx
 <RadioGroup spacing="normal">
-    <Radio
-        id="spring"
-        name="season"
-        value="spring"
-        color="primary"
-        size="size-sm"
-        variant="filled"
-    >
-        Spring
-    </Radio>
+  <Radio id="spring" name="season" value="spring" color="primary" size="size-sm" variant="filled">
+    Spring
+  </Radio>
 </RadioGroup>
 ```
 

@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as FieldStories from './Field.stories';
+import FieldMeta, * as FieldStories from './Field.stories';
 
-<Meta of={FieldStories} />
+<Meta of={FieldMeta} />
 
 ### Field Component
 
@@ -23,9 +23,9 @@ Here’s a list of the props for the `Field` component:
 
 ```tsx
 <Field>
-    <Label>Name:</Label>
-    <Input label="Name" type="text" variant="basic" placeholder="Name" />
-    <Message>Name is required</Message>
+  <Label>Name:</Label>
+  <Input label="Name" type="text" variant="basic" placeholder="Name" />
+  <Message>Name is required</Message>
 </Field>
 ```
 

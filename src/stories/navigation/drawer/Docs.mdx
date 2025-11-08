@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as DrawerStories from './Drawer.stories';
+import DrawerMeta, * as DrawerStories from './Drawer.stories';
 
-<Meta of={DrawerStories} />
+<Meta of={DrawerMeta} />
 
 ### Drawer Component
 
@@ -29,5 +29,7 @@ Here’s a list of the props for the `Drawer` component:
 #### Example Usage `Drawer`
 
 ```tsx
-<Drawer direction="right" open={false}>Drawer content</Drawer>
+<Drawer direction="right" open={false}>
+  Drawer content
+</Drawer>
 ```

@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as ModalStories from './Modal.stories';
+import ModalMeta, * as ModalStories from './Modal.stories';
 
-<Meta of={ModalStories} />
+<Meta of={ModalMeta} />
 
 ### Modal Component
 
@@ -50,8 +50,8 @@ Here’s a list of the props for the `ModalLayout` component:
 
 ```tsx
 <Modal open={false} portal={true}>
-      <ModalLayout title="Delete product" variant="outlined">
-        Are you sure you want delete this product?
-      </ModalLayout>
+  <ModalLayout title="Delete product" variant="outlined">
+    Are you sure you want delete this product?
+  </ModalLayout>
 </Modal>
 ```

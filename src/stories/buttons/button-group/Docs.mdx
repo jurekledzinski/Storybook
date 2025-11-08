@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as ButtonGroupStories from './ButtonGroup.stories';
+import ButtonGroupStoriesMeta, * as ButtonGroupStories from './ButtonGroup.stories';
 
-<Meta of={ButtonGroupStories} />
+<Meta of={ButtonGroupStoriesMeta} />
 
 ### ButtonGroup Component
 
@@ -28,9 +28,9 @@ Here’s a list of the props for the `ButtonGroup` component:
 
 ```tsx
 <ButtonGroup orientation="row" spacing="tight">
-    <Button label="Button 1" className="r-md" />
-    <Button label="Button 2" />
-    <Button label="Button 3" className="r-md" />
+  <Button label="Button 1" className="r-md" />
+  <Button label="Button 2" />
+  <Button label="Button 3" className="r-md" />
 </ButtonGroup>
 ```
 

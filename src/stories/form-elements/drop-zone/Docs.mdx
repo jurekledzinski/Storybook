@@ -1,13 +1,13 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as DropZoneStories from './DropZone.stories';
+import DropZoneMeta, * as DropZoneStories from './DropZone.stories';
 
-<Meta of={DropZoneStories} />
+<Meta of={DropZoneMeta} />
 
 ### DropZone Component
 
-A file upload area where users can drag and drop files. 
-Ideal for forms and applications that require file input, 
+A file upload area where users can drag and drop files.
+Ideal for forms and applications that require file input,
 supporting multiple files and providing a clear visual area for user interaction.
 
 #### Props (typescript)
@@ -30,8 +30,8 @@ Here’s a list of the props for the `DropZone` component:
 #### Example Usage `DropZone`
 
 ```tsx
-<DropZone onDrop={()=> {}} onSelectFiles={()=> {}} >
-    <Message variant="info">No images</Message>
+<DropZone onDrop={() => {}} onSelectFiles={() => {}}>
+  <Message variant="info">No images</Message>
 </DropZone>
 ```
 

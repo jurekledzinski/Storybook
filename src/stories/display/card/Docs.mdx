@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as CardStories from './Card.stories';
+import CardMeta, * as CardStories from './Card.stories';
 
-<Meta of={CardStories} />
+<Meta of={CardMeta} />
 
 ### Card Component
 
@@ -24,20 +24,19 @@ Here’s a list of the props for the `Card` component:
 
 ```tsx
 <Card>
-    <CardHeader className={`${styles.header} p-sm`}></CardHeader>
-    <CardContent className={`${styles.content} p-sm`}>
-        <Heading level={5} className="mb-xs">
-            Title
-        </Heading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero sit labore, quidem
-            beatae necessitatibus excepturi, fugit distinctio quis dolores quos numquam animi
-            obcaecati odio sequi quasi natus.
-    </CardContent>
-    <CardFooter className={`${styles.footer} p-sm`}>
-        <ButtonGroup fullWidth justify="justify-end">
-            <Button label="Read more ..." size="size-sm" />
-        </ButtonGroup>
-    </CardFooter>
+  <CardHeader className={`${styles.header} p-sm`}></CardHeader>
+  <CardContent className={`${styles.content} p-sm`}>
+    <Heading level={5} className="mb-xs">
+      Title
+    </Heading>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero sit labore, quidem beatae necessitatibus
+    excepturi, fugit distinctio quis dolores quos numquam animi obcaecati odio sequi quasi natus.
+  </CardContent>
+  <CardFooter className={`${styles.footer} p-sm`}>
+    <ButtonGroup fullWidth justify="justify-end">
+      <Button label="Read more ..." size="size-sm" />
+    </ButtonGroup>
+  </CardFooter>
 </Card>
 ```
 

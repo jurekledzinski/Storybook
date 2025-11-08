@@ -1,8 +1,8 @@
 import { Description, Meta, Story } from '@storybook/addon-docs/blocks';
 
-import * as AccoridonStories from './Accordion.stories';
+import AccordionMeta, * as AccoridonStories from './Accordion.stories';
 
-<Meta of={AccoridonStories} />
+<Meta of={AccordionMeta} />
 
 ### Accordion Component
 
@@ -28,21 +28,12 @@ Here’s a list of the props for the `Accordion` component:
 #### Example Usage `Accordion`
 
 ```tsx
-<Accordion
-    id="accordion"
-    open={open}
-    onClick={() => setOpen((prev) => !prev)}
->
-    <AccordionHeader className="p-sm">
-        <AccordionInfo
-            title="Example title"
-            text={new Date().toLocaleString()}
-        />
-        <AccordionIcon />
-        </AccordionHeader>
-        <AccordionContent className="p-sm">
-            {textContent}
-        </AccordionContent>
+<Accordion id="accordion" open={open} onClick={() => setOpen((prev) => !prev)}>
+  <AccordionHeader className="p-sm">
+    <AccordionInfo title="Example title" text={new Date().toLocaleString()} />
+    <AccordionIcon />
+  </AccordionHeader>
+  <AccordionContent className="p-sm">{textContent}</AccordionContent>
 </Accordion>
 ```
 
