@@ -30,6 +30,11 @@
   min-width: 1.2em;
 }
 
+.iconEnd svg,
+.iconStart svg {
+  color: inherit;
+}
+
 .iconCenter {
   position: absolute;
   top: 50%;
