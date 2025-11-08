@@ -24,7 +24,7 @@ const meta: Meta<typeof Chip> = {
   argTypes: {
     className: {
       control: 'select',
-      options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+      options: ['none', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
       mapping: {
         none: undefined,
       },
