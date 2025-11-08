@@ -22,6 +22,13 @@ const meta: Meta<typeof Chip> = {
     variant: 'contained',
   },
   argTypes: {
+    className: {
+      control: 'select',
+      options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+      mapping: {
+        none: undefined,
+      },
+    },
     color: {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'negative', 'warning'],
@@ -35,17 +42,6 @@ const meta: Meta<typeof Chip> = {
         faTrashAlt,
         faXmark,
       },
-    },
-    radius: {
-      control: 'select',
-      options: [
-        'default',
-        'radius-xs',
-        'radius-sm',
-        'radius-md',
-        'radius-lg',
-        'radius-xl',
-      ],
     },
     startIcon: {
       control: 'select',

@@ -1,6 +1,6 @@
 import { ChipProps } from '../types';
 
-type PickUnions = 'color' | 'onClick' | 'radius' | 'size' | 'variant';
+type PickUnions = 'className' | 'color' | 'onClick' | 'size' | 'variant';
 
 type Params = Pick<ChipProps, PickUnions>;
 

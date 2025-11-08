@@ -1,19 +1,21 @@
 import styles from '../Chip.module.css';
-import { generateClassNames } from '@src/stories/helpers';
 import { ChipClassNames } from './types';
+import { classNames, generateClassNames } from '@src/stories/helpers';
 
 export const chipClassNames: ChipClassNames = (params) => {
-  const { color, onClick, radius, size, variant } = params;
+  const { className, color, onClick, size, variant } = params;
 
   return {
-    chipWrapper: generateClassNames(styles, {
-      chip: true,
-      clickable: Boolean(onClick),
-      [`${color}`]: Boolean(color),
-      [`${radius}`]: Boolean(radius),
-      [`${size}`]: Boolean(size),
-      [`${variant}`]: Boolean(variant),
-    }),
+    chipWrapper: classNames(
+      generateClassNames(styles, {
+        chip: true,
+        clickable: Boolean(onClick),
+        [`${color}`]: Boolean(color),
+        [`${size}`]: Boolean(size),
+        [`${variant}`]: Boolean(variant),
+      }),
+      className ?? ''
+    ),
     label: styles.label,
     delete: styles.delete,
   };

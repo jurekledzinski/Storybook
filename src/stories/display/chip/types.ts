@@ -1,4 +1,4 @@
-import { Color, Icon, Radius, Size, Variant } from '@src/stories/types';
+import { Color, Icon, Size, Variant } from '@src/stories/types';
 import { HTMLAttributes, MouseEventHandler } from 'react';
 
 export interface ChipProps extends HTMLAttributes<HTMLDivElement> {
@@ -6,7 +6,6 @@ export interface ChipProps extends HTMLAttributes<HTMLDivElement> {
   deleteIcon?: Icon;
   label?: React.ReactNode;
   onDelete?: MouseEventHandler<HTMLSpanElement>;
-  radius?: Radius;
   size?: Size;
   startIcon?: Icon;
   startIconSrc?: string;
