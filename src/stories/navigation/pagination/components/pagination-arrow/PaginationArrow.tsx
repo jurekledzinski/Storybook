@@ -7,7 +7,7 @@ export const PaginationArrow = ({ id, label, onClick, ...props }: PaginationArro
   const { onClick: onChange, ...rest } = usePaginationContext();
   const { uiPaginationProps } = getPaginationProps(rest);
 
-  const classNames = paginationCommonClassNames({ className: 'button', ...uiPaginationProps });
+  const classNames = paginationCommonClassNames({ type: 'button', ...uiPaginationProps });
 
   return (
     <button

@@ -1,9 +1,8 @@
-import { Border, Radius, Size, Spacing, Variant } from '@src/stories/types';
+import { Size, Spacing, Variant } from '@src/stories/types';
 
 export type UiPagination = {
-  border?: Border;
+  className?: string;
   color?: 'primary' | 'secondary';
-  radius?: Radius;
   size?: Size | 'size-xxs';
   spacing?: Spacing;
   variant?: Variant;

@@ -36,12 +36,15 @@ const meta: Meta<typeof Pagination> = {
     ),
   },
   argTypes: {
-    border: {
-      control: { type: 'select' },
-      options: ['undefined', 'border-xs', 'border-sm', 'border-md', 'border-lg', 'border-xl'],
-    },
     children: {
-      control: { type: 'select' },
+      className: {
+        control: 'select',
+        options: ['none', 'b-xs', 'b-sm', 'b-md', 'b-lg', 'r-xs', 'r-sm', 'r-md', 'r-lg', 'r-xl'],
+        mapping: {
+          none: undefined,
+        },
+      },
+      control: 'select',
       options: ['pagination info', 'pagination without info'],
       mapping: {
         'pagination info': (
@@ -68,10 +71,6 @@ const meta: Meta<typeof Pagination> = {
       control: 'select',
       options: [undefined, 'primary', 'secondary'],
     },
-    radius: {
-      control: 'select',
-      options: [undefined, 'radius-xs', 'radius-sm', 'radius-md', 'radius-lg', 'radius-xl'],
-    },
     size: {
       control: 'select',
       options: [undefined, 'size-xxs', 'size-xs', 'size-sm', 'size-md', 'size-lg'],
@@ -94,7 +93,7 @@ type Story = StoryObj<typeof Pagination>;
 export const Playground: Story = {
   parameters: {
     controls: {
-      include: ['border', 'children', 'color', 'radius', 'spacing', 'size', 'variant'],
+      include: ['border', 'children', 'className', 'color', 'radius', 'spacing', 'size', 'variant'],
     },
   },
 };

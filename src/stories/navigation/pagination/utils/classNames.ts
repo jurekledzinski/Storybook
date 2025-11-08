@@ -1,6 +1,6 @@
 import styles from '../styles/Styles.module.css';
 import stylesPagination from '../Pagination.module.css';
-import { generateClassNames } from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
 import { PaginationClassNames, PaginationCommonClassNames } from './types';
 
 export const paginationClassNames: PaginationClassNames = (params) => {
@@ -13,16 +13,17 @@ export const paginationClassNames: PaginationClassNames = (params) => {
 };
 
 export const paginationCommonClassNames: PaginationCommonClassNames = (params) => {
-  const { border, className, color, isActive, radius, size, spacing, variant } = params;
+  const { className, color, isActive, size, spacing, type, variant } = params;
 
-  return generateClassNames(styles, {
-    [className]: true,
-    [`active`]: Boolean(isActive),
-    [`${border}`]: Boolean(border),
-    [`${color}`]: Boolean(color),
-    [`${radius}`]: Boolean(radius),
-    [`${size}`]: Boolean(size),
-    [`${spacing}`]: Boolean(spacing),
-    [`${variant}`]: Boolean(variant),
-  });
+  return classNames(
+    generateClassNames(styles, {
+      [type]: true,
+      [`active`]: Boolean(isActive),
+      [`${color}`]: Boolean(color),
+      [`${size}`]: Boolean(size),
+      [`${spacing}`]: Boolean(spacing),
+      [`${variant}`]: Boolean(variant),
+    }),
+    className ?? ''
+  );
 };

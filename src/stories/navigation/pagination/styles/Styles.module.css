@@ -1,7 +1,6 @@
 @import './Button.module.css';
 @import './Colors.module.css';
 @import './Sizes.module.css';
-@import './Border.module.css';
 @import './Disabled.module.css';
 
 /* Order imports matter last import wins by specificity */

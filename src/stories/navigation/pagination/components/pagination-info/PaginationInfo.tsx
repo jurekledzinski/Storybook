@@ -9,7 +9,7 @@ export const PaginationInfo = ({
   ...props
 }: PaginationInfoProps) => {
   const { infoEnd, infoStart, totalPages, ...rest } = usePaginationContext();
-  const classNames = paginationCommonClassNames({ className: 'info', ...rest });
+  const classNames = paginationCommonClassNames({ type: 'info', ...rest });
 
   return (
     <div {...props} className={classNames}>

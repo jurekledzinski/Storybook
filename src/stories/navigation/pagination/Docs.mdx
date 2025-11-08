@@ -12,56 +12,34 @@ The `Pagination` component allows users to navigate between pages of content.
 
 Here’s a list of the props for the `Pagination` component:
 
+By `className` can add:
+
+- border: 'b-xs' | 'b-sm' | 'b-md' | 'b-lg';
+- radius: 'r-xs' | 'r-sm' | 'r-md' | 'r-lg' | 'r-xl';
+
 ```js
 {
+  className?:string;
   children?: React.ReactNode;
-  border?: "border-xs" | "border-sm" | "border-md" | "border-lg" | "border-xl";
   color?: 'primary' | 'secondary';
-  radius?: "radius-xs" | "radius-sm" | "radius-md" | "radius-lg" | "radius-xl";
   size?: "size-xxs" | "size-xs" | "size-sm" | "size-md" | "size-lg";
   spacing?: "none" | "tight" | "normal" | "loose" | "extra-loose";
   variant?: "contained" | "outlined" | "text";
+  totalPages: number;
+  maxRange?: number;
+  perPage?: number[];
 }
 ```
 
 #### Example Usage `Pagination`
 
 ```tsx
-<Pagination
-      size="size-sm"
-      spacing="tight"
-      totalPages={10}
-      variant="outlined"
->
-    <PaginationArrow
-        id="first"
-        label={faAnglesLeft}
-        onClick={() => {}}
-        disabled={false}
-    />
-    <PaginationArrow
-        id="prev"
-        label={faChevronLeft}
-        onClick={() => {}}
-        disabled={false}
-    />
-    <PaginationInfo
-        indexStart={1}
-        indexEnd={10}
-        totalAmount={100}
-    />
-    <PaginationArrow
-        id="next"
-        label={faChevronRight}
-        onClick={() => {}}
-        disabled={false}
-    />
-    <PaginationArrow
-        id="last"
-        label={faAnglesRight}
-        onClick={() => {}}
-        disabled={false}
-    />
+<Pagination size="size-sm" spacing="tight" totalPages={10} variant="outlined">
+  <PaginationArrow id="first" label={faAnglesLeft} onClick={() => {}} disabled={false} />
+  <PaginationArrow id="prev" label={faChevronLeft} onClick={() => {}} disabled={false} />
+  <PaginationInfo indexStart={1} indexEnd={10} totalAmount={100} />
+  <PaginationArrow id="next" label={faChevronRight} onClick={() => {}} disabled={false} />
+  <PaginationArrow id="last" label={faAnglesRight} onClick={() => {}} disabled={false} />
 </Pagination>
 ```
 

@@ -2,7 +2,7 @@ import { Spacing } from '@src/stories/types';
 import { UiPagination } from '../types';
 
 export interface PaginationItemParams extends UiPagination {
-  className: string;
+  type: string;
   isActive?: boolean;
 }
 
