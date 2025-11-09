@@ -11,7 +11,7 @@ export const IconEnd = ({ className, icon, ...props }: IconEndProps) => {
 
   return (
     <button {...props} className={classNames}>
-      <Icon icon={icon} size="1x" />
+      {typeof icon === 'string' ? icon : <Icon icon={icon} size="1x" />}
     </button>
   );
 };

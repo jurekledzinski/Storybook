@@ -3,7 +3,7 @@ import { InputHTMLAttributes, MouseEventHandler } from 'react';
 
 export interface TextInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onClick'> {
-  endIcon?: Icon;
+  endIcon?: Icon | string;
   isError?: boolean;
   isPending?: boolean;
   label?: string;
