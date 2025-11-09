@@ -10,9 +10,7 @@ const meta: Meta<typeof DropZone> = {
   component: DropZone,
   args: {
     accept: 'image/*',
-    children: (
-      <h4 style={{ textTransform: 'uppercase' }}>Click or Drag and Drop</h4>
-    ),
+    children: <h4 style={{ textTransform: 'uppercase' }}>Click or Drag and Drop</h4>,
   },
   parameters: { controls: { disable: true } },
 };
@@ -38,9 +36,7 @@ export const Playground: Store = {
                 );
               },
               onSelectFiles: (files) => {
-                selectFiles(files, (fileDetails) =>
-                  setFiles((prev) => [...prev, fileDetails])
-                );
+                selectFiles(files, (fileDetails) => setFiles((prev) => [...prev, fileDetails]));
               },
             }}
           />

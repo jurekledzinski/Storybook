@@ -54,15 +54,10 @@ export const Playground: Story = {
             children: (
               <>
                 <AccordionHeader className="p-sm">
-                  <AccordionInfo
-                    title="Example title"
-                    text={new Date().toLocaleString()}
-                  />
+                  <AccordionInfo title="Example title" text={new Date().toLocaleString()} />
                   <AccordionIcon />
                 </AccordionHeader>
-                <AccordionContent className="p-sm">
-                  {textContent}
-                </AccordionContent>
+                <AccordionContent className="p-sm">{textContent}</AccordionContent>
               </>
             ),
           }}
@@ -100,9 +95,7 @@ export const Default: Story = {
                       <AccordionInfo title={title} text={date} />
                       <AccordionIcon />
                     </AccordionHeader>
-                    <AccordionContent className="p-sm">
-                      {content}
-                    </AccordionContent>
+                    <AccordionContent className="p-sm">{content}</AccordionContent>
                   </>
                 ),
               }}
@@ -125,11 +118,7 @@ export const DeleteOne: Story = {
       return (
         <>
           <ButtonGroup className="mb-sm" spacing="tight">
-            <IconButton
-              color="success"
-              icon={[faRefresh]}
-              onClick={onRefresh}
-            />
+            <IconButton color="success" icon={[faRefresh]} onClick={onRefresh} />
           </ButtonGroup>
 
           <Stack orientation="column" spacing="normal">
@@ -148,9 +137,7 @@ export const DeleteOne: Story = {
                         <AccordionIcon />
                         <AccordionActions onDelete={onDelete} />
                       </AccordionHeader>
-                      <AccordionContent className="p-sm">
-                        {content}
-                      </AccordionContent>
+                      <AccordionContent className="p-sm">{content}</AccordionContent>
                     </>
                   ),
                 }}
@@ -167,31 +154,16 @@ export const DeleteOne: Story = {
 export const DeleteMany: Story = {
   decorators: [
     (Accordion, context) => {
-      const {
-        data,
-        handleOpen,
-        openIds,
-        onDeleteMany,
-        onRefreshMany,
-        onSelectMany,
-      } = useAlertStory({
-        exampleData,
-      });
+      const { data, handleOpen, openIds, onDeleteMany, onRefreshMany, onSelectMany } =
+        useAlertStory({
+          exampleData,
+        });
 
       return (
         <>
           <ButtonGroup className="mb-sm" spacing="tight">
-            <Button
-              color="negative"
-              label="Delete"
-              variant="outlined"
-              onClick={onDeleteMany}
-            />
-            <IconButton
-              color="success"
-              icon={[faRefresh]}
-              onClick={onRefreshMany}
-            />
+            <Button color="negative" label="Delete" variant="outlined" onClick={onDeleteMany} />
+            <IconButton color="success" icon={[faRefresh]} onClick={onRefreshMany} />
           </ButtonGroup>
 
           <Stack orientation="column" spacing="normal">
@@ -210,9 +182,7 @@ export const DeleteMany: Story = {
                         <AccordionIcon />
                         <AccordionSelect onSelect={onSelectMany} />
                       </AccordionHeader>
-                      <AccordionContent className="p-sm">
-                        {content}
-                      </AccordionContent>
+                      <AccordionContent className="p-sm">{content}</AccordionContent>
                     </>
                   ),
                 }}

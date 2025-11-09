@@ -25,9 +25,7 @@ export const useAlertStory = ({ exampleData }: UseAlertStoryProps) => {
   };
 
   const onDeleteMany = () => {
-    setData((prev) =>
-      [...prev].filter((i) => !deleteIds.includes(i.id.toString()))
-    );
+    setData((prev) => [...prev].filter((i) => !deleteIds.includes(i.id.toString())));
   };
 
   const onSelectMany = (e: ChangeEvent<HTMLInputElement>) => {
