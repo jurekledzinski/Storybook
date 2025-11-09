@@ -1,14 +1,18 @@
 import styles from './Checkbox.module.css';
-import { Button } from '@src/stories/buttons/button';
-import { ButtonGroup } from '@src/stories/buttons/button-group';
-import { Checkbox } from '@src/stories/form-elements/checkbox';
-import { CheckboxGroup } from '@src/stories/form-elements/checkbox-group';
-import { Field } from '@src/stories/form-elements/field';
 import { InputsCheckboxForm } from './types';
-import { Label } from '@src/stories/form-elements/label';
-import { Message } from '@src/stories/feedbacks/message';
-import { Radio, RadioGroup } from '@src/stories/form-elements/radio-group';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  Button,
+  ButtonGroup,
+  Checkbox,
+  CheckboxGroup,
+  Field,
+  Form,
+  Label,
+  Message,
+  Radio,
+  RadioGroup,
+} from '@src/stories';
 
 export const CheckBoxForm = () => {
   const {
@@ -28,7 +32,7 @@ export const CheckBoxForm = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <Form onSubmit={handleSubmit(onSubmit)} noValidate>
         <Field>
           <Label>Color:</Label>
 
@@ -70,7 +74,7 @@ export const CheckBoxForm = () => {
               Żółty
             </Radio>
           </RadioGroup>
-          <Message variant="error">{errors.color?.message}</Message>
+          <Message color="negative">{errors.color?.message}</Message>
         </Field>
 
         <Field>
@@ -119,13 +123,13 @@ export const CheckBoxForm = () => {
               Zima
             </Checkbox>
           </CheckboxGroup>
-          <Message variant="error">{errors.season?.message}</Message>
+          <Message color="negative">{errors.season?.message}</Message>
         </Field>
 
-        <ButtonGroup mt={'mt-md'} fullWidth>
+        <ButtonGroup className="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
-      </form>
+      </Form>
     </div>
   );
 };

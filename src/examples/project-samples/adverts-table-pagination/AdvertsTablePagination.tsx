@@ -6,17 +6,9 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-import {
-  AdvertsTable,
-  useAdvertsColumns,
-  useControlAdvertsTable,
-} from '../adverts-table';
+import { AdvertsTable, useAdvertsColumns, useControlAdvertsTable } from '../adverts-table';
 
-import {
-  Pagination,
-  PaginationArrow,
-  PaginationInfo,
-} from '@src/stories/navigation/pagination';
+import { Pagination, PaginationArrow, PaginationInfo } from '@src/stories/navigation/pagination';
 
 const stage = ['active', 'expired', 'expire soon'];
 
@@ -40,12 +32,7 @@ export const AdvertsTablePagination = () => {
   });
 
   return (
-    <AdvertsTable
-      table={table}
-      isEmpty={isEmpty}
-      noResults={noResults}
-      loading={false}
-    >
+    <AdvertsTable table={table} isEmpty={isEmpty} noResults={noResults} loading={false}>
       {(table) => {
         const currentPage = table.getState().pagination.pageIndex;
         const itemsPerPage = table.getState().pagination.pageSize;

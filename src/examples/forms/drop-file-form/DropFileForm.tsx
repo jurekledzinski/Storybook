@@ -1,21 +1,25 @@
 import styles from './DropFileForm.module.css';
-import { Box } from '@src/stories/layout';
-import { Button } from '@src/stories/buttons/button';
-import { ButtonGroup } from '@src/stories/buttons/button-group';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { DropZone } from '@src/stories/form-elements/drop-zone';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { Field } from '@src/stories/form-elements/field';
-import { Heading } from '@src/stories/typography/heading';
-import { Icon } from '@src/stories/graphics/icon';
 import { InputsDropFileForm } from './types';
-import { Label } from '@src/stories/form-elements/label';
-import { Message } from '@src/stories/feedbacks/message';
-import { PreviewFiles } from '@src/stories/graphics/preview-files';
 import {
+  Box,
+  Button,
+  ButtonGroup,
+  DropZone,
+  Field,
   FileInput,
+  FilePreviewList,
+  Icon,
+  Heading,
+  Message,
+  Label,
   useValidateFiles,
-} from '@src/stories/form-elements/file-input';
+  FilePreviewCard,
+  FilePreviewImage,
+  FilePreviewTitle,
+  FilePreviewCloseButton,
+} from '@src/stories';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 export const DropFileForm = () => {
   const {
@@ -35,16 +39,13 @@ export const DropFileForm = () => {
     console.log('Submit', data);
   };
 
-  const {
-    checkFileType,
-    checkMaxAmountFiles,
-    checkMaxSize,
-    checkRequiredFiles,
-  } = useValidateFiles({
-    allowTypes: ['image/jpeg'],
-    maxSize: [3, 'MB'],
-    maxAmount: 2,
-  });
+  const { checkFileType, checkMaxAmountFiles, checkMaxSize, checkRequiredFiles } = useValidateFiles(
+    {
+      allowTypes: ['image/jpeg'],
+      maxSize: [3, 'MB'],
+      maxAmount: 2,
+    }
+  );
 
   const mergeFiles = (oldFiles: File[], newFiles: File[]) => {
     const fileMap = new Map();
@@ -120,23 +121,31 @@ export const DropFileForm = () => {
                     });
                   }}
                 />
-                <Message variant="error">{errors.files?.message}</Message>
+                <Message color="negative">{errors.files?.message}</Message>
               </DropZone>
             )}
           />
         </Box>
         <Field>
           <Label>Preview files:</Label>
-          <PreviewFiles
+          <FilePreviewList
             images={[...watch('files')]}
-            gridPlacement="column"
-            onRemove={(index) => {
-              setValue(
-                'files',
-                [...watch('files')].filter((_, i) => i !== index),
-                { shouldValidate: true, shouldDirty: false }
-              );
-            }}
+            placement="column"
+            render={(file, index, placement) => (
+              <FilePreviewCard placement={placement}>
+                <FilePreviewImage file={file} />
+                <FilePreviewTitle file={file} />
+                <FilePreviewCloseButton
+                  onClick={() => {
+                    setValue(
+                      'files',
+                      [...watch('files')].filter((_, i) => i !== index),
+                      { shouldValidate: true, shouldDirty: false }
+                    );
+                  }}
+                />
+              </FilePreviewCard>
+            )}
           >
             <Box className={styles['group-info']}>
               <Icon color="primary" icon={faImage} size="4x" />
@@ -144,9 +153,9 @@ export const DropFileForm = () => {
                 No Images
               </Heading>
             </Box>
-          </PreviewFiles>
+          </FilePreviewList>
         </Field>
-        <ButtonGroup mt="mt-md" fullWidth>
+        <ButtonGroup className="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </form>

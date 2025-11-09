@@ -1,24 +1,21 @@
-import { Button } from '@src/stories/buttons/button';
-import { ButtonGroup } from '@src/stories/buttons/button-group';
-import { checkIsError } from '../utils';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { Field } from '@src/stories/form-elements/field';
-import { Message } from '@src/stories/feedbacks/message';
+import { InputsSelectForm } from './types';
 import {
+  Button,
+  ButtonGroup,
+  Field,
+  Message,
   Select,
   SelectList,
   SelectOption,
-  SelectPanel,
   SelectTrigger,
-} from '@src/stories/form-elements/select';
-import { InputsSelectForm } from './types';
+} from '@src/stories';
 
 export const SelectForm = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
   } = useForm<InputsSelectForm>({
     defaultValues: {
       color: '',
@@ -39,26 +36,20 @@ export const SelectForm = () => {
             control={control}
             rules={{ required: { message: 'Color is requird', value: true } }}
             render={({ field: { onChange, ...rest } }) => (
-              <Select
-                isError={checkIsError('color', errors, dirtyFields.color)}
-                onChange={(id) => onChange(id)}
-                {...rest}
-              >
-                <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
-                <SelectPanel>
-                  <SelectList>
-                    <SelectOption id="red">Red</SelectOption>
-                    <SelectOption id="green">Green</SelectOption>
-                    <SelectOption id="orange">Orange</SelectOption>
-                    <SelectOption id="blue">Blue</SelectOption>
-                    <SelectOption id="yellow">Yellow</SelectOption>
-                    <SelectOption id="purple">Purple</SelectOption>
-                  </SelectList>
-                </SelectPanel>
+              <Select onChange={onChange} {...rest}>
+                <SelectTrigger label="Colors" size="size-md" variant="basic" />
+                <SelectList>
+                  <SelectOption value="red">Red</SelectOption>
+                  <SelectOption value="green">Green</SelectOption>
+                  <SelectOption value="orange">Orange</SelectOption>
+                  <SelectOption value="blue">Blue</SelectOption>
+                  <SelectOption value="yellow">Yellow</SelectOption>
+                  <SelectOption value="purple">Purple</SelectOption>
+                </SelectList>
               </Select>
             )}
           />
-          <Message variant="error">{errors.color?.message}</Message>
+          <Message color="negative">{errors.color?.message}</Message>
         </Field>
 
         <Field>
@@ -67,29 +58,57 @@ export const SelectForm = () => {
             control={control}
             rules={{ required: { message: 'Cars is requird', value: true } }}
             render={({ field: { onChange, ...rest } }) => (
-              <Select
-                isError={checkIsError('cars', errors, dirtyFields.cars)}
-                onChange={(id) => onChange(id)}
-                {...rest}
-              >
-                <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
-                <SelectPanel>
-                  <SelectList>
-                    <SelectOption id="polonez">Polonez</SelectOption>
-                    <SelectOption id="fiat">Fiat</SelectOption>
-                    <SelectOption id="syrenka">Syrenka</SelectOption>
-                    <SelectOption id="warszawa">Warszawa</SelectOption>
-                  </SelectList>
-                </SelectPanel>
+              <Select onChange={onChange} {...rest}>
+                <SelectTrigger label="Colors" size="size-md" variant="basic" />
+                <SelectList>
+                  <SelectOption value="polonez">Polonez</SelectOption>
+                  <SelectOption value="fiat">Fiat</SelectOption>
+                  <SelectOption value="syrenka">Syrenka</SelectOption>
+                  <SelectOption value="warszawa">Warszawa</SelectOption>
+                </SelectList>
               </Select>
             )}
           />
-          <Message variant="error">{errors.cars?.message}</Message>
+          <Message color="negative">{errors.cars?.message}</Message>
         </Field>
-        <ButtonGroup mt="mt-md" fullWidth>
+        <ButtonGroup className="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </form>
     </div>
   );
 };
+
+//   <Select
+//     isError={checkIsError('color', errors, dirtyFields.color)}
+//     onChange={(id) => onChange(id)}
+//     {...rest}
+//   >
+//     <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
+//     <SelectPanel>
+//       <SelectList>
+//         <SelectOption id="red">Red</SelectOption>
+//         <SelectOption id="green">Green</SelectOption>
+//         <SelectOption id="orange">Orange</SelectOption>
+//         <SelectOption id="blue">Blue</SelectOption>
+//         <SelectOption id="yellow">Yellow</SelectOption>
+//         <SelectOption id="purple">Purple</SelectOption>
+//       </SelectList>
+//     </SelectPanel>
+//   </Select>
+
+//   <Select
+//     isError={checkIsError('cars', errors, dirtyFields.cars)}
+//     onChange={(id) => onChange(id)}
+//     {...rest}
+//   >
+//     <SelectTrigger endIcon={[faChevronUp, faChevronDown]} />
+//     <SelectPanel>
+//       <SelectList>
+//         <SelectOption id="polonez">Polonez</SelectOption>
+//         <SelectOption id="fiat">Fiat</SelectOption>
+//         <SelectOption id="syrenka">Syrenka</SelectOption>
+//         <SelectOption id="warszawa">Warszawa</SelectOption>
+//       </SelectList>
+//     </SelectPanel>
+//   </Select>

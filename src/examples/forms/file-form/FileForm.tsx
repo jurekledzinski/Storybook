@@ -1,23 +1,27 @@
 import styles from './FileForm.module.css';
-import { Box } from '@src/stories/layout';
-import { Button } from '@src/stories/buttons/button';
-import { ButtonGroup } from '@src/stories/buttons/button-group';
 import { checkIsError } from '../utils';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { Field } from '@src/stories/form-elements/field';
-import { Form } from '@src/stories/form-elements/form';
-import { Heading } from '@src/stories/typography/heading';
-import { Icon } from '@src/stories/graphics/icon';
-import { Input } from '@src/stories/form-elements/input';
 import { Inputs } from './types';
-import { Label } from '@src/stories/form-elements/label';
-import { Message } from '@src/stories/feedbacks/message';
-import { PreviewFiles } from '@src/stories/graphics/preview-files';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import {
+  Box,
+  Button,
+  ButtonGroup,
+  Field,
   FileInput,
+  FilePreviewList,
+  Form,
+  Heading,
+  Icon,
+  Input,
+  Message,
+  Label,
   useValidateFiles,
-} from '@src/stories/form-elements/file-input';
+  FilePreviewCard,
+  FilePreviewImage,
+  FilePreviewTitle,
+  FilePreviewCloseButton,
+} from '@src/stories/';
 
 export const FileForm = () => {
   const {
@@ -30,16 +34,13 @@ export const FileForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log('Submit', data);
 
-  const {
-    checkFileType,
-    checkMaxAmountFiles,
-    checkMaxSize,
-    checkRequiredFiles,
-  } = useValidateFiles({
-    allowTypes: ['image/jpeg'],
-    maxSize: [3, 'MB'],
-    maxAmount: 2,
-  });
+  const { checkFileType, checkMaxAmountFiles, checkMaxSize, checkRequiredFiles } = useValidateFiles(
+    {
+      allowTypes: ['image/jpeg'],
+      maxSize: [3, 'MB'],
+      maxAmount: 2,
+    }
+  );
 
   return (
     <div className={styles.container}>
@@ -52,7 +53,7 @@ export const FileForm = () => {
               required: { message: 'Name is required', value: true },
             })}
           />
-          <Message variant="error">{errors.name?.message}</Message>
+          <Message color="negative">{errors.name?.message}</Message>
         </Field>
 
         <Field>
@@ -87,40 +88,47 @@ export const FileForm = () => {
             //   });
             // }}
           />
-          <Message variant="error">{errors.files?.message}</Message>
+          <Message color="negative">{errors.files?.message}</Message>
         </Field>
 
         <Field>
           <Label>Preview files:</Label>
-          <PreviewFiles
+          <FilePreviewList
             images={[...watch('files')]}
-            gridPlacement="column"
-            onRemove={(index) => {
-              setValue(
-                'files',
-                [...watch('files')].filter((_, i) => i !== index),
-                { shouldValidate: true, shouldDirty: false }
-              );
-            }}
-          >
-            <Box className={styles['group-info']}>
-              <Icon
-                // className={styles['form-icon']}
-                color="primary"
-                icon={faImage}
-                size="4x"
-              />
-              <Heading
-                //   className={styles['form-heading']}
-                fw="fw-900"
-                level={4}
-              >
-                No Images
-              </Heading>
-            </Box>
-          </PreviewFiles>
+            placement="column"
+            render={(file, index, placement) => (
+              <FilePreviewCard placement={placement}>
+                <FilePreviewImage file={file} />
+                <FilePreviewTitle file={file} />
+                <FilePreviewCloseButton
+                  onClick={() => {
+                    setValue(
+                      'files',
+                      [...watch('files')].filter((_, i) => i !== index),
+                      { shouldValidate: true, shouldDirty: false }
+                    );
+                  }}
+                />
+                <Box className={styles['group-info']}>
+                  <Icon
+                    // className={styles['form-icon']}
+                    color="primary"
+                    icon={faImage}
+                    size="4x"
+                  />
+                  <Heading
+                    //   className={styles['form-heading']}
+                    fw="fw-900"
+                    level={4}
+                  >
+                    No Images
+                  </Heading>
+                </Box>
+              </FilePreviewCard>
+            )}
+          ></FilePreviewList>
         </Field>
-        <ButtonGroup mt="mt-md" fullWidth>
+        <ButtonGroup className="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </Form>

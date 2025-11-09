@@ -17,10 +17,7 @@ export const formatNumber = (
 //     maximumFractionDigits: 0,
 //   }).format(num);
 
-export const removeNonNumericValues  = <
-  T extends Record<string, unknown>,
-  K extends keyof T
->(
+export const removeNonNumericValues = <T extends Record<string, unknown>, K extends keyof T>(
   obj: T,
   keys: K[]
 ) => {

@@ -30,17 +30,9 @@ export const useControlAdvertsTable = <T extends RowData>({
     onPaginationChange,
   });
 
-  const isEmpty = useMemo(
-    () => Boolean(table.options.data.length),
-    [table.options.data.length]
-  );
+  const isEmpty = useMemo(() => Boolean(table.options.data.length), [table.options.data.length]);
 
-  const noResults = useMemo(
-    () => Boolean(table.getPrePaginationRowModel().rows.length),
-    [table]
-  );
-
-  console.log('Control table');
+  const noResults = useMemo(() => Boolean(table.getPrePaginationRowModel().rows.length), [table]);
 
   return { isEmpty, noResults, table };
 };

@@ -1,14 +1,8 @@
 import styles from './TextInputForm.module.css';
-import { Button } from '@src/stories/buttons/button';
-import { ButtonGroup } from '@src/stories/buttons/button-group';
+import { Button, ButtonGroup, Field, Form, Label, Message, TextInput } from '@src/stories';
 import { Controller, SubmitHandler } from 'react-hook-form';
-import { Field } from '@src/stories/form-elements/field';
-import { Form } from '@src/stories/form-elements/form';
 import { formatNumber, removeNonNumericValues } from '../utils';
 import { InputsTextInput, useControlTextForm } from './hooks';
-import { Label } from '@src/stories/form-elements/label';
-import { Message } from '@src/stories/feedbacks/message';
-import { TextInput } from '@src/stories/form-elements/text-input';
 import { useRef } from 'react';
 
 const optionsFormat: Intl.NumberFormatOptions = {
@@ -43,10 +37,10 @@ export const TextInputForm = () => {
               required: { message: 'Area is required', value: true },
             })}
             type="number"
-            endIcon={['m²']}
+            endIcon="m²"
             min={0}
           />
-          <Message variant="error">{errors.area?.message}</Message>
+          <Message color="negative">{errors.area?.message}</Message>
         </Field>
         <Field>
           <Label>Amount rooms</Label>
@@ -58,7 +52,7 @@ export const TextInputForm = () => {
             min={0}
             step={1}
           />
-          <Message variant="error">{errors.rooms?.message}</Message>
+          <Message color="negative">{errors.rooms?.message}</Message>
         </Field>
         <Field>
           <Label>Year of construction</Label>
@@ -73,7 +67,7 @@ export const TextInputForm = () => {
             min={1800}
             max={new Date().getFullYear()}
           />
-          <Message variant="error">{errors.year?.message}</Message>
+          <Message color="negative">{errors.year?.message}</Message>
         </Field>
         <Field>
           <Label>Price</Label>
@@ -100,10 +94,10 @@ export const TextInputForm = () => {
               />
             )}
           />
-          <Message variant="error">{errors.price?.message}</Message>
+          <Message color="negative">{errors.price?.message}</Message>
         </Field>
 
-        <ButtonGroup mt="mt-md" fullWidth>
+        <ButtonGroup className="mt-md" fullWidth>
           <Button label="Submit" fullWidth color="success" size="size-lg" />
         </ButtonGroup>
       </Form>

@@ -8,13 +8,10 @@ import { MouseEvent, useCallback } from 'react';
 export const ColumnsFilterHeader = <T extends object>({
   headerGroup,
 }: ColumnsFilterHeaderProps<T>) => {
-  const onSort = useCallback(
-    (e: MouseEvent<HTMLDivElement>, header: Header<T, unknown>) => {
-      const toggleSorting = header.column.getToggleSortingHandler();
-      if (toggleSorting) toggleSorting(e);
-    },
-    []
-  );
+  const onSort = useCallback((e: MouseEvent<HTMLDivElement>, header: Header<T, unknown>) => {
+    const toggleSorting = header.column.getToggleSortingHandler();
+    if (toggleSorting) toggleSorting(e);
+  }, []);
 
   if (!headerGroup) return null;
 
@@ -24,10 +21,7 @@ export const ColumnsFilterHeader = <T extends object>({
         <th key={header.id} colSpan={header.colSpan}>
           {!header.isPlaceholder && (
             <>
-              <div
-                className={styles.wrapper}
-                onClick={(e) => onSort(e, header)}
-              >
+              <div className={styles.wrapper} onClick={(e) => onSort(e, header)}>
                 <HeaderLabel header={header} />
                 <SortArrows header={header} icons={[faArrowUp, faArrowDown]} />
               </div>
