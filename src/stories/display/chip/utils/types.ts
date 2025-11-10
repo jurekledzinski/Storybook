@@ -5,7 +5,7 @@ type PickUnions = 'className' | 'color' | 'onClick' | 'size' | 'variant';
 type Params = Pick<ChipProps, PickUnions>;
 
 export type ChipClassNames = (params: Params) => {
-  chipWrapper: string;
+  chipWrapper: string | undefined;
   delete: string;
   label: string;
 };

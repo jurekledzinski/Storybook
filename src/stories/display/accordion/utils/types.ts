@@ -12,9 +12,9 @@ type ContentParams = Omit<AccordionContentProps, 'children'> & {
   variant: AccordionProps['variant'];
 };
 
-export type AccordionHeaderClassNames = (params: HeaderParams) => string;
+export type AccordionHeaderClassNames = (params: HeaderParams) => string | undefined;
 
 export type AccordionContentClassNames = (params: ContentParams) => {
-  content: string;
-  inner: string;
+  content: string | undefined;
+  inner: string | undefined;
 };
