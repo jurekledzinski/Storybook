@@ -1,9 +1,8 @@
 // Funkcja classNames filtruje undefined null false '' (empty string)
 
-export const classNames = (
-  ...classes: (string | false | null | undefined)[]
-) => {
-  return classes.filter(Boolean).join(' ');
+export const classNames = (...classes: (string | false | null | undefined)[]) => {
+  const value = classes.filter(Boolean).join(' ');
+  return value === '' ? undefined : value;
 };
 
 export const generateClassNames = (
