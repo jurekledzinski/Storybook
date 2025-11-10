@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import { usePopover } from '@src/stories/overlays/pop-over';
+import { usePopover } from '@src/stories';
 import { useSelect } from '../store';
 
 export const useSelectTrigger = () => {

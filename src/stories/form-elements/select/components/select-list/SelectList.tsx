@@ -1,5 +1,5 @@
 import styles from '../../Select.module.css';
-import { Popover } from '@src/stories/overlays/pop-over';
+import { Popover } from '@src/stories';
 import { SelectListProps } from './types';
 import { useSelectList } from '../../hooks';
 
