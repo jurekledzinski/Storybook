@@ -13,7 +13,7 @@
     "test-storybook": "test-storybook --verbose --coverage",
     "host": "npm run dev -- --host",
     "type-check": "tsc --noEmit",
-    "deploy-storybook": "gh-pages -d storybook-static --no-history"
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
