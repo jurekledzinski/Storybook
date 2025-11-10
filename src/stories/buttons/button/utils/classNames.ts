@@ -11,7 +11,6 @@ export const buttonClassNames: ButtonClassNames = ({
   size = 'size-md',
   variant = 'contained',
 }) => {
-  console.log('className', className);
   return classNames(
     generateClassNames(styles, {
       button: true,
