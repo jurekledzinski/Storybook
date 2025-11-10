@@ -1,18 +1,21 @@
 import styles from '../Select.module.css';
-import { generateClassNames } from '@src/stories/helpers';
+import { classNames, generateClassNames } from '@src/stories/helpers';
 import { SelectOptionClassNames, SelectTriggerClassNames } from './types';
 
 export const selectTriggerClassNames: SelectTriggerClassNames = (params) => {
-  const { size = 'size-sm', isError, placeholder, value, variant = 'basic' } = params;
+  const { className, size = 'size-sm', isError, placeholder, value, variant = 'basic' } = params;
 
-  return generateClassNames(styles, {
-    trigger: true,
-    inValid: isError === true,
-    valid: isError === false,
-    active: Boolean(placeholder) || Boolean(value),
-    [`${size}`]: Boolean(size),
-    [`${variant}`]: Boolean(variant),
-  });
+  return classNames(
+    generateClassNames(styles, {
+      trigger: true,
+      inValid: isError === true,
+      valid: isError === false,
+      active: Boolean(placeholder) || Boolean(value),
+      [`${size}`]: Boolean(size),
+      [`${variant}`]: Boolean(variant),
+    }),
+    className ?? ''
+  );
 };
 
 export const selectOptionClassNames: SelectOptionClassNames = (params) => {

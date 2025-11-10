@@ -4,8 +4,12 @@ import { SelectButtonProps } from './types';
 import { selectTriggerClassNames } from '../../utils';
 
 export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(
-  ({ children, disabled, isError, label, placeholder, size, variant, value, ...props }, ref) => {
+  (
+    { className, children, disabled, isError, label, placeholder, size, variant, value, ...props },
+    ref
+  ) => {
     const classNames = selectTriggerClassNames({
+      className,
       isError,
       disabled,
       placeholder,
