@@ -1,0 +1,24 @@
+export type ColorsContainerProps = {
+  colorName: 'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'info';
+  hue1: number;
+  hue2: number;
+  hue3: number;
+  hue4: number;
+  saturation1: number;
+  saturation2: number;
+  saturation3: number;
+  saturation4: number;
+  lightness1: number;
+  lightness2: number;
+  lightness3: number;
+  lightness4: number;
+  lightness5: number;
+  lightness6: number;
+  lightness7: number;
+  lightness8: number;
+  lightness9: number;
+  lightness10: number;
+  lightness11: number;
+  lightness12: number;
+  lightness13: number;
+};

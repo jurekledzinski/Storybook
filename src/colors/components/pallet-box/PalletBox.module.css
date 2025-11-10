@@ -1,0 +1,51 @@
+.box {
+  width: 120px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  color: black;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.color-50 {
+  background: var(--color-50);
+}
+.color-100 {
+  background: var(--color-100);
+}
+.color-200 {
+  background: var(--color-200);
+}
+.color-300 {
+  background: var(--color-300);
+}
+.color-400 {
+  background: var(--color-400);
+}
+.color-500 {
+  background: var(--color-500);
+}
+.color-600 {
+  background: var(--color-600);
+}
+.color-700 {
+  background: var(--color-700);
+}
+.color-800 {
+  background: var(--color-800);
+}
+.color-900 {
+  background: var(--color-900);
+}
+.color-1000 {
+  background: var(--color-1000);
+}
+.color-1100 {
+  background: var(--color-1100);
+}
+.color-1200 {
+  background: var(--color-1200);
+}

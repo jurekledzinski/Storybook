@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.heading {
+  text-transform: uppercase;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+
+  --hue-1: 0;
+  --hue-2: 0;
+  --hue-3: 0;
+  --hue-4: 0;
+  --sat-1: 0%;
+  --sat-2: 0%;
+  --sat-3: 0%;
+  --sat-4: 0%;
+  --l-50: 100%;
+  --l-100: 100%;
+  --l-200: 100%;
+  --l-300: 100%;
+  --l-400: 100%;
+  --l-500: 100%;
+  --l-600: 100%;
+  --l-700: 100%;
+  --l-800: 100%;
+  --l-900: 100%;
+  --l-1000: 100%;
+  --l-1100: 100%;
+  --l-1200: 100%;
+
+  --color-50: hsl(var(--hue-1), var(--sat-1), var(--l-50));
+  --color-100: hsl(var(--hue-1), var(--sat-1), var(--l-100));
+  --color-200: hsl(var(--hue-1), var(--sat-1), var(--l-200));
+  --color-300: hsl(var(--hue-1), var(--sat-1), var(--l-300));
+  --color-400: hsl(var(--hue-2), var(--sat-2), var(--l-400));
+  --color-500: hsl(var(--hue-2), var(--sat-2), var(--l-500));
+  --color-600: hsl(var(--hue-2), var(--sat-2), var(--l-600));
+  --color-700: hsl(var(--hue-3), var(--sat-3), var(--l-700));
+  --color-800: hsl(var(--hue-3), var(--sat-3), var(--l-800));
+  --color-900: hsl(var(--hue-3), var(--sat-3), var(--l-900));
+  --color-1000: hsl(var(--hue-4), var(--sat-4), var(--l-1000));
+  --color-1100: hsl(var(--hue-4), var(--sat-4), var(--l-1100));
+  --color-1200: hsl(var(--hue-4), var(--sat-4), var(--l-1200));
+}
