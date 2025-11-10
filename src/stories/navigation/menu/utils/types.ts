@@ -10,5 +10,5 @@ type ParamsMenuItem = {
   type?: 'link';
 };
 
-export type MenuClassNames = (params: ParamsMenu) => string;
-export type MenuItemClassNames = (params: ParamsMenuItem) => string;
+export type MenuClassNames = (params: ParamsMenu) => string | undefined;
+export type MenuItemClassNames = (params: ParamsMenuItem) => string | undefined;

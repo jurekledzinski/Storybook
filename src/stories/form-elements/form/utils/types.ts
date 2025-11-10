@@ -5,5 +5,5 @@ type Params = {
   orientation?: Orientation;
 };
 
-export type FormClassNames = (params: Params) => string;
-export type FormGroupClassNames = (params: Params) => string;
+export type FormClassNames = (params: Params) => string | undefined;
+export type FormGroupClassNames = (params: Params) => string | undefined;

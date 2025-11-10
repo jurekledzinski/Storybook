@@ -5,4 +5,4 @@ type Params = {
   color?: Color;
 };
 
-export type IconClassNames = (params: Params) => string;
+export type IconClassNames = (params: Params) => string | undefined;

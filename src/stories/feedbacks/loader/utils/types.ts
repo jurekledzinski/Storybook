@@ -9,8 +9,6 @@ interface LoaderParams extends Pick<LoaderProps, PickLoaderKeys> {
 
 type LoaderInlineParams = Pick<LoaderProps, PickLoaderInlineKeys>;
 
-export type LoaderClassNames = (params: LoaderParams) => string;
+export type LoaderClassNames = (params: LoaderParams) => string | undefined;
 
-export type LoaderInlineStyles = (
-  params: LoaderInlineParams
-) => React.CSSProperties;
+export type LoaderInlineStyles = (params: LoaderInlineParams) => React.CSSProperties;

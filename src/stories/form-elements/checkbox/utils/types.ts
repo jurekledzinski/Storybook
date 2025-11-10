@@ -11,5 +11,5 @@ type Params = {
   variant?: VariantCheckbox;
 };
 
-export type CheckboxClassNames = (params: Params) => string;
-export type CheckboxLabelClassNames = (params: Params) => string;
+export type CheckboxClassNames = (params: Params) => string | undefined;
+export type CheckboxLabelClassNames = (params: Params) => string | undefined;

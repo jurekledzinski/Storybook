@@ -6,6 +6,6 @@ export interface PaginationItemParams extends UiPagination {
   isActive?: boolean;
 }
 
-export type PaginationCommonClassNames = (params: PaginationItemParams) => string;
+export type PaginationCommonClassNames = (params: PaginationItemParams) => string | undefined;
 
 export type PaginationClassNames = (params: { spacing?: Spacing }) => string;

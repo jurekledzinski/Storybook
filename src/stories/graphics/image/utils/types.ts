@@ -6,6 +6,6 @@ type ParamsContainer = {
   loader?: Loading;
 };
 
-export type ImageContainerClassNames = (params: ParamsContainer) => string;
+export type ImageContainerClassNames = (params: ParamsContainer) => string | undefined;
 
-export type ImageClassNames = (className?: string) => string;
+export type ImageClassNames = (className?: string) => string | undefined;

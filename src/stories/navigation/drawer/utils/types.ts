@@ -4,8 +4,8 @@ import { DrawerProps } from '../types';
 type DrawerParams = Omit<DrawerProps, 'children'>;
 
 export type DrawerClassNames = (params: DrawerParams) => {
-  drawer: string;
-  inner: string;
+  drawer: string | undefined;
+  inner: string | undefined;
 };
 
 type DrawerVarsParams = {

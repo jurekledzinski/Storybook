@@ -3,4 +3,4 @@ type Params = {
   className?: string;
 };
 
-export type DropZoneClassNames = (params: Params) => string;
+export type DropZoneClassNames = (params: Params) => string | undefined;
