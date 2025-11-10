@@ -1,5 +1,5 @@
 import { CardContentProps } from './types';
 
-export const CardContent = ({ children, className }: CardContentProps) => {
-  return <div className={className}>{children}</div>;
+export const CardContent = ({ children, ...props }: CardContentProps) => {
+  return <div {...props}>{children}</div>;
 };
