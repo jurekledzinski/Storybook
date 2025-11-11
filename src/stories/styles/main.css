@@ -260,7 +260,8 @@ html[data-theme='light'] {
   background-color: #ffffff !important;
 }
 
-html[data-theme='dark'] {
+html[data-theme='dark'],
+html[data-theme='dark'] body {
   background-color: #121212 !important;
 }
 
