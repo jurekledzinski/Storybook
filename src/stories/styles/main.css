@@ -260,7 +260,7 @@ html[data-theme='dark'] {
 }
 
 body {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface) !important;
   color: var(--color-text-primary);
   font-family: var(--font-family);
 }
