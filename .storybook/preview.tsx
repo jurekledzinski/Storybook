@@ -62,7 +62,7 @@ const preview: Preview = {
       },
       defaultTheme: 'light',
       attributeName: 'data-theme',
-      parentSelector: 'body',
+      parentSelector: 'html',
     }),
   ],
 };
