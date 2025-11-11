@@ -255,11 +255,6 @@ html[data-theme='dark'] {
   --icon-color-active: #dddddd;
 }
 
-html[data-theme='light'] {
-  color-scheme: light;
-  background-color: #ffffff !important;
-}
-
 html[data-theme='dark'],
 html[data-theme='dark'] body {
   background-color: #121212 !important;
