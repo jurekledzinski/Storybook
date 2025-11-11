@@ -3,9 +3,13 @@ type DefaultProps = {
   className?: string;
 };
 
+interface LoadingProps extends DefaultProps {
+  isEmpty?: boolean;
+  isLoading?: boolean;
+}
+
 export type SimpleTableProps = {
   elementEmpty?: React.ComponentType<DefaultProps>;
-  elementLoading?: React.ComponentType<DefaultProps>;
-  elementNoResults?: React.ComponentType<DefaultProps>;
+  elementLoading?: React.ComponentType<LoadingProps>;
   isLoading?: boolean;
 };

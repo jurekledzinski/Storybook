@@ -1,5 +1,6 @@
 import styles from './SimpleTable.module.css';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import { Loader } from '@src/stories';
 import { SimpleTableProps } from './types';
 import { useState } from 'react';
 import {
@@ -9,6 +10,7 @@ import {
   TableBody,
   TableHeader,
   TableState,
+  TableStatus,
   useCreateColumns,
 } from '../table';
 
@@ -26,15 +28,14 @@ const defaultData = Array.from<Person>({ length: 5 }).map((_, index) => ({
   lastName: `Lee-${index}`,
   age: 24 + index,
   visits: 10 + index,
-  status: 'In Relationship',
+  status: 'gold',
   progress: 3 + index,
 }));
 
 export const SimpleTable = ({
   elementEmpty: ElementEmpty = TableState,
-  elementLoading: ElementLoading = TableState,
-  elementNoResults: ElementNoResults = TableState,
-  isLoading = true,
+  elementLoading: ElementLoading = TableStatus,
+  isLoading = false,
 }: SimpleTableProps) => {
   const [data] = useState(() => [...defaultData]);
 
@@ -71,7 +72,7 @@ export const SimpleTable = ({
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const isEmpty = Boolean(table.options.data.length);
+  const isEmpty = Boolean(!table.options.data.length);
 
   return (
     <div className={styles.wrapper}>
@@ -85,16 +86,12 @@ export const SimpleTable = ({
               <BasicBody />
             </TableBody>
           </Table>
-
-          {!isEmpty && <ElementEmpty>No data available</ElementEmpty>}
+          <ElementLoading isLoading={isLoading} isEmpty={isEmpty}>
+            <Loader position="element" />
+          </ElementLoading>
+          {isEmpty && <ElementEmpty>No data available</ElementEmpty>}
         </div>
       </div>
     </div>
   );
 };
-
-//   isLoading && isEmpty && (
-//     <ElementLoading className={styles.overlay}>
-//       <Loader position="element" />
-//     </ElementLoading>
-//   );
