@@ -1,0 +1,45 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import ValidationBlocksMeta, * as ValidationBlocksStories from './ValidationBlocks.stories';
+
+<Meta of={ValidationBlocksMeta} />
+
+### ValidationBlocks Component
+
+The `ValidationBlocks` component is used for showing password validation stages.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `ValidationBlocks` component:
+
+```js
+{
+  children: React.ReactNode;
+  className?: string;
+}
+```
+
+Here’s a list of the props for the `ValidationBlock` component:
+
+```js
+{
+  color: 'red' | 'orange' | 'yellow' | 'green';
+  isValid: boolean;
+  label: 'Weak' | 'Medium' | 'Strong' | 'Very strong';
+}
+```
+
+#### Example usage `ValidationBlocks`
+
+```tsx
+<ValidationBlocks>
+  <ValidationBlock isValid={ruleResults.length >= 1} color="red" label="Weak" />
+  <ValidationBlock isValid={ruleResults.length >= 2} color="orange" label="Medium" />
+  <ValidationBlock isValid={ruleResults.length >= 4} color="yellow" label="Strong" />
+  <ValidationBlock isValid={ruleResults.length >= 5} color="green" label="Very strong" />
+</ValidationBlocks>
+```
+
+#### Preview `ValidationBlocks`
+
+<Story of={ValidationBlocksStories.Default} />
