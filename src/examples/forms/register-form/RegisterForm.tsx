@@ -82,8 +82,7 @@ export const RegisterForm = () => {
               required: { message: 'Email is required', value: true },
               validate: {
                 matchPattern: (v) =>
-                  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-                  'Email address must be a valid address',
+                  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Email address must be a valid address',
               },
             })}
           />
