@@ -8,7 +8,7 @@ export const Header = () => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
       setTheme(storedTheme);
-      document.body.setAttribute('data-theme', storedTheme);
+      document.documentElement.setAttribute('data-theme', storedTheme);
     }
   }, []);
 
@@ -16,7 +16,7 @@ export const Header = () => {
     const value = theme === 'light' ? 'dark' : 'light';
     setTheme(value);
     localStorage.setItem('theme', value);
-    document.body.setAttribute('data-theme', value);
+    document.documentElement.setAttribute('data-theme', value);
   };
 
   return (
