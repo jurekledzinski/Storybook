@@ -1,0 +1,46 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import TabsMeta, * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsMeta} />
+
+### Tabs Component
+
+The `Tabs` component provides a simple way to organize content into multiple sections, allowing users to switch between views without leaving the page. Each tab displays its associated content panel when selected, offering a clean and intuitive navigation pattern.
+
+#### Props (typescript)
+
+Here’s a list of the props for the `Tabs` component:
+
+```js
+{
+  children: React.ReactNode;
+  color?: "info" | "negative" | "secondary" | "success" | "warning" | "primary" | "white";
+  defaultSelectedKey?: string;
+  onSelectChange?: (key: string) => void;
+  selectedKey?: string;
+  size?: "size-xs" | "size-xxs" | "size-sm" | "size-md" | "size-lg";
+  variant?: "text" | "contained" | "outlined";
+}
+```
+
+#### Example Usage `Tabs`
+
+```tsx
+<Tabs {...args} defaultSelectedKey="guitars" color="info" size="size-xs">
+  <TabsList>
+    <Tab id="guitars" label="Guitars" />
+    <Tab id="bikes" label="Bikes" />
+    <Tab id="books" label="Books" />
+    <Tab id="music" label="Music" />
+  </TabsList>
+  <TabsPanel id="guitars">List guitars</TabsPanel>
+  <TabsPanel id="bikes">List bikes</TabsPanel>
+  <TabsPanel id="books">List books</TabsPanel>
+  <TabsPanel id="music">List music</TabsPanel>
+</Tabs>
+```
+
+#### Preview `Tabs`
+
+<Story of={TabsStories.Default} />
