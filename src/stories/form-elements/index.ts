@@ -1,5 +1,5 @@
-export * from './checkbox';
 export * from './checkbox-group';
+export * from './checkbox';
 export * from './drop-zone';
 export * from './field';
 export * from './file-input';
@@ -11,6 +11,7 @@ export * from './radio-group';
 export * from './search-input';
 export * from './select';
 export * from './text-input';
-export * from './textarea';
 export * from './textarea-input';
+export * from './textarea';
+export * from './validation-blocks';
 export * from './validation-checklist';
