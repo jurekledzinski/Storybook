@@ -1,0 +1,7 @@
+form.form {
+  width: min(400px, 100%);
+}
+
+div.wrapper {
+  width: min(400px, 100%);
+}
