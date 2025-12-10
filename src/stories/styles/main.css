@@ -204,12 +204,9 @@
 
   /* Fonts */
   --font-family: 'Inter', sans-serif;
-
-  color-scheme: light dark;
 }
 
 html[data-theme='dark'] {
-  color-scheme: dark;
   --color-secondary-50: #181818;
   --color-secondary-100: #202020;
   --color-secondary-200: #2a2a2a;
@@ -255,12 +252,8 @@ html[data-theme='dark'] {
   --icon-color-active: #dddddd;
 }
 
-html[data-theme='dark'],
-html[data-theme='dark'] body {
-  background-color: #121212 !important;
-}
-
 body {
+  background-color: var(--color-surface);
   color: var(--color-text-primary);
   font-family: var(--font-family);
 }
