@@ -1,13 +1,5 @@
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
-import {
-  Alert,
-  AlertButton,
-  AlertIcon,
-  AlertMessage,
-  Image,
-  ImageContainer,
-  Loader,
-} from '@src/stories';
+import { Alert, AlertButton, AlertIcon, AlertMessage, Image, ImageContainer, Loader } from '@src/stories';
 
 export const ImageLoader = () => {
   return (
